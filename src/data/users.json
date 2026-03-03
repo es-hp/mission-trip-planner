@@ -1,0 +1,177 @@
+[
+  {
+    "id": "user_1",
+    "profile": {
+      "preferredName": "Diana",
+      "avatarURL": "/images/avatars/diana.png"
+    },
+    "personal": {
+      "email": "diana@example.com",
+      "phone": "555-123-4567",
+      "gender": "female",
+      "dateOfBirth": "1986-03-02"
+    },
+    "passport": {
+      "firstName": "Shinhye",
+      "middleName": "Diana",
+      "lastName": "Morris",
+      "nationality": "US",
+      "passportNumber": "XXXX-REDACTED",
+      "expirationDate": "2030-12-31"
+    },
+    "church": {
+      "site": "ABC",
+      "isMember": true,
+      "sender": {
+        "name": "Sarah P.",
+        "email": "sarah@example.com"
+      }
+    },
+    "logistics": {
+      "roles": ["admin"],
+      "shirtSize": "M",
+      "devoAssignment": "Monday AM",
+      "fundraisingProgressPercent": 100
+    }
+  },
+  {
+    "id": "user_2",
+    "profile": {
+      "preferredName": "Michelle",
+      "avatarURL": "/images/avatars/michelle.png"
+    },
+    "personal": {
+      "email": "michelle@example.com",
+      "phone": "555-123-4567",
+      "gender": "female",
+      "dateOfBirth": "1997-08-27"
+    },
+    "passport": {
+      "firstName": "Michelle",
+      "middleName": "Anna",
+      "lastName": "Garcia",
+      "nationality": "US",
+      "passportNumber": "XXXX-REDACTED",
+      "expirationDate": "2030-12-31"
+    },
+    "church": {
+      "site": "ABC",
+      "isMember": true,
+      "sender": {
+        "name": "Hailey P.",
+        "email": "hailey@example.com"
+      }
+    },
+    "logistics": {
+      "roles": ["user", "VBS"],
+      "shirtSize": "XXL",
+      "devoAssignment": "Monday PM",
+      "fundraisingProgressPercent": 80
+    }
+  },
+  {
+    "id": "user_3",
+    "profile": {
+      "preferredName": "Tim",
+      "avatarURL": "/images/avatars/tim.png"
+    },
+    "personal": {
+      "email": "tim@example.com",
+      "phone": "555-123-4567",
+      "gender": "male",
+      "dateOfBirth": "1994-11-16"
+    },
+    "passport": {
+      "firstName": "Timothy",
+      "middleName": "",
+      "lastName": "Jackson",
+      "nationality": "US",
+      "passportNumber": "XXXX-REDACTED",
+      "expirationDate": "2030-12-31"
+    },
+    "church": {
+      "site": "XYZ",
+      "isMember": true,
+      "sender": {
+        "name": "John K.",
+        "email": "john@example.com"
+      }
+    },
+    "logistics": {
+      "roles": ["user", "leader"],
+      "shirtSize": "L",
+      "devoAssignment": "Tuesday AM",
+      "fundraisingProgressPercent": 10
+    }
+  },
+  {
+    "id": "user_4",
+    "profile": {
+      "preferredName": "Daniel",
+      "avatarURL": "/images/avatars/daniel.png"
+    },
+    "personal": {
+      "email": "dan@example.com",
+      "phone": "555-123-4567",
+      "gender": "male",
+      "dateOfBirth": "1984-05-09"
+    },
+    "passport": {
+      "firstName": "Tae",
+      "middleName": "",
+      "lastName": "Kelly",
+      "nationality": "US",
+      "passportNumber": "XXXX-REDACTED",
+      "expirationDate": "2030-12-31"
+    },
+    "church": {
+      "site": "QWERTY",
+      "isMember": true,
+      "sender": {
+        "name": "Dave M.",
+        "email": "dave@example.com"
+      }
+    },
+    "logistics": {
+      "roles": ["user", "praise"],
+      "shirtSize": "L",
+      "devoAssignment": "Tuesday PM",
+      "fundraisingProgressPercent": 70
+    }
+  },
+  {
+    "id": "user_5",
+    "profile": {
+      "preferredName": "Hannah",
+      "avatarURL": "/images/avatars/hannah.png"
+    },
+    "personal": {
+      "email": "hannah@example.com",
+      "phone": "555-123-4567",
+      "gender": "female",
+      "dateOfBirth": "1990-12-04"
+    },
+    "passport": {
+      "firstName": "Hannah",
+      "middleName": "",
+      "lastName": "Parker",
+      "nationality": "US",
+      "passportNumber": "XXXX-REDACTED",
+      "expirationDate": "2030-12-31"
+    },
+    "church": {
+      "site": "ABC",
+      "isMember": true,
+      "sender": {
+        "name": "Donna",
+        "email": "donna@example.com"
+      }
+    },
+    "logistics": {
+      "roles": ["user", "youth"],
+      "shirtSize": "M",
+      "devoAssignment": "Wednesday AM",
+      "fundraisingProgressPercent": 35
+    }
+  }
+]

@@ -1,0 +1,110 @@
+#participants {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Tab Bar */
+#participants .tab {
+  padding: 0.875rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  border-radius: 1rem 1rem 0 0;
+  border: 1px solid var(--color-table-hover);
+  border-bottom: none;
+  transition: background-color 100ms ease-in;
+}
+
+#participants .tab:hover {
+  background-color: var(--color-table-hover);
+}
+
+#participants .tab.active {
+  background-color: var(--color-primary-300);
+}
+
+/* Table */
+
+.participants-table {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.participants-table .col-1 {
+  width: 4rem;
+  min-width: 4rem;
+}
+
+.participants-table .th-2,
+.participants-table .th-3 {
+  text-align: left;
+}
+
+.participants-table .td-1,
+.participants-table .td-4,
+.participants-table .td-5,
+.participants-table .td-6 {
+  text-align: center;
+}
+
+.avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* Table Data */
+.roles-container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.role-label {
+  display: inline-block;
+  background-color: pink;
+  padding: 0 0.5rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: var(--color-black-300);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 7rem;
+  height: 0.875rem;
+  border: 1px solid var(--color-grey-500);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  transition: width 200ms ease;
+}
+
+.progress.low {
+  background-color: var(--color-progress-low);
+}
+
+.progress.med {
+  background-color: var(--color-progress-med);
+}
+
+.progress.high {
+  background-color: var(--color-progress-high);
+}
+
+.progress.done {
+  background-color: var(--color-progress-done);
+}

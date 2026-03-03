@@ -1,0 +1,40 @@
+table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--color-table-header);
+}
+
+td,
+th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th {
+  padding: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-primary-300);
+}
+
+td {
+  padding: 0.5rem 0.8rem;
+  font-family: var(--font-body);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-table-stripe);
+}
+
+tbody tr {
+  transition: background-color 100ms ease;
+}
+
+tbody tr:hover {
+  background-color: var(--color-table-hover);
+}
