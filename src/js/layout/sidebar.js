@@ -1,9 +1,10 @@
 import {
+  createEl,
   addImg,
   createNavLink,
   createLucideIcon,
   getCSSVar,
-} from "../core/utils";
+} from "@utils";
 
 const MD_BREAKPOINT = parseFloat(getCSSVar("--bp-md"));
 
@@ -13,31 +14,34 @@ export default function createSidebar(container) {
   let wasAboveMdBreakPoint = window.innerWidth >= MD_BREAKPOINT;
 
   // Sidebar Header
-  const sidebarHeader = document.createElement("div");
-  sidebarHeader.className = "sidebar-header";
+  const sidebarHeader = createEl("div", { className: "sidebar-header" });
+  const sidebarLogo = createEl("div", { className: "sidebar-logo" });
 
-  const sidebarLogo = document.createElement("div");
-  sidebarLogo.className = "sidebar-logo";
-
-  const logoIcon = addImg("/logos/lechu-go-logo-icon.png", "logo", "logo-icon");
-  const logoText = addImg("/logos/lechu-go-logo-text.png", "logo", "logo-text");
+  const logoIcon = addImg("/logos/lechu-go-logo-icon.png", {
+    alt: "logo",
+    className: "logo-icon",
+  });
+  const logoText = addImg("/logos/lechu-go-logo-text.png", {
+    alt: "logo",
+    className: "logo-text",
+  });
   sidebarLogo.append(logoIcon, logoText);
 
-  const iconCollapse = createLucideIcon("PanelLeftClose");
-  iconCollapse.classList.add("icon-collapse", "nav-toggle");
+  const iconCollapse = createLucideIcon("PanelLeftClose", {
+    className: "icon-collapse nav-toggle",
+  });
 
-  const expandButton = document.createElement("div");
-  expandButton.classList.add("expand-btn", "nav-toggle");
+  const expandButton = createEl("div", { className: "expand-btn nav-toggle" });
 
-  const iconExpand = createLucideIcon("PanelLeftOpen");
-  iconExpand.classList.add("icon-expand", "nav-toggle");
+  const iconExpand = createLucideIcon("PanelLeftOpen", {
+    className: "icon-expand nav-toggle",
+  });
   expandButton.append(iconExpand);
 
   sidebarHeader.append(sidebarLogo, iconCollapse, expandButton);
 
   // Sidebar Body
-  const sidebarBody = document.createElement("nav");
-  sidebarBody.className = "sidebar-body";
+  const sidebarBody = createEl("nav", { className: "sidebar-body" });
 
   const pageIconsMap = new Map([
     ["LayoutDashboard", "overview"],

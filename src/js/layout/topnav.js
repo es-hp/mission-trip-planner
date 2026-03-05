@@ -1,15 +1,13 @@
-import { createLucideIcon } from "../core/utils";
+import { createEl, createLucideIcon } from "@utils";
 
 export default function createTopNav(container) {
   // Page Title
-  const pageTitleH1 = document.createElement("h1");
-  pageTitleH1.textContent = document.title;
+  const pageTitleH1 = createEl("h1", { textContent: document.title });
 
   // Search Bar
-  const searchBar = document.createElement("div");
-  searchBar.className = "search-bar";
+  const searchBar = createEl("div", { className: "search-bar" });
 
-  const searchInput = document.createElement("input");
+  const searchInput = createEl("input");
   searchInput.setAttribute("id", "search-input");
   searchInput.setAttribute("type", "text");
   searchInput.setAttribute("placeholder", "Search...");
@@ -20,8 +18,7 @@ export default function createTopNav(container) {
     window.location.href = `/search?q=${encodeURIComponent(query)}`;
   };
 
-  const searchButton = document.createElement("button");
-  searchButton.className = "search-btn";
+  const searchButton = createEl("button", { className: "search-btn" });
   const searchIcon = createLucideIcon("Search");
   searchButton.append(searchIcon);
 
@@ -33,8 +30,7 @@ export default function createTopNav(container) {
   searchBar.append(searchInput, searchButton);
 
   // Utility Nav
-  const utilityNav = document.createElement("nav");
-  utilityNav.classList.add("utility-nav");
+  const utilityNav = createEl("nav", { className: "utility-nav" });
 
   const userIcon = createLucideIcon("CircleUserRound", { size: "2.25rem" });
 

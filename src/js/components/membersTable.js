@@ -1,11 +1,12 @@
 import { getUsers } from "../core/api";
-import createTable from "./table";
+import createTable from "./createTable";
 import {
+  createEl,
   addImg,
   createNavLink,
   createLucideIcon,
   getCSSVar,
-} from "../core/utils";
+} from "@utils";
 
 const successColor = getCSSVar("--color-success");
 
@@ -15,11 +16,10 @@ export default async function membersTable(container) {
   const users = await getUsers();
 
   const usersData = users.map((user) => {
-    const avatar = addImg(
-      user.profile.avatarURL,
-      user.profile.preferredName,
-      "avatar",
-    );
+    const avatar = addImg(user.profile.avatarURL, {
+      alt: user.profile.preferredName,
+      className: "avatar",
+    });
 
     const userName = `${user.profile.preferredName} ${user.passport.lastName}`;
 
@@ -40,21 +40,19 @@ export default async function membersTable(container) {
     const [year, month, day] = user.personal.dateOfBirth.split("-");
     const birthDate = `${month}/${day}/${year}`;
 
-    const roles = document.createElement("div");
-    roles.classList.add("roles-container");
+    const roles = createEl("div", { className: "roles-container" });
     user.logistics.roles.forEach((role) => {
-      const roleLabel = document.createElement("div");
-      roleLabel.className = "role-label";
-      roleLabel.textContent = role;
+      const roleLabel = createEl("div", {
+        className: "role-label",
+        textContent: role,
+      });
       roles.append(roleLabel);
     });
 
     const rawPercent = user.logistics.fundraisingProgressPercent;
-    const fundraisingProgress = document.createElement("div");
-    fundraisingProgress.className = "progress-bar";
+    const fundraisingProgress = createEl("div", { className: "progress-bar" });
     fundraisingProgress.setAttribute("title", `${rawPercent}%`);
-    const progress = document.createElement("div");
-    progress.classList.add("progress");
+    const progress = createEl("div", { className: "progress" });
     progress.style.setProperty("width", `${rawPercent}%`);
     progress.classList.add(
       rawPercent < 33.33
@@ -170,16 +168,16 @@ export default async function membersTable(container) {
     allKeys.map((key) => user[key] ?? "-"),
   );
 
-  const tabBar = document.createElement("div");
-  tabBar.className = "tabs-container";
+  const tabBar = createEl("div", { className: "tabs-container" });
   const table = createTable(allHeaders, allRows, allKeys);
   table.classList.add("members-table");
   container.append(tabBar, table);
 
   tabs.forEach((tab, index) => {
-    const tabButton = document.createElement("button");
-    tabButton.classList.add("tab");
-    tabButton.textContent = tab.tabTitle.toUpperCase();
+    const tabButton = createEl("button", {
+      className: "tab",
+      textContent: tab.tabTitle.toUpperCase(),
+    });
     tabBar.append(tabButton);
 
     tabButton.addEventListener("click", () => {

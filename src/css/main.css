@@ -1,6 +1,7 @@
 @import "./sidebar.css";
 @import "./topnav.css";
 @import "./tables.css";
+@import "./calendar.css";
 @import "./pages/team.css";
 
 /* Fonts */
@@ -133,6 +134,8 @@
   --font-display: montserrat, var(--font-sans);
   --font-body: "source sans 3", var(--font-sans);
 
+  --font-size-component-h1: clamp(1.625rem, 1rem + 1vw, 2rem);
+
   /* Breakpoints */
   --bp-sm: 480px;
   --bp-md: 768px;
@@ -251,7 +254,7 @@ h3 {
 h1 {
   font-weight: 400;
   font-style: normal;
-  font-size: 3.2rem;
+  font-size: 3rem;
   line-height: 1.1;
 }
 
