@@ -1,7 +1,8 @@
 import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
-import participantsTable from "./js/components/participantsTable";
+import membersTable from "./js/components/membersTable";
+import financeTable from "./js/components/financeTable";
 
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
@@ -9,5 +10,8 @@ if (sidebarContainer) createSidebar(sidebarContainer);
 const topnavContainer = document.querySelector(".topnav");
 if (topnavContainer) createTopNav(topnavContainer);
 
-const participantsContainer = document.querySelector(".participants-table");
-if (participantsContainer) participantsTable(participantsContainer);
+const teamContent = document.querySelector(".team-content");
+if (teamContent) membersTable(teamContent);
+
+const financeContent = document.querySelector(".finance-content");
+if (financeContent) financeTable(financeContent);

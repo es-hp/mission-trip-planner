@@ -41,7 +41,7 @@ export default function createSidebar(container) {
 
   const pageIconsMap = new Map([
     ["LayoutDashboard", "overview"],
-    ["UsersRound", "participants"],
+    ["UsersRound", "team"],
     ["CalendarDays", "schedule"],
     ["PiggyBank", "finance"],
     ["Plane", "travel-details"],

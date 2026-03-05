@@ -1,0 +1,15 @@
+{
+  "hash": "f155254d",
+  "configHash": "23dffffc",
+  "lockfileHash": "83eae633",
+  "browserHash": "f7839717",
+  "optimized": {
+    "lucide": {
+      "src": "../../node_modules/lucide/dist/esm/lucide.js",
+      "file": "lucide.js",
+      "fileHash": "13f1f262",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

@@ -9,7 +9,9 @@ import {
 
 const successColor = getCSSVar("--color-success");
 
-export default async function participantsTable(container) {
+const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
+
+export default async function membersTable(container) {
   const users = await getUsers();
 
   const usersData = users.map((user) => {
@@ -153,53 +155,52 @@ export default async function participantsTable(container) {
     roles: "Roles & Teams",
     shirtSize: "Shirt Size",
     devotional: "Leading Devo",
-    fundraisingProgress: "Fundraising Progress",
-    siteAffiliation: "Church/Site Affiliation",
-    membershipStatus: "Membership Status",
+    fundraisingProgress: "Fundraising %",
+    siteAffiliation: "Church & Site",
+    membershipStatus: "Membership",
     senderName: "Sender",
     senderEmail: "Sender's Email",
     passportNumber: "Passport Number",
-    passportExpiration: "Expiration Date",
+    passportExpiration: "Exp. Date",
   };
 
-  const getheaders = (tab) => {
-    return tab.visibleData.map((key) => columnsDict[key] ?? "");
-  };
-
-  const getrows = (tab) => {
-    return usersData.map((user) =>
-      tab.visibleData.map((key) => user[key] ?? ""),
-    );
-  };
+  const allKeys = Object.keys(columnsDict);
+  const allHeaders = Object.values(columnsDict);
+  const allRows = usersData.map((user) =>
+    allKeys.map((key) => user[key] ?? "-"),
+  );
 
   const tabBar = document.createElement("div");
-  container.append(tabBar);
+  tabBar.className = "tabs-container";
+  const table = createTable(allHeaders, allRows, allKeys);
+  table.classList.add("members-table");
+  container.append(tabBar, table);
 
-  tabs.forEach((tab) => {
+  tabs.forEach((tab, index) => {
     const tabButton = document.createElement("button");
     tabButton.classList.add("tab");
     tabButton.textContent = tab.tabTitle.toUpperCase();
+    tabBar.append(tabButton);
 
     tabButton.addEventListener("click", () => {
       tabBar
         .querySelectorAll(".tab")
         .forEach((t) => t.classList.remove("active"));
       tabButton.classList.add("active");
+      sessionStorage.setItem(MEMBERS_TABLE_TAB_KEY, index);
 
-      const headers = getheaders(tab);
-      const rows = getrows(tab);
-
-      const oldTable = container.querySelector("table");
-      if (oldTable) oldTable.remove();
-
-      const table = createTable(headers, rows);
-      container.append(table);
+      allKeys.forEach((key) => {
+        const isIncluded = tab.visibleData.includes(key);
+        table.querySelectorAll(`.td-${key}, .th-${key}`).forEach((cell) => {
+          cell.style.display = isIncluded ? "table-cell" : "none";
+        });
+        table.querySelectorAll(`.col-${key}`).forEach((col) => {
+          col.style.display = isIncluded ? "table-column" : "none";
+        });
+      });
     });
-
-    tabBar.append(tabButton);
   });
 
-  if (tabBar.firstChild) tabBar.firstChild.click();
-
-  container.append(test);
+  const savedTabIndex = sessionStorage.getItem(MEMBERS_TABLE_TAB_KEY) ?? 0;
+  tabBar.children[savedTabIndex].click();
 }

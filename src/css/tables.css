@@ -5,11 +5,12 @@ table {
 }
 
 thead {
-  background-color: var(--color-table-header);
+  border-top: 1px solid var(--color-table-header);
+  border-bottom: 1px solid var(--color-table-header);
 }
 
-td,
-th {
+th,
+td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -18,8 +19,9 @@ th {
 th {
   padding: 0.5rem;
   font-family: var(--font-display);
-  font-weight: 400;
-  color: var(--color-primary-300);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-table-header-text);
 }
 
 td {
@@ -37,4 +39,15 @@ tbody tr {
 
 tbody tr:hover {
   background-color: var(--color-table-hover);
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabs-container {
+  display: flex;
+  align-items: end;
+  overflow: hidden;
 }

@@ -24,7 +24,7 @@ export function createNavLink(text, href, target = "_self") {
 export const getCSSVar = (varName) =>
   getComputedStyle(document.documentElement).getPropertyValue(varName);
 
-export const ICON_DIM_REM = `${getCSSVar("--nav-icon-dimension")}rem`;
+export const ICON_DIM_REM = getCSSVar("--nav-icon-dimension");
 
 export const createLucideIcon = (
   iconName,
