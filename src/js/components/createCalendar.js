@@ -1,6 +1,6 @@
 import { createEl, createLucideIcon } from "@utils";
 
-export default function calendar(container) {
+export default function createCalendar(container) {
   const currentDate = new Date();
   let selectedDate = new Date(currentDate.getTime());
 
@@ -111,7 +111,7 @@ export default function calendar(container) {
     updateCalendar();
   };
 
-  const goToToday = (date = selectedDate) => {
+  const goToToday = () => {
     selectedDate = new Date();
     updateCalendar();
   };

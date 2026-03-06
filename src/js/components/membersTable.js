@@ -168,7 +168,7 @@ export default async function membersTable(container) {
     allKeys.map((key) => user[key] ?? "-"),
   );
 
-  const tabBar = createEl("div", { className: "tabs-container" });
+  const tabBar = createEl("div", { className: "tabNav" });
   const table = createTable(allHeaders, allRows, allKeys);
   table.classList.add("members-table");
   container.append(tabBar, table);
