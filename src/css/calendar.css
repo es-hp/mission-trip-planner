@@ -12,29 +12,60 @@
   padding-bottom: 1rem;
 }
 
-.calendar-header h1 {
-  font-size: var(--font-size-component-h1);
+.month-year {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.month-year h1 {
+  font-size: 1.875rem;
   letter-spacing: 0.125rem;
+}
+
+.month-year h2 {
+  font-family: "source sans 3";
+  font-weight: 300;
+  font-size: 1.125rem;
+}
+
+.calendar-nav {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .arrow-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.25rem;
+  padding: 0;
   border: 0;
-  border-radius: 0.375rem;
   color: var(--color-grey-300);
-  transition:
-    color 100ms ease-in,
-    background-color 100ms ease-in;
+  background-color: transparent;
+  transition: color 100ms ease-in;
 }
 
 .arrow-btn:hover {
   color: var(--color-text);
-  background-color: var(--color-black-200);
+}
+
+.today-btn {
+  height: 1.5rem;
+  padding: 0.125em 0.75em;
+  border: 0;
+  border-radius: 0.25rem;
+  color: var(--color-text);
+  background-color: var(--color-grey-500);
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+  transition: background-color 100ms ease-in;
+}
+
+.today-btn:hover {
+  background-color: var(--color-black-100);
 }
 
 .day-header-row {
@@ -61,8 +92,25 @@
 }
 
 .calendar-cell {
+  display: flex;
   background-color: var(--color-bg-surface);
-  padding: 0.5rem;
+  padding: 0.25rem;
   overflow: hidden;
   font-size: clamp(0.75rem, 1vw, 0.875rem);
+}
+
+.calendar-day {
+  width: 0.875rem;
+  height: 0.875rem;
+  line-height: 0.875rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0.125rem;
+}
+
+.calendar-day.today {
+  outline: 0.125rem solid var(--color-grey-500);
+  background-color: var(--color-grey-500);
+  border-radius: 50%;
 }
