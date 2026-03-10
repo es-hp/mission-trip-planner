@@ -24,4 +24,7 @@ export default function scheduleTabNav(tabNavContainer) {
     tabs,
     changeContent,
   );
+
+  const savedTabIndex = sessionStorage.getItem(storageKey) ?? 0;
+  tabNavContainer.children[savedTabIndex].click();
 }

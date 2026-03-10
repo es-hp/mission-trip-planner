@@ -116,6 +116,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scrollbar-color: rgba(241, 229, 227, 0.2) rgba(0, 0, 0, 0);
 }
 
 :root {
@@ -222,6 +223,8 @@
       var(--sidebar-padding) + var(--navlink-group-padding) +
       var(--navlink-group-padding) + 0.0625rem
   );
+  --content-min-width: 23.75rem;
+  --content-max-width: 87.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -235,9 +238,11 @@
     --color-tab-border: var(--color-grey-500);
     --color-tab-hover-bg: var(--color-black-100);
     --color-tab-font-active: var(--color-primary-300);
+    --color-table-border: var(--color-grey-500);
     --color-table-stripe: var(--color-black-200);
     --color-table-hover: var(--color-black-100);
-    --color-table-header: var(--color-grey-500);
+    --color-table-header: var(--color-black-100);
+    --color-table-header-border: var(--color-grey-500);
     --color-table-header-text: var(--color-grey-300);
   }
 }
@@ -342,17 +347,23 @@ input[type="text"]:focus {
   height: 100vh;
   overflow-y: auto;
   min-width: 0;
+  scrollbar-gutter: stable;
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: 1;
   padding: 1rem 4rem;
 }
 
 .content {
-  min-width: 23.75rem;
-  max-width: 87.5rem;
+  min-width: var(--content-min-width);
+  max-width: var(--content-max-width);
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .hide {

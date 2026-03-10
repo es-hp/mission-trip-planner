@@ -1,6 +1,8 @@
 import { createEl, createLucideIcon } from "@utils";
 
 export default function createTopNav(container) {
+  const navContent = createEl("div", { className: "nav-content" });
+
   // Page Title
   const pageTitleH1 = createEl("h1", { textContent: document.title });
 
@@ -37,6 +39,6 @@ export default function createTopNav(container) {
   utilityNav.append(searchBar, userIcon);
 
   // Mount
-  container.append(pageTitleH1, utilityNav);
-  return;
+  navContent.append(pageTitleH1, utilityNav);
+  container.append(navContent);
 }

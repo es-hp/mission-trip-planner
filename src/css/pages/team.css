@@ -1,16 +1,3 @@
-#team,
-#finance {
-  /* erase finance later */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.team-content,
-.finance-content {
-  width: 100%;
-}
-
 /* Table */
 
 .td-avatar {

@@ -1,11 +1,18 @@
 .topnav {
-  display: flex;
   align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 4rem;
+}
+
+.nav-content {
+  display: flex;
   justify-content: space-between;
   align-items: end;
-  width: 100%;
   gap: 3rem;
-  padding: 2rem 4rem;
+  width: 100%;
+  max-width: 87.5rem;
 }
 
 .topnav h1 {

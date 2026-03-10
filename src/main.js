@@ -27,11 +27,16 @@ if (mainID === "finance") {
 if (mainID === "schedule") {
   const { default: createCalendar } =
     await import("./js/components/createCalendar");
-  const calendarContainer = document.getElementById("training-calendar");
-  if (calendarContainer) createCalendar(calendarContainer);
+  const calendarDiv = document.getElementById("training-calendar");
+  if (calendarDiv) createCalendar(calendarDiv);
 
   const { default: scheduleTabNav } =
     await import("./js/components/scheduleTabNav");
-  const tabNavContainer = document.querySelector("#schedule .tabNav");
-  if (tabNavContainer) scheduleTabNav(tabNavContainer);
+  const tabNavDiv = document.querySelector("#schedule .tabNav");
+  if (tabNavDiv) scheduleTabNav(tabNavDiv);
+
+  const { default: tripSchedule } =
+    await import("./js/components/tripSchedule");
+  const tripScheduleDiv = document.getElementById("trip-schedule");
+  if (tripScheduleDiv) tripSchedule(tripScheduleDiv);
 }
