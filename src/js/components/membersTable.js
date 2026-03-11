@@ -15,6 +15,7 @@ const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 export default async function membersTable(container) {
   const users = await getUsers();
 
+  /* Format data as needed */
   const usersData = users.map((user) => {
     const avatar = addImg(user.profile.avatarURL, {
       alt: user.profile.preferredName,
@@ -168,6 +169,7 @@ export default async function membersTable(container) {
     allKeys.map((key) => user[key] ?? "-"),
   );
 
+  /* Build tab navigation bar */
   const tabBar = createEl("div", { className: "tabNav" });
   const table = createTable(allHeaders, allRows, allKeys);
   table.classList.add("members-table");

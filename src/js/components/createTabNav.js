@@ -6,9 +6,7 @@ export default function createTabNav(
   tabs,
   changeContent,
 ) {
-  const TAB_KEY = `${mainID}-active-tab`;
-
-  // const tabBar = createEl("div", { className: "tabNav" });
+  const TAB_KEY = `${mainID}-active-tab`; // For local/session storage
 
   tabs.forEach((tab, index) => {
     const tabButton = createEl("button", {

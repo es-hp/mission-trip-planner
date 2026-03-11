@@ -1,33 +1,36 @@
-import { createEl, createLucideIcon } from "@utils";
+import { createEl, createLucideIcon, formatTo12Hour } from "@utils";
 
-export default function createCalendar(container) {
+export default function createCalendar(container, data, scheduleKey) {
+  /* State */
   const currentDate = new Date();
   let selectedDate = new Date(currentDate.getTime());
 
-  /* Build */
+  /* Calendar buttons */
   const leftArrowIcon = createLucideIcon("ChevronLeft");
   const rightArrowIcon = createLucideIcon("ChevronRight");
   const leftArrowBtn = createEl("button", { className: "arrow-btn" });
-  leftArrowBtn.append(leftArrowIcon);
   const rightArrowBtn = createEl("button", { className: "arrow-btn" });
+  leftArrowBtn.append(leftArrowIcon);
   rightArrowBtn.append(rightArrowIcon);
-
-  const calendarHeader = createEl("header", { className: "calendar-header" });
-  const monthName = createEl("h1");
-  const yearText = createEl("h2");
-  const monthYear = createEl("div", { className: "month-year" });
-  monthYear.append(monthName, yearText);
 
   const todayBtn = createEl("button", {
     className: "today-btn",
     textContent: "Today",
   });
 
+  /* Calendar header elments */
+  const calendarHeader = createEl("header", { className: "calendar-header" });
+  const monthName = createEl("h1");
+  const yearText = createEl("h2");
+  const monthYear = createEl("div", { className: "month-year" });
+  monthYear.append(monthName, yearText);
+
   const calendarNav = createEl("div", { className: "calendar-nav" });
   calendarNav.append(leftArrowBtn, todayBtn, rightArrowBtn);
 
   calendarHeader.append(monthYear, calendarNav);
 
+  /* Calendar body elements */
   const calendarBody = createEl("div", { className: "calendar-body" });
   const dayHeaderRow = createEl("div", { className: "day-header-row" });
   const calendarGrid = createEl("div", { className: "calendar-grid" });
@@ -44,7 +47,20 @@ export default function createCalendar(container) {
 
   calendarBody.prepend(dayHeaderRow, calendarGrid);
 
-  /* Render */
+  /* Calendar event data normalization */
+  const events = {};
+
+  data[scheduleKey].forEach((event) => {
+    const [year, month, day] = event.date.split("-");
+    const eventStart = formatTo12Hour(event.startTime);
+    const eventEnd = formatTo12Hour(event.endTime);
+    events[`${year}, ${parseInt(month)}, ${parseInt(day)}`] = {
+      time: `${eventStart}-${eventEnd}`,
+      title: event.title,
+    };
+  });
+
+  /* Build Calendar */
   const updateCalendar = () => {
     calendarGrid.innerHTML = "";
 
@@ -57,6 +73,7 @@ export default function createCalendar(container) {
 
     const getDaysInMonth = (date = selectedDate) =>
       new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+    const daysInMonth = getDaysInMonth();
 
     const firstDay = new Date(
       selectedDate.getFullYear(),
@@ -64,12 +81,17 @@ export default function createCalendar(container) {
       1,
     ).getDay();
 
+    // Create cells
+    const totalCells = Math.ceil((daysInMonth + firstDay) / 7) * 7;
+
     let day = 1;
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < totalCells; i++) {
       const cell = createEl("div", { className: "calendar-cell" });
 
-      if (i >= firstDay && day <= getDaysInMonth()) {
+      const key = `${selectedDate.getFullYear()}, ${selectedDate.getMonth() + 1}, ${day}`;
+
+      if (i >= firstDay && day <= daysInMonth) {
         const calendarDay = createEl("div", {
           className: "calendar-day",
           textContent: day++,
@@ -77,11 +99,28 @@ export default function createCalendar(container) {
         const todaysDate = new Date();
         if (
           i == todaysDate.getDate() &&
-          selectedDate.getMonth() == todaysDate.getMonth()
+          selectedDate.getMonth() == todaysDate.getMonth() &&
+          selectedDate.getFullYear() == todaysDate.getFullYear()
         ) {
           calendarDay.classList.add("today");
         }
-        cell.append(calendarDay);
+
+        if (events[key]) {
+          const { time, title } = events[key];
+          const event = createEl("div", { className: "cal-event" });
+          const timeText = createEl("p", {
+            className: "time-text",
+            textContent: time,
+          });
+          const titleText = createEl("p", {
+            className: "title-text",
+            textContent: title,
+          });
+          event.append(timeText, titleText);
+          cell.append(event);
+        }
+
+        cell.prepend(calendarDay);
       }
       calendarGrid.append(cell);
     }

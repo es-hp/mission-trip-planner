@@ -1,0 +1,129 @@
+{
+  "site": "Armenia",
+  "flag": "🇦🇲",
+  "missionary": "M. Baker",
+  "partners": ["ABC"],
+  "description": "We will partner with ABC to host summer camps, lead VBS, small groups, and games. We will share our testimonies, teach the Word of God and participate in evangelism.",
+  "departureDateTime": "2025-07-02T13:00-04:00",
+  "returnDateTime": "2025-07-12T17:00-04:00",
+  "flightDetails": {
+    "outbound": {
+      "1": {
+        "airport": "Home Airport",
+        "flight": "ASD123"
+      },
+      "2": {
+        "airport": "Transfer Airport",
+        "flight": "QWE456"
+      }
+    },
+    "return": {
+      "1": {
+        "airport": "Site Airport",
+        "flight": "ZXC789"
+      },
+      "2": {
+        "airport": "Transfer Airport",
+        "flight": "ASD012"
+      }
+    }
+  },
+  "trainingSchedule": [
+    {
+      "date": "2025-04-26",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 1",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-05-03",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 2",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-05-10",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 3",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-05-17",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 4",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-05-31",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 5",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-07",
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "title": "Fundraiser",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-14",
+      "startTime": "09:00",
+      "endTime": "11:30",
+      "title": "Prep Day",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-14",
+      "startTime": "11:30",
+      "endTime": "14:30",
+      "title": "Training Day 6",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-22",
+      "startTime": "20:00",
+      "endTime": "21:00",
+      "title": "Prayer Meeting",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-28",
+      "startTime": "09:00",
+      "endTime": "11:30",
+      "title": "Prep Day",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-06-28",
+      "startTime": "11:30",
+      "endTime": "13:30",
+      "title": "Send Off",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    },
+    {
+      "date": "2025-07-19",
+      "startTime": "11:30",
+      "endTime": "13:30",
+      "title": "Debrief",
+      "location": "123 Main St. City, XX 12345",
+      "notes": "Food provided by: Hannah"
+    }
+  ]
+}

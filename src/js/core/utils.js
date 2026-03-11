@@ -57,3 +57,10 @@ export const createLucideIcon = (
 
   return iconSvg;
 };
+
+export const formatTo12Hour = (time) => {
+  const [h, m] = time.split(":");
+  const hour = h % 12 === 0 ? 12 : h % 12;
+  const ampm = +h < 12 ? "am" : "pm";
+  return m !== "00" ? `${hour}:${m}${ampm}` : `${hour}${ampm}`;
+};

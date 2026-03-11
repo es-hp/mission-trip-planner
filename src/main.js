@@ -25,10 +25,10 @@ if (mainID === "finance") {
 }
 
 if (mainID === "schedule") {
-  const { default: createCalendar } =
-    await import("./js/components/createCalendar");
+  const { default: trainingCalendar } =
+    await import("./js/components/trainingCalendar");
   const calendarDiv = document.getElementById("training-calendar");
-  if (calendarDiv) createCalendar(calendarDiv);
+  if (calendarDiv) trainingCalendar(calendarDiv);
 
   const { default: scheduleTabNav } =
     await import("./js/components/scheduleTabNav");

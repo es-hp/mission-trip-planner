@@ -100,7 +100,7 @@ export default async function tripSchedule(container) {
     const dateToCol = {};
     dates.forEach((d, i) => (dateToCol[d.date] = i + 1));
 
-    const events = {}; // key: "row,col"; value: { event, rowspan }
+    const events = {}; // key: "row,col"
 
     scheduleData.forEach((dayObj) => {
       const [, month, day] = dayObj.date.split("-");
@@ -199,7 +199,7 @@ export default async function tripSchedule(container) {
 
   setBlockHeight();
 
-  /* Max size of content to size of table */
+  /* Max width of content (container) set to size of the table */
   const defaultMaxWidth = getCSSVar("--content-max-width");
 
   function changeMaxWidth(width) {
@@ -214,6 +214,7 @@ export default async function tripSchedule(container) {
     }
   }
 
+  /* Dynamically update when table width changes */
   function observeWidth(element, callback) {
     const resizeObserver = new ResizeObserver((entries) => {
       callback(entries[0].contentRect.width);
