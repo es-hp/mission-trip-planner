@@ -64,3 +64,10 @@ export const formatTo12Hour = (time) => {
   const ampm = +h < 12 ? "am" : "pm";
   return m !== "00" ? `${hour}:${m}${ampm}` : `${hour}${ampm}`;
 };
+
+export const observeWidth = (element, callback) => {
+  const resizeObserver = new ResizeObserver((entries) => {
+    callback(entries[0].contentRect.width);
+  });
+  resizeObserver.observe(element);
+};

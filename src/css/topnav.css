@@ -3,25 +3,24 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: 2rem 4rem;
+  padding: 1.5rem var(--main-padding-x);
 }
 
 .nav-content {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   gap: 3rem;
   width: 100%;
-  max-width: 87.5rem;
 }
 
-.topnav h1 {
-  font-size: 1.5rem;
+.nav-content h1 {
+  font-size: var(--text-3xl);
 }
 
 .utility-nav {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 1rem;
 }
 

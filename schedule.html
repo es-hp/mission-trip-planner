@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Schedule</title>
+    <title>Schedules</title>
     <script src="/src/js/init.js"></script>
   </head>
   <body>
@@ -15,12 +15,16 @@
     <div class="page">
       <header class="topnav"></header>
       <main id="schedule" class="main">
+        <header><h2>Schedules</h2></header>
         <div class="schedule-content content">
           <div class="tabNav"></div>
-          <div id="training-schedule-container">
+          <div
+            id="training-schedule-container"
+            data-tab-title="Training Schedule"
+          >
             <div id="training-calendar"></div>
           </div>
-          <div id="trip-schedule-container" class="hide">
+          <div id="trip-schedule-container" data-tab-title="Trip Schedule">
             <div id="trip-schedule"></div>
           </div>
         </div>

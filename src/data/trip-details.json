@@ -6,25 +6,33 @@
   "description": "We will partner with ABC to host summer camps, lead VBS, small groups, and games. We will share our testimonies, teach the Word of God and participate in evangelism.",
   "departureDateTime": "2025-07-02T13:00-04:00",
   "returnDateTime": "2025-07-12T17:00-04:00",
-  "flightDetails": {
+  "transitDetails": {
     "outbound": {
       "1": {
         "airport": "Home Airport",
-        "flight": "ASD123"
+        "flight": "ASD123",
+        "departureTime": "",
+        "arrivalTime": ""
       },
       "2": {
         "airport": "Transfer Airport",
-        "flight": "QWE456"
+        "flight": "QWE456",
+        "departureTime": "",
+        "arrivalTime": ""
       }
     },
     "return": {
       "1": {
         "airport": "Site Airport",
-        "flight": "ZXC789"
+        "flight": "ZXC789",
+        "departureTime": "",
+        "arrivalTime": ""
       },
       "2": {
         "airport": "Transfer Airport",
-        "flight": "ASD012"
+        "flight": "ASD012",
+        "departureTime": "",
+        "arrivalTime": ""
       }
     }
   },

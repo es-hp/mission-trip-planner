@@ -1,4 +1,9 @@
-import { createEl, createLucideIcon, formatTo12Hour } from "@utils";
+import {
+  createEl,
+  createLucideIcon,
+  formatTo12Hour,
+  observeWidth,
+} from "@utils";
 
 export default function createCalendar(container, data, scheduleKey) {
   /* State */
@@ -47,6 +52,9 @@ export default function createCalendar(container, data, scheduleKey) {
 
   calendarBody.prepend(dayHeaderRow, calendarGrid);
 
+  /* Mount */
+  container.append(calendarHeader, calendarBody);
+
   /* Calendar event data normalization */
   const events = {};
 
@@ -59,6 +67,13 @@ export default function createCalendar(container, data, scheduleKey) {
       title: event.title,
     };
   });
+
+  /* Set cells min height dynamically */
+  const setAllCellsMinHeight = () => {
+    calendarGrid.querySelectorAll(".calendar-cell").forEach((cell) => {
+      cell.style.minHeight = cell.offsetWidth + "px";
+    });
+  };
 
   /* Build Calendar */
   const updateCalendar = () => {
@@ -88,7 +103,6 @@ export default function createCalendar(container, data, scheduleKey) {
 
     for (let i = 0; i < totalCells; i++) {
       const cell = createEl("div", { className: "calendar-cell" });
-
       const key = `${selectedDate.getFullYear()}, ${selectedDate.getMonth() + 1}, ${day}`;
 
       if (i >= firstDay && day <= daysInMonth) {
@@ -119,13 +133,12 @@ export default function createCalendar(container, data, scheduleKey) {
           event.append(timeText, titleText);
           cell.append(event);
         }
-
         cell.prepend(calendarDay);
       }
       calendarGrid.append(cell);
     }
+    setAllCellsMinHeight();
   };
-
   updateCalendar();
 
   /* Handle events */
@@ -159,5 +172,7 @@ export default function createCalendar(container, data, scheduleKey) {
   leftArrowBtn.addEventListener("click", () => goToPrevMonth());
   todayBtn.addEventListener("click", () => goToToday());
 
-  container.append(calendarHeader, calendarBody);
+  window.addEventListener("resize", setAllCellsMinHeight);
+
+  observeWidth(calendarGrid, setAllCellsMinHeight);
 }

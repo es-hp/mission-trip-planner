@@ -1,12 +1,21 @@
 import { createEl, createLucideIcon } from "@utils";
+import { getTripDetails } from "../core/api";
 
-export default function createTopNav(container) {
+export default async function createTopNav(container) {
   const navContent = createEl("div", { className: "nav-content" });
 
-  // Page Title
-  const pageTitleH1 = createEl("h1", { textContent: document.title });
+  /* Site Title */
+  const tripDetails = await getTripDetails();
+  const site = tripDetails["site"];
+  const flagEmoji = tripDetails["flag"];
+  const year = new Date(tripDetails["departureDateTime"]).getFullYear();
+  const shortYear = "'" + String(year).slice(-2);
 
-  // Search Bar
+  const tripTitle = createEl("h1", {
+    textContent: `${flagEmoji} ${site} ${shortYear}`,
+  });
+
+  /* Search Bar */
   const searchBar = createEl("div", { className: "search-bar" });
 
   const searchInput = createEl("input");
@@ -31,14 +40,14 @@ export default function createTopNav(container) {
 
   searchBar.append(searchInput, searchButton);
 
-  // Utility Nav
+  /* Utility Nav */
   const utilityNav = createEl("nav", { className: "utility-nav" });
 
   const userIcon = createLucideIcon("CircleUserRound", { size: "2.25rem" });
 
   utilityNav.append(searchBar, userIcon);
 
-  // Mount
-  navContent.append(pageTitleH1, utilityNav);
+  /* Mount */
+  navContent.append(tripTitle, utilityNav);
   container.append(navContent);
 }

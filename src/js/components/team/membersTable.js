@@ -1,5 +1,5 @@
-import { getUsers } from "../core/api";
-import createTable from "./createTable";
+import { getUsers } from "../../core/api";
+import createTable from "../design-system/createTable";
 import {
   createEl,
   addImg,
@@ -15,7 +15,7 @@ const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 export default async function membersTable(container) {
   const users = await getUsers();
 
-  /* Format data as needed */
+  /* Users data normalization */
   const usersData = users.map((user) => {
     const avatar = addImg(user.profile.avatarURL, {
       alt: user.profile.preferredName,
@@ -95,6 +95,7 @@ export default async function membersTable(container) {
     };
   });
 
+  /* Tab to Visible Data */
   const tabs = [
     {
       tabTitle: "Member Details",

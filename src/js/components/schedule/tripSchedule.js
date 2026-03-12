@@ -1,5 +1,5 @@
-import { getTripSchedule } from "../core/api";
-import { createEl, getCSSVar } from "@utils";
+import { getTripSchedule } from "../../core/api";
+import { createEl, observeWidth } from "@utils";
 
 export default async function tripSchedule(container) {
   const scheduleData = await getTripSchedule();
@@ -171,7 +171,6 @@ export default async function tripSchedule(container) {
     });
 
     tripTable.append(thead, tbody);
-
     return tripTable;
   }
 
@@ -198,37 +197,5 @@ export default async function tripSchedule(container) {
   }
 
   setBlockHeight();
-
-  /* Max width of content (container) set to size of the table */
-  const defaultMaxWidth = getCSSVar("--content-max-width");
-
-  function changeMaxWidth(width) {
-    const contentContainer = document.querySelector("#schedule .content");
-    const tripScheduleContainer = document.getElementById(
-      "trip-schedule-container",
-    );
-    if (!tripScheduleContainer.classList.contains("hide")) {
-      contentContainer.style.maxWidth = width + "px";
-    } else {
-      contentContainer.style.maxWidth = defaultMaxWidth;
-    }
-  }
-
-  /* Dynamically update when table width changes */
-  function observeWidth(element, callback) {
-    const resizeObserver = new ResizeObserver((entries) => {
-      callback(entries[0].contentRect.width);
-    });
-    resizeObserver.observe(element);
-  }
-
-  const trainingScheduleTab = document.querySelector(
-    "#schedule .tabNav button:first-of-type",
-  );
-  trainingScheduleTab.addEventListener("click", () => {
-    observeWidth(tripTable, changeMaxWidth);
-  });
-
-  observeWidth(tripTable, changeMaxWidth);
   observeWidth(tripTable, setBlockHeight);
 }

@@ -1,4 +1,4 @@
-import createTable from "./createTable";
+import createTable from "../design-system/createTable";
 
 export default function financeTable(container) {
   const headers = ["Monday", "Tuesday", "Wednesday", "Thursday"];
