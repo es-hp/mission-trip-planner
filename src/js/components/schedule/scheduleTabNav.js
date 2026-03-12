@@ -1,6 +1,6 @@
 import createTabNav from "../design-system/createTabNav";
 
-export default function scheduleTabNav(tabNavContainer) {
+export default function scheduleTabNav(tabNavContainer, mountCallbacks = {}) {
   const mainID = document.querySelector("main")?.id;
   const containers = [...document.querySelectorAll(`#${mainID} .tabNav ~ div`)];
   const contentDiv = document.querySelector(`#${mainID} .content`);
@@ -13,6 +13,7 @@ export default function scheduleTabNav(tabNavContainer) {
     containers.forEach((container) => {
       if (container.dataset.tabTitle == key) {
         contentDiv.append(container);
+        mountCallbacks[key]?.();
       } else {
         container.remove();
       }

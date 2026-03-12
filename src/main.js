@@ -39,13 +39,23 @@ if (mainID === "schedule") {
   const calendarDiv = document.getElementById("training-calendar");
   if (calendarDiv) trainingCalendar(calendarDiv);
 
+  const mountCallbacks = {};
+
   const { default: tripSchedule } =
     await import("./js/components/schedule/tripSchedule");
   const tripScheduleDiv = document.getElementById("trip-schedule");
-  if (tripScheduleDiv) tripSchedule(tripScheduleDiv);
+  if (tripScheduleDiv) {
+    await tripSchedule(tripScheduleDiv, {
+      onMount: (fn) => {
+        const tabTitle =
+          tripScheduleDiv.closest("[data-tab-title]")?.dataset.tabTitle;
+        mountCallbacks[tabTitle] = fn;
+      },
+    });
+  }
 
   const { default: scheduleTabNav } =
     await import("./js/components/schedule/scheduleTabNav");
   const tabNavDiv = document.querySelector("#schedule .tabNav");
-  if (tabNavDiv) scheduleTabNav(tabNavDiv);
+  if (tabNavDiv) scheduleTabNav(tabNavDiv, mountCallbacks);
 }

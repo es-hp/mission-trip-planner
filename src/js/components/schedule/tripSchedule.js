@@ -1,7 +1,7 @@
 import { getTripSchedule } from "../../core/api";
 import { createEl, observeWidth } from "@utils";
 
-export default async function tripSchedule(container) {
+export default async function tripSchedule(container, { onMount } = {}) {
   const scheduleData = await getTripSchedule();
 
   const [startYear, startMonth, startDay] = scheduleData[0].date.split("-");
@@ -175,7 +175,6 @@ export default async function tripSchedule(container) {
   }
 
   const tripTable = createTripTable();
-
   container.append(tripTable);
 
   /* Set height for event blocks */
@@ -196,6 +195,9 @@ export default async function tripSchedule(container) {
     });
   }
 
-  setBlockHeight();
+  onMount?.(() => {
+    setBlockHeight();
+  });
+
   observeWidth(tripTable, setBlockHeight);
 }
