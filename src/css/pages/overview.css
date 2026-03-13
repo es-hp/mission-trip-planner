@@ -1,0 +1,70 @@
+.overview-banner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  border-radius: 2rem;
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+}
+
+.overview-banner h1 {
+  position: relative;
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.overview-banner h2 {
+  position: relative;
+  margin-bottom: 0.25rem;
+  font-size: var(--text-md);
+  font-weight: 300;
+  text-transform: uppercase;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.banner-description {
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+  width: clamp(35ch, 75%, 60ch);
+  font-size: var(--text-lg);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-img-container {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--color-bg-surface) -5%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  background-repeat: no-repeat;
+  background-size: 150% 100%;
+  background-position: 50% 0;
+  pointer-events: none;
+  transition: background-position 1s linear;
+}
+
+@media (max-width: 1024px) {
+  .hero-gradient {
+    background-position: 0 0;
+  }
+}

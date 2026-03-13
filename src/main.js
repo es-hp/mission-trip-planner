@@ -2,13 +2,20 @@ import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
 
+const mainID = document.querySelector("main")?.id;
+
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
 
 const topnavContainer = document.querySelector(".topnav");
-if (topnavContainer) createTopNav(topnavContainer);
+if (topnavContainer) createTopNav(topnavContainer, { mainID });
 
-const mainID = document.querySelector("main")?.id;
+if (mainID === "overview") {
+  const { default: overviewBanner } =
+    await import("./js/components/overview/overviewBanner");
+  const bannerDiv = document.querySelector(".overview-banner");
+  if (bannerDiv) overviewBanner(bannerDiv);
+}
 
 if (mainID === "team") {
   const { default: membersTable } =

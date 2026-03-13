@@ -1,7 +1,7 @@
 import { createEl, createLucideIcon } from "@utils";
 import { getTripDetails } from "../core/api";
 
-export default async function createTopNav(container) {
+export default async function createTopNav(container, { mainID } = {}) {
   const navContent = createEl("div", { className: "nav-content" });
 
   /* Site Title */
@@ -48,6 +48,11 @@ export default async function createTopNav(container) {
   utilityNav.append(searchBar, userIcon);
 
   /* Mount */
-  navContent.append(tripTitle, utilityNav);
+  if (mainID === "overview") {
+    navContent.append(utilityNav);
+    navContent.style.justifyContent = "flex-end";
+  } else {
+    navContent.append(tripTitle, utilityNav);
+  }
   container.append(navContent);
 }

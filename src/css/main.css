@@ -3,6 +3,7 @@
 @import "./tabnav.css";
 @import "./tables.css";
 @import "./calendar.css";
+@import "./pages/overview.css";
 @import "./pages/team.css";
 @import "./pages/schedule.css";
 
@@ -137,6 +138,8 @@
   --text-2xl: clamp(1.35rem, 2vw, 1.5rem);
   --text-3xl: clamp(1.6rem, 2.8vw, 1.875rem);
   --text-4xl: clamp(2rem, 3.5vw, 2.25rem);
+  --text-5xl: clamp(2.5rem, 5vw, 3rem);
+  --text-6xl: clamp(3rem, 6vw, 4rem);
 
   /* Breakpoints */
   --bp-sm: 480px;
@@ -368,7 +371,6 @@ input[type="text"]:focus {
 
 .page > * {
   max-width: 100%;
-  border: 1px solid cyan;
 }
 
 .main {
@@ -377,7 +379,6 @@ input[type="text"]:focus {
   align-items: flex-start;
   flex: 1;
   width: 100%;
-  /* min-width: min-content; */
   padding: 0 var(--main-padding-x);
 }
 
