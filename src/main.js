@@ -1,7 +1,6 @@
 import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
-import { getMaxWidth } from "./js/layout/getMaxWidth";
 
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
@@ -10,14 +9,6 @@ const topnavContainer = document.querySelector(".topnav");
 if (topnavContainer) createTopNav(topnavContainer);
 
 const mainID = document.querySelector("main")?.id;
-
-function setMaxWidth() {
-  document.querySelectorAll(".page > *").forEach((child) => {
-    child.style.maxWidth = getMaxWidth() + "px";
-  });
-}
-setMaxWidth();
-window.addEventListener("resize", setMaxWidth);
 
 if (mainID === "team") {
   const { default: membersTable } =
