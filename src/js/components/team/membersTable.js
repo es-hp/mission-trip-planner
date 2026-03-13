@@ -1,12 +1,6 @@
 import { getUsers } from "../../core/api";
 import createTable from "../design-system/createTable";
-import {
-  createEl,
-  addImg,
-  createNavLink,
-  createLucideIcon,
-  getCSSVar,
-} from "@utils";
+import { createEl, createNavLink, createLucideIcon, getCSSVar } from "@utils";
 
 const successColor = getCSSVar("--color-success");
 
@@ -17,7 +11,8 @@ export default async function membersTable(container) {
 
   /* Users data normalization */
   const usersData = users.map((user) => {
-    const avatar = addImg(user.profile.avatarURL, {
+    const avatar = createEl("img", {
+      src: user.profile.avatarURL,
       alt: user.profile.preferredName,
       className: "avatar",
     });

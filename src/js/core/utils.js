@@ -1,18 +1,9 @@
 import * as lucide from "lucide";
 
-export const createEl = (type, { className, textContent } = {}) => {
+export const createEl = (type, props = {}) => {
   const element = document.createElement(type);
-  if (className) element.className = className;
-  if (textContent) element.textContent = textContent;
+  Object.assign(element, props);
   return element;
-};
-
-export const addImg = (src, { alt = "", className = "" } = {}) => {
-  const img = document.createElement("img");
-  img.src = src;
-  img.alt = alt;
-  img.className = className;
-  return img;
 };
 
 export const createNavLink = (text, href, target = "_self") => {
@@ -71,3 +62,9 @@ export const observeWidth = (element, callback) => {
   });
   resizeObserver.observe(element);
 };
+
+export const capitalizeText = (text) =>
+  text
+    .split(/[ -]+/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");

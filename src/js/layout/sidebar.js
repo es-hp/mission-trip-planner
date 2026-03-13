@@ -1,9 +1,9 @@
 import {
   createEl,
-  addImg,
   createNavLink,
   createLucideIcon,
   getCSSVar,
+  capitalizeText,
 } from "@utils";
 
 const MD_BREAKPOINT = parseFloat(getCSSVar("--bp-md"));
@@ -17,11 +17,13 @@ export default function createSidebar(container) {
   const sidebarHeader = createEl("div", { className: "sidebar-header" });
   const sidebarLogo = createEl("div", { className: "sidebar-logo" });
 
-  const logoIcon = addImg("/logos/lechu-go-logo-icon.png", {
+  const logoIcon = createEl("img", {
+    src: "/logos/lechu-go-logo-icon.png",
     alt: "logo",
     className: "logo-icon",
   });
-  const logoText = addImg("/logos/lechu-go-logo-text.png", {
+  const logoText = createEl("img", {
+    src: "/logos/lechu-go-logo-text.png",
     alt: "logo",
     className: "logo-text",
   });
@@ -43,17 +45,19 @@ export default function createSidebar(container) {
   // Sidebar Body
   const sidebarBody = createEl("nav", { className: "sidebar-body" });
 
-  const pageIconsMap = new Map([
-    ["LayoutDashboard", "overview"],
-    ["UsersRound", "team"],
-    ["CalendarDays", "schedule"],
-    ["PiggyBank", "finance"],
-    ["Plane", "travel-details"],
-    ["BookMarked", "resources"],
-  ]);
+  const pageIcons = {
+    overview: "LayoutDashboard",
+    team: "UsersRound",
+    schedules: "CalendarDays",
+    finance: "PiggyBank",
+    "travel-details": "Plane",
+    resources: "BookMarked",
+  };
 
-  pageIconsMap.forEach((pageName, iconName) => {
-    const linkGroup = createNavLink(pageName, `/${pageName}.html`);
+  Object.entries(pageIcons).forEach(([pageName, iconName]) => {
+    const linkText = capitalizeText(pageName);
+
+    const linkGroup = createNavLink(linkText, `/${pageName}.html`);
     const icon = createLucideIcon(iconName);
     linkGroup.prepend(icon);
     linkGroup.classList.add("navlink-group");
@@ -63,7 +67,6 @@ export default function createSidebar(container) {
     if (window.location.pathname === `/${pageName}.html`) {
       linkGroup.classList.add("active");
       linkGroup.ariaCurrent = "page";
-
       linkGroup.addEventListener("click", (e) => e.preventDefault());
     }
   });
