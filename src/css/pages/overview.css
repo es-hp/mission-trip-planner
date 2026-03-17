@@ -146,15 +146,10 @@
 }
 
 /* Pinned Notes */
-.pinned-notes {
+
+.pinned-content {
   display: flex;
   gap: var(--padding-card);
-  width: 100%;
-  height: auto;
-  padding: var(--padding-card);
-  background-color: var(--color-bg-card);
-  border-radius: 1.5rem;
-  overflow: hidden;
 }
 
 .pin {

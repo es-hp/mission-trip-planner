@@ -1,8 +1,9 @@
-@import "./sidebar.css";
-@import "./topnav.css";
-@import "./tabnav.css";
-@import "./tables.css";
 @import "./calendar.css";
+@import "./sidebar.css";
+@import "./tables.css";
+@import "./tabnav.css";
+@import "./tile.css";
+@import "./topnav.css";
 @import "./pages/overview.css";
 @import "./pages/team.css";
 @import "./pages/schedule.css";
