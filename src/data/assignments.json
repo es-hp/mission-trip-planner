@@ -1,0 +1,88 @@
+[
+  {
+    "week": 1,
+    "assignments": [
+      {
+        "title": "Video and Assignment",
+        "details": "Please watch the video, and answer the questions.",
+        "resources": ["https://youtube.com"]
+      }
+    ],
+    "dueDateTime": "2025-04-26T11:30:00-04:00[America/New_York]"
+  },
+  {
+    "week": 2,
+    "assignments": [
+      {
+        "title": "Devo 1",
+        "details": "Read Mark 5:1-20 and write your reflections. (minimum 250 words)",
+        "resources": []
+      },
+      {
+        "title": "Devo 2",
+        "details": "Read John 4:1-42 and write your reflections. (minimum 250 words)",
+        "resources": []
+      },
+      {
+        "title": "Biblical Finance",
+        "details": "Watched linked training video and answer the questions.",
+        "resources": ["https://youtube.com"]
+      }
+    ],
+    "dueDateTime": "2025-05-03T11:30:00-04:00[America/New_York]"
+  },
+  {
+    "week": 3,
+    "assignments": [
+      {
+        "title": "Cultural Awareness",
+        "details": "Please collaborate with 1-2 other teammates and create a brief slide deck on understanding Armenia's culture and religion.",
+        "resources": []
+      },
+      {
+        "title": "Sender's Reading",
+        "details": "Please the linked article and be prepared to share reflections.",
+        "resources": ["PDF"]
+      }
+    ],
+    "dueDateTime": "2025-05-10T11:30:00-04:00[America/New_York]"
+  },
+  {
+    "week": 4,
+    "assignments": [
+      {
+        "title": "Importance of Prayer",
+        "details": "Please watch the video and complete the following questions.",
+        "resources": ["https://youtube.com"]
+      },
+      {
+        "title": "Fasting and Prayer",
+        "details": "Please read the article: \"Man Shall Not Live on Bread Alone\", John Piper.",
+        "resources": ["PDF"]
+      }
+    ],
+    "dueDateTime": "2025-05-17T11:30:00-04:00[America/New_York]"
+  },
+  {
+    "week": 5,
+    "assignments": [
+      {
+        "title": "Spiritual Warfare",
+        "details": "Please listen to the sermon and complete the following questions.",
+        "resources": ["https://youtube.com"]
+      }
+    ],
+    "dueDateTime": "2025-05-31T11:30:00-04:00[America/New_York]"
+  },
+  {
+    "week": 6,
+    "assignments": [
+      {
+        "title": "Suffering",
+        "details": "Watch the following video and review Matthew 10:16-25.",
+        "resources": ["https://youtube.com"]
+      }
+    ],
+    "dueDateTime": "2025-06-14T11:30:00-04:00[America/New_York]"
+  }
+]
