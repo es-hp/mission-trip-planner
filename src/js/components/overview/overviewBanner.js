@@ -1,9 +1,7 @@
-import { getTripDetails } from "../../core/api";
 import { createEl } from "../../core/utils";
 import countdownTimer from "./countdownTimer";
 
-export default async function overviewBanner(container) {
-  const tripDetails = await getTripDetails();
+export default async function overviewBanner(container, tripDetails) {
   const site = tripDetails["site"];
   const flagEmoji = tripDetails["flag"];
   const year = new Date(tripDetails["departureDateTime"]).getFullYear();

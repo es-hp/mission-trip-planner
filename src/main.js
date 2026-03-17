@@ -10,13 +10,23 @@ if (sidebarContainer) createSidebar(sidebarContainer);
 const topnavContainer = document.querySelector(".topnav");
 if (topnavContainer) createTopNav(topnavContainer, { mainID });
 
+/* Overview Page */
 if (mainID === "overview") {
+  const { getTripDetails } = await import("./js/core/api");
+  const tripDetails = await getTripDetails();
+
   const { default: overviewBanner } =
     await import("./js/components/overview/overviewBanner");
   const bannerDiv = document.querySelector(".overview-banner");
-  if (bannerDiv) overviewBanner(bannerDiv);
+  if (bannerDiv) overviewBanner(bannerDiv, tripDetails);
+
+  const { default: pinnedNotes } =
+    await import("./js/components/overview/pinnedNotes");
+  const pinnedNotesDiv = document.querySelector(".pinned-notes");
+  if (pinnedNotesDiv) pinnedNotes(pinnedNotesDiv, tripDetails);
 }
 
+/* Team Page */
 if (mainID === "team") {
   const { default: membersTable } =
     await import("./js/components/team/membersTable");
@@ -24,6 +34,7 @@ if (mainID === "team") {
   if (teamContent) membersTable(teamContent);
 }
 
+/* Finance Page */
 if (mainID === "finance") {
   const { default: financeTable } =
     await import("./js/components/finance/financeTable");
@@ -31,6 +42,7 @@ if (mainID === "finance") {
   if (financeContent) financeTable(financeContent);
 }
 
+/* Schedules Page */
 if (mainID === "schedule") {
   const { default: trainingCalendar } =
     await import("./js/components/schedule/trainingCalendar");

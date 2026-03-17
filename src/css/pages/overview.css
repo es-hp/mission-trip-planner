@@ -3,7 +3,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 3rem 1.5rem 1.5rem 3rem;
+  padding: var(--padding-card) calc(var(--padding-card) / 2)
+    calc(var(--padding-card) / 2) var(--padding-card);
   border-radius: 1.5rem;
   width: 100%;
   height: auto;
@@ -18,7 +19,7 @@
 
 .overview-banner h2 {
   margin-bottom: 0.25rem;
-  font-size: var(--text-md);
+  font-size: var(--text-base);
   font-weight: 300;
   text-transform: uppercase;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
@@ -142,4 +143,25 @@
   letter-spacing: 0.125em;
   margin-bottom: 0.375rem;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* Pinned Notes */
+.pinned-notes {
+  display: flex;
+  gap: var(--padding-card);
+  width: 100%;
+  height: auto;
+  padding: var(--padding-card);
+  background-color: var(--color-bg-card);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.pin {
+  font-size: var(--padding-card);
+}
+
+.note {
+  font-size: var(--text-lg);
+  text-wrap: balance;
 }
