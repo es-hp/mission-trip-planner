@@ -1,8 +1,14 @@
 import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
+import { getCurrentDateTime } from "./js/core/api";
+import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
+
+/* Mock "current time and date" */
+const { currentDateTime } = await getCurrentDateTime();
+const now = Temporal.ZonedDateTime.from(currentDateTime);
 
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
@@ -18,19 +24,17 @@ if (mainID === "overview") {
   const { default: overviewBanner } =
     await import("./js/components/overview/overviewBanner");
   const bannerDiv = document.querySelector(".overview-banner");
-  if (bannerDiv) overviewBanner(bannerDiv, tripDetails);
+  if (bannerDiv) overviewBanner({ container: bannerDiv, tripDetails, now });
 
   const { default: pinnedNotes } =
     await import("./js/components/overview/pinnedNotes");
   const pinnedNotesDiv = document.querySelector(".pinned-notes");
-  if (pinnedNotesDiv) pinnedNotes(pinnedNotesDiv, tripDetails);
+  if (pinnedNotesDiv) pinnedNotes({ container: pinnedNotesDiv, tripDetails });
 
   const { default: assignments } =
     await import("./js/components/overview/assignments");
   const assignmentsDiv = document.querySelector(".assignments");
   if (assignmentsDiv) await assignments(assignmentsDiv);
-  // const test = await assignments(assignmentsDiv);
-  // console.log(test);
 }
 
 /* Team Page */
