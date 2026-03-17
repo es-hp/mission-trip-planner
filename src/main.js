@@ -24,6 +24,13 @@ if (mainID === "overview") {
     await import("./js/components/overview/pinnedNotes");
   const pinnedNotesDiv = document.querySelector(".pinned-notes");
   if (pinnedNotesDiv) pinnedNotes(pinnedNotesDiv, tripDetails);
+
+  const { default: assignments } =
+    await import("./js/components/overview/assignments");
+  const assignmentsDiv = document.querySelector(".assignments");
+  if (assignmentsDiv) await assignments(assignmentsDiv);
+  // const test = await assignments(assignmentsDiv);
+  // console.log(test);
 }
 
 /* Team Page */
