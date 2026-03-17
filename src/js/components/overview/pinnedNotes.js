@@ -12,7 +12,5 @@ export default function pinnedNotes(container, tripDetails) {
 
   content.append(pin, note);
 
-  container.append(createTile({ content }));
-
-  return container;
+  return createTile({ container, content });
 }
