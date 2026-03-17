@@ -1,23 +1,22 @@
+/* Banner */
 .overview-banner {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 3rem;
-  border-radius: 2rem;
+  padding: 3rem 1.5rem 1.5rem 3rem;
+  border-radius: 1.5rem;
   width: 100%;
-  height: 25rem;
+  height: auto;
   overflow: hidden;
 }
 
 .overview-banner h1 {
-  position: relative;
   font-size: var(--text-5xl);
   font-weight: 600;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
 }
 
 .overview-banner h2 {
-  position: relative;
   margin-bottom: 0.25rem;
   font-size: var(--text-md);
   font-weight: 300;
@@ -26,10 +25,10 @@
 }
 
 .banner-description {
-  margin-top: auto;
-  margin-bottom: 1.5rem;
-  width: clamp(35ch, 75%, 60ch);
+  margin: 1rem 0;
+  width: clamp(35ch, 80%, 60ch);
   font-size: var(--text-lg);
+  text-wrap: balance;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
@@ -53,7 +52,7 @@
   inset: 0;
   background: linear-gradient(
     to right,
-    var(--color-bg-surface) -5%,
+    var(--color-bg) -4%,
     rgba(0, 0, 0, 0) 90%
   );
   background-repeat: no-repeat;
@@ -67,4 +66,80 @@
   .hero-gradient {
     background-position: 0 0;
   }
+}
+
+.hero-img-container::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 10%, transparent 60%);
+}
+
+/* Countdown Timer */
+.countdown-container {
+  align-self: flex-end;
+  display: inline-block;
+  width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.unit-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-white-200);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.countdown-display > div {
+  display: inline-block;
+  font-family: var(--font-countdown);
+  font-weight: 600;
+  font-size: var(--text-3xl);
+  color: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+  .countdown-display > :nth-last-child(-n + 2) {
+    display: none;
+  }
+
+  .countdown-container {
+    align-self: flex-start;
+    text-align: left;
+  }
+}
+
+.digit-container {
+  display: inline-block;
+  width: calc(1ch + 0.8ch);
+  padding: 0.125ch 0.4ch;
+  border-radius: 0.25rem;
+  background-color: var(--color-white-200);
+  text-align: center;
+}
+
+.countdown-display .colon {
+  color: var(--color-white-200);
+  font-size: var(--text-4xl);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.countdown-trip-dates {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-white-200);
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  margin-bottom: 0.375rem;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }

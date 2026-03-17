@@ -28,8 +28,17 @@ export default async function overviewBanner(container) {
     className: "hero-img",
   });
 
-  countdownTimer(tripDetails.departureDateTime);
+  const countdownContainer = countdownTimer(
+    tripDetails.departureDateTime,
+    tripDetails.returnDateTime,
+  );
 
   heroImgContainer.append(heroImg, gradient);
-  container.append(subTitle, tripTitle, description, heroImgContainer);
+  container.append(
+    subTitle,
+    tripTitle,
+    description,
+    countdownContainer,
+    heroImgContainer,
+  );
 }

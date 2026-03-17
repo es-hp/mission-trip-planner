@@ -112,6 +112,22 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/fonts/ChakraPetch-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/fonts/ChakraPetch-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Global */
 *,
 *::before,
@@ -127,6 +143,7 @@
     "Helvetica Neue", Arial, sans-serif;
   --font-display: montserrat, var(--font-sans);
   --font-body: "source sans 3", var(--font-sans);
+  --font-countdown: "Chakra Petch", var(--font-sans);
 
   --font-size-component-h1: clamp(1.625rem, 1rem + 1vw, 2rem);
 
