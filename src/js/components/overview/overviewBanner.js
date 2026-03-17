@@ -1,7 +1,7 @@
 import { createEl } from "../../core/utils";
 import countdownTimer from "./countdownTimer";
 
-export default async function overviewBanner(container, tripDetails) {
+export default async function overviewBanner({ container, tripDetails, now }) {
   const site = tripDetails["site"];
   const flagEmoji = tripDetails["flag"];
   const year = new Date(tripDetails["departureDateTime"]).getFullYear();
@@ -26,10 +26,11 @@ export default async function overviewBanner(container, tripDetails) {
     className: "hero-img",
   });
 
-  const countdownContainer = countdownTimer(
-    tripDetails.departureDateTime,
-    tripDetails.returnDateTime,
-  );
+  const countdownContainer = countdownTimer({
+    now,
+    departureDateStr: tripDetails.departureDateTime,
+    returnDateStr: tripDetails.returnDateTime,
+  });
 
   heroImgContainer.append(heroImg, gradient);
   container.append(
