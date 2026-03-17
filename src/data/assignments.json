@@ -5,7 +5,7 @@
       {
         "title": "Video and Assignment",
         "details": "Please watch the video, and answer the questions.",
-        "resources": ["https://youtube.com"]
+        "resources": [{ "type": "video", "url": "https://youtube.com" }]
       }
     ],
     "dueDateTime": "2025-04-26T11:30:00-04:00[America/New_York]"
@@ -26,7 +26,7 @@
       {
         "title": "Biblical Finance",
         "details": "Watched linked training video and answer the questions.",
-        "resources": ["https://youtube.com"]
+        "resources": [{ "type": "video", "url": "https://youtube.com" }]
       }
     ],
     "dueDateTime": "2025-05-03T11:30:00-04:00[America/New_York]"
@@ -42,7 +42,9 @@
       {
         "title": "Sender's Reading",
         "details": "Please the linked article and be prepared to share reflections.",
-        "resources": ["PDF"]
+        "resources": [
+          { "type": "PDF", "url": "https://example.com/document.pdf" }
+        ]
       }
     ],
     "dueDateTime": "2025-05-10T11:30:00-04:00[America/New_York]"
@@ -53,12 +55,14 @@
       {
         "title": "Importance of Prayer",
         "details": "Please watch the video and complete the following questions.",
-        "resources": ["https://youtube.com"]
+        "resources": [{ "type": "video", "url": "https://youtube.com" }]
       },
       {
         "title": "Fasting and Prayer",
         "details": "Please read the article: \"Man Shall Not Live on Bread Alone\", John Piper.",
-        "resources": ["PDF"]
+        "resources": [
+          { "type": "PDF", "url": "https://example.com/document.pdf" }
+        ]
       }
     ],
     "dueDateTime": "2025-05-17T11:30:00-04:00[America/New_York]"
@@ -69,7 +73,9 @@
       {
         "title": "Spiritual Warfare",
         "details": "Please listen to the sermon and complete the following questions.",
-        "resources": ["https://youtube.com"]
+        "resources": [
+          { "type": "audio", "url": "https://example.com/audio.mp3" }
+        ]
       }
     ],
     "dueDateTime": "2025-05-31T11:30:00-04:00[America/New_York]"
@@ -80,7 +86,7 @@
       {
         "title": "Suffering",
         "details": "Watch the following video and review Matthew 10:16-25.",
-        "resources": ["https://youtube.com"]
+        "resources": [{ "type": "video", "url": "https://youtube.com" }]
       }
     ],
     "dueDateTime": "2025-06-14T11:30:00-04:00[America/New_York]"
