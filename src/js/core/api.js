@@ -30,3 +30,14 @@ export const getTripDetails = async () => {
     return [];
   }
 };
+
+export const getAssignments = async () => {
+  try {
+    const response = await fetch("/src/data/assignments.json");
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  } catch (error) {
+    console.error("Failed to fetch assignments:", error);
+    return [];
+  }
+};
