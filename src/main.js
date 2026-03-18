@@ -55,10 +55,14 @@ if (mainID === "finance") {
 
 /* Schedules Page */
 if (mainID === "schedule") {
+  const { getTripDetails } = await import("./js/core/api");
+  const tripDetails = await getTripDetails();
+
   const { default: trainingCalendar } =
     await import("./js/components/schedule/trainingCalendar");
   const calendarDiv = document.getElementById("training-calendar");
-  if (calendarDiv) trainingCalendar(calendarDiv);
+  if (calendarDiv)
+    trainingCalendar({ container: calendarDiv, tripDetails, now });
 
   const mountCallbacks = {};
 
