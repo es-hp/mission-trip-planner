@@ -34,7 +34,7 @@ if (mainID === "overview") {
   const { default: assignments } =
     await import("./js/components/overview/assignments");
   const assignmentsDiv = document.querySelector(".assignments");
-  if (assignmentsDiv) await assignments(assignmentsDiv);
+  if (assignmentsDiv) await assignments({ container: assignmentsDiv, now });
 }
 
 /* Team Page */

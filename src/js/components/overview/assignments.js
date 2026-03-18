@@ -1,11 +1,9 @@
-import { createEl, createLucideIcon, getCSSVar } from "../../core/utils";
+import { createEl, createLucideIcon } from "../../core/utils";
 import { getAssignments } from "../../core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 
-const primaryColor300 = getCSSVar("--color-primary-300");
-
-export default async function assignments(container) {
+export default async function assignments({ container, now }) {
   /**
    * Fetches assignments from the API (mock JSON file).
    * @returns {Promise<Array>}
@@ -26,23 +24,23 @@ export default async function assignments(container) {
     });
   }
 
+  const passedWeekBlocks = [];
+
   weeklyAssignments.forEach((week) => {
     const weekBlock = createEl("li", { className: "week-block" });
     const weekHeader = createEl("div", { className: "week-header" });
+    const accentBar = createEl("div", { className: "week-accent-bar" });
     const weekHeaderText = createEl("div", { className: "week-header-text" });
-    const redBar = createEl("div", { className: "" });
     const weekLabel = createEl("h3", { textContent: `Week ${week.week}` });
     const dueDate = createEl("span", {
       className: "due-date",
       textContent: `Due Date: ${formatDueDate(week.dueDateTime)}`,
     });
-
-    redBar.style.alignSelf = "stretch";
-    redBar.style.width = "0.25rem";
-    redBar.style.backgroundColor = primaryColor300;
+    const dueDateObj = Temporal.ZonedDateTime.from(week.dueDateTime);
+    const isPassed = Temporal.ZonedDateTime.compare(now, dueDateObj) === 1;
 
     weekHeaderText.append(weekLabel, dueDate);
-    weekHeader.append(redBar, weekHeaderText);
+    weekHeader.append(accentBar, weekHeaderText);
 
     const assignmentsList = createEl("ul", { className: "assignments-list" });
 
@@ -79,8 +77,16 @@ export default async function assignments(container) {
       assignmentsList.append(block);
     });
     weekBlock.append(weekHeader, assignmentsList);
-    content.append(weekBlock);
+
+    if (isPassed) {
+      weekBlock.classList.add("passed");
+      passedWeekBlocks.push(weekBlock);
+    } else {
+      content.append(weekBlock);
+    }
   });
+
+  passedWeekBlocks.forEach((block) => content.append(block));
 
   return createTile({ container, title, content });
 }
