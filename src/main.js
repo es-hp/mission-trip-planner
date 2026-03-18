@@ -10,6 +10,7 @@ const mainID = document.querySelector("main")?.id;
 const { currentDateTime } = await getCurrentDateTime();
 const now = Temporal.ZonedDateTime.from(currentDateTime);
 
+/* Global Elements */
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
 
@@ -35,6 +36,11 @@ if (mainID === "overview") {
     await import("./js/components/overview/assignments");
   const assignmentsDiv = document.querySelector(".assignments");
   if (assignmentsDiv) await assignments({ container: assignmentsDiv, now });
+
+  const { default: upcomingEvents } =
+    await import("./js/components/overview/upcomingEvents");
+  const upcomingDiv = document.querySelector(".upcoming-events");
+  if (upcomingDiv) upcomingEvents({ container: upcomingDiv, tripDetails, now });
 }
 
 /* Team Page */
