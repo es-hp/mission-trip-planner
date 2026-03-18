@@ -1,4 +1,4 @@
-import { createEl } from "../../core/utils";
+import { createEl } from "@utils";
 
 export default function createTile({ container, title, content }) {
   container.classList.add("tile");
