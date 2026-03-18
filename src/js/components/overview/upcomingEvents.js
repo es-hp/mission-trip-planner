@@ -1,13 +1,17 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { createEl } from "../../core/utils";
+import { createEl, getCSSVar } from "../../core/utils";
 import createTile from "../design-system/createTile";
+
+const accentColor = getCSSVar("--color-accent");
 
 export default function upcomingEvents({ container, tripDetails, now }) {
   const content = createEl("ul", { className: "tile-content" });
 
   const scheduledEvents = tripDetails.trainingSchedule;
 
-  scheduledEvents.forEach((event) => {
+  for (const event of scheduledEvents) {
+    if (content.children.length >= 5) break;
+
     const eventCard = createEl("li", { className: "card" });
 
     const startDateTime = Temporal.PlainDate.from(event.date).toPlainDateTime(
@@ -56,10 +60,22 @@ export default function upcomingEvents({ container, tripDetails, now }) {
     });
 
     eventDetails.append(eventTitle, eventTime);
-
     eventCard.append(dateBadge, eventDetails);
-    content.append(eventCard);
-  });
+
+    const nowDateTime = now.toPlainDateTime();
+    const isHappening =
+      Temporal.PlainDateTime.compare(nowDateTime, startDateTime) === 1 &&
+      Temporal.PlainDateTime.compare(nowDateTime, endDateTime) === -1;
+    const isUpcoming =
+      Temporal.PlainDateTime.compare(nowDateTime, startDateTime) === -1;
+
+    if (isHappening) {
+      eventCard.style.border = `1px solid ${accentColor}`;
+      content.append(eventCard);
+    } else if (isUpcoming) {
+      content.append(eventCard);
+    }
+  }
 
   createTile({ container, title: "Upcoming Events", content });
 }
