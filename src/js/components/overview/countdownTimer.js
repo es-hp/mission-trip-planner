@@ -1,24 +1,12 @@
 import { createEl } from "../../core/utils";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default function countdownTimer(departureDateStr, returnDateStr) {
+export default function countdownTimer({
+  now,
+  departureDateStr,
+  returnDateStr,
+}) {
   const toTwoDigits = (n) => String(n).padStart(2, "0");
-  /**
-   * NOTE: In production, the 'currentDate' would
-   * come from 'Temporal.Now.plainDateTimeISO()'
-   * An arbitrary hardcoded past date is used here instead
-   * to allow the use of the mock data from 2025.
-   * Temporal.Now.plainDateTimeISO() used to calculate time elapsed.
-   */
-  const currentDate = Temporal.ZonedDateTime.from({
-    year: 2025,
-    month: 2,
-    day: 1,
-    hour: 12,
-    minute: 4,
-    timeZone: Temporal.Now.timeZoneId(),
-  });
-
   const actualCurrentTime = Temporal.Now.plainDateTimeISO();
 
   const departureDate = Temporal.Instant.from(
@@ -57,7 +45,7 @@ export default function countdownTimer(departureDateStr, returnDateStr) {
     ];
   }
 
-  const countdownArray = getCountdownArray(currentDate, departureDate);
+  const countdownArray = getCountdownArray(now, departureDate);
 
   const updatedValuesMap = {};
 
@@ -99,7 +87,7 @@ export default function countdownTimer(departureDateStr, returnDateStr) {
     const elapsed = actualCurrentTime.until(realTime, {
       largestUnit: "second",
     });
-    const currentDateUpdated = currentDate.add(elapsed);
+    const currentDateUpdated = now.add(elapsed);
 
     getCountdownArray(currentDateUpdated, departureDate).forEach(
       ({ label, value }) => {

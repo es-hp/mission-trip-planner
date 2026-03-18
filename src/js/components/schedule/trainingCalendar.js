@@ -1,8 +1,14 @@
 import createCalendar from "../design-system/createCalendar";
-import { getTripDetails } from "../../core/api";
 
-export default async function trainingCalendar(container) {
-  const tripDetails = await getTripDetails();
-
-  createCalendar(container, tripDetails, "trainingSchedule");
+export default async function trainingCalendar({
+  container,
+  tripDetails,
+  now,
+}) {
+  createCalendar({
+    container,
+    data: tripDetails,
+    scheduleKey: "trainingSchedule",
+    now,
+  });
 }

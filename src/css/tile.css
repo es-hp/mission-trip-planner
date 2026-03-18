@@ -9,3 +9,7 @@
   border-radius: 1.5rem;
   overflow: hidden;
 }
+
+.tile h2 {
+  font-weight: 300;
+}

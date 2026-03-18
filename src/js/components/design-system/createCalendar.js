@@ -5,10 +5,8 @@ import {
   observeWidth,
 } from "@utils";
 
-export default function createCalendar(container, data, scheduleKey) {
-  /* State */
-  const currentDate = new Date();
-  let selectedDate = new Date(currentDate.getTime());
+export default function createCalendar({ container, data, scheduleKey, now }) {
+  let selectedDate = now;
 
   /* Calendar buttons */
   const leftArrowIcon = createLucideIcon("ChevronLeft");
@@ -83,18 +81,10 @@ export default function createCalendar(container, data, scheduleKey) {
       month: "long",
     });
     monthName.textContent = selectedMonthStr.toUpperCase();
+    yearText.textContent = String(selectedDate.year);
 
-    yearText.textContent = selectedDate.getFullYear();
-
-    const getDaysInMonth = (date = selectedDate) =>
-      new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-    const daysInMonth = getDaysInMonth();
-
-    const firstDay = new Date(
-      selectedDate.getFullYear(),
-      selectedDate.getMonth(),
-      1,
-    ).getDay();
+    const daysInMonth = selectedDate.daysInMonth;
+    const firstDay = selectedDate.with({ day: 1 }).dayOfWeek % 7;
 
     // Create cells
     const totalCells = Math.ceil((daysInMonth + firstDay) / 7) * 7;
@@ -103,18 +93,18 @@ export default function createCalendar(container, data, scheduleKey) {
 
     for (let i = 0; i < totalCells; i++) {
       const cell = createEl("div", { className: "calendar-cell" });
-      const key = `${selectedDate.getFullYear()}, ${selectedDate.getMonth() + 1}, ${day}`;
+      const key = `${selectedDate.year}, ${selectedDate.month}, ${day}`;
 
       if (i >= firstDay && day <= daysInMonth) {
+        const currentDay = day++;
         const calendarDay = createEl("div", {
           className: "calendar-day",
-          textContent: day++,
+          textContent: currentDay,
         });
-        const todaysDate = new Date();
         if (
-          i == todaysDate.getDate() &&
-          selectedDate.getMonth() == todaysDate.getMonth() &&
-          selectedDate.getFullYear() == todaysDate.getFullYear()
+          currentDay == now.day &&
+          selectedDate.month == now.month &&
+          selectedDate.year == now.year
         ) {
           calendarDay.classList.add("today");
         }
@@ -142,29 +132,18 @@ export default function createCalendar(container, data, scheduleKey) {
   updateCalendar();
 
   /* Handle events */
-
-  const goToNextMonth = (date = selectedDate) => {
-    if (date.getMonth() === 11) {
-      date.setMonth(0);
-      date.setFullYear(date.getFullYear() + 1);
-    } else {
-      date.setMonth(date.getMonth() + 1);
-    }
+  const goToNextMonth = () => {
+    selectedDate = selectedDate.add({ months: 1 });
     updateCalendar();
   };
 
-  const goToPrevMonth = (date = selectedDate) => {
-    if (date.getMonth() === 0) {
-      date.setMonth(11);
-      date.setFullYear(date.getFullYear() - 1);
-    } else {
-      date.setMonth(date.getMonth() - 1);
-    }
+  const goToPrevMonth = () => {
+    selectedDate = selectedDate.subtract({ months: 1 });
     updateCalendar();
   };
 
   const goToToday = () => {
-    selectedDate = new Date();
+    selectedDate = now;
     updateCalendar();
   };
 

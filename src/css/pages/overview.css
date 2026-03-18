@@ -160,3 +160,80 @@
   font-size: var(--text-lg);
   text-wrap: balance;
 }
+
+/* Assignments */
+.week-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.week-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.week-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.week-header h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 0.75em;
+}
+
+.due-date {
+  display: inline-block;
+  line-height: 0.75em;
+  color: var(--color-grey-300);
+}
+
+.assignments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.assignment-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-secondary);
+}
+
+.assignment-title {
+  font-weight: 600;
+}
+
+.assignment-details {
+  color: var(--color-grey-200);
+  text-wrap: balance;
+}
+
+.resource-block {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.resource-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-grey-500);
+  transition: background-color 100ms ease-in;
+}
+
+.resource-icon:hover {
+  background-color: var(--color-grey-400);
+}

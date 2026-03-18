@@ -1,8 +1,14 @@
 import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
+import { getCurrentDateTime } from "./js/core/api";
+import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
+
+/* Mock "current time and date" */
+const { currentDateTime } = await getCurrentDateTime();
+const now = Temporal.ZonedDateTime.from(currentDateTime);
 
 const sidebarContainer = document.querySelector(".sidebar");
 if (sidebarContainer) createSidebar(sidebarContainer);
@@ -18,12 +24,17 @@ if (mainID === "overview") {
   const { default: overviewBanner } =
     await import("./js/components/overview/overviewBanner");
   const bannerDiv = document.querySelector(".overview-banner");
-  if (bannerDiv) overviewBanner(bannerDiv, tripDetails);
+  if (bannerDiv) overviewBanner({ container: bannerDiv, tripDetails, now });
 
   const { default: pinnedNotes } =
     await import("./js/components/overview/pinnedNotes");
   const pinnedNotesDiv = document.querySelector(".pinned-notes");
-  if (pinnedNotesDiv) pinnedNotes(pinnedNotesDiv, tripDetails);
+  if (pinnedNotesDiv) pinnedNotes({ container: pinnedNotesDiv, tripDetails });
+
+  const { default: assignments } =
+    await import("./js/components/overview/assignments");
+  const assignmentsDiv = document.querySelector(".assignments");
+  if (assignmentsDiv) await assignments(assignmentsDiv);
 }
 
 /* Team Page */
@@ -44,10 +55,14 @@ if (mainID === "finance") {
 
 /* Schedules Page */
 if (mainID === "schedule") {
+  const { getTripDetails } = await import("./js/core/api");
+  const tripDetails = await getTripDetails();
+
   const { default: trainingCalendar } =
     await import("./js/components/schedule/trainingCalendar");
   const calendarDiv = document.getElementById("training-calendar");
-  if (calendarDiv) trainingCalendar(calendarDiv);
+  if (calendarDiv)
+    trainingCalendar({ container: calendarDiv, tripDetails, now });
 
   const mountCallbacks = {};
 
