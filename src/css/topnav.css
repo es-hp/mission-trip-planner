@@ -42,8 +42,8 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 0 0.375rem 0.375rem 0;
-  background-color: var(--color-secondary);
-  color: var(--color-text-sidebar);
+  background-color: var(--color-surface-icon-bg);
+  color: var(--color-surface-text-primary-muted);
   transition: color 100ms ease-in;
   border: none;
 }

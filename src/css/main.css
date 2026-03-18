@@ -216,28 +216,49 @@
 
   /* Color mapping: Light theme */
   --color-bg: var(--color-white-200);
-  --color-bg-surface: var(--color-white-500);
   --color-text: var(--color-black-300);
-  --color-text-sidebar: var(--color-black-200);
-  --color-accent: var(--color-primary-300);
-  --color-accent-light: var(--color-primary-100);
-  --color-accent-dark: var(--color-primary-400);
-  --color-secondary: var(--color-grey-100);
-  --color-focus: var(--color-grey-500);
+  --color-text-secondary: var(--color-grey-300);
+  --color-border-primary: var(--color-grey-100);
+  --color-border-secondary: var(--color-black-100);
+
+  /* Surface / Tile */
+  --color-surface-bg: var(--color-white-500);
+  --color-surface-text-primary-muted: var(--color-black-200);
+  --color-surface-text-secondary: var(--color-grey-300);
+  --color-surface-icon-bg: var(--color-black-100);
+  --color-surface-button-bg: var(--color-grey-100);
+  --color-surface-button-bg-hover: var(--color-grey-400);
+  --color-surface-accent-disabled: var(--color-grey-400);
+
+  /* Card */
+  --color-card-bg: var(--color-black-100);
+  --color-card-text-secondary: var(--color-grey-200);
+  --color-card-icon-bg: var(--color-grey-100);
+  --color-card-icon-bg-hover: var(--color-grey-400);
+
+  /* Tab Navigation */
+  --color-tab-bg-hover: var(--color-black-100);
+  --color-tab-text-active: var(--color-accent);
+
+  /* Tables */
+  --color-table-bg: var(--color-black-150);
+  --color-table-header-bg: var(--color-black-200);
   --color-table-stripe: var(--color-black-300);
   --color-table-hover: var(--color-black-100);
-  --color-table-header: var(--color-black-200);
+
+  /* Light & Dark Mode Shared Colors */
+  --color-white: var(--color-white-200);
+  --color-black: var(--color-black-300);
+  --color-accent: var(--color-primary-300);
+
   --color-success: #2ecc71;
   --color-warning: #f0a500;
   --color-danger: #e03c3c;
+
   --color-progress-low: #e03c3c;
   --color-progress-med: #f0a500;
   --color-progress-high: #f9d34c;
   --color-progress-done: #2ecc71;
-
-  color-scheme: light dark;
-  color: var(--color-text);
-  background-color: var(--color-bg);
 
   /* Dimensions */
   --nav-icon-dimension: 1.5rem;
@@ -256,26 +277,40 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: var(--color-black-300);
-    --color-bg-surface: var(--color-black-200);
-    --color-bg-card: var(--color-black-200);
-    --color-bg-card-secondary: var(--color-grey-500);
     --color-text: var(--color-white-200);
-    --color-text-sidebar: var(--color-grey-150);
-    --color-secondary: var(--color-black-100);
-    --color-focus: var(--color-grey-500);
-    --color-tab-border: var(--color-grey-500);
-    --color-tab-hover-bg: var(--color-black-100);
-    --color-tab-font-active: var(--color-primary-300);
-    --color-table-border: var(--color-grey-500);
+    --color-text-secondary: var(--color-grey-300);
+    --color-border-primary: var(--color-grey-500);
+    --color-border-secondary: var(--color-black-100);
+
+    /* Surface / Tile */
+    --color-surface-bg: var(--color-black-200);
+    --color-surface-text-primary-muted: var(--color-grey-150);
+    --color-surface-text-secondary: var(--color-grey-300);
+    --color-surface-icon-bg: var(--color-black-100);
+    --color-surface-button-bg: var(--color-grey-500);
+    --color-surface-button-bg-hover: var(--color-grey-400);
+    --color-surface-accent-disabled: var(--color-grey-400);
+
+    /* Card */
+    --color-card-bg: var(--color-black-100);
+    --color-card-text-secondary: var(--color-grey-200);
+    --color-card-icon-bg: var(--color-grey-500);
+    --color-card-icon-bg-hover: var(--color-grey-400);
+
+    /* Tab Navigation */
+    --color-tab-bg-hover: var(--color-black-100);
+    --color-tab-text-active: var(--color-accent);
+
+    /* Tables */
+    --color-table-bg: var(--color-black-150);
+    --color-table-header-bg: var(--color-black-100);
     --color-table-stripe: var(--color-black-200);
     --color-table-hover: var(--color-black-100);
-    --color-table-header: var(--color-black-100);
-    --color-table-header-border: var(--color-grey-500);
-    --color-table-header-text: var(--color-grey-300);
   }
 }
 
 /* Base Styles */
+
 body {
   display: flex;
   min-width: 320px;
@@ -286,6 +321,8 @@ body {
   line-height: 1.5;
   font-weight: 400;
   font-style: normal;
+  color-scheme: light dark;
+  background-color: var(--color-bg);
   color: var(--color-text);
   font-synthesis: none;
   text-rendering: optimizeLegibility;

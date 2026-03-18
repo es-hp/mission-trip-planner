@@ -1,11 +1,11 @@
 .tile {
   display: flex;
   flex-direction: column;
-  gap: var(--padding-card);
+  gap: 1.75rem;
   width: 100%;
   height: auto;
   padding: var(--padding-card);
-  background-color: var(--color-bg-card);
+  background-color: var(--color-surface-bg);
   border-radius: 1.5rem;
   overflow: hidden;
 }
