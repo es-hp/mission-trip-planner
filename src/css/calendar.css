@@ -2,7 +2,7 @@
   min-width: 23.75rem;
   min-height: 18.875rem;
   padding: 1.5rem;
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-surface-bg);
 }
 
 .calendar-header {
@@ -44,7 +44,7 @@
   align-items: center;
   padding: 0;
   border: 0;
-  color: var(--color-grey-300);
+  color: var(--color-text-secondary);
   background-color: transparent;
   transition: color 100ms ease-in;
 }
@@ -59,20 +59,20 @@
   border: 0;
   border-radius: 0.25rem;
   color: var(--color-text);
-  background-color: var(--color-grey-500);
+  background-color: var(--color-surface-button-bg);
   font-size: clamp(0.75rem, 1vw, 0.875rem);
   transition: background-color 100ms ease-in;
 }
 
 .today-btn:hover {
-  background-color: var(--color-black-100);
+  background-color: var(--color-surface-button-bg-hover);
 }
 
 .day-header-row {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 1px;
-  color: var(--color-grey-200);
+  color: var(--color-surface-text-primary-muted);
 }
 
 .day-header {
@@ -86,7 +86,7 @@
   grid-auto-rows: auto;
   border-width: 1px 0 0 1px;
   border-style: solid;
-  border-color: var(--color-grey-500);
+  border-color: var(--color-border-primary);
   height: 100%;
   width: 100%;
 }
@@ -95,7 +95,7 @@
   /* min height set dynamically to match width */
   border-width: 0 1px 1px 0;
   border-style: solid;
-  border-color: var(--color-grey-500);
+  border-color: var(--color-border-primary);
   padding: 0.25rem;
   overflow: hidden;
   font-size: clamp(0.75rem, 0.4rem + 1vw, 1rem);
