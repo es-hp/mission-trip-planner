@@ -12,7 +12,7 @@ export default async function assignments({ container, now }) {
    */
   const weeklyAssignments = await getAssignments();
   const title = "Upcoming Assignments";
-  const content = createEl("ul", { className: "week-list" });
+  const content = createEl("ul", { className: "tile-content" });
 
   function formatDueDate(dateTimeZoneISO) {
     const date = Temporal.ZonedDateTime.from(dateTimeZoneISO);
@@ -45,7 +45,7 @@ export default async function assignments({ container, now }) {
     const assignmentsList = createEl("ul", { className: "assignments-list" });
 
     week.assignments.forEach((assignment) => {
-      const block = createEl("li", { className: "assignment-block" });
+      const block = createEl("li", { className: "card" });
       const title = createEl("span", {
         className: "assignment-title",
         textContent: assignment.title,
