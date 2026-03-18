@@ -161,7 +161,12 @@
   text-wrap: balance;
 }
 
-/* Assignments */
+/* Assignments Tile */
+/* .assignments.tile {
+  max-height: 800px;
+  overflow-y: auto;
+} */
+
 .week-list {
   display: flex;
   flex-direction: column;
@@ -173,6 +178,25 @@
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 1rem;
+}
+
+.week-accent-bar {
+  align-self: stretch;
+  width: 0.25rem;
+  background-color: var(--color-primary-300);
+}
+
+.passed .week-accent-bar {
+  background-color: var(--color-grey-400);
+}
+
+.passed.week-block {
+  opacity: 0.5;
+  transition: opacity 100ms ease;
+}
+
+.passed.week-block:hover {
+  opacity: 1;
 }
 
 .week-header-text {
@@ -214,7 +238,6 @@
 
 .assignment-details {
   color: var(--color-grey-200);
-  text-wrap: balance;
 }
 
 .resource-block {
