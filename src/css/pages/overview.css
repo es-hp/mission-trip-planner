@@ -1,3 +1,50 @@
+/* Bento Layout */
+.overview-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.overview-banner,
+.pinned-notes,
+.assignments {
+  grid-column: span 1;
+}
+
+.r-col {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .overview-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .overview-banner,
+  .pinned-notes {
+    grid-column: span 4;
+  }
+  .assignments,
+  .r-col {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .overview-banner {
+    grid-column: span 3;
+  }
+  .pinned-notes {
+    grid-column: span 1;
+  }
+  .assignments,
+  .r-col {
+    grid-column: span 2;
+  }
+}
+
 /* Tiles (general) */
 .tile-content {
   display: flex;
@@ -28,7 +75,6 @@
   padding: var(--padding-card) calc(var(--padding-card) / 2)
     calc(var(--padding-card) / 2) var(--padding-card);
   border-radius: 1.5rem;
-  width: 100%;
   height: auto;
   overflow: hidden;
 }
