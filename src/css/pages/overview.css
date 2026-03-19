@@ -253,6 +253,15 @@
 }
 
 /* Assignments Tile */
+.assignments.tile {
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.assignments.tile::-webkit-scrollbar {
+  display: none;
+}
+
 .assignments-weeks-list {
   display: flex;
   flex-direction: column;

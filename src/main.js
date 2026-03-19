@@ -32,11 +32,6 @@ if (mainID === "overview") {
   const pinnedNotesDiv = document.querySelector(".pinned-notes");
   if (pinnedNotesDiv) pinnedNotes({ container: pinnedNotesDiv, tripDetails });
 
-  const { default: assignments } =
-    await import("./js/components/overview/assignments");
-  const assignmentsDiv = document.querySelector(".assignments");
-  if (assignmentsDiv) await assignments({ container: assignmentsDiv, now });
-
   const { default: upcomingEvents } =
     await import("./js/components/overview/upcomingEvents");
   const upcomingDiv = document.querySelector(".upcoming-events");
@@ -47,6 +42,23 @@ if (mainID === "overview") {
   const fundraisingDiv = document.querySelector(".fundraising-progress");
   if (fundraisingDiv)
     fundraisingProgress({ container: fundraisingDiv, tripDetails });
+
+  const { default: assignments } =
+    await import("./js/components/overview/assignments");
+  const assignmentsDiv = document.querySelector(".assignments");
+  if (assignmentsDiv) await assignments({ container: assignmentsDiv, now });
+
+  const rightColumn = document.querySelector(".r-col");
+
+  const setAssignmentsDivHeight = () => {
+    if (!assignmentsDiv || !rightColumn) return;
+    const rightcolHeight = rightColumn.getBoundingClientRect().height;
+
+    assignmentsDiv.style.maxHeight = rightcolHeight + "px";
+  };
+
+  setAssignmentsDivHeight();
+  window.addEventListener("resize", setAssignmentsDivHeight);
 }
 
 /* Team Page */
