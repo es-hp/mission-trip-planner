@@ -68,3 +68,19 @@ export const capitalizeText = (text) =>
     .split(/[ -]+/)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+
+export const setupScrollShadows = (wrapper) => {
+  const content = wrapper.querySelector(".scroll-content");
+
+  function updateShadows() {
+    const { scrollTop, scrollHeight, clientHeight } = content;
+
+    wrapper.classList.toggle("top-shadow", scrollTop > 0);
+    wrapper.classList.toggle(
+      "bottom-shadow",
+      scrollTop + clientHeight < scrollHeight,
+    );
+  }
+  content.addEventListener("scroll", updateShadows);
+  updateShadows();
+};
