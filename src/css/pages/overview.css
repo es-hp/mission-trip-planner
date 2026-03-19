@@ -347,6 +347,7 @@
 
 .upcoming-events .card {
   flex-direction: row;
+  align-items: center;
   gap: 1.25rem;
 }
 
