@@ -49,12 +49,16 @@ if (mainID === "overview") {
   if (assignmentsDiv) await assignments({ container: assignmentsDiv, now });
 
   const rightColumn = document.querySelector(".r-col");
+  const assignmentsContent = document.querySelector(
+    ".assignments .scroll-content",
+  );
 
   const setAssignmentsDivHeight = () => {
-    if (!assignmentsDiv || !rightColumn) return;
+    if (!assignmentsContent || !rightColumn) return;
+
     const rightcolHeight = rightColumn.getBoundingClientRect().height;
 
-    assignmentsDiv.style.maxHeight = rightcolHeight + "px";
+    assignmentsContent.style.maxHeight = rightcolHeight + "px";
   };
 
   setAssignmentsDivHeight();

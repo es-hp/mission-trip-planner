@@ -1,9 +1,9 @@
-import { createEl, createLucideIcon } from "@utils";
+import { createEl, createLucideIcon, setupScrollShadows } from "@utils";
 import { getAssignments } from "../../core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default async function assignments({ container, now }) {
+export default async function assignments({ container: root, now }) {
   /**
    * Fetches assignments from the API (mock JSON file).
    * @returns {Promise<Array>}
@@ -11,7 +11,6 @@ export default async function assignments({ container, now }) {
    * [{ week: number, assignments: [{ title, details, resources: [type, url] }], dueDateTime }]
    */
   const weeklyAssignments = await getAssignments();
-  const body = createEl("ul", { className: "assignments-weeks-list" });
 
   function formatDueDate(dateTimeZoneISO) {
     const date = Temporal.ZonedDateTime.from(dateTimeZoneISO);
@@ -22,6 +21,9 @@ export default async function assignments({ container, now }) {
       minute: "numeric",
     });
   }
+  const scrollWrapper = createEl("div", { className: "scroll-wrapper" });
+  const scrollContent = createEl("div", { className: "scroll-content" });
+  const body = createEl("ul", { className: "assignments-weeks-list" });
 
   const passedWeekBlocks = [];
 
@@ -87,5 +89,16 @@ export default async function assignments({ container, now }) {
 
   passedWeekBlocks.forEach((block) => body.append(block));
 
-  return createTile({ container, header: "Upcoming Assignments", body });
+  createTile({
+    container: scrollContent,
+    header: "Upcoming Assignments",
+    body,
+  });
+  scrollWrapper.append(scrollContent);
+
+  setupScrollShadows(scrollWrapper);
+
+  root.append(scrollWrapper);
+
+  return root;
 }
