@@ -33,6 +33,7 @@
 .search-bar input[type="text"] {
   flex: 1;
   border-radius: 0.375rem 0 0 0.375rem;
+  border: 1px solid var(--color-border-secondary);
 }
 
 .search-btn {
