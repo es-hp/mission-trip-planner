@@ -41,6 +41,12 @@ if (mainID === "overview") {
     await import("./js/components/overview/upcomingEvents");
   const upcomingDiv = document.querySelector(".upcoming-events");
   if (upcomingDiv) upcomingEvents({ container: upcomingDiv, tripDetails, now });
+
+  const { default: fundraisingProgress } =
+    await import("./js/components/overview/fundraisingProgress");
+  const fundraisingDiv = document.querySelector(".fundraising-progress");
+  if (fundraisingDiv)
+    fundraisingProgress({ container: fundraisingDiv, tripDetails });
 }
 
 /* Team Page */

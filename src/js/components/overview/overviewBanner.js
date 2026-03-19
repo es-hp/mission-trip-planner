@@ -1,4 +1,4 @@
-import { createEl } from "../../core/utils";
+import { createEl } from "@utils";
 import countdownTimer from "./countdownTimer";
 
 export default async function overviewBanner({ container, tripDetails, now }) {

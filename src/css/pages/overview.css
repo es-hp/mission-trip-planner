@@ -1,3 +1,25 @@
+/* Tiles (general) */
+.tile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-card-bg);
+}
+
+#overview h3:not(.event-details h3) {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 0.75em;
+}
+
 /* Banner */
 .overview-banner {
   position: relative;
@@ -143,22 +165,6 @@
   letter-spacing: 0.125em;
   margin-bottom: 0.375rem;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
-}
-
-/* Tiles (general) */
-.tile-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  background-color: var(--color-card-bg);
 }
 
 /* Pinned Notes */
@@ -313,4 +319,45 @@
 
 .event-details p {
   color: var(--color-card-text-secondary);
+}
+
+/* Fundraising Progress */
+.fundraising-progress .tile-content {
+  gap: 3.5rem;
+}
+
+.goal-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.goal-text-group {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.25rem;
+  line-height: 0.7em;
+}
+
+.current-percent {
+  font-size: var(--text-5xl);
+  font-weight: 600;
+  line-height: 0.7em;
+}
+
+.fundraising-progress .progress-bar {
+  border-radius: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-card-bg);
+}
+
+.fundraising-progress .percent-sign {
+  font-size: var(--text-2xl);
+  margin-left: 0.25rem;
+}
+
+.fundraising-progress .progress {
+  border-right: 3px solid var(--color-white);
 }

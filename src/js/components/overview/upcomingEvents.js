@@ -1,5 +1,5 @@
 import { Temporal } from "@js-temporal/polyfill";
-import { createEl, getCSSVar } from "../../core/utils";
+import { createEl, getCSSVar } from "@utils";
 import createTile from "../design-system/createTile";
 
 const accentColor = getCSSVar("--color-accent");

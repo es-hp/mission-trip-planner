@@ -1,4 +1,4 @@
-import { createEl, createLucideIcon } from "../../core/utils";
+import { createEl, createLucideIcon } from "@utils";
 import { getAssignments } from "../../core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
