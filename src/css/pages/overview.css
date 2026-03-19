@@ -46,12 +46,6 @@
 }
 
 /* Tiles (general) */
-.tile-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -214,13 +208,43 @@
 }
 
 /* Pinned Notes */
-.pinned-content {
-  display: flex;
-  gap: var(--padding-card);
+.pinned-notes.tile {
+  gap: 0.75rem;
+  padding: 1.5rem;
+  container-type: inline-size;
 }
 
-.pin {
-  font-size: var(--padding-card);
+.pinned-notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 0.5rem;
+}
+
+.pinned-notes-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 0.75rem;
+  row-gap: 0.25rem;
+}
+
+.pinned-notes-header h2 {
+  display: inline-block;
+  font-size: clamp(var(--text-base), 5cqi, var(--text-lg));
+  text-wrap: nowrap;
+}
+
+.pin-icon {
+  font-size: var(--text-2xl);
+  display: inline-block;
+}
+
+.pinned-notes-time {
+  text-wrap: nowrap;
+  color: var(--color-surface-text-secondary);
 }
 
 .note {
@@ -229,6 +253,12 @@
 }
 
 /* Assignments Tile */
+.assignments-weeks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
 .week-header {
   display: flex;
   align-items: flex-start;
@@ -309,7 +339,9 @@
 }
 
 /* Upcoming Events */
-.upcoming-events .tile-content {
+.events-list {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
@@ -368,9 +400,9 @@
 }
 
 /* Fundraising Progress */
-.fundraising-progress .tile-content {
+/* .fundraising-progress .tile-content {
   gap: 3.5rem;
-}
+} */
 
 .goal-group {
   display: flex;

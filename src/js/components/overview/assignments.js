@@ -11,8 +11,7 @@ export default async function assignments({ container, now }) {
    * [{ week: number, assignments: [{ title, details, resources: [type, url] }], dueDateTime }]
    */
   const weeklyAssignments = await getAssignments();
-  const title = "Upcoming Assignments";
-  const content = createEl("ul", { className: "tile-content" });
+  const body = createEl("ul", { className: "assignments-weeks-list" });
 
   function formatDueDate(dateTimeZoneISO) {
     const date = Temporal.ZonedDateTime.from(dateTimeZoneISO);
@@ -82,11 +81,11 @@ export default async function assignments({ container, now }) {
       weekBlock.classList.add("passed");
       passedWeekBlocks.push(weekBlock);
     } else {
-      content.append(weekBlock);
+      body.append(weekBlock);
     }
   });
 
-  passedWeekBlocks.forEach((block) => content.append(block));
+  passedWeekBlocks.forEach((block) => body.append(block));
 
-  return createTile({ container, title, content });
+  return createTile({ container, header: "Upcoming Assignments", body });
 }

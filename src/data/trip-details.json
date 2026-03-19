@@ -135,7 +135,10 @@
       "notes": "Food provided by: Hannah"
     }
   ],
-  "pinnedNote": "Please continue to secure donations for the fundraiser raffle on June 7th. Reach out to Michelle if you have any questions.",
+  "pinnedNote": {
+    "timePosted": "2025-04-27T14:00:00-04:00[America/New_York]",
+    "message": "Please continue to secure donations for the fundraiser raffle on June 7th. Reach out to Michelle if you have any questions."
+  },
   "teamFundraising": {
     "goalAmount": 10000,
     "currentAmount": 6000

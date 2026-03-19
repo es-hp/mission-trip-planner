@@ -13,3 +13,9 @@
 .tile h2 {
   font-weight: 300;
 }
+
+.tile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}

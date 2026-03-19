@@ -2,7 +2,7 @@ import { createEl } from "@utils";
 import createTile from "../design-system/createTile";
 
 export default function fundraisingProgress({ container, tripDetails }) {
-  const content = createEl("div", { className: "tile-content" });
+  const body = [];
 
   const fundraisingGoals = [
     {
@@ -20,7 +20,9 @@ export default function fundraisingProgress({ container, tripDetails }) {
   ];
 
   fundraisingGoals.forEach((goal) => {
-    const goalGroup = createEl("div", { className: "goal-group" });
+    const goalGroup = createEl("div", {
+      className: `goal-group ${goal.slug}-goal`,
+    });
     const goalTitle = createEl("h3", { textContent: goal.label });
     const goalTextGroup = createEl("div", { className: "goal-text-group" });
 
@@ -79,8 +81,8 @@ export default function fundraisingProgress({ container, tripDetails }) {
     progressBar.append(progress);
 
     goalGroup.append(goalTitle, goalTextGroup, progressBar);
-    content.append(goalGroup);
+    body.push(goalGroup);
   });
 
-  createTile({ container, title: "Fundraising Progress", content });
+  createTile({ container, header: "Fundraising Progress", body });
 }

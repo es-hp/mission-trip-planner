@@ -5,12 +5,12 @@ import createTile from "../design-system/createTile";
 const accentColor = getCSSVar("--color-accent");
 
 export default function upcomingEvents({ container, tripDetails, now }) {
-  const content = createEl("ul", { className: "tile-content" });
+  const body = createEl("ul", { className: "events-list" });
 
   const scheduledEvents = tripDetails.trainingSchedule;
 
   for (const event of scheduledEvents) {
-    if (content.children.length >= 5) break;
+    if (body.children.length >= 5) break;
 
     const eventCard = createEl("li", { className: "card" });
 
@@ -71,11 +71,11 @@ export default function upcomingEvents({ container, tripDetails, now }) {
 
     if (isHappening) {
       eventCard.style.border = `1px solid ${accentColor}`;
-      content.append(eventCard);
+      body.append(eventCard);
     } else if (isUpcoming) {
-      content.append(eventCard);
+      body.append(eventCard);
     }
   }
 
-  createTile({ container, title: "Upcoming Events", content });
+  createTile({ container, header: "Upcoming Events", body });
 }
