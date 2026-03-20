@@ -166,9 +166,6 @@
   --bp-lg: 1024px;
   --bp-xl: 1280px;
 
-  /* Padding */
-  --padding-card: clamp(2rem, 3.33vw, 3rem);
-
   /* Primary */
   --color-primary-100: #ffbfa6;
   --color-primary-200: #ff7a51;
@@ -272,7 +269,13 @@
   );
   --content-min-width: 23.75rem;
   --content-max-width: 87.5rem;
+
+  /* Padding */
+  --padding-login-x: clamp(5rem, 4.44vw, 4rem);
+  --padding-main-x: clamp(1rem, 4.44vw, 4rem);
   --main-padding-x: clamp(1rem, 4.44vw, 4rem);
+  --padding-card: clamp(2rem, 3.33vw, 3rem);
+  --padding-login: clamp(2rem, 3.33vw, 3rem);
 }
 
 @media (prefers-color-scheme: dark) {
