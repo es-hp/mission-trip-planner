@@ -19,3 +19,12 @@
   flex-direction: column;
   gap: 2.5rem;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-card-bg);
+}

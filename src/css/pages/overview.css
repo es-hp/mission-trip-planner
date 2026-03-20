@@ -47,15 +47,6 @@
 }
 
 /* Tiles (general) */
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  background-color: var(--color-card-bg);
-}
-
 #overview h3:not(.event-details h3) {
   text-transform: uppercase;
   letter-spacing: 0.05em;
