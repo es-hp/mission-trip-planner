@@ -17,6 +17,19 @@ if (sidebarContainer) createSidebar(sidebarContainer);
 const topnavContainer = document.querySelector(".topnav");
 if (topnavContainer) createTopNav(topnavContainer, { mainID });
 
+/* Login Page */
+if (mainID === "login") {
+  const { default: loginBackground } =
+    await import("./js/components/login/loginBackground");
+  const loginMain = document.getElementById("login");
+  if (loginMain) loginBackground({ container: loginMain });
+
+  const { default: loginCard } =
+    await import("./js/components/login/loginCard");
+  const loginCardDiv = document.querySelector(".login-card");
+  if (loginCardDiv) loginCard({ container: loginCardDiv });
+}
+
 /* Overview Page */
 if (mainID === "overview") {
   const { getTripDetails } = await import("./js/core/api");
