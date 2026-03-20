@@ -409,28 +409,25 @@ img {
   display: block;
 }
 
-input[type="text"] {
-  border: none;
-  outline: none;
-  background: var(--color-bg-surface);
-  padding: 0 0.5rem;
-  font: inherit;
-  color: var(--color-text);
-  border: 1px solid var(--color-secondary);
-  border-radius: 0.375rem;
+input {
   width: 100%;
   min-width: 6rem;
   min-height: 2rem;
-  max-height: 2.25rem;
+  background: var(--color-bg-surface);
+  font: inherit;
+  color: var(--color-text);
+  outline: none;
+  border: 1px solid var(--color-secondary);
+  border-radius: 0.375rem;
   transition: border-color 200ms ease;
 }
 
-input[type="text"]::placeholder {
+input::placeholder {
   color: var(--color-text-sidebar);
   opacity: 50%;
 }
 
-input[type="text"]:focus {
+input:focus {
   border-color: var(--color-focus);
 }
 

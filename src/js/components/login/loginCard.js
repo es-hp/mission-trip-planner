@@ -3,19 +3,15 @@ import { createEl } from "@utils";
 export default function loginCard({ container }) {
   const leftContainer = createEl("div", { className: "login-left" });
   const rightContainer = createEl("div", { className: "login-right" });
+
+  /* Left side container (About) */
+  const leftTextContainer = createEl("div", { className: "login-left-text" });
   const logoContainer = createEl("div", { className: "login-logo-container" });
-  const textContainer = createEl("div", { className: "login-text-container" });
 
   const logoIcon = createEl("img", {
     src: "/logos/lechu-go-logo-icon.png",
     alt: "logo",
     className: "login-logo-icon",
-  });
-
-  const logo = createEl("img", {
-    src: "/logos/lechu-go-logo-basic.png",
-    alt: "logo",
-    className: "login-logo",
   });
 
   const tagline = createEl("div", {
@@ -29,13 +25,31 @@ export default function loginCard({ container }) {
       "A concept web app designed to help short-term missions teams from churches plan, organize, and manage all phases of the trip from training, departure and return.",
   });
 
+  const logo = createEl("img", {
+    src: "/logos/lechu-go-logo-basic.png",
+    alt: "logo",
+    className: "login-logo",
+  });
+
+  logoContainer.append(logo);
+  leftTextContainer.append(tagline, heroText);
+  leftContainer.append(logoIcon, leftTextContainer);
+
+  /* Right side container (Login Form) */
+  const rightTextContainer = createEl("div", { className: "login-right-text" });
   const welcomeText = createEl("h1", { textContent: "Welcome!" });
   const subheading = createEl("div", {
     className: "login-subheading",
     textContent: "Sign in below.",
   });
-  const notice = createEl("div", { className: "login-notice" });
+  const notice = createEl("div", {
+    className: "login-notice",
+    textContent: "Text about how to log in and dateTime.",
+  });
 
+  rightTextContainer.append(welcomeText, subheading, notice);
+
+  // Build Form
   const form = createEl("form", { action: "/submit", className: "login-form" });
 
   const inputGroupEmail = createEl("div", {
@@ -72,10 +86,7 @@ export default function loginCard({ container }) {
   });
 
   form.append(inputGroupEmail, inputGroupPW, submitBtn);
-  logoContainer.append(logo);
-  textContainer.append(tagline, heroText);
-  leftContainer.append(logoIcon, textContainer);
-  rightContainer.append(welcomeText, subheading, notice, form);
+  rightContainer.append(rightTextContainer, form);
 
   container.append(logoContainer, leftContainer, rightContainer);
 }
