@@ -4,9 +4,10 @@
 @import "./tabnav.css";
 @import "./tile.css";
 @import "./topnav.css";
+@import "./pages/login.css";
 @import "./pages/overview.css";
-@import "./pages/team.css";
 @import "./pages/schedule.css";
+@import "./pages/team.css";
 
 /* Fonts */
 @font-face {
