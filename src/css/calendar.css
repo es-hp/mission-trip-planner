@@ -27,6 +27,7 @@
   font-family: "source sans 3";
   font-weight: 300;
   font-size: 1.125rem;
+  color: var(--color-text-secondary);
 }
 
 .calendar-nav {
@@ -44,7 +45,7 @@
   align-items: center;
   padding: 0;
   border: 0;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted);
   background-color: transparent;
   transition: color 100ms ease-in;
 }
@@ -54,25 +55,24 @@
 }
 
 .today-btn {
-  height: 1.5rem;
-  padding: 0.125em 0.75em;
+  padding: 0.5em 1em;
   border: 0;
   border-radius: 0.25rem;
   color: var(--color-text);
-  background-color: var(--color-surface-button-bg);
+  background-color: var(--color-surface-btn-bg);
   font-size: clamp(0.75rem, 1vw, 0.875rem);
   transition: background-color 100ms ease-in;
 }
 
 .today-btn:hover {
-  background-color: var(--color-surface-button-bg-hover);
+  background-color: var(--color-surface-btn-bg-hover);
 }
 
 .day-header-row {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 1px;
-  color: var(--color-surface-text-primary-muted);
+  color: var(--color-text-muted);
 }
 
 .day-header {
@@ -86,7 +86,7 @@
   grid-auto-rows: auto;
   border-width: 1px 0 0 1px;
   border-style: solid;
-  border-color: var(--color-border-primary);
+  border-color: var(--color-border);
   height: 100%;
   width: 100%;
 }
@@ -95,7 +95,7 @@
   /* min height set dynamically to match width */
   border-width: 0 1px 1px 0;
   border-style: solid;
-  border-color: var(--color-border-primary);
+  border-color: var(--color-border);
   padding: 0.25rem;
   overflow: hidden;
   font-size: clamp(0.75rem, 0.4rem + 1vw, 1rem);
@@ -112,8 +112,8 @@
 }
 
 .calendar-day.today {
-  outline: 0.25rem solid var(--color-primary-300-50);
-  background-color: var(--color-primary-300-50);
+  outline: 0.25rem solid var(--color-burnt-sienna);
+  background-color: var(--color-burnt-sienna);
   border-radius: 50%;
 }
 
@@ -125,7 +125,7 @@
   line-clamp: 4;
   padding: 0.5rem;
   border-radius: 0.25rem;
-  background-color: rgba(127, 255, 212, 0.356);
+  background-color: var(--color-green-dark);
   overflow: hidden;
   text-overflow: ellipsis;
 }
