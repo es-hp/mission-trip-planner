@@ -4,10 +4,10 @@ import { Temporal } from "@js-temporal/polyfill";
 
 export default function pinnedNotes({ container, tripDetails }) {
   const header = createEl("div", { className: "pinned-notes-header" });
-  const leftGroup = createEl("div", { className: "pinned-notes-left" });
   const pin = createEl("span", { className: "pin-icon", textContent: "📌" });
   const headerText = createEl("h2", { textContent: "Pinned Announcements" });
-  leftGroup.append(pin, headerText);
+
+  header.append(pin, headerText);
 
   const dateTime = Temporal.PlainDateTime.from(
     tripDetails.pinnedNote.timePosted,
@@ -17,17 +17,17 @@ export default function pinnedNotes({ container, tripDetails }) {
     day: "numeric",
     year: "numeric",
   });
-  const timePosted = createEl("span", {
+  const timePosted = createEl("div", {
     className: "pinned-notes-time",
     textContent: `Posted: ${date}`,
   });
 
-  header.append(leftGroup, timePosted);
-
   const body = createEl("div", {
-    className: "note",
+    className: "note-text-content",
     textContent: tripDetails.pinnedNote.message,
   });
+
+  body.prepend(timePosted);
 
   return createTile({ container, header, body });
 }

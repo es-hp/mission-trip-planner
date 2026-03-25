@@ -4,18 +4,32 @@
   gap: 1.75rem;
   width: 100%;
   height: auto;
-  padding: var(--padding-card);
+  padding: var(--tile-padding);
   background-color: var(--color-surface-bg);
-  border-radius: 1.5rem;
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--tile-border-radius);
   overflow: hidden;
 }
 
 .tile h2 {
+  font-size: var(--text-base);
   font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .tile-body {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--card-padding);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--card-border-radius);
 }

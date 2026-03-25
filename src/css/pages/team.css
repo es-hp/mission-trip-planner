@@ -46,13 +46,14 @@
 
 .role-label {
   display: inline-block;
-  background-color: pink;
+  background-color: var(--color-chip-yellow-bg);
   padding: 0 0.5rem;
   border-radius: 0.625rem;
   text-align: center;
   font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1.25;
-  color: var(--color-black-300);
+  color: var(--color-chip-yellow-text);
   white-space: nowrap;
 }
 

@@ -84,3 +84,30 @@ export const setupScrollShadows = (wrapper) => {
   content.addEventListener("scroll", updateShadows);
   updateShadows();
 };
+
+export const showInvalidMsg = ({ inputEl, className, message = "error" }) => {
+  let messageEl;
+
+  if (inputEl) {
+    messageEl = inputEl.nextElementSibling;
+  } else if (className) {
+    messageEl = document.querySelector(`.${className}`);
+  } else {
+    return;
+  }
+
+  if (!messageEl) return;
+  if (!messageEl.classList.contains("invalid-msg")) return;
+
+  messageEl.textContent = message;
+  messageEl.classList.remove("hide");
+};
+
+export const clearInvalidMsgs = (form) => {
+  const messageEls = form.querySelectorAll(".invalid-msg");
+  messageEls.forEach((el) => el.classList.add("hide"));
+};
+
+export const isEmailValid = (email) => {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(email);
+};

@@ -9,7 +9,8 @@
       "email": "diana@example.com",
       "phone": "555-123-4567",
       "gender": "female",
-      "dateOfBirth": "1986-03-02"
+      "dateOfBirth": "1986-03-02",
+      "password": "testPassword#1"
     },
     "passport": {
       "firstName": "Shinhye",
@@ -44,7 +45,8 @@
       "email": "michelle@example.com",
       "phone": "555-123-4567",
       "gender": "female",
-      "dateOfBirth": "1997-08-27"
+      "dateOfBirth": "1997-08-27",
+      "password": "testPassword#2"
     },
     "passport": {
       "firstName": "Michelle",
@@ -79,7 +81,8 @@
       "email": "tim@example.com",
       "phone": "555-123-4567",
       "gender": "male",
-      "dateOfBirth": "1994-11-16"
+      "dateOfBirth": "1994-11-16",
+      "password": "testPassword#3"
     },
     "passport": {
       "firstName": "Timothy",
@@ -114,7 +117,8 @@
       "email": "dan@example.com",
       "phone": "555-123-4567",
       "gender": "male",
-      "dateOfBirth": "1984-05-09"
+      "dateOfBirth": "1984-05-09",
+      "password": "testPassword#4"
     },
     "passport": {
       "firstName": "Tae",
@@ -146,10 +150,11 @@
       "avatarURL": "/images/avatars/hannah.png"
     },
     "personal": {
-      "email": "hannah@example.com",
+      "email": "test-user@example.com",
       "phone": "555-123-4567",
       "gender": "female",
-      "dateOfBirth": "1990-12-04"
+      "dateOfBirth": "1990-12-04",
+      "password": "testPassword#5"
     },
     "passport": {
       "firstName": "Hannah",
