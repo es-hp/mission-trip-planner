@@ -139,6 +139,14 @@ if (isLoggedIn) {
     const tabNavDiv = document.querySelector("#schedule .tabNav");
     if (tabNavDiv) scheduleTabNav(tabNavDiv, mountCallbacks);
   }
+
+  /* Profile Page */
+  if (mainID === "profile") {
+    const { default: userBio } =
+      await import("./js/components/profile/userBio");
+    const bioDiv = document.querySelector(".user-bio");
+    if (bioDiv) userBio({ container: bioDiv, user: currentUser });
+  }
 } else if (mainID !== "login") {
   window.location.href = "/login.html";
 }
