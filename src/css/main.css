@@ -20,48 +20,16 @@
 
 @font-face {
   font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-Light.woff2") format("woff2");
-  font-weight: 300;
+  src: url("/fonts/SourceSans3-VariableFont_wght.woff2") format("woff2");
+  font-weight: 200, 300, 400, 500, 600, 700, 800, 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-LightItalic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "source sans 3";
-  src: url("/fonts/SourceSans3-SemiBoldItalic.woff2") format("woff2");
-  font-weight: 600;
+  src: url("/fonts/SourceSans3-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 200, 300, 400, 500, 600, 700, 800, 900;
   font-style: italic;
   font-display: swap;
 }
@@ -123,6 +91,7 @@
   --color-white: #ffffff;
 
   --color-light-grey-100: #f5f4f2;
+  --color-light-grey-100-95: rgb(245, 244, 242, 0.95);
   --color-light-grey-200: #f0eee8;
   --color-light-grey-300: #e2e0dc;
   --color-light-grey-400: #c0beb9;
@@ -137,6 +106,7 @@
   --color-dark-grey-200: #3b3a37;
   --color-dark-grey-300: #2d2b29;
   --color-dark-grey-400: #262523;
+  --color-dark-grey-400-90: rgb(38, 37, 35, 0.9);
 
   --color-black: #171614;
   --color-black-75: rgb(23, 22, 20, 0.75);
@@ -243,6 +213,10 @@
   --color-warning-bg: var(--color-yellow-light);
   --color-warning-accent: var(--color-light-grey-300);
 
+  /* Light theme: Login */
+  --color-login-card-bg: var(--color-light-grey-100);
+  --color-login-card-bg-95: var(--color-light-grey-100-95);
+
   /* Light theme: Sidebar */
   --color-sidebar-bg: var(--color-surface-bg);
   --color-sidebar-border: var(--color-dark-grey-200);
@@ -344,6 +318,11 @@
   /* Card */
   --card-padding: clamp(1rem, 1.39vw, 1.5rem);
   --card-border-radius: 0.75rem;
+
+  /* Top Nav: Dropdown Menu */
+  --dropdown-icon-text-gap: 0.75rem;
+  --dropdown-icon-size: 1.25rem;
+  --dropdown-li-padding-top-bottom: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -376,6 +355,10 @@
 
     --color-warning-bg: var(--color-dark-grey-300);
     --color-warning-accent: var(--color-dark-grey-200);
+
+    /* Dark theme: Login */
+    --color-login-card-bg: var(--color-dark-grey-400);
+    --color-login-card-bg-opacity: var(--color-dark-grey-400-90);
 
     /* Dark theme: Sidebar */
     --color-sidebar-bg: var(--color-surface-bg);
@@ -533,17 +516,40 @@ a:hover {
 }
 
 button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: background-color 100ms ease;
 }
 
 button:focus-visible {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
+.primary-btn {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.primary-btn:hover {
+  background-color: var(--color-primary-faded);
+}
+
 ul,
 li {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+hr {
   margin: 0;
 }
 
@@ -556,6 +562,7 @@ input {
   width: 100%;
   min-width: 6rem;
   min-height: 2rem;
+  padding: 0 0.75rem;
   background: var(--color-input-bg);
   font: inherit;
   color: var(--color-input-text);
@@ -611,6 +618,10 @@ input:focus {
 
 .hide {
   display: none;
+}
+
+.pointer-events-none {
+  pointer-events: none;
 }
 
 /* Progress Bars */

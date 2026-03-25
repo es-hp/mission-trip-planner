@@ -1,4 +1,5 @@
 import { createEl } from "@utils";
+import { login } from "@/js/core/auth";
 
 export default function loginCard({ container }) {
   const leftContainer = createEl("div", { className: "login-left" });
@@ -40,17 +41,19 @@ export default function loginCard({ container }) {
   const welcomeText = createEl("h1", { textContent: "Welcome!" });
   const subheading = createEl("div", {
     className: "login-subheading",
-    textContent: "Sign in below.",
+    textContent: "Please use credentials below to sign in.",
   });
-  const notice = createEl("div", {
-    className: "login-notice",
-    textContent: "Text about how to log in and dateTime.",
-  });
+  const notice = createEl("div", { className: "login-notice" });
+  notice.innerHTML = "test-user@example.com<br>testPassword#5";
 
   rightTextContainer.append(welcomeText, subheading, notice);
 
   // Build Form
-  const form = createEl("form", { action: "/submit", className: "login-form" });
+  const form = createEl("form", {
+    action: "/submit",
+    id: "login-form",
+    noValidate: true,
+  });
 
   const inputGroupEmail = createEl("div", {
     className: "input-group login-email",
@@ -60,9 +63,12 @@ export default function loginCard({ container }) {
     type: "email",
     id: "user-email",
     name: "user-email",
-    required: true,
   });
-  inputGroupEmail.append(labelEmail, inputEmail);
+  const invalidEmailMsg = createEl("div", {
+    className: "invalid-msg hide",
+    textContent: "Please enter a valid email.",
+  });
+  inputGroupEmail.append(labelEmail, inputEmail, invalidEmailMsg);
 
   const inputGroupPW = createEl("div", {
     className: "input-group login-password",
@@ -75,18 +81,35 @@ export default function loginCard({ container }) {
     type: "password",
     id: "user-password",
     name: "user-password",
-    required: true,
   });
-  inputGroupPW.append(labelPW, inputPW);
+  const invalidPWMsg = createEl("div", { className: "invalid-msg hide" });
+  inputGroupPW.append(labelPW, inputPW, invalidPWMsg);
+
+  const invalidAuth = createEl("div", {
+    className: "invalid-msg hide invalid-auth-msg",
+  });
 
   const submitBtn = createEl("button", {
     type: "submit",
-    className: "primary-btn login-submit-btn",
-    textContent: "Login",
+    id: "login-submit-btn",
+    className: "primary-btn",
+    textContent: "Sign in",
   });
 
-  form.append(inputGroupEmail, inputGroupPW, submitBtn);
+  form.append(inputGroupEmail, inputGroupPW, invalidAuth, submitBtn);
   rightContainer.append(rightTextContainer, form);
 
   container.append(logoContainer, leftContainer, rightContainer);
+
+  /* Handle Login */
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await login({
+      form,
+      button: submitBtn,
+      emailEl: inputEmail,
+      passwordEl: inputPW,
+    });
+  });
 }
