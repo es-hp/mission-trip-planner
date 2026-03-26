@@ -1,4 +1,5 @@
 import * as lucide from "lucide";
+import { Temporal } from "@js-temporal/polyfill";
 
 export const createEl = (type, props = {}) => {
   const element = document.createElement(type);
@@ -110,4 +111,30 @@ export const clearInvalidMsgs = (form) => {
 
 export const isEmailValid = (email) => {
   return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(email);
+};
+
+export const toLocalDateTime = (
+  dateTime,
+  {
+    month = "numeric",
+    day = "numeric",
+    year = "numeric",
+    hour = "numeric",
+    minute = "2-digit",
+    hour12 = true,
+  } = {},
+) => {
+  const dt = Temporal.ZonedDateTime.from(dateTime);
+  const date = dt.toPlainDate().toLocaleString("en-US", {
+    month,
+    day,
+    year,
+  });
+  const time = dt.toPlainTime().toLocaleString("en-US", {
+    hour,
+    minute,
+    hour12,
+  });
+
+  return { date, time };
 };
