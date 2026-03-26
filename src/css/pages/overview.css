@@ -379,13 +379,6 @@
   flex-direction: row;
   align-items: center;
   gap: 1.25rem;
-  transition:
-    background-color 100ms ease,
-    border 100ms ease;
-}
-
-.upcoming-events .card:hover {
-  background-color: var(--color-card-bg-hover);
 }
 
 .event-date-badge {
