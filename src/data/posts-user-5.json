@@ -1,23 +1,27 @@
 [
   {
     "id": "post_1",
+    "parentId": null,
     "authorId": "user_5",
-    "body": "Please pray for me that I get better from this flu.",
-    "createdAt": "2025-05-01T18:43:26-04:00[America/New_York]",
-    "comments": [
+    "status": "closed",
+    "content": "Please pray for me that I get better from this flu.",
+    "createdAt": "2025-04-25T22:43:26.000Z",
+    "updates": [
       {
-        "id": "comment_1",
-        "authorId": "user_2",
-        "body": "I'll be praying for you!",
-        "createdAt": "2025-05-01T20:38:14-04:00[America/New_York]"
+        "id": "post_2",
+        "parentId": "post_1",
+        "content": "Feeling better!",
+        "createdAt": "2025-05-01T24:38:14.000Z"
       }
     ]
   },
   {
-    "id": "post_2",
+    "id": "post_3",
+    "parentId": null,
     "authorId": "user_5",
-    "body": "Please pray that the orders for the arts and crafts station arrives on time. I got a notice today that it's being held up in the warehouse.",
-    "createdAt": "2025-05-04T09:24:06-04:00[America/New_York]",
-    "comments": []
+    "status": "open",
+    "content": "Please pray that the orders for the arts and crafts station arrives on time. I got a notice today that it's being held up in the warehouse.",
+    "createdAt": "2025-05-04T13:24:06.000Z",
+    "updates": []
   }
 ]

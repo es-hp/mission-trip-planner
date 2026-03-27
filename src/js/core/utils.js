@@ -1,6 +1,9 @@
 import * as lucide from "lucide";
 import { Temporal } from "@js-temporal/polyfill";
 
+/* Custom Icon imports */
+import prayingHands from "@/icons/praying-hands.svg?raw";
+
 export const createEl = (type, props = {}) => {
   const element = document.createElement(type);
   Object.assign(element, props);
@@ -48,6 +51,31 @@ export const createLucideIcon = (
   iconSvg.style.flexShrink = "0";
 
   return iconSvg;
+};
+
+const customIcons = {
+  prayingHands,
+};
+
+export const domParser = new DOMParser();
+
+export const createCustomIcon = (rawSVG) => {
+  const doc = domParser.parseFromString(rawSVG, "image/svg+xml");
+  return doc.querySelector("svg");
+};
+
+export const createCardIcon = (iconName, type = "lucide") => {
+  let icon;
+  if (type === "lucide") {
+    icon = createLucideIcon(iconName);
+  } else if (type === "custom") {
+    const rawSVG = customIcons[iconName];
+    if (!rawSVG) throw new Error(`Custom icon "${iconName}" not found`);
+    icon = createCustomIcon(rawSVG);
+  }
+  const cardIcon = createEl("div", { className: "card-icon" });
+  cardIcon.append(icon);
+  return cardIcon;
 };
 
 export const formatTo12Hour = (time) => {
@@ -124,17 +152,19 @@ export const formatDateTime = (
     hour12 = true,
   } = {},
 ) => {
-  const dt = Temporal.ZonedDateTime.from(dateTime);
-  const date = dt.toPlainDate().toLocaleString("en-US", {
+  const utc = Temporal.Instant.from(dateTime);
+  const zdt = utc.toZonedDateTimeISO(Temporal.Now.timeZoneId());
+  const date = zdt.toPlainDate().toLocaleString("en-US", {
     month,
     day,
     year,
   });
-  const time = dt.toPlainTime().toLocaleString("en-US", {
+  const time = zdt.toPlainTime().toLocaleString("en-US", {
     hour,
     minute,
     hour12,
   });
+  const zdtAttribute = `${zdt.toPlainDateTime().toString().slice(0, 19)}${zdt.offset}`;
 
-  return { date, time };
+  return { date, time, zdtAttribute };
 };

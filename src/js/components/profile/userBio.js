@@ -1,4 +1,4 @@
-import { createEl } from "@utils";
+import { createEl, createCustomIcon } from "@utils";
 import { Temporal } from "@js-temporal/polyfill";
 
 export default function userBio({ container, user }) {

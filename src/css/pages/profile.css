@@ -1,3 +1,4 @@
+/* Background */
 #profile::before {
   content: "";
   position: absolute;
@@ -6,10 +7,10 @@
   right: 0;
   height: clamp(22rem, 27.78vw, 25rem);
   background: linear-gradient(to bottom, transparent 8%, #b85535);
-  /* background-color: #b85535; */
   z-index: -5;
 }
 
+/* User Bio */
 .user-bio {
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +19,7 @@
   row-gap: 0;
   column-gap: 3rem;
   margin-top: 5rem;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 .profile-pic {
@@ -66,4 +67,56 @@
   text-transform: capitalize;
   font-weight: 500;
   color: var(--color-text-secondary);
+}
+
+/* Prayer Requests */
+.user-prayers .tile-body {
+  gap: 1rem;
+}
+
+.prayer-request-post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+}
+
+.post-metadata > * {
+  line-height: 1.1em;
+}
+
+.post-metadata :first-child {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.post-timestamp {
+  color: var(--color-text-secondary);
+}
+
+.form-prayed-count {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.prayed-count-text {
+  color: var(--color-text-muted);
+}
+
+.prayed-submit-btn.btn {
+  font-size: var(--text-base);
 }

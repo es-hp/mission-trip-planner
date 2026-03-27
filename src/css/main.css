@@ -191,6 +191,7 @@
   --color-border: var(--color-light-grey-300);
   --color-text: var(--color-black);
   --color-text-muted: var(--color-medium-grey-100);
+  --color-text-card-muted: var(--color-medium-grey-200);
   --color-accent-past: var(--color-border);
 
   --color-btn-secondary-bg: transparent;
@@ -256,7 +257,7 @@
   --color-card-icon-accent: var(--color-primary);
   --color-card-icon-bg: var(--color-light-grey-100);
   --color-card-icon-bg-hover: var(--color-card-icon-border);
-  --color-card-icon-border: var(---color-light-grey-400);
+  --color-card-icon-border: var(--color-light-grey-400);
 
   /* Light theme: Tab Navigation */
   --color-tab-bg: transparent;
@@ -337,6 +338,7 @@
     --color-border: var(--color-medium-grey-400);
     --color-text: var(--color-light-grey-200);
     --color-text-muted: var(--color-medium-grey-200);
+    --color-text-card-muted: var(--color-medium-grey-100);
     --color-accent-past: var(--color-border);
 
     --color-btn-secondary-bg: transparent;
@@ -402,7 +404,7 @@
 
     --color-card-icon: var(--color-medium-grey-100);
     --color-card-icon-accent: var(--color-primary);
-    --color-card-icon-bg: transparent;
+    --color-card-icon-bg: var(--color-dark-grey-100);
     --color-card-icon-bg-hover: var(--color-dark-grey-300);
     --color-card-icon-border: var(--color-medium-grey-200);
 
@@ -520,30 +522,35 @@ a:hover {
   color: var(--color-text-highlight);
 }
 
-button {
+button,
+.btn {
   all: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: center;
-  border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  border-radius: 0.75em;
+  padding: 0.5em 1em;
   cursor: pointer;
   transition: background-color 100ms ease;
 }
 
-button:focus-visible {
+button:focus-visible,
+.btn:focus-visible {
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-.primary-btn {
+.primary-btn,
+.primary-btn a {
   font-size: var(--text-xl);
   font-weight: 600;
   color: var(--color-white);
   background-color: var(--color-primary);
 }
 
-.primary-btn:hover {
+.primary-btn:hover,
+.primary-btn a:hover {
+  color: var(--color-white);
   background-color: var(--color-primary-faded);
 }
 
@@ -609,7 +616,7 @@ input:focus {
   padding: 0 var(--main-padding-x) var(--main-padding-x) var(--main-padding-x);
 }
 
-.main header {
+.main > header {
   width: 100%;
   padding: 1rem 0 2rem 0;
 }
