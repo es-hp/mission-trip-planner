@@ -146,6 +146,11 @@ if (isLoggedIn) {
       await import("./js/components/profile/userBio");
     const bioDiv = document.querySelector(".user-bio");
     if (bioDiv) userBio({ container: bioDiv, user: currentUser });
+
+    const { default: userPrayers } =
+      await import("./js/components/profile/userPrayers");
+    const prayersDiv = document.querySelector(".user-prayers");
+    if (prayersDiv) userPrayers({ container: prayersDiv, user: currentUser });
   }
 } else if (mainID !== "login") {
   window.location.href = "/login.html";

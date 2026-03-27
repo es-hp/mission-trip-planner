@@ -59,3 +59,15 @@ export const getAssignments = async () => {
     return [];
   }
 };
+
+export const getUserPosts = async ({ userId }) => {
+  const id = userId.split("_").at(-1);
+  try {
+    const response = await fetch(`/src/data/posts-user-${id}.json`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
+    return [];
+  }
+};
