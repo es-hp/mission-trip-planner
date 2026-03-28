@@ -303,15 +303,6 @@
   background-color: var(--color-accent-past);
 }
 
-.week-block.passed {
-  opacity: 0.5;
-  transition: opacity 100ms ease;
-}
-
-.week-block.passed:hover {
-  opacity: 1;
-}
-
 .week-header-text {
   display: flex;
   flex-direction: column;

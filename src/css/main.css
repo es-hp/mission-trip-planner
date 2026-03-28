@@ -194,6 +194,10 @@
   --color-text-card-muted: var(--color-medium-grey-200);
   --color-accent-past: var(--color-border);
 
+  --color-btn-primary-disabled-bg: var(--color-light-grey-100);
+  --color-btn-primary-disabled-border: var(--color-light-grey-300);
+  --color-btn-primary-disabled-text: var(--color-medium-grey-100);
+
   --color-btn-secondary-bg: transparent;
   --color-btn-secondary-bg-hover: var(--color-pale-sienna);
   --color-btn-secondary-border: var(--color-burnt-sienna);
@@ -251,7 +255,7 @@
   --color-card-bg-active: var(--color-card-bg);
   --color-card-border: var(--color-border);
   --color-card-border-active: var(--color-medium-grey-100);
-  --color-card-divider: var(--color-light-grey-400);
+  --color-card-divider: var(--color-border);
 
   --color-card-icon: var(--color-medium-grey-100);
   --color-card-icon-accent: var(--color-primary);
@@ -341,6 +345,10 @@
     --color-text-card-muted: var(--color-medium-grey-100);
     --color-accent-past: var(--color-border);
 
+    --color-btn-primary-disabled-bg: var(--color-dark-grey-200);
+    --color-btn-primary-disabled-border: var(--color-medium-grey-400);
+    --color-btn-primary-disabled-text: var(--color-medium-grey-200);
+
     --color-btn-secondary-bg: transparent;
     --color-btn-secondary-bg-hover: var(--color-brown-sienna);
     --color-btn-secondary-border: var(--color-burnt-sienna);
@@ -400,7 +408,7 @@
     --color-card-bg-active: var(--color-card-bg);
     --color-card-border: var(--color-border);
     --color-card-border-active: var(--color-medium-grey-200);
-    --color-card-divider: var(--color-medium-grey-300);
+    --color-card-divider: var(--color-border);
 
     --color-card-icon: var(--color-medium-grey-100);
     --color-card-icon-accent: var(--color-primary);
@@ -530,9 +538,12 @@ button,
   justify-content: center;
   align-self: center;
   border-radius: 0.75em;
+  border: 1px solid transparent;
   padding: 0.5em 1em;
   cursor: pointer;
-  transition: background-color 100ms ease;
+  transition:
+    background-color 100ms ease,
+    border-color 100ms ease;
 }
 
 button:focus-visible,
@@ -540,16 +551,21 @@ button:focus-visible,
   outline: 1px auto -webkit-focus-ring-color;
 }
 
-.primary-btn,
-.primary-btn a {
+button:disabled {
+  background-color: var(--color-btn-primary-disabled-bg);
+  border-color: var(--color-btn-primary-disabled-border);
+  color: var(--color-btn-primary-disabled-text);
+  cursor: not-allowed;
+}
+
+.primary-btn {
   font-size: var(--text-xl);
   font-weight: 600;
   color: var(--color-white);
   background-color: var(--color-primary);
 }
 
-.primary-btn:hover,
-.primary-btn a:hover {
+.primary-btn:not(:disabled):hover {
   color: var(--color-white);
   background-color: var(--color-primary-faded);
 }
@@ -634,6 +650,15 @@ input:focus {
 
 .pointer-events-none {
   pointer-events: none;
+}
+
+.passed {
+  opacity: 0.5;
+  transition: opacity 100ms ease;
+}
+
+.passed:hover {
+  opacity: 1;
 }
 
 /* Progress Bars */

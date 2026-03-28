@@ -106,6 +106,17 @@
   color: var(--color-text-secondary);
 }
 
+.post-divider {
+  margin: 1.5rem 0;
+  border: 1px solid var(--color-card-divider);
+}
+
+.post-update {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .form-prayed-count {
   align-self: flex-end;
   display: flex;
@@ -119,4 +130,18 @@
 
 .prayed-submit-btn.btn {
   font-size: var(--text-base);
+}
+
+.closed-posts-toggle {
+  width: max-content;
+  margin: 1rem;
+  font-family: var(--font-display);
+  color: var(--color-text-highlight);
+  opacity: 1;
+  transition: opacity 100ms ease;
+}
+
+.closed-posts-toggle:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
