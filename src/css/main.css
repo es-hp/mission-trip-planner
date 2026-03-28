@@ -127,6 +127,7 @@
   --color-pale-sienna: #fff3e8;
   --color-brick-light: #ffe0d4;
   --color-terracotta-dark: #a83000;
+  --color-slate-white: #f3f6ff;
   --color-slate-dark: #4a4d5e;
   --color-slate-dark-muted: #868792;
   --color-yellow-light: #fff5d9;
@@ -137,6 +138,7 @@
   --color-brick-dark: #6b1a00;
   --color-terracotta-light: #ff9070;
   --color-slate-light: #8b8fa8;
+  --color-slate-grey: #2d2d30;
   --color-yellow-dark: #ce8924;
 
   /* Functional Colors Palette */
@@ -212,6 +214,16 @@
   --color-btn-disabled-bg: var(--color-light-grey-100);
   --color-btn-disabled-border: var(--color-light-grey-300);
   --color-btn-disabled-text: var(--color-slate-dark-muted);
+
+  --color-action-icon-primary: var(--color-primary);
+  --color-action-icon-primary-bg: transparent;
+  --color-action-icon-primary-bg-hover: var(--color-pale-sienna);
+  --color-action-icon-primary-border: var(--color-primary);
+
+  --color-action-icon-secondary: var(--color-slate-light);
+  --color-action-icon-secondary-bg: transparent;
+  --color-action-icon-secondary-bg-hover: var(--color-slate-white);
+  --color-action-icon-secondary-border: var(--color-medium-grey-100);
 
   --color-callout-bg: var(--color-pale-sienna);
   --color-callout-accent: var(--color-text-highlight);
@@ -363,6 +375,16 @@
     --color-btn-disabled-bg: transparent;
     --color-btn-disabled-border: var(--color-medium-grey-400);
     --color-btn-disabled-text: var(--color-slate-dark);
+
+    --color-action-icon-primary: var(--color-primary);
+    --color-action-icon-primary-bg: transparent;
+    --color-action-icon-primary-bg-hover: var(--color-brown-sienna);
+    --color-action-icon-primary-border: var(--color-primary);
+
+    --color-action-icon-secondary: var(--color-slate-dark);
+    --color-action-icon-secondary-bg: transparent;
+    --color-action-icon-secondary-bg-hover: var(--color-slate-grey);
+    --color-action-icon-secondary-border: var(--color-medium-grey-400);
 
     --color-callout-bg: var(--color-dark-grey-200);
     --color-callout-accent: var(--color-text-highlight);
