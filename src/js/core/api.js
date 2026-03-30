@@ -60,7 +60,7 @@ export const getAssignments = async () => {
   }
 };
 
-export const getUserPosts = async ({ userId }) => {
+export const getUserPosts = async (userId) => {
   const id = userId.split("_").at(-1);
   try {
     const response = await fetch(`/src/data/posts-user-${id}.json`);

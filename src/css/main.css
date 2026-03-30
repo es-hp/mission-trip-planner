@@ -1,5 +1,6 @@
 @import "./calendar.css";
 @import "./card.css";
+@import "./dropdown.css";
 @import "./sidebar.css";
 @import "./tables.css";
 @import "./tabnav.css";
@@ -191,6 +192,7 @@
   /* Light theme: Main */
   --color-bg: var(--color-white);
   --color-border: var(--color-light-grey-300);
+  --color-border-focus: rgba(113, 125, 188, 0.5);
   --color-text: var(--color-black);
   --color-text-muted: var(--color-medium-grey-100);
   --color-text-card-muted: var(--color-medium-grey-200);
@@ -629,6 +631,11 @@ input::placeholder {
 
 input:focus {
   border-color: var(--color-input-border-focus);
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-border-focus);
 }
 
 .page {

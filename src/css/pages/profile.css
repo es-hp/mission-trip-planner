@@ -70,8 +70,12 @@
 }
 
 /* Prayer Requests */
-.user-prayers .tile-body {
-  gap: 1rem;
+.user-prayers .tile-body,
+.open-posts,
+.closed-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .prayer-request-post {
