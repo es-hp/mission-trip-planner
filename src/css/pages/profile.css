@@ -101,13 +101,30 @@
   line-height: 1.1em;
 }
 
-.post-metadata :first-child {
+.post-status-container {
+  display: flex;
+  align-items: center;
   font-size: var(--text-lg);
   font-weight: 600;
 }
 
 .post-timestamp {
+  display: flex;
+  align-items: center;
   color: var(--color-text-secondary);
+}
+
+.divider-dot {
+  margin: 0 0.5rem;
+}
+
+.urgent-flag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-red);
 }
 
 .post-divider {

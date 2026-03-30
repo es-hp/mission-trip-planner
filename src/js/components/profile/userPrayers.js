@@ -8,11 +8,9 @@ import {
 import createDropdown from "../design-system/createDropdown";
 import createTile from "../design-system/createTile";
 import { getUserPosts } from "@/js/core/api";
-import { CardSim } from "lucide";
 
 const openColor = getCSSVar("--color-text");
 const closedColor = getCSSVar("--color-text-card-muted");
-const urgentIconColor = getCSSVar("--color-red");
 
 export default async function userPrayers({ container, user }) {
   const profileUserId = user.id;
@@ -114,19 +112,26 @@ export default async function userPrayers({ container, user }) {
       textContent: `Posted ${date} at ${time}`,
     });
 
+    if (post.isUrgent) {
+      const dividerDot = createEl("span", {
+        className: "divider-dot",
+        textContent: "•",
+      });
+      const urgentFlag = createEl("span", {
+        className: "urgent-flag",
+        textContent: "Urgent",
+      });
+      const urgentIcon = createLucideIcon("ClockAlert", {
+        size: "1rem",
+        strokeWidth: 2,
+      });
+
+      urgentFlag.prepend(urgentIcon);
+      timestamp.append(dividerDot, urgentFlag);
+    }
+
     metadata.append(statusEl, timestamp);
     header.append(icon, metadata);
-
-    if (post.isUrgent) {
-      const urgentIcon = createLucideIcon("ClockAlert", {
-        size: "1.25rem",
-        strokeWidth: 2,
-        color: urgentIconColor,
-      });
-      urgentIcon.style.marginLeft = "auto";
-      urgentIcon.style.alignSelf = "flex-start";
-      header.append(urgentIcon);
-    }
 
     /* Post Body */
     const postBody = createEl("div", { className: "prayer-request-body" });
