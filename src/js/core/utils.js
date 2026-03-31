@@ -141,6 +141,21 @@ export const isEmailValid = (email) => {
   return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(email);
 };
 
+/**
+ * Formats a date and time for display and use in a <time> element.
+ *
+ * @param {Temporal.ZonedDateTime | Temporal.Instant | string} dateTime
+ *   A Temporal object or ISO 8601 string with offset.
+ *   Example: "2025-05-07T12:04:00-04:00[America/New_York]"
+ * @param {object} [options]
+ * @param {"numeric" | "2-digit" | "short" | "long" | "narrow"} [options.month="numeric"]
+ * @param {"numeric" | "2-digit"} [options.day="numeric"]
+ * @param {"numeric" | "2-digit"} [options.year="numeric"]
+ * @param {"numeric" | "2-digit"} [options.hour="numeric"]
+ * @param {"numeric" | "2-digit"} [options.minute="2-digit"]
+ * @param {boolean} [options.hour12=true]
+ * @returns {{ date: string, time: string, zdtAttribute: string }}
+ */
 export const formatDateTime = (
   dateTime,
   {
@@ -167,4 +182,11 @@ export const formatDateTime = (
   const zdtAttribute = `${zdt.toPlainDateTime().toString().slice(0, 19)}${zdt.offset}`;
 
   return { date, time, zdtAttribute };
+};
+
+export const resizeTextareaHeight = (textarea) => {
+  textarea.addEventListener("input", () => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  });
 };

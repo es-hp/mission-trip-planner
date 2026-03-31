@@ -13,7 +13,7 @@ export default function createModal({
 
   const confirmBtn = createEl("button", {
     textContent: confirmBtnText,
-    className: "btn-primary",
+    className: "primary-btn",
   });
 
   const cancelBtn = createEl("button", {

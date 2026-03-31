@@ -4,13 +4,17 @@ import {
   createCardIcon,
   formatDateTime,
   getCSSVar,
+  resizeTextareaHeight,
 } from "@utils";
 import createDropdown from "../design-system/createDropdown";
+import createModal from "../design-system/createModal";
 import createTile from "../design-system/createTile";
-import { getUserPosts } from "@/js/core/api";
+import { getUserPosts, getCurrentDateTime } from "@/js/core/api";
+import { Temporal } from "@js-temporal/polyfill";
 
 const openColor = getCSSVar("--color-text");
 const closedColor = getCSSVar("--color-text-card-muted");
+const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 
 export default async function userPrayers({ container, user }) {
   const profileUserId = user.id;
@@ -135,14 +139,136 @@ export default async function userPrayers({ container, user }) {
 
     /* Post Body */
     const postBody = createEl("div", { className: "prayer-request-body" });
+    let content = post.content;
     const postContent = createEl("p", {
       className: "post-initial-content",
-      textContent: post.content,
+      textContent: content,
     });
-
+    postContent.style.whiteSpace = "pre-wrap";
     postBody.append(postContent);
 
-    /* Updates */
+    /* Actions for the owner of the post */
+    function editPost() {
+      if (postBody.querySelector(".post-edit-textarea")) return;
+
+      postContent.remove();
+      const labelWrapper = createEl("label", {
+        className: "post-edit-label",
+      });
+      const textarea = createEl("textarea", {
+        name: `post-edit-${post.id}`,
+        rows: 5,
+        maxLength: 250,
+        className: "post-edit-textarea",
+      });
+      textarea.value = content;
+      resizeTextareaHeight(textarea);
+      labelWrapper.append(textarea);
+
+      const editActions = createEl("div", {
+        className: "post-edit-actions-container",
+      });
+      const editSaveBtn = createEl("button", {
+        className: "post-edit-btn primary-btn",
+        textContent: "Save Edits",
+      });
+      const cancelBtn = createEl("button", {
+        className: "post-edit-cancel-btn btn-secondary",
+        textContent: "Cancel",
+      });
+
+      editActions.append(cancelBtn, editSaveBtn);
+      postBody.append(labelWrapper, editActions);
+
+      cancelBtn.addEventListener("click", () => {
+        createModal({
+          message: "Cancel changes to post?",
+          onConfirm: () => {
+            postBody.append(postContent);
+            labelWrapper.remove();
+            editActions.remove();
+          },
+        });
+      });
+
+      editSaveBtn.addEventListener("click", async () => {
+        editSaveBtn.disabled = true;
+        try {
+          /** Would use Temporal.Now.Instant.toString() in production. */
+          const { currentDateTime } = await getCurrentDateTime();
+
+          const { date, time, zdtAttribute } = formatDateTime(currentDateTime, {
+            month: "short",
+          });
+
+          timestamp.textContent = `Edited ${date} at ${time}`;
+          timestamp.dateTime = zdtAttribute;
+
+          content = textarea.value;
+          localStorage.setItem(`content-${post.authorId}-${post.id}`, content);
+          postContent.textContent = content;
+          postBody.append(postContent);
+
+          editActions.remove();
+          labelWrapper.remove();
+        } finally {
+          editSaveBtn.disabled = false;
+        }
+      });
+    }
+
+    function deletePost() {
+      createModal({
+        message:
+          "The prayer request and all its updates will be permanently deleted and cannot be undone. \n\nContinue to delete?",
+        onConfirm: () => {
+          postCard.remove();
+        },
+        confirmBtnText: "Delete",
+      });
+    }
+
+    /* Header: Post Actions Menu */
+    if (isOwnProfile) {
+      const actionsDropdown = createEl("div", {
+        className: "dropdown post-actions-dropdown",
+      });
+      const actionsMenuToggle = createEl("button", {
+        className: "post-actions-toggle",
+      });
+      const ellipsis = createLucideIcon("Ellipsis");
+
+      actionsMenuToggle.append(ellipsis);
+
+      const actions = [
+        { actionText: "edit", fn: editPost, icon: "SquarePen" },
+        { actionText: "delete", fn: deletePost, icon: "Trash2" },
+      ];
+
+      const dropdownMenu = createEl("ul", { className: "dropdown-menu" });
+
+      actions.forEach((action) => {
+        const actionLi = createEl("li", { className: "dropdown-li" });
+        const actionBtn = createEl("button", {
+          textContent: action.actionText,
+          className: `post-action-btn post-action-${action.actionText}`,
+        });
+        const icon = action.icon
+          ? createLucideIcon(action.icon, { size: `${dropdownIconSize}` })
+          : null;
+        if (icon) actionBtn.prepend(icon);
+        actionLi.append(actionBtn);
+        dropdownMenu.append(actionLi);
+
+        actionBtn.addEventListener("click", action.fn);
+      });
+
+      actionsDropdown.append(actionsMenuToggle, dropdownMenu);
+
+      header.append(actionsDropdown);
+    }
+
+    /* Update Posts */
     if (post.updates) {
       post.updates.forEach((update) => {
         const divider = createEl("hr", { className: "post-divider" });
@@ -173,10 +299,6 @@ export default async function userPrayers({ container, user }) {
     footer.append(submitCount);
 
     if (isOwnProfile) {
-      // const postActionsMenu = createEl("div", {
-      //   className: "post-actions-menu",
-      // });
-      // const x = asd;
     } else {
       const prayedCountForm = createEl("form", {
         action: "#",
@@ -194,14 +316,14 @@ export default async function userPrayers({ container, user }) {
         value: post.id,
       });
 
-      submitBtn.disabled = post.status === "closed";
+      submitBtn.disabled = status === "closed";
 
       prayedCountForm.append(submitBtn, inputPostId);
       footer.append(prayedCountForm);
     }
 
     postCard.append(header, postBody, footer);
-    post.status === "closed"
+    status === "closed"
       ? closedPosts.append(postCard)
       : openPosts.append(postCard);
   });
