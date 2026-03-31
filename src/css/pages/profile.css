@@ -131,7 +131,7 @@
 .post-actions-dropdown {
   align-self: flex-start;
   margin-left: auto;
-  border: 1px solid red;
+  padding-bottom: 0.25rem;
 }
 
 .post-actions-toggle {
@@ -154,6 +154,7 @@
   top: 100%;
   right: -0.5rem;
   min-width: 8rem;
+  padding: 0.25rem 0;
   background-color: var(--color-surface-bg);
   border-radius: 0.75rem;
   border: 1px solid var(--color-surface-border);
@@ -161,10 +162,10 @@
     0 0 3px rgba(0, 0, 0, 0.125),
     0 0 10px rgba(0, 0, 0, 0.375);
   overflow: hidden;
-  /* visibility: hidden; */
-  /* pointer-events: none; */
-  /* opacity: 0; */
-  translate: 0 0.5rem;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  translate: 0 0.25rem;
   transition:
     opacity 200ms ease-in-out,
     translate 300ms ease-in-out;
@@ -222,6 +223,13 @@
 }
 
 /* Post Footer */
+.prayer-request-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
 .form-prayed-count {
   align-self: flex-end;
   display: flex;
@@ -233,8 +241,21 @@
   color: var(--color-text-muted);
 }
 
-.prayed-submit-btn.btn {
+.prayed-submit-btn.primary-btn {
   font-size: var(--text-base);
+}
+
+.prayed-submit-btn.primary-btn.btn-paused {
+  pointer-events: none;
+  border-color: var(--color-primary);
+  background-color: transparent;
+  background: linear-gradient(
+    var(--color-burnt-sienna),
+    var(--color-burnt-sienna)
+  );
+  background-repeat: no-repeat;
+  background-size: 0% 100%; /* animated in JS */
+  transition: background-size 500ms ease;
 }
 
 .closed-posts-toggle {

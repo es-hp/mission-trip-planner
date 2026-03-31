@@ -9,14 +9,14 @@ import {
 import createDropdown from "../design-system/createDropdown";
 import createModal from "../design-system/createModal";
 import createTile from "../design-system/createTile";
-import { getUserPosts, getCurrentDateTime } from "@/js/core/api";
+import { getUserPosts } from "@/js/core/api";
 import { Temporal } from "@js-temporal/polyfill";
 
 const openColor = getCSSVar("--color-text");
 const closedColor = getCSSVar("--color-text-card-muted");
 const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 
-export default async function userPrayers({ container, user }) {
+export default async function userPrayers({ container, user, now }) {
   const profileUserId = user.id;
   const posts = await getUserPosts(profileUserId);
   const currentUserId = JSON.parse(
@@ -191,29 +191,24 @@ export default async function userPrayers({ container, user }) {
         });
       });
 
-      editSaveBtn.addEventListener("click", async () => {
+      editSaveBtn.addEventListener("click", () => {
         editSaveBtn.disabled = true;
-        try {
-          /** Would use Temporal.Now.Instant.toString() in production. */
-          const { currentDateTime } = await getCurrentDateTime();
+        const { date, time, zdtAttribute } = formatDateTime(now, {
+          month: "short",
+        });
 
-          const { date, time, zdtAttribute } = formatDateTime(currentDateTime, {
-            month: "short",
-          });
+        timestamp.textContent = `Edited ${date} at ${time}`;
+        timestamp.dateTime = zdtAttribute;
 
-          timestamp.textContent = `Edited ${date} at ${time}`;
-          timestamp.dateTime = zdtAttribute;
+        content = textarea.value;
+        localStorage.setItem(`content-${post.authorId}-${post.id}`, content);
+        postContent.textContent = content;
+        postBody.append(postContent);
 
-          content = textarea.value;
-          localStorage.setItem(`content-${post.authorId}-${post.id}`, content);
-          postContent.textContent = content;
-          postBody.append(postContent);
+        editActions.remove();
+        labelWrapper.remove();
 
-          editActions.remove();
-          labelWrapper.remove();
-        } finally {
-          editSaveBtn.disabled = false;
-        }
+        editSaveBtn.disabled = false;
       });
     }
 
@@ -266,6 +261,17 @@ export default async function userPrayers({ container, user }) {
       actionsDropdown.append(actionsMenuToggle, dropdownMenu);
 
       header.append(actionsDropdown);
+
+      actionsMenuToggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("open");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!actionsDropdown.contains(e.target)) {
+          dropdownMenu.classList.remove("open");
+        }
+      });
     }
 
     /* Update Posts */
@@ -292,21 +298,24 @@ export default async function userPrayers({ container, user }) {
 
     /* Post Footer */
     const footer = createEl("div", { className: "prayer-request-footer" });
+
+    let count = parseInt(localStorage.getItem(`prayed_count_${post.id}`)) || 0;
+
     const submitCount = createEl("span", {
       className: "prayed-count-text",
-      textContent: "test text: Prayed for # times.",
+      textContent: `Prayed for ${count} times`,
     });
-    footer.append(submitCount);
+
+    if (count > 0) footer.prepend(submitCount);
 
     if (isOwnProfile) {
-    } else {
       const prayedCountForm = createEl("form", {
-        action: "#",
+        action: "#", // backend api URL
         className: "form-prayed-count",
         method: "post",
       });
       const submitBtn = createEl("button", {
-        href: "#",
+        type: "submit",
         className: "prayed-submit-btn btn primary-btn",
         textContent: "Prayed for this",
       });
@@ -320,6 +329,68 @@ export default async function userPrayers({ container, user }) {
 
       prayedCountForm.append(submitBtn, inputPostId);
       footer.append(prayedCountForm);
+
+      /* Handle 'prayer for' button press */
+
+      // Pause button until next day
+      const startTimer = () => {
+        submitBtn.classList.add("btn-paused");
+
+        if (submitBtn._intervalId) clearInterval(submitBtn._intervalId);
+
+        const update = () => {
+          const currentTime = Temporal.Now.zonedDateTimeISO();
+
+          const midnight = currentTime.with({
+            hour: 0,
+            minute: 0,
+            second: 0,
+            millisecond: 0,
+          });
+          const minsElapsed = Math.floor(
+            midnight
+              .until(currentTime, { largestUnit: "minutes" })
+              .total({ unit: "minutes" }),
+          );
+
+          const widthPercent = Math.max(0, (minsElapsed / 1440) * 100);
+          submitBtn.style.backgroundSize = `${widthPercent}% 100%`;
+
+          if (minsElapsed >= 1440) {
+            clearInterval(submitBtn._intervalId);
+            submitBtn._intervalId = null;
+            submitBtn.classList.remove("btn-paused");
+          }
+        };
+
+        update();
+        submitBtn._intervalId = setInterval(update, 60000);
+      };
+
+      // On form submit
+      if (!localStorage.getItem(`was_prayed_for_${post.id}`)) {
+        localStorage.setItem(`was_prayed_for_${post.id}`, "false");
+      }
+
+      prayedCountForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Just for mock form submission
+        count++;
+
+        // localStorage instead of backend data fetch
+        localStorage.setItem(`prayed_count_${post.id}`, count);
+
+        submitCount.textContent = `Prayed for ${count} times`;
+        if (count === 1) footer.prepend(submitCount);
+
+        startTimer();
+
+        localStorage.setItem(`was_prayed_for_${post.id}`, "true");
+      });
+
+      const wasPrayedFor =
+        localStorage.getItem(`was_prayed_for_${post.id}`) === "true";
+
+      if (wasPrayedFor) startTimer();
     }
 
     postCard.append(header, postBody, footer);

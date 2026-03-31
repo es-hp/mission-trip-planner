@@ -1,14 +1,14 @@
 import "/src/css/main.css";
 import createSidebar from "./js/layout/sidebar";
 import createTopNav from "./js/layout/topnav";
-import { getCurrentDateTime } from "./js/core/api";
+import { getCurrentDateTimeStr } from "./js/core/api";
 import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
 
 /* Mock "current time and date" */
-const { currentDateTime } = await getCurrentDateTime();
-const now = Temporal.ZonedDateTime.from(currentDateTime);
+const currentDateTimeStr = await getCurrentDateTimeStr();
+const now = Temporal.ZonedDateTime.from(currentDateTimeStr);
 
 /* Login Page */
 if (mainID === "login") {
@@ -150,7 +150,8 @@ if (isLoggedIn) {
     const { default: userPrayers } =
       await import("./js/components/profile/userPrayers");
     const prayersDiv = document.querySelector(".user-prayers");
-    if (prayersDiv) userPrayers({ container: prayersDiv, user: currentUser });
+    if (prayersDiv)
+      userPrayers({ container: prayersDiv, user: currentUser, now });
   }
 } else if (mainID !== "login") {
   window.location.href = "/login.html";

@@ -16,14 +16,15 @@ export const getUsers = async () => {
  * In production, 'Temporal.Now.plainDateTimeISO()' would be used.
  * @returns {Promise<{currentDateTime: string}>}
  */
-export const getCurrentDateTime = async () => {
+export const getCurrentDateTimeStr = async () => {
   try {
     const response = await fetch("/src/data/current-date-time.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.json();
+    const data = await response.json();
+    return data.currentDateTime;
   } catch (error) {
     console.error("Failed to fetch current dateTime:", error);
-    return [];
+    return null;
   }
 };
 
