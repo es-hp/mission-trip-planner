@@ -5,15 +5,15 @@ import createTile from "../design-system/createTile";
 import { getUserPosts } from "@/js/core/api";
 import { authCheck } from "@/js/core/auth";
 
-export default async function userPrayers({ container, user }) {
-  const { isOwner, currentUser } = authCheck(user.id);
-  const posts = await getUserPosts(user.id);
+export default async function userPrayers({ container, profileUser }) {
+  const { isOwner, currentUser } = authCheck(profileUser.id);
+  const posts = await getUserPosts(profileUser.id);
 
   /* Prayer Requests Section Header */
   const header = createEl("header");
 
   const title = createEl("h2", {
-    textContent: `${user.profile.preferredName}'s Prayer Requests`,
+    textContent: `${profileUser.profile.preferredName}'s Prayer Requests`,
   });
 
   const addPostButton = createEl("button", { className: "add-post-btn" });
