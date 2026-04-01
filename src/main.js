@@ -1,5 +1,5 @@
 import "@/css/main.css";
-import { getCurrentDateTimeStr, getCurrentUser } from "@core/api";
+import { getCurrentDateTimeStr, getCurrentUser, getUserById } from "@core/api";
 import createSidebar from "@/js/layout/sidebar";
 import createTopNav from "@/js/layout/topnav";
 import { Temporal } from "@js-temporal/polyfill";
@@ -144,21 +144,23 @@ if (!isLoggedIn) {
 
   /* Profile Page */
   if (mainID === "profile") {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("userId");
+    const profileUser = await getUserById(`user_${id}`);
+
     const { default: userBio } =
       await import("./js/components/profile/userBio");
     const bioDiv = document.querySelector(".user-bio");
-    if (bioDiv) userBio({ container: bioDiv, user: currentUser });
+    if (bioDiv) userBio({ container: bioDiv, profileUser });
 
     const { default: userPrayers } =
       await import("./js/components/profile/userPrayers");
     const prayersDiv = document.querySelector(".user-prayers");
-    if (prayersDiv)
-      userPrayers({ container: prayersDiv, profileUser: currentUser });
+    if (prayersDiv) userPrayers({ container: prayersDiv, profileUser });
 
     const { default: userRoles } =
       await import("./js/components/profile/userRoles");
     const userRolesDiv = document.querySelector(".user-roles");
-    if (userRolesDiv)
-      userRoles({ container: userRolesDiv, profileUser: currentUser });
+    if (userRolesDiv) userRoles({ container: userRolesDiv, profileUser });
   }
 }

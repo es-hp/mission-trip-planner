@@ -27,6 +27,11 @@ export const getCurrentUser = async () => {
   return users.find((u) => u.id === currentUserId) ?? null;
 };
 
+export const getUserById = async (id) => {
+  const users = await getUsers();
+  return users.find((u) => u.id === id) ?? null;
+};
+
 /**
  * NOTE: Fetches a mock "current date and time" from the API to simulate
  * the current time to allow time-dependent features to be showcased

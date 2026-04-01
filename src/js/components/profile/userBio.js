@@ -1,7 +1,7 @@
 import { createEl } from "@core/utils";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default function userBio({ container, user }) {
+export default function userBio({ container, profileUser: user }) {
   const profilePic = createEl("img", {
     className: "profile-pic",
     src: user.profile.avatarURL,
