@@ -5,6 +5,7 @@ export default function createModal({
   onConfirm,
   confirmBtnText = "Confirm",
   onCancel,
+  removeCancelBtn = false,
 }) {
   const overlay = createEl("div", { className: "modal-overlay" });
   const modal = createEl("div", { className: "modal" });
@@ -44,7 +45,10 @@ export default function createModal({
     { once: true },
   );
 
-  actions.append(cancelBtn, confirmBtn);
+  removeCancelBtn
+    ? actions.append(confirmBtn)
+    : actions.append(cancelBtn, confirmBtn);
+
   modal.append(bodyText, actions);
   overlay.append(modal);
   document.body.append(overlay);

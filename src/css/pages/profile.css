@@ -70,6 +70,25 @@
 }
 
 /* Prayer Requests */
+.user-prayers .tile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add-post-btn {
+  aspect-ratio: 1/1;
+  padding: 0.25rem;
+  background-color: var(--color-action-icon-secondary-bg);
+  border: 1px solid var(--color-action-icon-secondary-border);
+  color: var(--color-action-icon-secondary);
+  transition: background-color 100ms ease;
+}
+
+.add-post-btn:hover {
+  background-color: var(--color-action-icon-secondary-bg-hover);
+}
+
 .user-prayers .tile-body,
 .open-posts,
 .closed-posts {
@@ -127,7 +146,7 @@
   color: var(--color-red);
 }
 
-/* Header: Post Actions */
+/* Post Header: Post Actions */
 .post-actions-dropdown {
   align-self: flex-start;
   margin-left: auto;
@@ -277,5 +296,34 @@
   align-self: flex-end;
   display: flex;
   gap: 0.75rem;
-  border: 1px solid green;
+}
+
+/* Create New Post Form */
+.new-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.new-post-form h3 {
+  font-size: var(--text-base);
+}
+
+.new-post-urgency-div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new-post-urgency-div label {
+  color: var(--color-text-muted);
+  text-wrap: nowrap;
+}
+
+.new-post-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }

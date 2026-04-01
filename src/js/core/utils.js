@@ -191,3 +191,38 @@ export const resizeTextareaHeight = (textarea) => {
     textarea.style.height = `${textarea.scrollHeight}px`;
   });
 };
+
+export const insertDescending = ({
+  container,
+  element,
+  createdTime,
+  elClassName,
+  timestampClass,
+}) => {
+  const elements = [...container.querySelectorAll(`.${elClassName}`)];
+  const nextElement = elements.find(
+    (el) =>
+      Temporal.Instant.compare(
+        Temporal.Instant.from(el.querySelector(`.${timestampClass}`).dateTime),
+        Temporal.Instant.from(createdTime),
+      ) === -1,
+  );
+  nextElement
+    ? container.insertBefore(element, nextElement)
+    : container.append(element);
+};
+
+/** Just a workaround to get "next post" id number. */
+export const getNextPostId = (posts) => {
+  if (!posts) return 1;
+
+  const existingIds = posts.flatMap((post) => [
+    post.id,
+    ...post.updates.map((update) => update.id),
+  ]);
+
+  const idNumbers = existingIds.map((id) => parseInt(id.split("_")[1]));
+  const maxNumber = Math.max(...idNumbers);
+
+  return maxNumber + 1;
+};

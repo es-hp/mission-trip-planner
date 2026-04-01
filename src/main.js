@@ -150,8 +150,7 @@ if (isLoggedIn) {
     const { default: userPrayers } =
       await import("./js/components/profile/userPrayers");
     const prayersDiv = document.querySelector(".user-prayers");
-    if (prayersDiv)
-      userPrayers({ container: prayersDiv, user: currentUser, now });
+    if (prayersDiv) userPrayers({ container: prayersDiv, user: currentUser });
   }
 } else if (mainID !== "login") {
   window.location.href = "/login.html";

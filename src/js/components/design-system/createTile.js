@@ -10,6 +10,7 @@ export default function createTile({ container, header, body }) {
       tileHeader.append(title);
       container.append(tileHeader);
     } else if (header instanceof Node) {
+      header.classList.add("tile-header");
       container.append(header);
     }
   }
