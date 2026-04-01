@@ -1,12 +1,12 @@
-import { createEl, createLucideIcon, getNextPostId } from "@utils";
+import { createEl, createLucideIcon, getNextPostId } from "@core/utils";
+import { authCheck } from "@core/auth";
+import { getUserPosts } from "@core/api";
 import createNewPostForm from "./createNewPostForm";
 import createPrayerRequestPost from "./createPrayerRequestPost";
 import createTile from "../design-system/createTile";
-import { getUserPosts } from "@/js/core/api";
-import { authCheck } from "@/js/core/auth";
 
 export default async function userPrayers({ container, profileUser }) {
-  const { isOwner, currentUser } = authCheck(profileUser.id);
+  const { isOwner, currentUser } = await authCheck(profileUser.id);
   const posts = await getUserPosts(profileUser.id);
 
   /* Prayer Requests Section Header */

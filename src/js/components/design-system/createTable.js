@@ -1,4 +1,4 @@
-import { createEl } from "@utils";
+import { createEl } from "@core/utils";
 
 export default function createTable(headers, rows, keys) {
   const tableWrapper = createEl("div", { className: "table-wrapper" });

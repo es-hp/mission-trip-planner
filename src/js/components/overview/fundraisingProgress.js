@@ -1,4 +1,4 @@
-import { createEl } from "@utils";
+import { createEl } from "@core/utils";
 import createTile from "../design-system/createTile";
 
 export default function fundraisingProgress({ container, tripDetails }) {

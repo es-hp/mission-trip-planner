@@ -1,5 +1,5 @@
-import { createEl, createLucideIcon, getCSSVar } from "@utils";
-import { logout } from "@/js/core/auth";
+import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
+import { logout } from "@core/auth";
 
 const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 

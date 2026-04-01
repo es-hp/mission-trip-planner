@@ -1,6 +1,11 @@
-import { getUsers } from "../../core/api";
+import {
+  createEl,
+  createNavLink,
+  createLucideIcon,
+  getCSSVar,
+} from "@core/utils";
+import { getUsers } from "@core/api";
 import createTable from "../design-system/createTable";
-import { createEl, createNavLink, createLucideIcon, getCSSVar } from "@utils";
 
 const successColor = getCSSVar("--color-success");
 

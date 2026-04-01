@@ -1,12 +1,30 @@
+let usersCache = null;
+
 export const getUsers = async () => {
+  if (usersCache) return usersCache;
+
   try {
     const response = await fetch("/src/data/users.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.json();
+    const data = await response.json();
+    usersCache = data;
+    return data;
   } catch (error) {
     console.error("Failed to fetch users:", error);
     return [];
   }
+};
+
+export const clearUsersCache = () => {
+  usersCache = null;
+};
+
+export const getCurrentUser = async () => {
+  const currentUserId = sessionStorage.getItem("current-user-id");
+  if (!currentUserId) return null;
+
+  const users = await getUsers();
+  return users.find((u) => u.id === currentUserId) ?? null;
 };
 
 /**

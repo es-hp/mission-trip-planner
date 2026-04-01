@@ -1,7 +1,7 @@
-import "/src/css/main.css";
-import createSidebar from "./js/layout/sidebar";
-import createTopNav from "./js/layout/topnav";
-import { getCurrentDateTimeStr } from "./js/core/api";
+import "@/css/main.css";
+import { getCurrentDateTimeStr, getCurrentUser } from "@core/api";
+import createSidebar from "@/js/layout/sidebar";
+import createTopNav from "@/js/layout/topnav";
 import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
@@ -24,9 +24,11 @@ if (mainID === "login") {
 }
 
 const isLoggedIn = sessionStorage.getItem("is-logged-in") === "true";
-const currentUser = JSON.parse(sessionStorage.getItem("current-user"));
+if (!isLoggedIn) {
+  window.location.href = "/login.html";
+} else {
+  const currentUser = await getCurrentUser();
 
-if (isLoggedIn) {
   /* Navigation */
   const { getTripDetails } = await import("./js/core/api");
   const tripDetails = await getTripDetails();
@@ -152,7 +154,11 @@ if (isLoggedIn) {
     const prayersDiv = document.querySelector(".user-prayers");
     if (prayersDiv)
       userPrayers({ container: prayersDiv, profileUser: currentUser });
+
+    const { default: userRoles } =
+      await import("./js/components/profile/userRoles");
+    const userRolesDiv = document.querySelector(".user-roles");
+    if (userRolesDiv)
+      userRoles({ container: userRolesDiv, profileUser: currentUser });
   }
-} else if (mainID !== "login") {
-  window.location.href = "/login.html";
 }

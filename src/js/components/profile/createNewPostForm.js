@@ -1,4 +1,4 @@
-import { createEl, resizeTextareaHeight } from "@utils";
+import { createEl, resizeTextareaHeight } from "@core/utils";
 import createModal from "../design-system/createModal";
 import createPrayerRequestPost from "./createPrayerRequestPost";
 import { Temporal } from "@js-temporal/polyfill";

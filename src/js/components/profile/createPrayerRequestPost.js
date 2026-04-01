@@ -6,7 +6,7 @@ import {
   getCSSVar,
   insertDescending,
   resizeTextareaHeight,
-} from "@utils";
+} from "@core/utils";
 import createDropdown from "../design-system/createDropdown";
 import createModal from "../design-system/createModal";
 import { Temporal } from "@js-temporal/polyfill";

@@ -1,5 +1,5 @@
-import { createEl, createLucideIcon, setupScrollShadows } from "@utils";
-import { getAssignments } from "../../core/api";
+import { createEl, createLucideIcon, setupScrollShadows } from "@core/utils";
+import { getAssignments } from "@core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 

@@ -1,5 +1,5 @@
-import { showInvalidMsg, clearInvalidMsgs, isEmailValid } from "@utils";
-import { getUsers } from "./api";
+import { showInvalidMsg, clearInvalidMsgs, isEmailValid } from "@core/utils";
+import { getUsers, getCurrentUser } from "@core/api";
 
 export const authenticate = async ({ emailInput, passwordInput }) => {
   const users = await getUsers();
@@ -11,7 +11,7 @@ export const authenticate = async ({ emailInput, passwordInput }) => {
   );
 
   if (match) {
-    sessionStorage.setItem("current-user", JSON.stringify(match));
+    sessionStorage.setItem("current-user-id", match.id);
   }
 
   return !!match;
@@ -79,11 +79,8 @@ export const logout = () => {
   window.location.href = "/login.html";
 };
 
-export const authCheck = (ownerId) => {
-  const currentUser = JSON.parse(
-    sessionStorage.getItem("current-user") ?? "null",
-  );
-  const currentUserId = currentUser?.id;
-  const isOwner = ownerId === currentUserId;
+export const authCheck = async (ownerId) => {
+  const currentUser = await getCurrentUser();
+  const isOwner = ownerId === currentUser.id;
   return { isOwner, currentUser };
 };
