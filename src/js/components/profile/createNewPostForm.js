@@ -7,7 +7,7 @@ export default function createNewPostForm({
   currentUser,
   openPosts,
   closedPosts,
-  isOwnProfile,
+  isOwner,
   nextPostIdNum,
   onPostCreated,
 }) {
@@ -114,7 +114,7 @@ export default function createNewPostForm({
         post: newPostObj,
         closedPosts,
         openPosts,
-        isOwnProfile,
+        isOwner,
       });
 
       submitNewPostBtn.disabled = false;

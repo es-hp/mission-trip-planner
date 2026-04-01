@@ -78,3 +78,12 @@ export const logout = () => {
   sessionStorage.clear();
   window.location.href = "/login.html";
 };
+
+export const authCheck = (ownerId) => {
+  const currentUser = JSON.parse(
+    sessionStorage.getItem("current-user") ?? "null",
+  );
+  const currentUserId = currentUser?.id;
+  const isOwner = ownerId === currentUserId;
+  return { isOwner, currentUser };
+};

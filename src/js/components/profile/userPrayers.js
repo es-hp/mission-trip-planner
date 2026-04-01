@@ -3,15 +3,11 @@ import createNewPostForm from "./createNewPostForm";
 import createPrayerRequestPost from "./createPrayerRequestPost";
 import createTile from "../design-system/createTile";
 import { getUserPosts } from "@/js/core/api";
+import { authCheck } from "@/js/core/auth";
 
 export default async function userPrayers({ container, user }) {
-  const profileUserId = user.id;
-  const posts = await getUserPosts(profileUserId);
-  const currentUser = JSON.parse(
-    sessionStorage.getItem("current-user") ?? "null",
-  );
-  const currentUserId = currentUser?.id;
-  const isOwnProfile = profileUserId === currentUserId;
+  const { isOwner, currentUser } = authCheck(user.id);
+  const posts = await getUserPosts(user.id);
 
   /* Prayer Requests Section Header */
   const header = createEl("header");
@@ -24,7 +20,7 @@ export default async function userPrayers({ container, user }) {
   const plusIcon = createLucideIcon("Plus");
   addPostButton.append(plusIcon);
 
-  if (isOwnProfile) {
+  if (isOwner) {
     header.append(addPostButton);
   }
 
@@ -49,7 +45,7 @@ export default async function userPrayers({ container, user }) {
       post,
       closedPosts,
       openPosts,
-      isOwnProfile,
+      isOwner,
     });
   });
 
@@ -67,7 +63,7 @@ export default async function userPrayers({ container, user }) {
         currentUser,
         closedPosts,
         openPosts,
-        isOwnProfile,
+        isOwner,
         nextPostIdNum,
         onPostCreated: () => nextPostIdNum++, // For the workaround to get next id
       });

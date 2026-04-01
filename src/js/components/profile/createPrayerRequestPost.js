@@ -19,7 +19,7 @@ export default function createPrayerRequestPost({
   post,
   closedPosts,
   openPosts,
-  isOwnProfile,
+  isOwner,
 }) {
   const postCard = createEl("article", {
     id: post.id,
@@ -210,6 +210,7 @@ export default function createPrayerRequestPost({
       message:
         "The prayer request and all its updates will be permanently deleted and cannot be undone. \n\nContinue to delete?",
       onConfirm: () => {
+        localStorage.removeItem(`prayed_count_${post.id}`);
         postCard.remove();
       },
       confirmBtnText: "Delete",
@@ -217,7 +218,7 @@ export default function createPrayerRequestPost({
   }
 
   /* Header: Post Actions Dropdown Menu */
-  if (isOwnProfile) {
+  if (isOwner) {
     const actionsDropdown = createEl("div", {
       className: "dropdown post-actions-dropdown",
     });
@@ -300,7 +301,7 @@ export default function createPrayerRequestPost({
 
   if (count > 0) footer.prepend(submitCount);
 
-  if (!isOwnProfile) {
+  if (!isOwner) {
     const prayedCountForm = createEl("form", {
       action: "#", // backend api URL
       className: "form-prayed-count",
