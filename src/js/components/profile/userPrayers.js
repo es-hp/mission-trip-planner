@@ -71,7 +71,5 @@ export default async function userPrayers({ container, profileUser }) {
     });
   }
 
-  container.classList.add("tile");
-
   createTile({ container, header, body });
 }
