@@ -32,8 +32,13 @@ export default function createPrayerRequestPost({
   const metadata = createEl("div", { className: "post-metadata" });
 
   // Header: Status dropdown
-  const statusEl = createEl("div", { className: "post-status-container" });
   const statusLabel = createEl("span", { textContent: "Status: " });
+  const statusEl = createEl("div", { className: "post-status-container" });
+
+  const statusText = createEl("span", {
+    textContent: post.status,
+    className: "post-status-text",
+  });
 
   let status = post.status;
 
@@ -88,7 +93,9 @@ export default function createPrayerRequestPost({
     }
   });
 
-  statusEl.append(statusLabel, statusDropdown);
+  isOwner
+    ? statusEl.append(statusLabel, statusDropdown)
+    : statusEl.append(statusLabel, statusText);
 
   // Header: Timestamp
   const { date, time, zdtAttribute } = formatDateTime(post.createdAt, {

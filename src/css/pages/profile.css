@@ -167,6 +167,11 @@
   font-weight: 600;
 }
 
+.post-status-text {
+  margin-left: 0.5rem;
+  text-transform: capitalize;
+}
+
 .post-timestamp {
   display: flex;
   align-items: center;
