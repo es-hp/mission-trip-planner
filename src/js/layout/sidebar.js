@@ -4,7 +4,7 @@ import {
   createLucideIcon,
   getCSSVar,
   capitalizeText,
-} from "@utils";
+} from "@core/utils";
 
 const MD_BREAKPOINT = parseFloat(getCSSVar("--bp-md"));
 

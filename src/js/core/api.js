@@ -1,12 +1,35 @@
+let usersCache = null;
+
 export const getUsers = async () => {
+  if (usersCache) return usersCache;
+
   try {
     const response = await fetch("/src/data/users.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.json();
+    const data = await response.json();
+    usersCache = data;
+    return data;
   } catch (error) {
     console.error("Failed to fetch users:", error);
     return [];
   }
+};
+
+export const clearUsersCache = () => {
+  usersCache = null;
+};
+
+export const getCurrentUser = async () => {
+  const currentUserId = sessionStorage.getItem("current-user-id");
+  if (!currentUserId) return null;
+
+  const users = await getUsers();
+  return users.find((u) => u.id === currentUserId) ?? null;
+};
+
+export const getUserById = async (id) => {
+  const users = await getUsers();
+  return users.find((u) => u.id === id) ?? null;
 };
 
 /**
@@ -16,14 +39,15 @@ export const getUsers = async () => {
  * In production, 'Temporal.Now.plainDateTimeISO()' would be used.
  * @returns {Promise<{currentDateTime: string}>}
  */
-export const getCurrentDateTime = async () => {
+export const getCurrentDateTimeStr = async () => {
   try {
     const response = await fetch("/src/data/current-date-time.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return response.json();
+    const data = await response.json();
+    return data.currentDateTime;
   } catch (error) {
     console.error("Failed to fetch current dateTime:", error);
-    return [];
+    return null;
   }
 };
 
@@ -56,6 +80,18 @@ export const getAssignments = async () => {
     return response.json();
   } catch (error) {
     console.error("Failed to fetch assignments:", error);
+    return [];
+  }
+};
+
+export const getUserPosts = async (userId) => {
+  const id = userId.split("_").at(-1);
+  try {
+    const response = await fetch(`/src/data/posts-user-${id}.json`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
     return [];
   }
 };

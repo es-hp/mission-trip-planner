@@ -1,5 +1,5 @@
-import { createEl } from "@utils";
-import { login } from "@/js/core/auth";
+import { createEl } from "@core/utils";
+import { login } from "@core/auth";
 
 export default function loginCard({ container }) {
   const leftContainer = createEl("div", { className: "login-left" });

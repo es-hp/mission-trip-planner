@@ -303,15 +303,6 @@
   background-color: var(--color-accent-past);
 }
 
-.week-block.passed {
-  opacity: 0.5;
-  transition: opacity 100ms ease;
-}
-
-.week-block.passed:hover {
-  opacity: 1;
-}
-
 .week-header-text {
   display: flex;
   flex-direction: column;
@@ -334,7 +325,7 @@
 .assignments-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .assignment-title {
@@ -379,13 +370,6 @@
   flex-direction: row;
   align-items: center;
   gap: 1.25rem;
-  transition:
-    background-color 100ms ease,
-    border 100ms ease;
-}
-
-.upcoming-events .card:hover {
-  background-color: var(--color-card-bg-hover);
 }
 
 .event-date-badge {

@@ -1,4 +1,8 @@
 import * as lucide from "lucide";
+import { Temporal } from "@js-temporal/polyfill";
+
+/* Custom Icon imports */
+import prayingHands from "@/icons/praying-hands.svg?raw";
 
 export const createEl = (type, props = {}) => {
   const element = document.createElement(type);
@@ -47,6 +51,31 @@ export const createLucideIcon = (
   iconSvg.style.flexShrink = "0";
 
   return iconSvg;
+};
+
+const customIcons = {
+  prayingHands,
+};
+
+export const domParser = new DOMParser();
+
+export const createCustomIcon = (rawSVG) => {
+  const doc = domParser.parseFromString(rawSVG, "image/svg+xml");
+  return doc.querySelector("svg");
+};
+
+export const createCardIcon = (iconName, type = "lucide") => {
+  let icon;
+  if (type === "lucide") {
+    icon = createLucideIcon(iconName);
+  } else if (type === "custom") {
+    const rawSVG = customIcons[iconName];
+    if (!rawSVG) throw new Error(`Custom icon "${iconName}" not found`);
+    icon = createCustomIcon(rawSVG);
+  }
+  const cardIcon = createEl("div", { className: "card-icon" });
+  cardIcon.append(icon);
+  return cardIcon;
 };
 
 export const formatTo12Hour = (time) => {
@@ -110,4 +139,89 @@ export const clearInvalidMsgs = (form) => {
 
 export const isEmailValid = (email) => {
   return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/.test(email);
+};
+
+/**
+ * Formats a date and time for display and use in a <time> element.
+ *
+ * @param {Temporal.ZonedDateTime | Temporal.Instant | string} dateTime
+ *   A Temporal object or ISO 8601 string with offset.
+ *   Example: "2025-05-07T12:04:00-04:00[America/New_York]"
+ * @param {object} [options]
+ * @param {"numeric" | "2-digit" | "short" | "long" | "narrow"} [options.month="numeric"]
+ * @param {"numeric" | "2-digit"} [options.day="numeric"]
+ * @param {"numeric" | "2-digit"} [options.year="numeric"]
+ * @param {"numeric" | "2-digit"} [options.hour="numeric"]
+ * @param {"numeric" | "2-digit"} [options.minute="2-digit"]
+ * @param {boolean} [options.hour12=true]
+ * @returns {{ date: string, time: string, zdtAttribute: string }}
+ */
+export const formatDateTime = (
+  dateTime,
+  {
+    month = "numeric",
+    day = "numeric",
+    year = "numeric",
+    hour = "numeric",
+    minute = "2-digit",
+    hour12 = true,
+  } = {},
+) => {
+  const utc = Temporal.Instant.from(dateTime);
+  const zdt = utc.toZonedDateTimeISO(Temporal.Now.timeZoneId());
+  const date = zdt.toPlainDate().toLocaleString("en-US", {
+    month,
+    day,
+    year,
+  });
+  const time = zdt.toPlainTime().toLocaleString("en-US", {
+    hour,
+    minute,
+    hour12,
+  });
+  const zdtAttribute = `${zdt.toPlainDateTime().toString().slice(0, 19)}${zdt.offset}`;
+
+  return { date, time, zdtAttribute };
+};
+
+export const resizeTextareaHeight = (textarea) => {
+  textarea.addEventListener("input", () => {
+    textarea.style.height = "auto";
+    textarea.style.height = `${textarea.scrollHeight}px`;
+  });
+};
+
+export const insertDescending = ({
+  container,
+  element,
+  createdTime,
+  elClassName,
+  timestampClass,
+}) => {
+  const elements = [...container.querySelectorAll(`.${elClassName}`)];
+  const nextElement = elements.find(
+    (el) =>
+      Temporal.Instant.compare(
+        Temporal.Instant.from(el.querySelector(`.${timestampClass}`).dateTime),
+        Temporal.Instant.from(createdTime),
+      ) === -1,
+  );
+  nextElement
+    ? container.insertBefore(element, nextElement)
+    : container.append(element);
+};
+
+/** Just a workaround to get "next post" id number. */
+export const getNextPostId = (posts) => {
+  if (!posts) return 1;
+
+  const existingIds = posts.flatMap((post) => [
+    post.id,
+    ...post.updates.map((update) => update.id),
+  ]);
+
+  const idNumbers = existingIds.map((id) => parseInt(id.split("_")[1]));
+  const maxNumber = Math.max(...idNumbers);
+
+  return maxNumber + 1;
 };

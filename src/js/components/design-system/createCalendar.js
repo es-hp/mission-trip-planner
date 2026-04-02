@@ -3,7 +3,7 @@ import {
   createLucideIcon,
   formatTo12Hour,
   observeWidth,
-} from "@utils";
+} from "@core/utils";
 
 export default function createCalendar({ container, data, scheduleKey, now }) {
   let selectedDate = now;

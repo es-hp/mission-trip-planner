@@ -1,5 +1,5 @@
-import { createEl, createLucideIcon, getCSSVar } from "@utils";
-import { logout } from "@/js/core/auth";
+import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
+import { logout } from "@core/auth";
 
 const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 
@@ -70,8 +70,14 @@ export default function createTopNav({
 
   const dropdownMenu = createEl("ul", { className: "dropdown-menu" });
 
+  const id = currentUser.id.split("_")[1];
+
   const links = [
-    { linkText: "profile", url: "#", icon: "UserRound" },
+    {
+      linkText: "profile",
+      url: `profile.html?userId=${id}`,
+      icon: "UserRound",
+    },
     { linkText: "link2", url: "#" },
   ];
 

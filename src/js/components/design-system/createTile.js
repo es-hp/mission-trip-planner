@@ -1,15 +1,16 @@
-import { createEl } from "@utils";
+import { createEl } from "@core/utils";
 
 export default function createTile({ container, header, body }) {
   container.classList.add("tile");
 
   if (header) {
     if (typeof header === "string") {
-      const tileHeader = createEl("div", { className: "tile-header" });
+      const tileHeader = createEl("header", { className: "tile-header" });
       const title = createEl("h2", { textContent: header });
       tileHeader.append(title);
       container.append(tileHeader);
     } else if (header instanceof Node) {
+      header.classList.add("tile-header");
       container.append(header);
     }
   }

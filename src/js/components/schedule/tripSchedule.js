@@ -1,5 +1,5 @@
-import { getTripSchedule } from "../../core/api";
-import { createEl, observeWidth } from "@utils";
+import { getTripSchedule } from "@core/api";
+import { createEl, observeWidth } from "@core/utils";
 
 export default async function tripSchedule(container, { onMount } = {}) {
   const scheduleData = await getTripSchedule();

@@ -1,5 +1,5 @@
-import { createEl, createLucideIcon, setupScrollShadows } from "@utils";
-import { getAssignments } from "../../core/api";
+import { createEl, createLucideIcon, setupScrollShadows } from "@core/utils";
+import { getAssignments } from "@core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 
@@ -46,7 +46,7 @@ export default async function assignments({ container: root, now }) {
     const assignmentsList = createEl("ul", { className: "assignments-list" });
 
     week.assignments.forEach((assignment) => {
-      const block = createEl("li", { className: "card" });
+      const card = createEl("li", { className: "card" });
       const title = createEl("span", {
         className: "assignment-title",
         textContent: assignment.title,
@@ -74,9 +74,10 @@ export default async function assignments({ container: root, now }) {
         resourceBlock.append(icon);
       });
 
-      block.append(title, details, resourceBlock);
-      assignmentsList.append(block);
+      card.append(title, details, resourceBlock);
+      assignmentsList.append(card);
     });
+
     weekBlock.append(weekHeader, assignmentsList);
 
     if (isPassed) {

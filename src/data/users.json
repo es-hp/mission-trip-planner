@@ -173,7 +173,7 @@
       }
     },
     "logistics": {
-      "roles": ["user", "youth"],
+      "roles": ["media", "youth"],
       "shirtSize": "M",
       "devoAssignment": "Wednesday AM",
       "fundraisingProgressPercent": 35
