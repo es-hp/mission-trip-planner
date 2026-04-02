@@ -1,5 +1,10 @@
 import "@/css/main.css";
-import { getCurrentDateTimeStr, getCurrentUser, getUserById } from "@core/api";
+import {
+  getCurrentDateTimeStr,
+  getUsers,
+  getCurrentUser,
+  getUserById,
+} from "@core/api";
 import createSidebar from "@/js/layout/sidebar";
 import createTopNav from "@/js/layout/topnav";
 import { Temporal } from "@js-temporal/polyfill";
@@ -27,6 +32,7 @@ const isLoggedIn = sessionStorage.getItem("is-logged-in") === "true";
 if (!isLoggedIn && mainID !== "login") {
   window.location.href = "/login.html";
 } else {
+  const users = await getUsers();
   const currentUser = await getCurrentUser();
 
   /* Navigation */
@@ -43,6 +49,7 @@ if (!isLoggedIn && mainID !== "login") {
       mainID,
       tripDetails,
       currentUser,
+      users,
     });
 
   /* Overview Page */

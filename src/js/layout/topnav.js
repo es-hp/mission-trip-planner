@@ -8,6 +8,7 @@ export default function createTopNav({
   mainID,
   tripDetails,
   currentUser,
+  users,
 } = {}) {
   const navContent = createEl("div", { className: "nav-content" });
 
@@ -28,21 +29,65 @@ export default function createTopNav({
   });
 
   /* Search Bar */
+  const searchBarWrapper = createEl("div", { className: "search-bar-wrapper" });
   const searchBar = createEl("div", { className: "search-bar" });
+  const searchInputDiv = createEl("div", { className: "search-input-div" });
 
   const searchInput = createEl("input", {
-    attributes: {
-      id: "search-input",
-      type: "text",
-      placeholder: "Search...",
-    },
+    id: "search-input",
+    type: "text",
+    placeholder: "Search user...",
+  });
+
+  const resultsDropdown = createEl("ul", {
+    className: "search-results-dropdown",
   });
 
   const handleSearch = () => {
-    const query = searchInput.value.trim();
+    const query = searchInput.value.trim().toLowerCase();
+
     if (!query) return;
-    window.location.href = `/search?q=${encodeURIComponent(query)}`;
+
+    const matches = users.filter((user) =>
+      user.profile.preferredName.toLowerCase().includes(query),
+    );
+
+    if (matches.length === 0) {
+      const noMatch = createEl("li", {
+        textContent: "No matching users found",
+        className: "search-result-none",
+      });
+      resultsDropdown.append(noMatch);
+      return;
+    }
+
+    matches.forEach((match) => {
+      const result = createEl("li", {
+        textContent: `${match.profile.preferredName} ${match.passport.lastName}`,
+        className: "search-result-li",
+      });
+
+      const id = match.id.split("_")[1];
+
+      result.addEventListener("click", () => {
+        window.location.href = `profile.html?userId=${id}`;
+      });
+      resultsDropdown.append(result);
+    });
   };
+
+  document.addEventListener("click", (e) => {
+    if (!searchBar.contains(e.target)) resultsDropdown.innerHTML = "";
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      resultsDropdown.innerHTML = "";
+      if (document.activeElement === searchInput) {
+        searchInput.value = "";
+      }
+    }
+  });
 
   const searchButton = createEl("button", { className: "search-btn" });
   const searchIcon = createLucideIcon("Search");
@@ -53,7 +98,9 @@ export default function createTopNav({
     if (e.key === "Enter") handleSearch();
   });
 
-  searchBar.append(searchInput, searchButton);
+  searchInputDiv.append(searchInput);
+  searchBar.append(searchInputDiv, searchButton);
+  searchBarWrapper.append(searchBar, resultsDropdown);
 
   /* Profile: Dropdown */
   const dropdown = createEl("div", { className: "dropdown" });
@@ -122,7 +169,7 @@ export default function createTopNav({
   /* Utility Nav */
   const utilityNav = createEl("nav", { className: "utility-nav" });
 
-  utilityNav.append(searchBar, dropdown);
+  utilityNav.append(searchBarWrapper, dropdown);
 
   /* Mount */
   if (mainID === "overview") {
