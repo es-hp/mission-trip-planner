@@ -30,10 +30,13 @@ export default function createTopNav({
   /* Search Bar */
   const searchBar = createEl("div", { className: "search-bar" });
 
-  const searchInput = createEl("input");
-  searchInput.setAttribute("id", "search-input");
-  searchInput.setAttribute("type", "text");
-  searchInput.setAttribute("placeholder", "Search...");
+  const searchInput = createEl("input", {
+    attributes: {
+      id: "search-input",
+      type: "text",
+      placeholder: "Search...",
+    },
+  });
 
   const handleSearch = () => {
     const query = searchInput.value.trim();
@@ -60,6 +63,7 @@ export default function createTopNav({
     className: "top-nav-avatar",
     alt: "profile",
     src: currentUser.profile.avatarURL,
+    dataset: { pinNopin: "true" },
   });
 
   const userIcon = createLucideIcon("CircleUserRound", { size: "2.25rem" });

@@ -20,6 +20,7 @@ export default async function membersTable(container) {
       src: user.profile.avatarURL,
       alt: user.profile.preferredName,
       className: "avatar",
+      dataset: { pinNopin: "true" },
     });
 
     const userName = `${user.profile.preferredName} ${user.passport.lastName}`;
