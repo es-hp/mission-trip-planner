@@ -6,7 +6,18 @@ import prayingHands from "@/icons/praying-hands.svg?raw";
 
 export const createEl = (type, props = {}) => {
   const element = document.createElement(type);
-  Object.assign(element, props);
+
+  for (const key in props) {
+    if (key === "dataset") {
+      Object.assign(element.dataset, props.dataset);
+    } else if (key === "attributes") {
+      for (const attr in props.attributes) {
+        element.setAttribute(attr, props.attributes[attr]);
+      }
+    } else {
+      element[key] = props[key];
+    }
+  }
   return element;
 };
 
