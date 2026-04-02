@@ -21,18 +21,18 @@ export const createEl = (type, props = {}) => {
   return element;
 };
 
-export const createNavLink = (text, href, target = "_self") => {
-  const link = document.createElement("a");
-  link.href = href;
-  link.target = target;
+// export const createNavLink = (text, href, target = "_self") => {
+//   const link = document.createElement("a");
+//   link.href = href;
+//   link.target = target;
 
-  const span = document.createElement("span");
-  span.textContent = text;
-  span.className = "link-text";
-  link.append(span);
+//   const span = document.createElement("span");
+//   span.textContent = text;
+//   span.className = "link-text";
+//   link.append(span);
 
-  return link;
-};
+//   return link;
+// };
 
 export const getCSSVar = (varName) =>
   getComputedStyle(document.documentElement).getPropertyValue(varName);
@@ -102,12 +102,6 @@ export const observeWidth = (element, callback) => {
   });
   resizeObserver.observe(element);
 };
-
-export const capitalizeText = (text) =>
-  text
-    .split(/[ -]+/)
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
 
 export const setupScrollShadows = (wrapper) => {
   const content = wrapper.querySelector(".scroll-content");
