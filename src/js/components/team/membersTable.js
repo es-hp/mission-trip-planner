@@ -11,7 +11,7 @@ const successColor = getCSSVar("--color-success");
 
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
-export default async function membersTable(container) {
+export default async function membersTable({ container }) {
   const users = await getUsers();
 
   /* Users data normalization */

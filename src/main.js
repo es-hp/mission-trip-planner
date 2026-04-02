@@ -99,7 +99,7 @@ if (!isLoggedIn && mainID !== "login") {
     const { default: membersTable } =
       await import("./js/components/team/membersTable");
     const teamContent = document.querySelector(".team-content");
-    if (teamContent) membersTable(teamContent);
+    if (teamContent) membersTable({ container: teamContent });
   }
 
   /* Finance Page */
