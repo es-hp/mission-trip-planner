@@ -37,6 +37,11 @@
   display: block;
 }
 
+.table-user {
+  color: var(--color-text);
+  transition: color 100ms ease;
+}
+
 /* Table Data */
 .roles-container {
   display: flex;

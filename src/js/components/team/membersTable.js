@@ -16,14 +16,23 @@ export default async function membersTable({ container }) {
 
   /* Users data normalization */
   const usersData = users.map((user) => {
-    const avatar = createEl("img", {
+    const id = user.id.split("_")[1];
+    const userProfileHref = `profile.html?userId=${id}`;
+
+    const avatar = createEl("a", { href: userProfileHref });
+    const avatarImg = createEl("img", {
       src: user.profile.avatarURL,
       alt: user.profile.preferredName,
       className: "avatar",
       dataset: { pinNopin: "true" },
     });
+    avatar.append(avatarImg);
 
-    const userName = `${user.profile.preferredName} ${user.passport.lastName}`;
+    const userName = createEl("a", {
+      href: userProfileHref,
+      textContent: `${user.profile.preferredName} ${user.passport.lastName}`,
+      className: "table-user",
+    });
 
     const email = createNavLink(
       user.personal.email,
