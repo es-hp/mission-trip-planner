@@ -102,14 +102,6 @@ if (!isLoggedIn && mainID !== "login") {
     if (teamContent) membersTable({ container: teamContent });
   }
 
-  /* Finance Page */
-  if (mainID === "finance") {
-    const { default: financeTable } =
-      await import("./js/components/finance/financeTable");
-    const financeContent = document.querySelector(".finance-content");
-    if (financeContent) financeTable(financeContent);
-  }
-
   /* Schedules Page */
   if (mainID === "schedule") {
     const { getTripDetails } = await import("./js/core/api");
@@ -140,6 +132,17 @@ if (!isLoggedIn && mainID !== "login") {
       await import("./js/components/schedule/scheduleTabNav");
     const tabNavDiv = document.querySelector("#schedule .tabNav");
     if (tabNavDiv) scheduleTabNav(tabNavDiv, mountCallbacks);
+  }
+
+  /* Under Construction Pages */
+  const pagesUnderConstruction = ["finance", "travel-details", "resources"];
+
+  if (pagesUnderConstruction.includes(mainID)) {
+    const { default: pageUnderConstruction } =
+      await import("./js/components/design-system/pageUnderConstruction");
+    const constructionPage = document.querySelector(`.${mainID}-content`);
+    if (constructionPage)
+      pageUnderConstruction({ container: constructionPage });
   }
 
   /* Profile Page */
