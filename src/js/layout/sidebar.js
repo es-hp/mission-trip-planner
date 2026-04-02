@@ -1,19 +1,13 @@
-import {
-  createEl,
-  createNavLink,
-  createLucideIcon,
-  getCSSVar,
-  capitalizeText,
-} from "@core/utils";
+import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
 
 const MD_BREAKPOINT = parseFloat(getCSSVar("--bp-md"));
 
 export default function createSidebar(container) {
-  // State
+  /* State */
   let sidebarSetting = localStorage.getItem("sidebarState"); // "open" | "closed" | null
   let wasAboveMdBreakPoint = window.innerWidth >= MD_BREAKPOINT;
 
-  // Sidebar Header
+  /* Sidebar Header */
   const sidebarHeader = createEl("div", { className: "sidebar-header" });
   const sidebarLogo = createEl("div", { className: "sidebar-logo" });
 
@@ -42,7 +36,7 @@ export default function createSidebar(container) {
 
   sidebarHeader.append(sidebarLogo, iconCollapse, expandButton);
 
-  // Sidebar Body
+  /* Sidebar Body */
   const sidebarBody = createEl("nav", { className: "sidebar-body" });
 
   const pageIcons = {
@@ -55,13 +49,18 @@ export default function createSidebar(container) {
   };
 
   Object.entries(pageIcons).forEach(([pageName, iconName]) => {
-    const linkText = capitalizeText(pageName);
-
-    const linkGroup = createNavLink(linkText, `/${pageName}.html`);
+    const linkGroup = createEl("a", {
+      className: "navlink-group",
+      id: `navlink-group-${pageName}`,
+    });
     const icon = createLucideIcon(iconName);
-    linkGroup.prepend(icon);
-    linkGroup.classList.add("navlink-group");
-    linkGroup.id = `navlink-group-${pageName}`;
+    const linkText = createEl("span", {
+      textContent: pageName,
+      className: "navlink-text",
+      href: `/${pageName}.html`,
+    });
+
+    linkGroup.append(icon, linkText);
     sidebarBody.append(linkGroup);
 
     if (window.location.pathname === `/${pageName}.html`) {
@@ -71,11 +70,50 @@ export default function createSidebar(container) {
     }
   });
 
-  // Mount
-  container.append(sidebarHeader, sidebarBody);
+  /* Sidebar Footer: Theme Change */
+  const sidebarFooter = createEl("div", { className: "sidebar-footer" });
 
-  // Sidebar Open/Close
-  function setSidebarOpen(open, animate = true) {
+  const themeToggleWrapper = createEl("div", {
+    className: "theme-toggle-wrapper",
+  });
+  const themeToggle = createEl("label", { className: "theme-toggle" });
+
+  const themeText = createEl("span", {
+    className: "theme-toggle-text",
+    textContent: "Switch to Light Mode",
+  });
+
+  const themeToggleInput = createEl("input", {
+    type: "checkbox",
+    className: "theme-toggle-input",
+  });
+  const themeToggleTrack = createEl("span", {
+    className: "theme-toggle-track",
+  });
+  const themeToggleThumb = createEl("span", {
+    className: "theme-toggle-thumb",
+  });
+
+  themeToggleTrack.append(themeToggleThumb);
+  themeToggle.append(themeToggleInput, themeToggleTrack);
+  themeToggleWrapper.append(themeToggle, themeText);
+
+  sidebarFooter.append(themeToggleWrapper);
+
+  /* Mount */
+  container.append(sidebarHeader, sidebarBody, sidebarFooter);
+
+  /* Toggle Element Visibility */
+  // Elements to toggle visibility
+  const linkTexts = sidebarBody.querySelectorAll(".navlink-text");
+  const sidebarTexts = [...linkTexts, themeText];
+
+  const transitionVisibility = (openSidebar, elements = sidebarTexts) => {
+    elements.forEach((el) => el.classList.toggle("hide", !openSidebar));
+  };
+
+  /* Sidebar Open/Close */
+  const setSidebarOpen = (open, { animate = true, onComplete } = {}) => {
     const isOpen = !container.classList.contains("close");
 
     if (open === isOpen) return;
@@ -91,6 +129,7 @@ export default function createSidebar(container) {
       container.classList.remove("opening");
       container.classList.remove("closing");
       container.removeEventListener("transitionend", handleTransitionEnd);
+      if (onComplete) onComplete();
     };
 
     container.addEventListener("transitionend", handleTransitionEnd);
@@ -104,7 +143,7 @@ export default function createSidebar(container) {
       container.classList.add("closing");
       container.classList.add("close");
     }
-  }
+  };
 
   function saveSidebarSetting(state) {
     sidebarSetting = state;
@@ -115,35 +154,43 @@ export default function createSidebar(container) {
     }
   }
 
-  // Toggle
+  /* Toggle Navbar Open/Close */
   sidebarHeader.addEventListener("click", (e) => {
     if (e.target.closest(".nav-toggle")) {
       e.preventDefault();
       const isOpen = !container.classList.contains("close");
       if (isOpen) {
         saveSidebarSetting("closed");
-        setSidebarOpen(false);
+        setSidebarOpen(false, {
+          onComplete: () => transitionVisibility(false),
+        });
       } else {
         saveSidebarSetting("open");
+        transitionVisibility(true);
         setSidebarOpen(true);
       }
     }
   });
 
-  // Window Resize
+  /* Window Resize */
   window.addEventListener("resize", () => {
     const isMobile = window.innerWidth < MD_BREAKPOINT;
     const crossedToMobile = wasAboveMdBreakPoint && isMobile;
     const crossedToDesktop = !wasAboveMdBreakPoint && !isMobile;
 
     if (crossedToMobile && sidebarSetting === "open") {
-      setSidebarOpen(false);
+      setSidebarOpen(false, {
+        onComplete: () => transitionVisibility(false),
+      });
     }
 
     if (crossedToDesktop && sidebarSetting === "open") {
+      transitionVisibility(true);
       setSidebarOpen(true);
     }
 
     wasAboveMdBreakPoint = !isMobile;
   });
+
+  /* Toggle Theme */
 }
