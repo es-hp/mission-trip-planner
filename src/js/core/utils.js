@@ -21,19 +21,6 @@ export const createEl = (type, props = {}) => {
   return element;
 };
 
-// export const createNavLink = (text, href, target = "_self") => {
-//   const link = document.createElement("a");
-//   link.href = href;
-//   link.target = target;
-
-//   const span = document.createElement("span");
-//   span.textContent = text;
-//   span.className = "link-text";
-//   link.append(span);
-
-//   return link;
-// };
-
 export const getCSSVar = (varName) =>
   getComputedStyle(document.documentElement).getPropertyValue(varName);
 

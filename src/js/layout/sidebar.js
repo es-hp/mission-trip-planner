@@ -78,14 +78,12 @@ export default function createSidebar(container) {
   });
   const themeToggle = createEl("label", { className: "theme-toggle" });
 
-  const themeText = createEl("span", {
-    className: "theme-toggle-text",
-    textContent: "Switch to Light Mode",
-  });
+  const themeText = createEl("span", { className: "theme-toggle-text" });
 
   const themeToggleInput = createEl("input", {
     type: "checkbox",
     className: "theme-toggle-input",
+    attribute: { checked: false }, // default light mode
   });
   const themeToggleTrack = createEl("span", {
     className: "theme-toggle-track",
@@ -99,6 +97,38 @@ export default function createSidebar(container) {
   themeToggleWrapper.append(themeToggle, themeText);
 
   sidebarFooter.append(themeToggleWrapper);
+
+  // Set initial theme
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const savedTheme = localStorage.getItem("theme");
+  const theme = savedTheme ?? (prefersDark ? "dark" : "light");
+
+  const setTheme = (theme, onToggle = false) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    themeText.textContent = `Switch to ${theme === "dark" ? "light" : "dark"} mode`;
+    if (onToggle) {
+      localStorage.setItem("theme", theme);
+    } else {
+      themeToggleInput.checked = theme === "dark";
+    }
+  };
+
+  setTheme(theme);
+
+  // Theme change on toggle function
+  themeToggleInput.addEventListener("change", (e) => {
+    const theme = e.target.checked ? "dark" : "light";
+    setTheme(theme, true);
+  });
+
+  // Theme change on OS appearance setting change
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      const theme = e.matches ? "dark" : "light";
+      localStorage.removeItem("theme");
+      setTheme(theme);
+    });
 
   /* Mount */
   container.append(sidebarHeader, sidebarBody, sidebarFooter);

@@ -191,6 +191,12 @@
   gap: 1rem;
   width: 100%;
   padding-left: 2px;
+  opacity: 0.75;
+  transition: opacity 200ms ease;
+}
+
+.theme-toggle-wrapper:hover {
+  opacity: 1;
 }
 
 .theme-toggle-text {
@@ -212,25 +218,28 @@
 .theme-toggle-track {
   display: flex;
   align-items: center;
-  width: 2.5rem;
+  width: 2.75rem;
   height: 1.5rem;
-  background-color: var(--color-sidebar-icon-expand-bg);
-  border-radius: 999px;
   padding: 0.125rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-sidebar-icon-expand-bg);
   cursor: pointer;
-  transition: background-color 150ms ease;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
 }
 
 .theme-toggle-thumb {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.125rem;
+  height: 1.125rem;
   background-color: var(--color-primary);
   border-radius: 50%;
   transition: transform 200ms ease;
 }
 
 .theme-toggle-input:checked + .theme-toggle-track {
-  background-color: var(--color-light-grey-100);
+  background-color: var(--color-dark-grey-200);
 }
 
 .theme-toggle-input:checked + .theme-toggle-track .theme-toggle-thumb {
