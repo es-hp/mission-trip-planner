@@ -1,9 +1,4 @@
-import {
-  createEl,
-  createNavLink,
-  createLucideIcon,
-  getCSSVar,
-} from "@core/utils";
+import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
 import { getUsers } from "@core/api";
 import createTable from "../design-system/createTable";
 
@@ -11,9 +6,7 @@ const successColor = getCSSVar("--color-success");
 
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
-export default async function membersTable({ container }) {
-  const users = await getUsers();
-
+export default async function membersTable({ container, users }) {
   /* Users data normalization */
   const usersData = users.map((user) => {
     const id = user.id.split("_")[1];
@@ -34,11 +27,10 @@ export default async function membersTable({ container }) {
       className: "table-user",
     });
 
-    const email = createNavLink(
-      user.personal.email,
-      `mailto:${user.personal.email}`,
-      "_blank",
-    );
+    const email = createEl("a", {
+      textContent: user.personal.email,
+      href: `mailto:${user.personal.email}`,
+    });
 
     const [area, prefix, line] = user.personal.phone.split("-");
     const phoneNumber = `(${area}) ${prefix}-${line}`;
@@ -81,11 +73,10 @@ export default async function membersTable({ container }) {
       color: successColor,
     });
 
-    const senderEmail = createNavLink(
-      user.church.sender.email,
-      `mailto:${user.church.sender.email}`,
-      "_blank",
-    );
+    const senderEmail = createEl("a", {
+      textContent: user.church.sender.email,
+      href: `mailto:${user.church.sender.email}`,
+    });
 
     return {
       avatar,
