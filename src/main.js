@@ -106,7 +106,7 @@ if (!isLoggedIn && mainID !== "login") {
     const { default: membersTable } =
       await import("./js/components/team/membersTable");
     const teamContent = document.querySelector(".team-content");
-    if (teamContent) membersTable({ container: teamContent });
+    if (teamContent) membersTable({ container: teamContent, users });
   }
 
   /* Schedules Page */
