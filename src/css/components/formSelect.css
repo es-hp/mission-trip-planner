@@ -1,10 +1,10 @@
-.dropdown {
+.select-container {
   position: relative;
   align-self: flex-start;
   display: inline-block;
 }
 
-.dropdown-select {
+.form-select {
   position: relative;
   appearance: none;
   -webkit-appearance: none;
@@ -22,11 +22,11 @@
   z-index: 1;
 }
 
-.dropdown-select:hover {
+.form-select:hover {
   border: 1px solid var(--color-primary-faded);
 }
 
-.dropdown-arrow {
+.select-down-arrow {
   position: absolute;
   right: 0.5rem;
   top: 50%;

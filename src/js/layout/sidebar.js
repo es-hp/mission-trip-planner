@@ -52,12 +52,12 @@ export default function createSidebar(container) {
     const linkGroup = createEl("a", {
       className: "navlink-group",
       id: `navlink-group-${pageName}`,
+      href: `/${pageName}.html`,
     });
     const icon = createLucideIcon(iconName);
     const linkText = createEl("span", {
       textContent: pageName,
       className: "navlink-text",
-      href: `/${pageName}.html`,
     });
 
     linkGroup.append(icon, linkText);

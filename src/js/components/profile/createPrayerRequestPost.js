@@ -7,7 +7,7 @@ import {
   insertDescending,
   resizeTextareaHeight,
 } from "@core/utils";
-import createDropdown from "../design-system/createDropdown";
+import createFormSelect from "../design-system/createFormSelect";
 import createModal from "../design-system/createModal";
 import { Temporal } from "@js-temporal/polyfill";
 
@@ -55,11 +55,12 @@ export default function createPrayerRequestPost({
     },
   ];
 
-  const { dropdown: statusDropdown, select: statusSelect } = createDropdown({
-    dropdownName: "status",
-    dropdownId: "post-status",
-    optionsArr,
-  });
+  const { selectContainer: statusSelectContainer, select: statusSelect } =
+    createFormSelect({
+      formSelectName: "status",
+      formSelectId: "post-status",
+      optionsArr,
+    });
 
   const statusColors = { open: openColor, closed: closedColor };
   const statusWidths = { open: "4.25rem", closed: "5rem" };
@@ -94,7 +95,7 @@ export default function createPrayerRequestPost({
   });
 
   isOwner
-    ? statusEl.append(statusLabel, statusDropdown)
+    ? statusEl.append(statusLabel, statusSelectContainer)
     : statusEl.append(statusLabel, statusText);
 
   // Header: Timestamp
@@ -227,10 +228,10 @@ export default function createPrayerRequestPost({
   /* Header: Post Actions Dropdown Menu */
   if (isOwner) {
     const actionsDropdown = createEl("div", {
-      className: "dropdown post-actions-dropdown",
+      className: "dropdown-menu-container post-actions-dropdown",
     });
     const actionsMenuToggle = createEl("button", {
-      className: "post-actions-toggle",
+      className: "post-actions-toggle btn-action-secondary",
     });
     const ellipsis = createLucideIcon("Ellipsis");
 

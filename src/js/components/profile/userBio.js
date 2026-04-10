@@ -6,7 +6,7 @@ export default function userBio({ container, profileUser: user }) {
     className: "profile-pic",
     src: user.profile.avatarURL,
   });
-  const profileBio = createEl("div", { className: "profile-bio" });
+  const profileBio = createEl("section", { className: "profile-bio" });
   const infoWrapper = createEl("div", { className: "bio-info-wrapper" });
   const infoLabels = createEl("div", { className: "bio-info-labels" });
   const infoValues = createEl("div", { className: "bio-info-values" });

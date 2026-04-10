@@ -16,7 +16,9 @@ export default async function userPrayers({ container, profileUser }) {
     textContent: `${profileUser.profile.preferredName}'s Prayer Requests`,
   });
 
-  const addPostButton = createEl("button", { className: "add-post-btn" });
+  const addPostButton = createEl("button", {
+    className: "add-post-btn btn-action-secondary",
+  });
   const plusIcon = createLucideIcon("Plus");
   addPostButton.append(plusIcon);
 

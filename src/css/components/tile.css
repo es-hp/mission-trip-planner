@@ -23,3 +23,7 @@
   flex-direction: column;
   gap: 2.5rem;
 }
+
+.content section {
+  box-shadow: var(--box-shadow);
+}

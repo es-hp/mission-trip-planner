@@ -19,9 +19,7 @@
   min-height: 36.25rem;
   padding: 0;
   overflow: hidden;
-  box-shadow:
-    0 0 6px rgba(0, 0, 0, 0.1),
-    0 0 15px rgba(0, 0, 0, 0.125);
+  box-shadow: var(--box-shadow-login);
 }
 
 .login-logo-container {
@@ -37,7 +35,7 @@
 
 .login-logo {
   position: relative;
-  width: 80%;
+  width: 100%;
   max-height: 7rem;
   aspect-ratio: 1783/327;
   object-fit: contain;
@@ -57,6 +55,8 @@
   gap: 2rem;
   padding: 3.5rem;
   background-color: var(--color-login-card-bg-opacity);
+  backdrop-filter: blur(0.125rem);
+  -webkit-backdrop-filter: blur(0.125rem);
   color: var(--color-text);
 }
 
@@ -160,6 +160,9 @@
   .login-card {
     flex-direction: row;
     min-height: 33.375rem;
+  }
+  .login-logo {
+    width: 80%;
   }
   .login-left {
     gap: 4rem;

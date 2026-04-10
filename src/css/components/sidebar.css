@@ -13,6 +13,7 @@
   overflow: hidden;
   z-index: 10;
   transition: width 1000ms ease-in-out;
+  box-shadow: var(--box-shadow-x);
 }
 
 .sidebar.close {
@@ -83,7 +84,7 @@
 /* Collapse / Expand Icons */
 
 .icon-collapse {
-  color: var(--color-sidebar-icon-collapse);
+  color: var(--color-sidebar-icon);
   opacity: 65%;
   transition: opacity 100ms ease-in-out;
 }
@@ -104,7 +105,7 @@
   width: 3rem;
   height: 3rem;
   border-radius: 0.375rem;
-  background-color: var(--color-sidebar-icon-expand-bg);
+  background-color: var(--color-sidebar-icon-bg-hover);
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease-in-out;
@@ -125,7 +126,7 @@
 }
 
 .expand-btn .icon-expand {
-  color: var(--color-sidebar-icon-expand);
+  color: var(--color-sidebar-icon);
 }
 
 .nav-toggle {
@@ -145,7 +146,7 @@
   gap: 1rem;
   padding: 0.75rem;
   border-radius: 0.375rem;
-  color: var(--color-sidebar-navlink);
+  color: var(--color-sidebar-link-text);
   font-family: var(--font-display);
   overflow: hidden;
   cursor: pointer;
@@ -155,7 +156,8 @@
 }
 
 .navlink-group:hover {
-  background-color: var(--color-sidebar-navlink-bg-hover);
+  background-color: var(--color-sidebar-link-bg-hover);
+  color: var(--color-sidebar-link-text-hover);
 }
 
 .navlink-group.active {
@@ -222,8 +224,8 @@
   height: 1.5rem;
   padding: 0.125rem;
   border-radius: 999px;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-sidebar-icon-expand-bg);
+  border: 1px solid var(--color-sidebar-toggle-border);
+  background-color: var(--color-sidebar-toggle-bg);
   cursor: pointer;
   transition:
     background-color 150ms ease,

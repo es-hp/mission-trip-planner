@@ -2,20 +2,22 @@ import createTabNav from "../design-system/createTabNav";
 
 export default function scheduleTabNav(tabNavContainer, mountCallbacks = {}) {
   const mainID = document.querySelector("main")?.id;
-  const containers = [...document.querySelectorAll(`#${mainID} .tabNav ~ div`)];
+  const sections = [
+    ...document.querySelectorAll(`#${mainID} .tabNav ~ section`),
+  ];
   const contentDiv = document.querySelector(`#${mainID} .content`);
 
-  const tabs = containers.map((container) => ({
-    tabTitle: container.dataset.tabTitle,
+  const tabs = sections.map((section) => ({
+    tabTitle: section.dataset.tabTitle,
   }));
 
   const changeContent = (key) => {
-    containers.forEach((container) => {
-      if (container.dataset.tabTitle == key) {
-        contentDiv.append(container);
+    sections.forEach((section) => {
+      if (section.dataset.tabTitle == key) {
+        contentDiv.append(section);
         mountCallbacks[key]?.();
       } else {
-        container.remove();
+        section.remove();
       }
     });
   };
@@ -28,6 +30,6 @@ export default function scheduleTabNav(tabNavContainer, mountCallbacks = {}) {
   );
 
   const savedKey =
-    sessionStorage.getItem(storageKey) ?? containers[0].dataset.tabTitle;
+    sessionStorage.getItem(storageKey) ?? sections[0].dataset.tabTitle;
   tabNavContainer.querySelector(`[data-tab="${savedKey}"]`).click();
 }

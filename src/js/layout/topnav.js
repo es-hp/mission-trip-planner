@@ -103,7 +103,7 @@ export default function createTopNav({
   searchBarWrapper.append(searchBar, resultsDropdown);
 
   /* Profile: Dropdown */
-  const dropdown = createEl("div", { className: "dropdown" });
+  const dropdown = createEl("div", { className: "dropdown-menu-container" });
   const dropdownBtn = createEl("button", { id: "topnav-dropdown-btn" });
 
   const userImg = createEl("img", {
@@ -138,28 +138,29 @@ export default function createTopNav({
       textContent: link.linkText,
       href: link.url,
     });
-    linkLi.append(linkEl);
     const icon = link.icon
       ? createLucideIcon(link.icon, { size: `${dropdownIconSize}` })
       : null;
-    if (icon) linkLi.prepend(icon);
+    if (icon) linkEl.prepend(icon);
+    linkLi.append(linkEl);
     dropdownMenu.append(linkLi);
   });
 
   const dividerLi = createEl("li", { className: "dropdown-divider-li" });
   const divider = createEl("hr");
 
-  dividerLi.style.padding = "0 1rem";
   dividerLi.append(divider);
 
   const logoutLinkLi = createEl("li", { className: "dropdown-li logout-li" });
-  const logoutLinkEl = createEl("button", { className: "logout-btn" });
+  const logoutLinkEl = createEl("button", {
+    className: "logout-btn",
+    textContent: "Sign out",
+  });
   const logoutIcon = createLucideIcon("LogOut", {
     size: `${dropdownIconSize}`,
   });
-  const logoutLabel = createEl("span", { textContent: "Sign out" });
 
-  logoutLinkEl.append(logoutIcon, logoutLabel);
+  logoutLinkEl.prepend(logoutIcon);
   logoutLinkLi.append(logoutLinkEl);
 
   dropdownMenu.append(dividerLi, logoutLinkLi);

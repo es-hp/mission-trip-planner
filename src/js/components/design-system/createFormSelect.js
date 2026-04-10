@@ -2,8 +2,8 @@ import { createEl } from "@core/utils";
 
 /**
  * @param {object} params
- * @param {string} params.dropdownName
- * @param {string} params.dropdownId
+ * @param {string} params.formSelectName
+ * @param {string} params.formSelectId
  * @param {Array<{
  *   value: string,
  *   textContent: string,
@@ -11,34 +11,34 @@ import { createEl } from "@core/utils";
  *   selected: boolean
  * }>} optionsArr
  */
-export default function createDropdown({
-  dropdownName,
-  dropdownId,
+export default function createFormSelect({
+  formSelectName,
+  formSelectId,
   optionsArr,
 }) {
   if (!Array.isArray(optionsArr)) return;
 
-  const dropdown = createEl("div", { className: "dropdown" });
-  const label = createEl("label", { className: "dropdown-label" });
+  const selectContainer = createEl("div", { className: "select-container" });
+  const label = createEl("label", { className: "select-label" });
   const select = createEl("select", {
-    name: dropdownName,
-    id: dropdownId,
-    className: "dropdown-select",
+    name: formSelectName,
+    id: formSelectId,
+    className: "form-select",
   });
   const arrow = createEl("span", {
     textContent: "▾",
-    className: "dropdown-arrow",
+    className: "select-down-arrow",
   });
 
   optionsArr.forEach((option) => {
     const optionEl = createEl("option", {
       ...option,
-      className: "dropdown-option",
+      className: "select-option",
     });
     select.append(optionEl);
   });
 
   label.append(select);
-  dropdown.append(label, arrow);
-  return { dropdown, select };
+  selectContainer.append(label, arrow);
+  return { selectContainer, select };
 }

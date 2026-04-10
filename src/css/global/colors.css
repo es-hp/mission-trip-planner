@@ -1,58 +1,67 @@
-:root {
-  /* Color Palette */
-  /* Greyscale Colors */
-  --color-white: #ffffff;
+/* ====== THEME VARIABLES ====== */
 
-  --color-light-grey-100: #f5f4f2;
-  --color-light-grey-100-95: rgb(245, 244, 242, 0.95);
-  --color-light-grey-200: #f0eee8;
-  --color-light-grey-300: #e2e0dc;
-  --color-light-grey-400: #c0beb9;
+:root,
+[data-theme="light"] {
+  /* --- Color Palette --- */
 
-  --color-medium-grey-100: #9e9c97;
-  --color-medium-grey-200: #89867e;
-  --color-medium-grey-300: #706e66;
-  --color-medium-grey-400: #58564f;
-  --color-medium-grey-400-65: rgb(88, 86, 79, 0.65);
-
-  --color-dark-grey-100: #454441;
-  --color-dark-grey-200: #3b3a37;
-  --color-dark-grey-300: #2d2b29;
-  --color-dark-grey-400: #262523;
-  --color-dark-grey-400-90: rgb(38, 37, 35, 0.9);
-
+  /* Neutral Palette */
+  --color-white: #faf9f7;
+  --color-white-20: rgb(250 249 247 / 0.2);
+  --color-white-40: rgb(250 249 247 / 0.4);
+  --color-white-50: rgb(250 249 247 / 0.5);
+  --color-white-70: rgb(250 249 247 / 0.7);
+  --color-white-80: rgb(250 249 247 / 0.8);
+  --color-neutral-25: #f2f0ed;
+  --color-neutral-50: #e9e7e2;
+  --color-neutral-50-90: rgb(233 231 226 / 0.9);
+  --color-neutral-100: #d1cfc9;
+  --color-neutral-100-50: rgb(209 207 201 / 0.5);
+  --color-neutral-100-70: rgb(209 207 201 / 0.7);
+  --color-neutral-200: #cac7c0;
+  --color-neutral-300: #b5b2ab;
+  --color-neutral-400: #9a9690;
+  --color-neutral-500: #89867e;
+  --color-neutral-600: #706e66;
+  --color-neutral-700: #58564f;
+  --color-neutral-700-60: rgb(88 86 79 / 0.6);
+  --color-neutral-800: #3b3a37;
+  --color-neutral-800-50: rgb(59 58 55 / 0.5);
+  --color-neutral-900: #262522;
+  --color-neutral-950: #1f1e1c;
   --color-black: #171614;
-  --color-black-75: rgb(23, 22, 20, 0.75);
+  --color-black-10: rgb(23 22 20 / 0.1);
+  --color-black-20: rgb(23 22 20 / 0.2);
+  --color-black-30: rgb(23 22 20 / 0.3);
+  --color-black-40: rgb(23 22 20 / 0.4);
+  --color-black-50: rgb(23 22 20 / 0.5);
+  --color-black-60: rgb(23 22 20 / 0.6);
+  --color-black-70: rgb(23 22 20 / 0.7);
+  --color-black-80: rgb(23 22 20 / 0.8);
+  --color-black-90: rgb(23 22 20 / 0.9);
 
-  /* Primary Colors */
+  /* Primary Palette */
   --color-primary: #ff4200;
-  --color-primary-light: #ff6b35;
-  --color-primary-faded: #ff7a52;
+  --color-primary-250: #fec9b5;
+  --color-primary-500: #fd9478;
+  --color-primary-750: #fc5f3b;
+  --color-primary-light: #fff3e8;
+  --color-primary-deep: #c4572a;
+  --color-primary-dark: #3c2a24;
 
   /* Secondary Palette */
-  --color-burnt-sienna: #c4572a;
   --color-amber-gold: #f0a500;
-  --color-warm-tan: #c4a882;
 
-  /* Tertiary Palette - Light Mode */
-  --color-pale-sienna: #fff3e8;
-  --color-brick-light: #ffe0d4;
-  --color-terracotta-dark: #a83000;
+  --color-warm-tan-light: #c4a882;
+  --color-warm-tan-dark: #ad7644;
+
   --color-slate-white: #f3f6ff;
+  --color-slate-light: #8c91ae;
+  --color-slate-light-50: rgb(140 145 174 / 0.5);
+  --color-slate-grey: #868792;
   --color-slate-dark: #4a4d5e;
-  --color-slate-dark-muted: #868792;
-  --color-yellow-light: #fff5d9;
+  --color-slate-black: #2d2d30;
 
-  /* Tertiary Palette - Dark Mode */
-  --color-brown-sienna: #3c2a24;
-  --color-amber-brown: #3d1a0e;
-  --color-brick-dark: #6b1a00;
-  --color-terracotta-light: #ff9070;
-  --color-slate-light: #8b8fa8;
-  --color-slate-grey: #2d2d30;
-  --color-yellow-dark: #ce8924;
-
-  /* Functional Colors Palette */
+  /* Functional Color Palette */
   --color-red: #f22c2c;
   --color-red-pastel: #ffd6d2;
   --color-red-muted: #c61300;
@@ -78,15 +87,21 @@
   --color-purple-muted: #6149b7;
   --color-purple-dark: #4a1a6b;
 
-  /* Color Mapping */
-  /* Primary Button Colors */
-  --color-button-primary-bg: var(--color-primary);
-  --color-button-primary-bg-hover: var(--color-primary-faded);
-  --color-button-primary-text: var(--color-white);
+  /* --- Color Mapping --- */
 
-  /* Secondary Colors */
-  --color-text-secondary: var(--color-warm-tan);
-  --color-text-highlight: var(--color-burnt-sienna);
+  /* General */
+  --color-bg: var(--color-white);
+  --color-bg-wash-gradient: var(--color-primary-500);
+
+  --color-text: var(--color-black);
+  --color-text-secondary: var(--color-warm-tan-dark);
+  --color-text-muted: var(--color-neutral-300);
+  --color-text-highlight: var(--color-primary-deep);
+
+  --color-border: var(--color-neutral-100);
+
+  --color-accent-past: var(--color-slate-light);
+
   --color-warning: var(--color-amber-gold);
 
   /* Status Colors */
@@ -95,120 +110,142 @@
   --color-danger: var(--color-red);
 
   --color-progress-low: var(--color-red);
-  --color-progress-med: var(--color-yellow-dark);
+  --color-progress-med: var(--color-orange);
   --color-progress-high: var(--color-yellow);
   --color-progress-done: var(--color-green);
 
-  /* Light theme: Main */
-  --color-bg: var(--color-white);
-  --color-border: var(--color-light-grey-300);
-  --color-border-focus: rgba(113, 125, 188, 0.5);
-  --color-text: var(--color-black);
-  --color-text-muted: var(--color-medium-grey-100);
-  --color-text-card-muted: var(--color-medium-grey-200);
-  --color-accent-past: var(--color-border);
+  /* Login Colors */
+  --color-login-card-bg: var(--color-white);
+  --color-login-card-bg-opacity: var(--color-white-70);
 
-  --color-btn-primary-disabled-bg: var(--color-light-grey-100);
-  --color-btn-primary-disabled-border: var(--color-light-grey-300);
-  --color-btn-primary-disabled-text: var(--color-medium-grey-100);
+  /* Top Nav Colors */
+  --color-btn-search-bg: var(--color-neutral-25);
+  --color-btn-search-icon: var(--color-text-muted);
+  --color-btn-search-icon-hover: var(--color-text);
+
+  --color-dropdown-bg-hover: var(--color-sidebar-link-bg-hover);
+  --color-dropdown-text-hover: var(--color-primary);
+  --color-dropdown-logout-bg-hover: var(--color-red-pastel);
+  --color-dropdown-logout-border: transparent;
+  --color-dropdown-logout-border-hover: transparent;
+
+  /* Button Colors */
+  --color-btn-disabled-bg: var(--color-neutral-50);
+  --color-btn-disabled-text: var(--color-neutral-400);
+  --color-btn-disabled-border: var(--color-neutral-200);
+
+  --color-btn-primary-bg: var(--color-primary);
+  --color-btn-primary-bg-hover: var(--color-primary-500);
+  --color-btn-primary-text: var(--color-white);
 
   --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-bg-hover: var(--color-pale-sienna);
-  --color-btn-secondary-border: var(--color-burnt-sienna);
-  --color-btn-secondary-text: var(--color-burnt-sienna);
+  --color-btn-secondary-bg-hover: var(--color-primary-light);
+  --color-btn-secondary-text: var(--color-primary-deep);
+  --color-btn-secondary-border: var(--color-btn-secondary-text);
 
-  --color-btn-tertiary-bg: transparent;
-  --color-btn-tertiary-bg-hover: var(--color-light-grey-100);
-  --color-btn-tertiary-border: var(--color-light-grey-400);
-  --color-btn-tertiary-border-hover: var(--color-medium-grey-100);
+  --color-action-icon-secondary-bg: transparent;
+  --color-action-icon-secondary: var(--color-text-muted);
+  --color-action-icon-secondary-hover: var(--color-primary-deep);
+
+  /* --color-btn-tertiary-bg: transparent;
+  --color-btn-tertiary-bg-hover: var(--color-neutral-50);
   --color-btn-tertiary-text: var(--color-black);
+  --color-btn-tertiary-border: var(--color-neutral-300);
+  --color-btn-tertiary-border-hover: var(--color-neutral-400); */
 
-  --color-btn-disabled-bg: var(--color-light-grey-100);
-  --color-btn-disabled-border: var(--color-light-grey-300);
-  --color-btn-disabled-text: var(--color-slate-dark-muted);
-
-  --color-action-icon-primary: var(--color-primary);
+  /* --color-action-icon-primary: var(--color-primary);
   --color-action-icon-primary-bg: transparent;
-  --color-action-icon-primary-bg-hover: var(--color-pale-sienna);
-  --color-action-icon-primary-border: var(--color-primary);
+  --color-action-icon-primary-bg-hover: var(--color-primary-light);
+  --color-action-icon-primary-border: var(--color-primary);*/
 
-  --color-action-icon-secondary: var(--color-slate-light);
-  --color-action-icon-secondary-bg: transparent;
-  --color-action-icon-secondary-bg-hover: var(--color-slate-white);
-  --color-action-icon-secondary-border: var(--color-medium-grey-100);
-
-  --color-action-icon-secondary: var(--color-medium-grey-100);
-  --color-action-icon-secondary-hover: var(--color-medium-grey-300);
-  --color-action-icon-secondary-bg: transparent;
-  --color-action-icon-secondary-bg-hover: var(--color-light-grey-100-95);
-  --color-action-icon-secondary-border: var(--color-light-grey-300);
-  --color-action-icon-secondary-border-hover: var(--color-light-grey-200);
-
-  --color-callout-bg: var(--color-pale-sienna);
+  /* --color-callout-bg: var(--color-primary-light);
   --color-callout-accent: var(--color-text-highlight);
-  --color-callout-text-header: var(--color-text-highlight);
+  --color-callout-text-header: var(--color-text-highlight); */
 
-  --color-warning-bg: var(--color-yellow-light);
-  --color-warning-accent: var(--color-light-grey-300);
+  /* Sidebar Colors */
+  --color-sidebar-bg: var(--color-neutral-25);
+  --color-sidebar-link-bg-hover: var(--color-neutral-100-70);
+  --color-sidebar-link-text: var(--color-neutral-600);
+  --color-sidebar-link-text-hover: var(--color-primary);
+  --color-sidebar-icon: var(--color-sidebar-link-text);
+  --color-sidebar-icon-bg-hover: var(--color-sidebar-link-bg-hover);
+  --color-sidebar-toggle-bg: var(--color-bg);
+  --color-sidebar-toggle-border: var(--color-neutral-300);
+  --color-sidebar-border: var(--color-neutral-50);
 
-  /* Light theme: Login */
-  --color-login-card-bg: var(--color-light-grey-100);
-  --color-login-card-bg-95: var(--color-light-grey-100-95);
-
-  /* Light theme: Sidebar */
-  --color-sidebar-bg: var(--color-surface-bg);
-  --color-sidebar-border: var(--color-dark-grey-200);
-  --color-sidebar-icon-collapse: var(--color-text-muted);
-  --color-sidebar-icon-expand: var(--color-light-grey-400);
-  --color-sidebar-icon-expand-bg: var(--color-card-bg);
-  --color-sidebar-navlink: var(--color-sidebar-icon-expand);
-  --color-sidebar-navlink-bg-hover: var(--color-bg);
-
-  /* Light theme: Forms and Inputs */
-  --color-input-bg: var(--color-light-grey-200);
-  --color-input-border: var(--color-sidebar-border);
-  --color-input-border-focus: var(--color-medium-grey-200);
+  /* Form and Input Colors */
+  --color-input-bg: var(--color-bg);
   --color-input-text: var(--color-text);
-  --color-input-text-placeholder: var(--color-medium-grey-100);
-  --color-input-text-helper: var(--color-burnt-sienna);
+  --color-input-text-placeholder: var(--color-text-muted);
+  --color-input-text-helper: var(--color-primary-deep);
+  --color-input-border: var(--color-border);
+  --color-input-dropdown-bg: var(--color-white);
+  --color-input-dropdown-bg-hover: var(--color-neutral-50);
+  --color-input-dropdown-text: var(--color-black);
 
-  /* Light theme: Surface / Tile */
-  --color-surface-bg: var(--color-light-grey-100);
+  /* Surface (Tile) Colors */
+  --color-surface-bg: var(--color-neutral-25);
   --color-surface-border: var(--color-border);
-  --color-surface-input-bg: var(--color-white);
-  --color-surface-callout-bg: var(--color-light-grey-300);
-  --color-surface-callout-accent: var(--color-text-highlight);
-  --color-surface-callout-text-header: var(--color-text-highlight);
 
-  /* Light theme: Card */
-  --color-card-bg: var(--color-white);
-  --color-card-bg-hover: var(--color-surface-bg);
-  --color-card-bg-active: var(--color-card-bg);
+  --hero-bg-gradient:
+    radial-gradient(
+      ellipse 90% 65% at 25% 30%,
+      rgb(255 255 255 / 0.9),
+      transparent 90%
+    ),
+    radial-gradient(ellipse 100% 30% at 25% 80%, rgb(0 0 0 / 0.4), transparent);
+
+  --hero-bg-gradient-screen-lg:
+    radial-gradient(
+      ellipse 70% 65% at 25% 30%,
+      rgb(255 255 255 / 0.9),
+      transparent 90%
+    ),
+    radial-gradient(ellipse 60% 30% at 80% 90%, rgb(0 0 0 / 0.3), transparent);
+
+  --color-scroll-shadow-step1: var(--color-black-20);
+  --color-scroll-shadow-step2: var(--color-black-10);
+
+  /* Card Colors */
+  --color-card-bg: var(--color-white-50);
   --color-card-border: var(--color-border);
-  --color-card-border-active: var(--color-medium-grey-100);
   --color-card-divider: var(--color-border);
 
-  --color-card-icon: var(--color-medium-grey-100);
+  --color-card-icon-bg: var(--color-neutral-25);
+  --color-card-icon-bg-hover: var(--color-neutral-50);
+  --color-card-icon: var(--color-neutral-300);
+  --color-card-icon-hover: var(--color-text-highlight);
   --color-card-icon-accent: var(--color-primary);
-  --color-card-icon-bg: var(--color-light-grey-100);
-  --color-card-icon-bg-hover: var(--color-card-icon-border);
-  --color-card-icon-border: var(--color-light-grey-400);
+  --color-card-icon-border: var(--color-card-icon);
+  --color-card-icon-border-hover: var(--color-card-icon-hover);
 
-  /* Light theme: Tab Navigation */
+  /* Box Shadow */
+  --box-shadow-login: 0 0 6px rgba(0 0 0 / 0.1), 0 0 15px rgba(0 0 0 / 0.1);
+  --box-shadow-dropdown: 0 0 6px rgba(0 0 0 / 0.1), 0 0 12px rgba(0 0 0 / 0.1);
+  --box-shadow:
+    2px 2px 3px -2px rgb(0 0 0 / 0.1), 4px 4px 10px -5px rgb(0 0 0 / 0.1);
+  --box-shadow-y:
+    0 2px 3px -2px rgb(0 0 0 / 0.1), 0 4px 10px -5px rgb(0 0 0 / 0.1);
+  --box-shadow-x:
+    1px 0 3px -1px rgb(0 0 0 / 0.04), 2px 0 8px -2px rgb(0 0 0 / 0.06);
+  --text-shadow: 2px 2px 4px rgba(0 0 0 / 0.1);
+
+  /* Tab Navigation Colors */
   --color-tab-bg: transparent;
-  --color-tab-bg-hover: var(--color-light-grey-100);
-  --color-tab-bg-active: var(--color-pale-sienna);
-  --color-tab-border: var(--color-border);
-  --color-tab-text: var(--color-slate-dark);
-  --color-tab-text-active: var(--color-black);
+  --color-tab-bg-hover: var(--color-neutral-50);
+  --color-tab-text: var(--color-slate-grey);
+  --color-tab-text-active: var(--color-text);
+  --color-tab-accent-active: var(--color-primary);
+  --color-tab-border: var(--color-neutral-100);
+  --color-tab-border-active: var(--color-neutral-200);
 
-  /* Light theme: Tables */
+  /* Table Colors */
   --color-table-bg: var(--color-white);
-  --color-table-header-bg: var(--color-light-grey-200);
-  --color-table-stripe: var(--color-light-grey-100);
-  --color-table-hover: var(--color-pale-sienna);
+  --color-table-header-bg: var(--color-neutral-100);
+  --color-table-stripe: var(--color-neutral-50);
+  --color-table-hover: var(--color-primary-light);
 
-  /* Light theme: Chip Pairings */
+  /* Chip Color Pairings */
   --color-chip-primary-bg: var(--color-primary);
   --color-chip-primary-text: var(--color-white);
 
@@ -236,108 +273,117 @@
   :root:not([data-theme="light"]) {
     /* Dark theme: Main */
     --color-bg: var(--color-black);
-    --color-border: var(--color-medium-grey-400);
-    --color-text: var(--color-light-grey-200);
-    --color-text-muted: var(--color-medium-grey-200);
-    --color-text-card-muted: var(--color-medium-grey-100);
-    --color-accent-past: var(--color-border);
-
-    --color-btn-primary-disabled-bg: var(--color-dark-grey-200);
-    --color-btn-primary-disabled-border: var(--color-medium-grey-400);
-    --color-btn-primary-disabled-text: var(--color-medium-grey-200);
-
-    --color-btn-secondary-bg: transparent;
-    --color-btn-secondary-bg-hover: var(--color-brown-sienna);
-    --color-btn-secondary-border: var(--color-burnt-sienna);
-    --color-btn-secondary-text: var(--color-burnt-sienna);
-
-    --color-btn-tertiary-bg: transparent;
-    --color-btn-tertiary-bg-hover: var(--color-dark-grey-400);
-    --color-btn-tertiary-border: var(--color-medium-grey-400);
-    --color-btn-tertiary-border-hover: var(--color-medium-grey-300);
-    --color-btn-tertiary-text: var(--color-white);
-
-    --color-btn-disabled-bg: transparent;
-    --color-btn-disabled-border: var(--color-medium-grey-400);
-    --color-btn-disabled-text: var(--color-slate-dark);
-
-    --color-action-icon-primary: var(--color-primary);
-    --color-action-icon-primary-bg: transparent;
-    --color-action-icon-primary-bg-hover: var(--color-brown-sienna);
-    --color-action-icon-primary-border: var(--color-primary);
-
-    --color-action-icon-secondary: var(--color-medium-grey-100);
-    --color-action-icon-secondary-hover: var(--color-light-grey-400);
-    --color-action-icon-secondary-bg: transparent;
-    --color-action-icon-secondary-bg-hover: var(--color-medium-grey-400-65);
-    --color-action-icon-secondary-border: var(--color-medium-grey-300);
-    --color-action-icon-secondary-border-hover: var(--color-medium-grey-200);
-
-    --color-callout-bg: var(--color-dark-grey-200);
-    --color-callout-accent: var(--color-text-highlight);
-    --color-callout-text-header: var(--color-primary-light);
-
-    --color-warning-bg: var(--color-dark-grey-300);
-    --color-warning-accent: var(--color-dark-grey-200);
+    --color-text: var(--color-neutral-100);
+    --color-text-secondary: var(--color-warm-tan-light);
+    --color-text-muted: var(--color-neutral-500);
+    --color-text-card-muted: var(--color-neutral-400);
+    --color-border: var(--color-neutral-700);
+    --color-accent-past: var(--color-slate-dark);
+    --color-bg-wash-gradient: var(--color-primary-deep);
 
     /* Dark theme: Login */
-    --color-login-card-bg: var(--color-dark-grey-400);
-    --color-login-card-bg-opacity: var(--color-dark-grey-400-90);
+    --color-login-card-bg: var(--color-black);
+    --color-login-card-bg-opacity: var(--color-black-80);
+
+    /* Dark theme: Top Nav */
+    --color-btn-search-bg: var(--color-neutral-900);
+    --color-btn-search-icon: var(--color-text-muted);
+    --color-btn-search-icon-hover: var(--color-text);
+
+    --color-dropdown-logout-bg-hover: transparent;
+    --color-dropdown-logout-border: transparent;
+    --color-dropdown-logout-border-hover: var(--color-red);
+
+    /* Dark theme: Buttons */
+    --color-btn-primary-disabled-bg: var(--color-neutral-900);
+    --color-btn-primary-disabled-text: var(--color-neutral-500);
+    --color-btn-primary-disabled-border: var(--color-neutral-700);
+
+    --color-btn-secondary-bg: transparent;
+    --color-btn-secondary-bg-hover: var(--color-primary-dark);
+    --color-btn-secondary-text: var(--color-primary-deep);
+    --color-btn-secondary-border: var(--color-primary-deep);
+
+    --color-btn-tertiary-bg: transparent;
+    --color-btn-tertiary-bg-hover: var(--color-neutral-950);
+    --color-btn-tertiary-text: var(--color-white);
+    --color-btn-tertiary-border: var(--color-neutral-700);
+    --color-btn-tertiary-border-hover: var(--color-neutral-600);
+
+    --color-btn-disabled-bg: transparent;
+    --color-btn-disabled-text: var(--color-slate-dark);
+    --color-btn-disabled-border: var(--color-neutral-700);
+
+    --color-action-icon-secondary-bg: transparent;
+    --color-action-icon-secondary: var(--color-text-muted);
+    --color-action-icon-secondary-hover: var(--color-primary-deep);
+    --color-action-icon-secondary-border: var(--color-action-icon-secondary);
+    --color-action-icon-secondary-border-hover: var(--color-neutral-400);
+
+    /* --color-callout-bg: var(--color-neutral-900);
+    --color-callout-accent: var(--color-text-highlight);
+    --color-callout-text-header: var(--color-primary-light); */
 
     /* Dark theme: Sidebar */
-    --color-sidebar-bg: var(--color-surface-bg);
-    --color-sidebar-border: var(--color-dark-grey-200);
-    --color-sidebar-icon-collapse: var(--color-text-muted);
-    --color-sidebar-icon-expand: var(--color-light-grey-400);
-    --color-sidebar-icon-expand-bg: var(--color-card-bg);
-    --color-sidebar-navlink: var(--color-sidebar-icon-expand);
-    --color-sidebar-navlink-bg-hover: var(--color-bg);
+    --color-sidebar-bg: var(--color-neutral-950);
+    --color-sidebar-link-bg-hover: var(--color-neutral-800);
+    --color-sidebar-link-text: var(--color-neutral-300);
+    --color-sidebar-toggle-border: var(--color-neutral-600);
 
     /* Dark theme: Forms and Inputs */
-    --color-input-bg: var(--color-dark-grey-300);
-    --color-input-border: var(--color-sidebar-border);
-    --color-input-border-focus: var(--color-medium-grey-200);
-    --color-input-text: var(--color-text);
-    --color-input-text-placeholder: var(--color-light-grey-400);
-    --color-input-text-helper: var(--color-burnt-sienna);
+    --color-input-bg: var(--color-black);
+    --color-input-border: var(--color-border);
 
     /* Dark theme: Surface / Tile */
-    --color-surface-bg: var(--color-dark-grey-400);
-    --color-surface-border: var(--color-sidebar-border);
-    --color-surface-btn-bg: var(--color-dark-grey-200);
-    --color-surface-btn-bg-hover: var(--color-dark-grey-100);
-    --color-surface-input-bg: var(--color-dark-grey-200);
-    --color-surface-callout-bg: var(--color-brown-sienna);
-    --color-surface-callout-accent: var(--color-text-highlight);
-    --color-surface-callout-text-header: var(--color-primary-light);
+    --color-surface-bg: var(--color-neutral-950);
+
+    --hero-bg-gradient:
+      linear-gradient(to bottom right, rgb(23 22 20 / 0.1), transparent 70%),
+      radial-gradient(
+        ellipse 150% 250% at -10% -25%,
+        rgb(23 22 20 / 0.5),
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse 100% 30% at 25% 80%,
+        rgb(0 0 0 / 0.3),
+        transparent
+      );
+
+    --hero-bg-gradient-screen-lg:
+      linear-gradient(to bottom right, rgb(23 22 20 / 0.1), transparent 70%),
+      radial-gradient(
+        ellipse 140% 160% at -10% -10%,
+        rgb(23 22 20 / 0.5),
+        transparent 80%
+      ),
+      radial-gradient(ellipse 60% 30% at 80% 90%, rgb(0 0 0 / 0.3), transparent);
+
+    --color-scroll-shadow-step1: var(--color-black-80);
+    --color-scroll-shadow-step2: var(--color-black-70);
 
     /* Dark theme: Card */
-    --color-card-bg: var(--color-dark-grey-200);
-    --color-card-bg-hover: var(--color-medium-grey-400-65);
-    --color-card-bg-active: var(--color-card-bg);
-    --color-card-border: var(--color-border);
-    --color-card-border-active: var(--color-medium-grey-200);
-    --color-card-divider: var(--color-border);
+    --color-card-bg: var(--color-neutral-900);
+    --color-card-border: var(--color-neutral-800);
+    --color-card-divider: var(--color-neutral-700-60);
 
-    --color-card-icon: var(--color-medium-grey-100);
-    --color-card-icon-accent: var(--color-primary);
-    --color-card-icon-bg: var(--color-dark-grey-100);
-    --color-card-icon-bg-hover: var(--color-dark-grey-300);
-    --color-card-icon-border: var(--color-medium-grey-200);
+    --color-card-icon-bg: var(--color-neutral-800);
+    --color-card-icon-bg-hover: var(--color-neutral-800-50);
+    --color-card-icon: var(--color-neutral-500);
 
     /* Dark theme: Tab Navigation */
     --color-tab-bg: transparent;
     --color-tab-bg-hover: var(--color-dark-grey-400);
-    --color-tab-bg-active: var(--color-dark-grey-200);
+    --color-tab-bg-active: var(--color-neutral-900);
     --color-tab-border: var(--color-border);
     --color-tab-text: var(--color-text-muted);
     --color-tab-text-active: var(--color-white);
 
     /* Dark theme: Tables */
     --color-table-bg: var(--color-dark-grey-400);
-    --color-table-header-bg: var(--color-dark-grey-200);
+    --color-table-header-bg: var(--color-neutral-900);
     --color-table-stripe: var(--color-surface-bg);
-    --color-table-hover: var(--color-dark-grey-200);
+    --color-table-hover: var(--color-neutral-900);
 
     /* Dark theme: Chip Pairings */
     --color-chip-primary-bg: var(--color-primary);
@@ -364,110 +410,95 @@
 }
 
 [data-theme="dark"] {
-  /* Dark theme: Main */
+  /* Dark theme: General */
   --color-bg: var(--color-black);
-  --color-border: var(--color-medium-grey-400);
-  --color-text: var(--color-light-grey-200);
-  --color-text-muted: var(--color-medium-grey-200);
-  --color-text-card-muted: var(--color-medium-grey-100);
-  --color-accent-past: var(--color-border);
+  --color-bg-wash-gradient: var(--color-primary-deep);
 
-  --color-btn-primary-disabled-bg: var(--color-dark-grey-200);
-  --color-btn-primary-disabled-border: var(--color-medium-grey-400);
-  --color-btn-primary-disabled-text: var(--color-medium-grey-200);
+  --color-text: var(--color-white);
+  --color-text-secondary: var(--color-warm-tan-light);
+  --color-text-muted: var(--color-neutral-600);
 
-  --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-bg-hover: var(--color-brown-sienna);
-  --color-btn-secondary-border: var(--color-burnt-sienna);
-  --color-btn-secondary-text: var(--color-burnt-sienna);
+  --color-border: var(--color-neutral-800);
 
-  --color-btn-tertiary-bg: transparent;
-  --color-btn-tertiary-bg-hover: var(--color-dark-grey-400);
-  --color-btn-tertiary-border: var(--color-medium-grey-400);
-  --color-btn-tertiary-border-hover: var(--color-medium-grey-300);
-  --color-btn-tertiary-text: var(--color-white);
+  --color-accent-past: var(--color-slate-dark);
 
-  --color-btn-disabled-bg: transparent;
-  --color-btn-disabled-border: var(--color-medium-grey-400);
-  --color-btn-disabled-text: var(--color-slate-dark);
-
-  --color-action-icon-primary: var(--color-primary);
-  --color-action-icon-primary-bg: transparent;
-  --color-action-icon-primary-bg-hover: var(--color-brown-sienna);
-  --color-action-icon-primary-border: var(--color-primary);
-
-  --color-action-icon-secondary: var(--color-medium-grey-100);
-  --color-action-icon-secondary-hover: var(--color-light-grey-400);
-  --color-action-icon-secondary-bg: transparent;
-  --color-action-icon-secondary-bg-hover: var(--color-medium-grey-400-65);
-  --color-action-icon-secondary-border: var(--color-medium-grey-300);
-  --color-action-icon-secondary-border-hover: var(--color-medium-grey-200);
-
-  --color-callout-bg: var(--color-dark-grey-200);
-  --color-callout-accent: var(--color-text-highlight);
-  --color-callout-text-header: var(--color-primary-light);
-
-  --color-warning-bg: var(--color-dark-grey-300);
-  --color-warning-accent: var(--color-dark-grey-200);
-
-  /* Dark theme: Login */
+  /* Dark theme: Login Colors */
   --color-login-card-bg: var(--color-dark-grey-400);
-  --color-login-card-bg-opacity: var(--color-dark-grey-400-90);
+  --color-login-card-bg-opacity: var(--color-black-90);
 
-  /* Dark theme: Sidebar */
-  --color-sidebar-bg: var(--color-surface-bg);
-  --color-sidebar-border: var(--color-dark-grey-200);
-  --color-sidebar-icon-collapse: var(--color-text-muted);
-  --color-sidebar-icon-expand: var(--color-light-grey-400);
-  --color-sidebar-icon-expand-bg: var(--color-card-bg);
-  --color-sidebar-navlink: var(--color-sidebar-icon-expand);
-  --color-sidebar-navlink-bg-hover: var(--color-bg);
+  /* Dark theme: Top Nav Colors */
+  --color-btn-search-bg: var(--color-neutral-950);
 
-  /* Dark theme: Forms and Inputs */
-  --color-input-bg: var(--color-dark-grey-300);
-  --color-input-border: var(--color-sidebar-border);
-  --color-input-border-focus: var(--color-medium-grey-200);
-  --color-input-text: var(--color-text);
-  --color-input-text-placeholder: var(--color-light-grey-400);
-  --color-input-text-helper: var(--color-burnt-sienna);
+  --color-dropdown-logout-bg-hover: transparent;
+  --color-dropdown-logout-border: transparent;
+  --color-dropdown-logout-border-hover: var(--color-red);
 
-  /* Dark theme: Surface / Tile */
-  --color-surface-bg: var(--color-dark-grey-400);
-  --color-surface-border: var(--color-sidebar-border);
-  --color-surface-btn-bg: var(--color-dark-grey-200);
-  --color-surface-btn-bg-hover: var(--color-dark-grey-100);
-  --color-surface-input-bg: var(--color-dark-grey-200);
-  --color-surface-callout-bg: var(--color-brown-sienna);
-  --color-surface-callout-accent: var(--color-text-highlight);
-  --color-surface-callout-text-header: var(--color-primary-light);
+  /* Dark theme: Button Colors */
+  --color-btn-disabled-bg: var(--color-neutral-900);
+  --color-btn-disabled-text: var(--color-neutral-500);
+  --color-btn-disabled-border: var(--color-neutral-700);
 
-  /* Dark theme: Card */
-  --color-card-bg: var(--color-dark-grey-200);
-  --color-card-bg-hover: var(--color-medium-grey-400-65);
-  --color-card-bg-active: var(--color-card-bg);
-  --color-card-border: var(--color-border);
-  --color-card-border-active: var(--color-medium-grey-200);
-  --color-card-divider: var(--color-border);
+  --color-btn-secondary-bg-hover: var(--color-primary-dark);
 
-  --color-card-icon: var(--color-medium-grey-100);
-  --color-card-icon-accent: var(--color-primary);
-  --color-card-icon-bg: var(--color-dark-grey-100);
-  --color-card-icon-bg-hover: var(--color-dark-grey-300);
-  --color-card-icon-border: var(--color-medium-grey-200);
+  /* --color-btn-tertiary-bg: transparent;
+  --color-btn-tertiary-bg-hover: var(--color-neutral-950);
+  --color-btn-tertiary-text: var(--color-white);
+  --color-btn-tertiary-border: var(--color-neutral-700);
+  --color-btn-tertiary-border-hover: var(--color-neutral-600); */
 
-  /* Dark theme: Tab Navigation */
-  --color-tab-bg: transparent;
-  --color-tab-bg-hover: var(--color-dark-grey-400);
-  --color-tab-bg-active: var(--color-dark-grey-200);
-  --color-tab-border: var(--color-border);
-  --color-tab-text: var(--color-text-muted);
-  --color-tab-text-active: var(--color-white);
+  /* --color-callout-bg: var(--color-neutral-900);
+  --color-callout-accent: var(--color-text-highlight);
+  --color-callout-text-header: var(--color-primary-light); */
+
+  /* Dark theme: Sidebar Colors */
+  --color-sidebar-bg: var(--color-neutral-950);
+  --color-sidebar-link-bg-hover: var(--color-neutral-800);
+  --color-sidebar-link-text: var(--color-neutral-300);
+  --color-sidebar-toggle-border: var(--color-neutral-600);
+  --color-sidebar-border: var(--color-neutral-900);
+
+  /* Dark theme: Surface (Tile) Colors */
+  --color-surface-bg: var(--color-neutral-950);
+
+  --hero-bg-gradient:
+    linear-gradient(to bottom right, rgb(23 22 20 / 0.1), transparent 70%),
+    radial-gradient(
+      ellipse 150% 250% at -10% -25%,
+      rgb(23 22 20 / 0.5),
+      transparent 80%
+    ),
+    radial-gradient(ellipse 100% 30% at 25% 80%, rgb(0 0 0 / 0.3), transparent);
+
+  --hero-bg-gradient-screen-lg:
+    linear-gradient(to bottom right, rgb(23 22 20 / 0.1), transparent 70%),
+    radial-gradient(
+      ellipse 140% 160% at -10% -10%,
+      rgb(23 22 20 / 0.5),
+      transparent 80%
+    ),
+    radial-gradient(ellipse 60% 30% at 80% 90%, rgb(0 0 0 / 0.3), transparent);
+
+  --color-scroll-shadow-step1: var(--color-black-80);
+  --color-scroll-shadow-step2: var(--color-black-70);
+
+  /* Dark theme: Card Colors */
+  --color-card-bg: var(--color-neutral-900);
+
+  --color-card-icon-bg: var(--color-neutral-800-50);
+  --color-card-icon-bg-hover: var(--color-neutral-800);
+  --color-card-icon: var(--color-neutral-600);
+
+  /* Dark theme: Tab Navigation Colors */
+  --color-tab-bg-hover: var(--color-neutral-900);
+  --color-tab-text: var(--color-slate-light);
+  --color-tab-border: var(--color-neutral-800);
+  --color-tab-border-active: var(--color-neutral-700);
 
   /* Dark theme: Tables */
   --color-table-bg: var(--color-dark-grey-400);
-  --color-table-header-bg: var(--color-dark-grey-200);
+  --color-table-header-bg: var(--color-neutral-900);
   --color-table-stripe: var(--color-surface-bg);
-  --color-table-hover: var(--color-dark-grey-200);
+  --color-table-hover: var(--color-neutral-900);
 
   /* Dark theme: Chip Pairings */
   --color-chip-primary-bg: var(--color-primary);
@@ -490,137 +521,4 @@
 
   --color-chip-purple-bg: var(--color-purple-muted);
   --color-chip-purple-text: var(--color-purple-pastel);
-}
-
-[data-theme="light"] {
-  /* Light theme: Main */
-  --color-bg: var(--color-white);
-  --color-border: var(--color-light-grey-300);
-  --color-border-focus: rgba(113, 125, 188, 0.5);
-  --color-text: var(--color-black);
-  --color-text-muted: var(--color-medium-grey-100);
-  --color-text-card-muted: var(--color-medium-grey-200);
-  --color-accent-past: var(--color-border);
-
-  --color-btn-primary-disabled-bg: var(--color-light-grey-100);
-  --color-btn-primary-disabled-border: var(--color-light-grey-300);
-  --color-btn-primary-disabled-text: var(--color-medium-grey-100);
-
-  --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-bg-hover: var(--color-pale-sienna);
-  --color-btn-secondary-border: var(--color-burnt-sienna);
-  --color-btn-secondary-text: var(--color-burnt-sienna);
-
-  --color-btn-tertiary-bg: transparent;
-  --color-btn-tertiary-bg-hover: var(--color-light-grey-100);
-  --color-btn-tertiary-border: var(--color-light-grey-400);
-  --color-btn-tertiary-border-hover: var(--color-medium-grey-100);
-  --color-btn-tertiary-text: var(--color-black);
-
-  --color-btn-disabled-bg: var(--color-light-grey-100);
-  --color-btn-disabled-border: var(--color-light-grey-300);
-  --color-btn-disabled-text: var(--color-slate-dark-muted);
-
-  --color-action-icon-primary: var(--color-primary);
-  --color-action-icon-primary-bg: transparent;
-  --color-action-icon-primary-bg-hover: var(--color-pale-sienna);
-  --color-action-icon-primary-border: var(--color-primary);
-
-  --color-action-icon-secondary: var(--color-slate-light);
-  --color-action-icon-secondary-bg: transparent;
-  --color-action-icon-secondary-bg-hover: var(--color-slate-white);
-  --color-action-icon-secondary-border: var(--color-medium-grey-100);
-
-  --color-action-icon-secondary: var(--color-medium-grey-100);
-  --color-action-icon-secondary-hover: var(--color-medium-grey-300);
-  --color-action-icon-secondary-bg: transparent;
-  --color-action-icon-secondary-bg-hover: var(--color-light-grey-100-95);
-  --color-action-icon-secondary-border: var(--color-light-grey-300);
-  --color-action-icon-secondary-border-hover: var(--color-light-grey-200);
-
-  --color-callout-bg: var(--color-pale-sienna);
-  --color-callout-accent: var(--color-text-highlight);
-  --color-callout-text-header: var(--color-text-highlight);
-
-  --color-warning-bg: var(--color-yellow-light);
-  --color-warning-accent: var(--color-light-grey-300);
-
-  /* Light theme: Login */
-  --color-login-card-bg: var(--color-light-grey-100);
-  --color-login-card-bg-95: var(--color-light-grey-100-95);
-
-  /* Light theme: Sidebar */
-  --color-sidebar-bg: var(--color-surface-bg);
-  --color-sidebar-border: var(--color-dark-grey-200);
-  --color-sidebar-icon-collapse: var(--color-text-muted);
-  --color-sidebar-icon-expand: var(--color-light-grey-400);
-  --color-sidebar-icon-expand-bg: var(--color-card-bg);
-  --color-sidebar-navlink: var(--color-sidebar-icon-expand);
-  --color-sidebar-navlink-bg-hover: var(--color-bg);
-
-  /* Light theme: Forms and Inputs */
-  --color-input-bg: var(--color-light-grey-200);
-  --color-input-border: var(--color-sidebar-border);
-  --color-input-border-focus: var(--color-medium-grey-200);
-  --color-input-text: var(--color-text);
-  --color-input-text-placeholder: var(--color-medium-grey-100);
-  --color-input-text-helper: var(--color-burnt-sienna);
-
-  /* Light theme: Surface / Tile */
-  --color-surface-bg: var(--color-light-grey-100);
-  --color-surface-border: var(--color-border);
-  --color-surface-input-bg: var(--color-white);
-  --color-surface-callout-bg: var(--color-light-grey-300);
-  --color-surface-callout-accent: var(--color-text-highlight);
-  --color-surface-callout-text-header: var(--color-text-highlight);
-
-  /* Light theme: Card */
-  --color-card-bg: var(--color-white);
-  --color-card-bg-hover: var(--color-surface-bg);
-  --color-card-bg-active: var(--color-card-bg);
-  --color-card-border: var(--color-border);
-  --color-card-border-active: var(--color-medium-grey-100);
-  --color-card-divider: var(--color-border);
-
-  --color-card-icon: var(--color-medium-grey-100);
-  --color-card-icon-accent: var(--color-primary);
-  --color-card-icon-bg: var(--color-light-grey-100);
-  --color-card-icon-bg-hover: var(--color-card-icon-border);
-  --color-card-icon-border: var(--color-light-grey-400);
-
-  /* Light theme: Tab Navigation */
-  --color-tab-bg: transparent;
-  --color-tab-bg-hover: var(--color-light-grey-100);
-  --color-tab-bg-active: var(--color-pale-sienna);
-  --color-tab-border: var(--color-border);
-  --color-tab-text: var(--color-slate-dark);
-  --color-tab-text-active: var(--color-black);
-
-  /* Light theme: Tables */
-  --color-table-bg: var(--color-white);
-  --color-table-header-bg: var(--color-light-grey-200);
-  --color-table-stripe: var(--color-light-grey-100);
-  --color-table-hover: var(--color-pale-sienna);
-
-  /* Light theme: Chip Pairings */
-  --color-chip-primary-bg: var(--color-primary);
-  --color-chip-primary-text: var(--color-white);
-
-  --color-chip-red-bg: var(--color-red-pastel);
-  --color-chip-red-text: var(--color-red-muted);
-
-  --color-chip-orange-bg: var(--color-orange-pastel);
-  --color-chip-orange-text: var(--color-orange-dark);
-
-  --color-chip-yellow-bg: var(--color-yellow-pastel);
-  --color-chip-yellow-text: var(--color-yellow-dark);
-
-  --color-chip-green-bg: var(--color-green-pastel);
-  --color-chip-green-text: var(--color-green-dark);
-
-  --color-chip-blue-bg: var(--color-blue-pastel);
-  --color-chip-blue-text: var(--color-blue-dark);
-
-  --color-chip-purple-bg: var(--color-purple-pastel);
-  --color-chip-purple-text: var(--color-purple-dark);
 }

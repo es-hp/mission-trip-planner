@@ -62,9 +62,9 @@
 }
 
 .overview-banner h1 {
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: 600;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: var(--text-shadow);
 }
 
 .overview-banner h2 {
@@ -73,15 +73,15 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  text-shadow: var(--text-shadow);
 }
 
 .banner-description {
   margin: 1rem 0;
   width: clamp(35ch, 80%, 60ch);
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
   text-wrap: balance;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: var(--text-shadow);
 }
 
 .hero-img-container {
@@ -96,36 +96,23 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.9;
   z-index: -1;
 }
 
 .hero-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--color-black) -4%,
-    rgba(0, 0, 0, 0) 90%
-  );
+  background: var(--hero-bg-gradient);
   background-repeat: no-repeat;
-  background-size: 150% 100%;
-  background-position: 50% 0;
+  background-size: 100%;
   pointer-events: none;
-  transition: background-position 1s linear;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 769px) {
   .hero-gradient {
-    background-position: 0 0;
+    background: var(--hero-bg-gradient-screen-lg);
   }
-}
-
-.hero-img-container::before {
-  display: block;
-  width: 100%;
-  height: 100%;
-  content: "";
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 10%, transparent 60%);
 }
 
 /* Countdown Timer */
@@ -148,7 +135,7 @@
   text-transform: uppercase;
   letter-spacing: 0.125em;
   margin-bottom: 0.25rem;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  text-shadow: var(--text-shadow);
 }
 
 .countdown-display > div {
@@ -182,7 +169,7 @@
 .countdown-display .colon {
   color: var(--color-white);
   font-size: var(--text-4xl);
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  text-shadow: var(--text-shadow);
 }
 
 .countdown-trip-dates {
@@ -193,7 +180,7 @@
   text-transform: uppercase;
   letter-spacing: 0.125em;
   margin-bottom: 0.375rem;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+  text-shadow: var(--text-shadow);
 }
 
 /* Pinned Notes */
@@ -214,7 +201,7 @@
 
 .pinned-notes-header h2 {
   display: inline-block;
-  font-size: clamp(var(--text-base), 6cqi, var(--text-xl));
+  font-size: clamp(var(--text-base), 6cqi, var(--text-lg));
   text-wrap: nowrap;
 }
 
@@ -231,7 +218,8 @@
 }
 
 .note-text-content {
-  font-size: var(--text-lg);
+  font-size: var(--text-base);
+  text-wrap: pretty;
 }
 
 /* Assignments Tile */
@@ -259,7 +247,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  height: 3rem;
+  height: 4rem;
   pointer-events: none;
   opacity: 0;
   transition: opacity 500ms ease-in-out;
@@ -267,12 +255,22 @@
 
 .assignments .scroll-wrapper::before {
   top: 0;
-  background: linear-gradient(to bottom, var(--color-black-75), transparent);
+  background: radial-gradient(
+    ellipse 150% 95% at 50% -20%,
+    var(--color-scroll-shadow-step1),
+    var(--color-scroll-shadow-step2) 20%,
+    transparent
+  );
 }
 
 .assignments .scroll-wrapper::after {
   bottom: 0;
-  background: linear-gradient(to top, var(--color-black-75), transparent);
+  background: radial-gradient(
+    ellipse 150% 95% at 50% 120%,
+    var(--color-scroll-shadow-step1),
+    var(--color-scroll-shadow-step2) 20%,
+    transparent
+  );
 }
 
 .assignments .scroll-wrapper.top-shadow::before,
@@ -299,7 +297,7 @@
   background-color: var(--color-primary);
 }
 
-.week-accent-bar .passed {
+.passed .week-accent-bar {
   background-color: var(--color-accent-past);
 }
 
