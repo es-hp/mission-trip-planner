@@ -23,20 +23,28 @@ export default function userBio({ container, profileUser: user }) {
     user.personal.dateOfBirth,
   ).toLocaleString();
 
+  const email = createEl("a", {
+    textContent: user.personal.email,
+    href: `mailto:${user.personal.email}`,
+  });
+
   const userInfo = {
-    email: user.personal.email,
+    email,
     phone: user.personal.phone,
     DOB: birthday,
-    "sending church":
-      user.church.site + user.church.isMember ? " (member)" : null,
+    "sending church": user.church.site,
   };
 
   Object.entries(userInfo).forEach(([key, value]) => {
     const label = createEl("span", { textContent: `${key}:` });
-    const info = createEl("span", { textContent: value ? value : "" });
-
     infoLabels.append(label);
-    infoValues.append(info);
+
+    if (value instanceof HTMLElement) {
+      infoValues.append(value);
+    } else {
+      const info = createEl("span", { textContent: value ? value : "" });
+      infoValues.append(info);
+    }
   });
 
   container.append(profilePic, profileBio);
