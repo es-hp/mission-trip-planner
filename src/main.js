@@ -7,6 +7,7 @@ import {
 } from "@core/api";
 import createSidebar from "@/js/layout/sidebar";
 import createTopNav from "@/js/layout/topnav";
+import { initTabNav } from "@/js/components/design-system/createTabNav";
 import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
@@ -39,8 +40,10 @@ if (!isLoggedIn && mainID !== "login") {
   const { getTripDetails } = await import("./js/core/api");
   const tripDetails = await getTripDetails();
 
-  const sidebarContainer = document.querySelector(".sidebar");
-  if (sidebarContainer) createSidebar(sidebarContainer);
+  const sidebar = document.querySelector(".sidebar");
+  if (sidebar) {
+    createSidebar(sidebar);
+  }
 
   const topnavContainer = document.querySelector(".topnav");
   if (topnavContainer)
@@ -51,6 +54,8 @@ if (!isLoggedIn && mainID !== "login") {
       currentUser,
       users,
     });
+
+  initTabNav();
 
   /* Overview Page */
   if (mainID === "overview") {
@@ -120,25 +125,12 @@ if (!isLoggedIn && mainID !== "login") {
     if (calendarDiv)
       trainingCalendar({ container: calendarDiv, tripDetails, now });
 
-    const mountCallbacks = {};
-
     const { default: tripSchedule } =
       await import("./js/components/schedule/tripSchedule");
     const tripScheduleDiv = document.getElementById("trip-schedule");
     if (tripScheduleDiv) {
-      await tripSchedule(tripScheduleDiv, {
-        onMount: (fn) => {
-          const tabTitle =
-            tripScheduleDiv.closest("[data-tab-title]")?.dataset.tabTitle;
-          mountCallbacks[tabTitle] = fn;
-        },
-      });
+      await tripSchedule(tripScheduleDiv);
     }
-
-    const { default: scheduleTabNav } =
-      await import("./js/components/schedule/scheduleTabNav");
-    const tabNavDiv = document.querySelector("#schedule .tabNav");
-    if (tabNavDiv) scheduleTabNav(tabNavDiv, mountCallbacks);
   }
 
   /* Under Construction Pages */

@@ -217,3 +217,17 @@ export const getNextPostId = (posts) => {
 
   return maxNumber + 1;
 };
+
+export const slugify = (str, { maxLength = 80 } = {}) => {
+  if (!str || typeof str !== "string") return "";
+
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, maxLength);
+};

@@ -1,5 +1,4 @@
 import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
-import { getUsers } from "@core/api";
 import createTable from "../design-system/createTable";
 
 const successColor = getCSSVar("--color-success");

@@ -11,6 +11,7 @@
   color: var(--color-tab-text);
   font-family: var(--font-display);
   font-size: 0.875rem;
+  text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 1rem 1rem 0 0;
   border: 1px solid var(--color-tab-border);
