@@ -24,6 +24,7 @@
   --color-neutral-600: #706e66;
   --color-neutral-700: #58564f;
   --color-neutral-700-60: rgb(88 86 79 / 0.6);
+  --color-neutral-700-80: rgb(88 86 79 / 0.8);
   --color-neutral-800: #3b3a37;
   --color-neutral-800-50: rgb(59 58 55 / 0.5);
   --color-neutral-900: #262522;
@@ -63,29 +64,47 @@
 
   /* Functional Color Palette */
   --color-red: #f22c2c;
-  --color-red-pastel: #ffd6d2;
+  --color-red-pastel: #ffada5;
+  --color-red-pastel-50: rgb(255 173 165 / 0.5);
   --color-red-muted: #c61300;
+  --color-red-muted-50: rgb(198 19 0 / 0.5);
   --color-red-dark: #8b1a0f;
+  --color-red-dark-50: rgb(139 26 15 / 0.5);
   --color-orange: #ff4a1a;
-  --color-orange-pastel: #ffcdc0;
+  --color-orange-pastel: #ffbcab;
+  --color-orange-pastel-50: rgb(255 188 171 / 0.5);
   --color-orange-muted: #db502a;
+  --color-orange-muted-50: rgb(219 80 42/0.5);
   --color-orange-dark: #cc3300;
+  --color-orange-dark-50: rgb(204 51 0 / 0.5);
   --color-yellow: #f9d34c;
-  --color-yellow-pastel: #fff5d9;
+  --color-yellow-pastel: #ffebb3;
+  --color-yellow-pastel-50: rgb(255 235 179 / 0.5);
   --color-yellow-muted: #dba437;
+  --color-yellow-muted-50: rgb(219 164 55 / 0.5);
   --color-yellow-dark: #ce8924;
+  --color-yellow-dark-50: rgb(206 137 36 / 0.5);
   --color-green: #00ad52;
-  --color-green-pastel: #caeade;
+  --color-green-pastel: #95d5bd;
+  --color-green-pastel-50: rgb(149 213 189 / 0.5);
   --color-green-muted: #2aa18f;
+  --color-green-muted-50: rgb(42 161 143 / 0.5);
   --color-green-dark: #1a6b4f;
+  --color-green-dark-50: rgb(26 107 79 / 0.5);
   --color-blue: #0066cc;
-  --color-blue-pastel: #cfecff;
+  --color-blue-pastel: #9fd9ff;
+  --color-blue-pastel-50: rgb(159 217 255 / 0.5);
   --color-blue-muted: #26669b;
+  --color-blue-muted-50: rgb(38 102 155 / 0.5);
   --color-blue-dark: #1a4a6b;
+  --color-blue-dark-50: rgb(26 74 107 / 0.5);
   --color-purple: #9933ff;
-  --color-purple-pastel: #ebe3ff;
+  --color-purple-pastel: #d7c7ff;
+  --color-purple-pastel-50: rgb(215 199 255 / 0.5);
   --color-purple-muted: #6149b7;
+  --color-purple-muted-50: rgb(97 73 183 / 0.5);
   --color-purple-dark: #4a1a6b;
+  --color-purple-dark-50: rgb(74 26 107 / 0.5);
 
   /* --- Color Mapping --- */
 
@@ -95,7 +114,7 @@
 
   --color-text: var(--color-black);
   --color-text-secondary: var(--color-warm-tan-dark);
-  --color-text-muted: var(--color-neutral-300);
+  --color-text-muted: var(--color-neutral-400);
   --color-text-highlight: var(--color-primary-deep);
 
   --color-border: var(--color-neutral-100);
@@ -143,24 +162,15 @@
   --color-btn-secondary-text: var(--color-primary-deep);
   --color-btn-secondary-border: var(--color-btn-secondary-text);
 
+  --color-btn-tertiary-bg: var(--color-neutral-100-70);
+  --color-btn-tertiary-bg-hover: var(--color-neutral-100);
+
+  --color-btn-arrow: var(--color-neutral-300);
+  --color-btn-arrow-hover: var(--color-neutral-400);
+
   --color-action-icon-secondary-bg: transparent;
   --color-action-icon-secondary: var(--color-text-muted);
   --color-action-icon-secondary-hover: var(--color-primary-deep);
-
-  /* --color-btn-tertiary-bg: transparent;
-  --color-btn-tertiary-bg-hover: var(--color-neutral-50);
-  --color-btn-tertiary-text: var(--color-black);
-  --color-btn-tertiary-border: var(--color-neutral-300);
-  --color-btn-tertiary-border-hover: var(--color-neutral-400); */
-
-  /* --color-action-icon-primary: var(--color-primary);
-  --color-action-icon-primary-bg: transparent;
-  --color-action-icon-primary-bg-hover: var(--color-primary-light);
-  --color-action-icon-primary-border: var(--color-primary);*/
-
-  /* --color-callout-bg: var(--color-primary-light);
-  --color-callout-accent: var(--color-text-highlight);
-  --color-callout-text-header: var(--color-text-highlight); */
 
   /* Sidebar Colors */
   --color-sidebar-bg: var(--color-neutral-25);
@@ -240,101 +250,87 @@
   --color-tab-border-active: var(--color-neutral-200);
 
   /* Table Colors */
-  --color-table-bg: var(--color-white);
-  --color-table-header-bg: var(--color-neutral-100);
-  --color-table-stripe: var(--color-neutral-50);
-  --color-table-hover: var(--color-primary-light);
+  --color-table-stripe: var(--color-neutral-25);
+  --color-table-hover: var(--color-neutral-50);
+
+  /* Calendar Colors */
+  --color-calendar-grid: var(--color-neutral-200);
+  --color-calendar-accent: var(--color-primary-500);
 
   /* Chip Color Pairings */
   --color-chip-primary-bg: var(--color-primary);
+  --color-chip-primary-bg-hover: var(--color-primary-500);
   --color-chip-primary-text: var(--color-white);
 
-  --color-chip-red-bg: var(--color-red-pastel);
+  --color-chip-red-bg: var(--color-red-pastel-50);
+  --color-chip-red-bg-hover: var(--color-red-pastel);
   --color-chip-red-text: var(--color-red-muted);
 
-  --color-chip-orange-bg: var(--color-orange-pastel);
+  --color-chip-orange-bg: var(--color-orange-pastel-50);
+  --color-chip-orange-bg-hover: var(--color-orange-pastel);
   --color-chip-orange-text: var(--color-orange-dark);
 
-  --color-chip-yellow-bg: var(--color-yellow-pastel);
+  --color-chip-yellow-bg: var(--color-yellow-pastel-50);
+  --color-chip-yellow-bg-hover: var(--color-yellow-pastel);
   --color-chip-yellow-text: var(--color-yellow-dark);
 
-  --color-chip-green-bg: var(--color-green-pastel);
+  --color-chip-green-bg: var(--color-green-pastel-50);
+  --color-chip-green-bg-hover: var(--color-green-pastel);
   --color-chip-green-text: var(--color-green-dark);
 
-  --color-chip-blue-bg: var(--color-blue-pastel);
+  --color-chip-blue-bg: var(--color-blue-pastel-50);
+  --color-chip-blue-bg-hover: var(--color-blue-pastel);
   --color-chip-blue-text: var(--color-blue-dark);
 
-  --color-chip-purple-bg: var(--color-purple-pastel);
+  --color-chip-purple-bg: var(--color-purple-pastel-50);
+  --color-chip-purple-bg-hover: var(--color-purple-pastel);
   --color-chip-purple-text: var(--color-purple-dark);
 }
 
 /* Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    /* Dark theme: Main */
+    /* Dark theme: General */
     --color-bg: var(--color-black);
-    --color-text: var(--color-neutral-100);
-    --color-text-secondary: var(--color-warm-tan-light);
-    --color-text-muted: var(--color-neutral-500);
-    --color-text-card-muted: var(--color-neutral-400);
-    --color-border: var(--color-neutral-700);
-    --color-accent-past: var(--color-slate-dark);
     --color-bg-wash-gradient: var(--color-primary-deep);
 
-    /* Dark theme: Login */
-    --color-login-card-bg: var(--color-black);
-    --color-login-card-bg-opacity: var(--color-black-80);
+    --color-text: var(--color-white);
+    --color-text-secondary: var(--color-warm-tan-light);
+    --color-text-muted: var(--color-neutral-500);
 
-    /* Dark theme: Top Nav */
-    --color-btn-search-bg: var(--color-neutral-900);
-    --color-btn-search-icon: var(--color-text-muted);
-    --color-btn-search-icon-hover: var(--color-text);
+    --color-border: var(--color-neutral-800);
+
+    --color-accent-past: var(--color-slate-dark);
+
+    /* Dark theme: Login Colors */
+    --color-login-card-bg: var(--color-dark-grey-400);
+    --color-login-card-bg-opacity: var(--color-black-90);
+
+    /* Dark theme: Top Nav Colors */
+    --color-btn-search-bg: var(--color-neutral-950);
 
     --color-dropdown-logout-bg-hover: transparent;
     --color-dropdown-logout-border: transparent;
     --color-dropdown-logout-border-hover: var(--color-red);
 
-    /* Dark theme: Buttons */
-    --color-btn-primary-disabled-bg: var(--color-neutral-900);
-    --color-btn-primary-disabled-text: var(--color-neutral-500);
-    --color-btn-primary-disabled-border: var(--color-neutral-700);
-
-    --color-btn-secondary-bg: transparent;
-    --color-btn-secondary-bg-hover: var(--color-primary-dark);
-    --color-btn-secondary-text: var(--color-primary-deep);
-    --color-btn-secondary-border: var(--color-primary-deep);
-
-    --color-btn-tertiary-bg: transparent;
-    --color-btn-tertiary-bg-hover: var(--color-neutral-950);
-    --color-btn-tertiary-text: var(--color-white);
-    --color-btn-tertiary-border: var(--color-neutral-700);
-    --color-btn-tertiary-border-hover: var(--color-neutral-600);
-
-    --color-btn-disabled-bg: transparent;
-    --color-btn-disabled-text: var(--color-slate-dark);
+    /* Dark theme: Button Colors */
+    --color-btn-disabled-bg: var(--color-neutral-900);
+    --color-btn-disabled-text: var(--color-neutral-500);
     --color-btn-disabled-border: var(--color-neutral-700);
 
-    --color-action-icon-secondary-bg: transparent;
-    --color-action-icon-secondary: var(--color-text-muted);
-    --color-action-icon-secondary-hover: var(--color-primary-deep);
-    --color-action-icon-secondary-border: var(--color-action-icon-secondary);
-    --color-action-icon-secondary-border-hover: var(--color-neutral-400);
+    --color-btn-secondary-bg-hover: var(--color-primary-dark);
 
-    /* --color-callout-bg: var(--color-neutral-900);
-    --color-callout-accent: var(--color-text-highlight);
-    --color-callout-text-header: var(--color-primary-light); */
+    --color-btn-arrow: var(--color-neutral-600);
+    --color-btn-arrow-hover: var(--color-neutral-500);
 
-    /* Dark theme: Sidebar */
+    /* Dark theme: Sidebar Colors */
     --color-sidebar-bg: var(--color-neutral-950);
     --color-sidebar-link-bg-hover: var(--color-neutral-800);
     --color-sidebar-link-text: var(--color-neutral-300);
     --color-sidebar-toggle-border: var(--color-neutral-600);
+    --color-sidebar-border: var(--color-neutral-900);
 
-    /* Dark theme: Forms and Inputs */
-    --color-input-bg: var(--color-black);
-    --color-input-border: var(--color-border);
-
-    /* Dark theme: Surface / Tile */
+    /* Dark theme: Surface (Tile) Colors */
     --color-surface-bg: var(--color-neutral-950);
 
     --hero-bg-gradient:
@@ -362,22 +358,18 @@
     --color-scroll-shadow-step1: var(--color-black-80);
     --color-scroll-shadow-step2: var(--color-black-70);
 
-    /* Dark theme: Card */
+    /* Dark theme: Card Colors */
     --color-card-bg: var(--color-neutral-900);
-    --color-card-border: var(--color-neutral-800);
-    --color-card-divider: var(--color-neutral-700-60);
 
-    --color-card-icon-bg: var(--color-neutral-800);
-    --color-card-icon-bg-hover: var(--color-neutral-800-50);
-    --color-card-icon: var(--color-neutral-500);
+    --color-card-icon-bg: var(--color-neutral-800-50);
+    --color-card-icon-bg-hover: var(--color-neutral-800);
+    --color-card-icon: var(--color-neutral-600);
 
-    /* Dark theme: Tab Navigation */
-    --color-tab-bg: transparent;
-    --color-tab-bg-hover: var(--color-dark-grey-400);
-    --color-tab-bg-active: var(--color-neutral-900);
-    --color-tab-border: var(--color-border);
-    --color-tab-text: var(--color-text-muted);
-    --color-tab-text-active: var(--color-white);
+    /* Dark theme: Tab Navigation Colors */
+    --color-tab-bg-hover: var(--color-neutral-900);
+    --color-tab-text: var(--color-slate-light);
+    --color-tab-border: var(--color-neutral-800);
+    --color-tab-border-active: var(--color-neutral-700);
 
     /* Dark theme: Tables */
     --color-table-bg: var(--color-dark-grey-400);
@@ -385,26 +377,37 @@
     --color-table-stripe: var(--color-surface-bg);
     --color-table-hover: var(--color-neutral-900);
 
+    /* Dark theme: Calendar Colors */
+    --color-calendar-grid: var(--color-neutral-700);
+    --color-calendar-accent: var(--color-primary-deep);
+
     /* Dark theme: Chip Pairings */
     --color-chip-primary-bg: var(--color-primary);
+    --color-chip-primary-bg-hover: var(--color-primary-deep);
     --color-chip-primary-text: var(--color-white);
 
-    --color-chip-red-bg: var(--color-red-dark);
+    --color-chip-red-bg: var(--color-red-dark-50);
+    --color-chip-red-bg-hover: var(--color-red-dark);
     --color-chip-red-text: var(--color-red-pastel);
 
-    --color-chip-orange-bg: var(--color-orange-dark);
+    --color-chip-orange-bg: var(--color-orange-dark-50);
+    --color-chip-orange-bg-hover: var(--color-orange-dark);
     --color-chip-orange-text: var(--color-orange-pastel);
 
-    --color-chip-yellow-bg: var(--color-yellow-muted);
+    --color-chip-yellow-bg: var(--color-yellow-muted-50);
+    --color-chip-yellow-bg-hover: var(--color-yellow-muted);
     --color-chip-yellow-text: var(--color-amber-brown);
 
-    --color-chip-green-bg: var(--color-green-muted);
+    --color-chip-green-bg: var(--color-green-muted-50);
+    --color-chip-green-bg-hover: var(--color-green-muted);
     --color-chip-green-text: var(--color-green-pastel);
 
-    --color-chip-blue-bg: var(--color-blue-muted);
+    --color-chip-blue-bg: var(--color-blue-muted-50);
+    --color-chip-blue-bg-hover: var(--color-blue-muted);
     --color-chip-blue-text: var(--color-blue-pastel);
 
-    --color-chip-purple-bg: var(--color-purple-muted);
+    --color-chip-purple-bg: var(--color-purple-muted-50);
+    --color-chip-purple-bg-hover: var(--color-purple-muted);
     --color-chip-purple-text: var(--color-purple-pastel);
   }
 }
@@ -416,7 +419,7 @@
 
   --color-text: var(--color-white);
   --color-text-secondary: var(--color-warm-tan-light);
-  --color-text-muted: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
 
   --color-border: var(--color-neutral-800);
 
@@ -440,15 +443,11 @@
 
   --color-btn-secondary-bg-hover: var(--color-primary-dark);
 
-  /* --color-btn-tertiary-bg: transparent;
-  --color-btn-tertiary-bg-hover: var(--color-neutral-950);
-  --color-btn-tertiary-text: var(--color-white);
-  --color-btn-tertiary-border: var(--color-neutral-700);
-  --color-btn-tertiary-border-hover: var(--color-neutral-600); */
+  --color-btn-tertiary-bg: var(--color-neutral-800);
+  --color-btn-tertiary-bg-hover: var(--color-neutral-700-80);
 
-  /* --color-callout-bg: var(--color-neutral-900);
-  --color-callout-accent: var(--color-text-highlight);
-  --color-callout-text-header: var(--color-primary-light); */
+  --color-btn-arrow: var(--color-neutral-600);
+  --color-btn-arrow-hover: var(--color-neutral-500);
 
   /* Dark theme: Sidebar Colors */
   --color-sidebar-bg: var(--color-neutral-950);
@@ -494,31 +493,116 @@
   --color-tab-border: var(--color-neutral-800);
   --color-tab-border-active: var(--color-neutral-700);
 
-  /* Dark theme: Tables */
-  --color-table-bg: var(--color-dark-grey-400);
-  --color-table-header-bg: var(--color-neutral-900);
-  --color-table-stripe: var(--color-surface-bg);
+  /* Dark theme: Table Colors */
+  --color-table-stripe: var(--color-neutral-950);
   --color-table-hover: var(--color-neutral-900);
+
+  /* Dark theme: Calendar Colors */
+  --color-calendar-grid: var(--color-neutral-800);
+  --color-calendar-accent: var(--color-primary-deep);
 
   /* Dark theme: Chip Pairings */
   --color-chip-primary-bg: var(--color-primary);
+  --color-chip-primary-bg-hover: var(--color-primary-deep);
   --color-chip-primary-text: var(--color-white);
 
-  --color-chip-red-bg: var(--color-red-dark);
+  --color-chip-red-bg: var(--color-red-dark-50);
+  --color-chip-red-bg-hover: var(--color-red-dark);
   --color-chip-red-text: var(--color-red-pastel);
 
-  --color-chip-orange-bg: var(--color-orange-dark);
+  --color-chip-orange-bg: var(--color-orange-dark-50);
+  --color-chip-orange-bg-hover: var(--color-orange-dark);
   --color-chip-orange-text: var(--color-orange-pastel);
 
-  --color-chip-yellow-bg: var(--color-yellow-muted);
+  --color-chip-yellow-bg: var(--color-yellow-muted-50);
+  --color-chip-yellow-bg-hover: var(--color-yellow-muted);
   --color-chip-yellow-text: var(--color-amber-brown);
 
-  --color-chip-green-bg: var(--color-green-muted);
+  --color-chip-green-bg: var(--color-green-muted-50);
+  --color-chip-green-bg-hover: var(--color-green-muted);
   --color-chip-green-text: var(--color-green-pastel);
 
-  --color-chip-blue-bg: var(--color-blue-muted);
+  --color-chip-blue-bg: var(--color-blue-muted-50);
+  --color-chip-blue-bg-hover: var(--color-blue-muted);
   --color-chip-blue-text: var(--color-blue-pastel);
 
-  --color-chip-purple-bg: var(--color-purple-muted);
+  --color-chip-purple-bg: var(--color-purple-muted-50);
+  --color-chip-purple-bg-hover: var(--color-purple-muted);
   --color-chip-purple-text: var(--color-purple-pastel);
+}
+
+/* ====== COLOR CHIP CLASSES ====== */
+.chip-primary,
+.chip-1,
+.chip-2,
+.chip-3,
+.chip-4,
+.chip-5,
+.chip-6 {
+  transition:
+    background-color 100ms ease,
+    color 100ms ease;
+}
+
+.chip-primary {
+  background-color: var(--color-chip-primary-bg);
+  color: var(--color-chip-primary-text);
+}
+
+.chip-primary.chip-hovers:hover {
+  background-color: var(--color-chip-primary-bg-hover);
+}
+
+.chip-1 {
+  background-color: var(--color-chip-red-bg);
+  color: var(--color-chip-red-text);
+}
+
+.chip-1.chip-hovers:hover {
+  background-color: var(--color-chip-red-bg-hover);
+}
+
+.chip-2 {
+  background-color: var(--color-chip-orange-bg);
+  color: var(--color-chip-orange-text);
+}
+
+.chip-2.chip-hovers:hover {
+  background-color: var(--color-chip-orange-bg-hover);
+}
+
+.chip-3 {
+  background-color: var(--color-chip-yellow-bg);
+  color: var(--color-chip-yellow-text);
+}
+
+.chip-3.chip-hovers:hover {
+  background-color: var(--color-chip-yellow-bg-hover);
+}
+
+.chip-4 {
+  background-color: var(--color-chip-green-bg);
+  color: var(--color-chip-green-text);
+}
+
+.chip-4.chip-hovers:hover {
+  background-color: var(--color-chip-green-bg-hover);
+}
+
+.chip-5 {
+  background-color: var(--color-chip-blue-bg);
+  color: var(--color-chip-blue-text);
+}
+
+.chip-5.chip-hovers:hover {
+  background-color: var(--color-chip-blue-bg-hover);
+}
+
+.chip-6 {
+  background-color: var(--color-chip-purple-bg);
+  color: var(--color-chip-purple-text);
+}
+
+.chip-6.chip-hovers:hover {
+  background-color: var(--color-chip-purple-bg-hover);
 }

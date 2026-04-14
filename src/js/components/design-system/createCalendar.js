@@ -55,14 +55,28 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
 
   /* Calendar event data normalization */
   const events = {};
+  const chipMap = new Map();
 
   data[scheduleKey].forEach((event) => {
     const [year, month, day] = event.date.split("-");
     const eventStart = formatTo12Hour(event.startTime);
     const eventEnd = formatTo12Hour(event.endTime);
+
+    const eventType = event.title
+      .toLowerCase()
+      .trim()
+      .replace(/\s\d+$/, "");
+
+    const chipNum = (chipMap.size % 6) + 1;
+
+    if (!chipMap.has(eventType)) {
+      chipMap.set(eventType, `chip-${chipNum}`);
+    }
+
     events[`${year}, ${parseInt(month)}, ${parseInt(day)}`] = {
       time: `${eventStart}-${eventEnd}`,
       title: event.title,
+      chipColor: chipMap.get(eventType),
     };
   });
 
@@ -110,8 +124,10 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
         }
 
         if (events[key]) {
-          const { time, title } = events[key];
-          const event = createEl("div", { className: "cal-event" });
+          const { time, title, chipColor } = events[key];
+          const event = createEl("div", {
+            className: `cal-event ${chipColor} chip-hovers`,
+          });
           const timeText = createEl("p", {
             className: "time-text",
             textContent: time,
@@ -132,6 +148,8 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
   updateCalendar();
 
   /* Handle events */
+
+  // Next & Prev Arrow Button Clicks
   const goToNextMonth = () => {
     selectedDate = selectedDate.add({ months: 1 });
     updateCalendar();
@@ -151,6 +169,7 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
   leftArrowBtn.addEventListener("click", () => goToPrevMonth());
   todayBtn.addEventListener("click", () => goToToday());
 
+  // Dynamically Resize Calendar Cell Heights
   window.addEventListener("resize", setAllCellsMinHeight);
 
   observeWidth(calendarGrid, setAllCellsMinHeight);
