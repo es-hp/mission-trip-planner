@@ -23,15 +23,14 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
 
   /* Calendar header elments */
   const calendarHeader = createEl("header", { className: "calendar-header" });
+
   const monthName = createEl("h1");
   const yearText = createEl("h2");
-  const monthYear = createEl("div", { className: "month-year" });
-  monthYear.append(monthName, yearText);
-
   const calendarNav = createEl("div", { className: "calendar-nav" });
+
   calendarNav.append(leftArrowBtn, todayBtn, rightArrowBtn);
 
-  calendarHeader.append(monthYear, calendarNav);
+  calendarHeader.append(yearText, monthName, calendarNav);
 
   /* Calendar body elements */
   const calendarBody = createEl("div", { className: "calendar-body" });
@@ -115,6 +114,9 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
           className: "calendar-day",
           textContent: currentDay,
         });
+
+        cell.classList.add("calendar-valid-days");
+
         if (
           currentDay == now.day &&
           selectedDate.month == now.month &&

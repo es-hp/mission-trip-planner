@@ -3,6 +3,7 @@
   min-height: 18.875rem;
   padding: 1.5rem;
   background-color: var(--color-surface-bg);
+  border: 1px solid var(--color-border);
 }
 
 .calendar-header {
@@ -12,18 +13,12 @@
   padding-bottom: 1rem;
 }
 
-.month-year {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.month-year h1 {
+.calendar-header h1 {
   font-size: 1.875rem;
   letter-spacing: 0.125rem;
 }
 
-.month-year h2 {
+.calendar-header h2 {
   font-family: "source sans 3";
   font-weight: 400;
   font-size: 1.125rem;
@@ -98,6 +93,10 @@
   padding: 0.25rem;
   overflow: hidden;
   font-size: clamp(0.75rem, 0.4rem + 1vw, 1rem);
+}
+
+.calendar-valid-days {
+  background-color: var(--color-card-bg);
 }
 
 .calendar-day {
