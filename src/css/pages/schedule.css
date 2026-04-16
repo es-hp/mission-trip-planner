@@ -1,6 +1,5 @@
 /* Trip Schedule */
 #trip-schedule {
-  background-color: var(--color-table-bg);
   overflow-x: auto;
   border: 1px solid var(--color-border);
   border-top: none;
@@ -13,15 +12,15 @@
 .trip-table th {
   color: var(--color-text);
   font-weight: 600;
-  background-color: var(--color-table-header-bg);
-}
-
-.trip-table tbody tr:hover {
-  background-color: transparent;
+  background-color: var(--color-table-schedule-header-bg);
 }
 
 .trip-table-row {
   position: relative;
+}
+
+.trip-table-body tr:nth-child(even) {
+  background-color: var(--color-table-schedule-stripe);
 }
 
 .trip-table .first-col {
@@ -30,14 +29,18 @@
   width: 6.25rem;
   padding: 0.25rem 1rem;
   outline: 1px solid var(--color-border);
-  background-color: var(--color-table-header-bg);
+  background-color: var(--color-table-schedule-header-bg);
   z-index: 2;
 }
 
-.trip-table th,
-.trip-table td {
+.trip-table th {
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+.trip-table td {
+  border-right: 1px solid var(--color-table-schedule-grid);
+  border-bottom: 1px solid var(--color-table-schedule-grid);
 }
 
 .trip-table th:not(.first-col),

@@ -1,7 +1,7 @@
 import { getTripSchedule } from "@core/api";
 import { createEl, observeWidth } from "@core/utils";
 
-export default async function tripSchedule(container, { onMount } = {}) {
+export default async function tripSchedule(container) {
   const scheduleData = await getTripSchedule();
 
   const [startYear, startMonth, startDay] = scheduleData[0].date.split("-");
@@ -70,7 +70,9 @@ export default async function tripSchedule(container, { onMount } = {}) {
   function createTripTable() {
     const tripTable = createEl("table", { className: "trip-table" });
     const thead = createEl("thead", { className: "trip-table-header" });
-    const tbody = createEl("tbody", { className: "trip-table-body" });
+    const tbody = createEl("tbody", {
+      className: "trip-table-body no-table-hover",
+    });
     const timeSlots = generateTimeSlots();
 
     for (let tr = 0; tr < 3; tr++) {
@@ -195,7 +197,7 @@ export default async function tripSchedule(container, { onMount } = {}) {
     });
   }
 
-  onMount?.(() => {
+  requestAnimationFrame(() => {
     setBlockHeight();
   });
 

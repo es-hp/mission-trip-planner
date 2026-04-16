@@ -21,7 +21,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  scrollbar-color: rgba(241, 229, 227, 0.2) rgba(0, 0, 0, 0);
+  scrollbar-color: var(--color-scrollbar);
 }
 
 :root {

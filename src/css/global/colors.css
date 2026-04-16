@@ -11,7 +11,9 @@
   --color-white-50: rgb(250 249 247 / 0.5);
   --color-white-70: rgb(250 249 247 / 0.7);
   --color-white-80: rgb(250 249 247 / 0.8);
+
   --color-neutral-25: #f2f0ed;
+  --color-neutral-25-50: rgb(242 240 237 / 0.5);
   --color-neutral-50: #e9e7e2;
   --color-neutral-50-90: rgb(233 231 226 / 0.9);
   --color-neutral-100: #d1cfc9;
@@ -29,6 +31,8 @@
   --color-neutral-800-50: rgb(59 58 55 / 0.5);
   --color-neutral-900: #262522;
   --color-neutral-950: #1f1e1c;
+  --color-neutral-950-50: rgb(31 30 28 / 0.5);
+
   --color-black: #171614;
   --color-black-10: rgb(23 22 20 / 0.1);
   --color-black-20: rgb(23 22 20 / 0.2);
@@ -42,6 +46,7 @@
 
   /* Primary Palette */
   --color-primary-100: #ffe0cc;
+  --color-primary-100-10: rgb(255 224 204 / 0.1);
   --color-primary-200: #ffc4a0;
   --color-primary-300: #ff9466;
   --color-primary-400: #ff6a30;
@@ -124,6 +129,8 @@
   --color-accent-past: var(--color-slate-light);
 
   --color-warning: var(--color-amber-gold);
+
+  --color-scrollbar: var(--color-neutral-100) transparent;
 
   /* Status Colors */
   --color-success: var(--color-green);
@@ -260,6 +267,10 @@
   --color-table-stripe: var(--color-neutral-25);
   --color-table-hover: var(--color-neutral-50);
 
+  --color-table-schedule-header-bg: var(--color-surface-bg);
+  --color-table-schedule-grid: var(--color-neutral-100-70);
+  --color-table-schedule-stripe: var(--color-neutral-25-50);
+
   /* Calendar Colors */
   --color-calendar-grid: var(--color-neutral-200);
   --color-calendar-accent: var(--color-primary-200);
@@ -308,6 +319,8 @@
     --color-border: var(--color-neutral-800);
 
     --color-accent-past: var(--color-slate-dark);
+
+    --color-scrollbar: var(--color-neutral-900) transparent;
 
     /* Dark theme: Login Colors */
     --color-login-card-bg: var(--color-dark-grey-400);
@@ -380,11 +393,12 @@
     --color-tab-border: var(--color-neutral-800);
     --color-tab-border-active: var(--color-neutral-700);
 
-    /* Dark theme: Tables */
-    --color-table-bg: var(--color-dark-grey-400);
-    --color-table-header-bg: var(--color-neutral-900);
-    --color-table-stripe: var(--color-surface-bg);
+    /* Dark theme: Table Colors */
+    --color-table-stripe: var(--color-neutral-950);
     --color-table-hover: var(--color-neutral-900);
+
+    --color-table-schedule-grid: var(--color-neutral-800-50);
+    --color-table-schedule-stripe: var(--color-neutral-950-50);
 
     /* Dark theme: Calendar Colors */
     --color-calendar-grid: var(--color-neutral-700);
@@ -433,6 +447,8 @@
   --color-border: var(--color-neutral-800);
 
   --color-accent-past: var(--color-slate-dark);
+
+  --color-scrollbar: var(--color-neutral-900) transparent;
 
   /* Dark theme: Login Colors */
   --color-login-card-bg: var(--color-dark-grey-400);
@@ -507,6 +523,9 @@
   /* Dark theme: Table Colors */
   --color-table-stripe: var(--color-neutral-950);
   --color-table-hover: var(--color-neutral-900);
+
+  --color-table-schedule-grid: var(--color-neutral-800-50);
+  --color-table-schedule-stripe: var(--color-neutral-950-50);
 
   /* Dark theme: Calendar Colors */
   --color-calendar-grid: var(--color-neutral-800);
