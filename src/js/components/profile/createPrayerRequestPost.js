@@ -12,7 +12,7 @@ import createModal from "../design-system/createModal";
 import { Temporal } from "@js-temporal/polyfill";
 
 const openColor = getCSSVar("--color-text");
-const closedColor = getCSSVar("--color-text-card-muted");
+const closedColor = getCSSVar("--color-text-muted");
 const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 
 export default function createPrayerRequestPost({
@@ -32,8 +32,12 @@ export default function createPrayerRequestPost({
   const metadata = createEl("div", { className: "post-metadata" });
 
   // Header: Status dropdown
-  const statusLabel = createEl("span", { textContent: "Status: " });
-  const statusEl = createEl("div", { className: "post-status-container" });
+  const statusLine = createEl("div", { className: "post-status-line" });
+
+  const statusFieldTerm = createEl("span", {
+    textContent: "Status:",
+    className: "post-status-field-term",
+  });
 
   const statusText = createEl("span", {
     textContent: post.status,
@@ -55,48 +59,47 @@ export default function createPrayerRequestPost({
     },
   ];
 
-  const { selectContainer: statusSelectContainer, select: statusSelect } =
+  const { label: statusSelectContainer, select: statusSelect } =
     createFormSelect({
       formSelectName: "status",
-      formSelectId: "post-status",
+      formSelectId: `${post.id}-status`,
       optionsArr,
     });
 
-  const statusColors = { open: openColor, closed: closedColor };
-  const statusWidths = { open: "4.25rem", closed: "5rem" };
+  const statusStyles = {
+    open: { color: openColor, width: `${2.8 + 1}rem` },
+    closed: { color: closedColor, width: `${3.375 + 1}rem` },
+  };
 
-  statusEl.style.color = statusColors[status] ?? null;
-  statusSelect.style.color = statusColors[status] ?? null;
-  statusSelect.style.width = statusWidths[status];
+  const applyStatusStyles = (status) => {
+    const styles = statusStyles[status];
+    if (!styles) return;
+
+    statusLine.style.color = styles.color;
+    statusSelect.style.width = styles.width;
+  };
+
+  applyStatusStyles(status);
 
   statusSelect.addEventListener("change", (e) => {
     status = e.target.value;
-    statusEl.style.color = statusColors[status] ?? null;
-    statusSelect.style.color = statusColors[status] ?? null;
-    statusSelect.style.width = statusWidths[status];
 
-    if (status === "closed") {
-      insertDescending({
-        container: closedPosts,
-        element: postCard,
-        createdTime: post.createdAt,
-        elClassName: "prayer-request-post",
-        timestampClass: "post-timestamp",
-      });
-    } else {
-      insertDescending({
-        container: openPosts,
-        element: postCard,
-        createdTime: post.createdAt,
-        elClassName: "prayer-request-post",
-        timestampClass: "post-timestamp",
-      });
-    }
+    applyStatusStyles(status);
+
+    const container = status === "closed" ? closedPosts : openPosts;
+
+    insertDescending({
+      container,
+      element: postCard,
+      createdTime: post.createdAt,
+      elClassName: "prayer-request-post",
+      timestampClass: "post-timestamp",
+    });
   });
 
   isOwner
-    ? statusEl.append(statusLabel, statusSelectContainer)
-    : statusEl.append(statusLabel, statusText);
+    ? statusLine.append(statusFieldTerm, statusSelectContainer)
+    : statusLine.append(statusFieldTerm, statusText);
 
   // Header: Timestamp
   const { date, time, zdtAttribute } = formatDateTime(post.createdAt, {
@@ -128,7 +131,7 @@ export default function createPrayerRequestPost({
     timestamp.append(dividerDot, urgentFlag);
   }
 
-  metadata.append(statusEl, timestamp);
+  metadata.append(statusLine, timestamp);
   header.append(icon, metadata);
 
   /* Post Body */

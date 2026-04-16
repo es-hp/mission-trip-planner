@@ -153,9 +153,12 @@ a {
   font-style: normal;
   color: var(--color-text-highlight);
   text-decoration: none;
+  opacity: 1;
+  transition: opacity 100ms ease;
 }
 a:hover {
   color: var(--color-text-highlight);
+  opacity: 0.8;
 }
 
 /* Button Styles */
@@ -171,8 +174,9 @@ button,
   padding: 0.25em 0.75em;
   cursor: pointer;
   transition:
-    background-color 100ms ease,
-    border-color 100ms ease;
+    background-color 150ms ease,
+    color 150ms ease,
+    border-color 150ms ease;
 }
 
 button:disabled {
@@ -206,9 +210,6 @@ button:disabled {
 .btn-action-secondary {
   background-color: var(--color-action-icon-secondary-bg);
   color: var(--color-action-icon-secondary);
-  transition:
-    background-color 100ms ease,
-    color 100ms ease;
 }
 
 .btn-action-secondary:not(:disabled):hover {
@@ -218,13 +219,13 @@ button:disabled {
 
 /* Input and Textarea Styles */
 input {
-  background: var(--color-input-bg);
+  background-color: var(--color-input-bg);
   font: inherit;
   color: var(--color-input-text);
   border: 1px solid var(--color-input-border);
   border-radius: 0.375rem;
   outline: none;
-  transition: border-color 200ms ease;
+  transition: border-color 150ms ease;
 }
 
 input[type="text"],
@@ -243,27 +244,33 @@ input::placeholder {
 
 textarea {
   width: 100%;
-  resize: none;
   padding: 0.75rem 1rem;
+
   font-family: inherit;
   font-size: var(--text-base);
   line-height: 1.7;
-  background: var(--color-input-bg);
+  color: inherit;
+
+  background-color: var(--color-input-bg);
+
   border: 1px solid var(--color-input-border);
   border-radius: 0.375rem;
-  transition: border-color 200ms ease;
+
+  resize: none;
+  transition: border-color 150ms ease;
 }
 
 input[type="checkbox"] {
   width: 1rem;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
+
   border: 1px solid var(--color-border);
-  cursor: pointer;
   accent-color: var(--color-slate-dark-muted);
+
+  cursor: pointer;
 }
 
 input[type="checkbox"]:hover {
-  accent-color: var(--color-slate-dark-muted);
   border: 1px solid var(--color-input-border);
 }
 
@@ -275,9 +282,7 @@ input[type="checkbox"]:hover {
 
 :focus-visible {
   outline: none;
-  box-shadow:
-    0 0 0 1px var(--color-slate-light),
-    0 0 0 2px var(--color-slate-light-50);
+  box-shadow: var(--focus-shadow);
 }
 
 input[type="checkbox"]:focus-visible {

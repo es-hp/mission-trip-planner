@@ -41,13 +41,15 @@
   --color-black-90: rgb(23 22 20 / 0.9);
 
   /* Primary Palette */
+  --color-primary-100: #ffe0cc;
+  --color-primary-200: #ffc4a0;
+  --color-primary-300: #ff9466;
+  --color-primary-400: #ff6a30;
   --color-primary: #ff4200;
-  --color-primary-250: #fec9b5;
-  --color-primary-500: #fd9478;
-  --color-primary-750: #fc5f3b;
-  --color-primary-light: #fff3e8;
-  --color-primary-deep: #c4572a;
-  --color-primary-dark: #3c2a24;
+  --color-primary-600: #c4572a;
+  --color-primary-700: #6b3020;
+  --color-primary-800: #3c2a24;
+  --color-primary-900: #1a1210;
 
   /* Secondary Palette */
   --color-amber-gold: #f0a500;
@@ -110,12 +112,12 @@
 
   /* General */
   --color-bg: var(--color-white);
-  --color-bg-wash-gradient: var(--color-primary-500);
+  --color-bg-wash-gradient: var(--color-primary-300);
 
   --color-text: var(--color-black);
   --color-text-secondary: var(--color-warm-tan-dark);
   --color-text-muted: var(--color-neutral-400);
-  --color-text-highlight: var(--color-primary-deep);
+  --color-text-highlight: var(--color-primary-600);
 
   --color-border: var(--color-neutral-100);
 
@@ -154,12 +156,15 @@
   --color-btn-disabled-border: var(--color-neutral-200);
 
   --color-btn-primary-bg: var(--color-primary);
-  --color-btn-primary-bg-hover: var(--color-primary-500);
+  --color-btn-primary-bg-hover: var(--color-primary-400);
   --color-btn-primary-text: var(--color-white);
 
+  --color-btn-primary-paused-bg-fill: var(--color-primary-300);
+  --color-btn-primary-paused-text: var(--color-text);
+
   --color-btn-secondary-bg: transparent;
-  --color-btn-secondary-bg-hover: var(--color-primary-light);
-  --color-btn-secondary-text: var(--color-primary-deep);
+  --color-btn-secondary-bg-hover: var(--color-primary-100);
+  --color-btn-secondary-text: var(--color-primary-600);
   --color-btn-secondary-border: var(--color-btn-secondary-text);
 
   --color-btn-tertiary-bg: var(--color-neutral-100-70);
@@ -170,7 +175,7 @@
 
   --color-action-icon-secondary-bg: transparent;
   --color-action-icon-secondary: var(--color-text-muted);
-  --color-action-icon-secondary-hover: var(--color-primary-deep);
+  --color-action-icon-secondary-hover: var(--color-primary-600);
 
   /* Sidebar Colors */
   --color-sidebar-bg: var(--color-neutral-25);
@@ -187,7 +192,7 @@
   --color-input-bg: var(--color-bg);
   --color-input-text: var(--color-text);
   --color-input-text-placeholder: var(--color-text-muted);
-  --color-input-text-helper: var(--color-primary-deep);
+  --color-input-text-helper: var(--color-primary-600);
   --color-input-border: var(--color-border);
   --color-input-dropdown-bg: var(--color-white);
   --color-input-dropdown-bg-hover: var(--color-neutral-50);
@@ -239,6 +244,8 @@
   --box-shadow-x:
     1px 0 3px -1px rgb(0 0 0 / 0.04), 2px 0 8px -2px rgb(0 0 0 / 0.06);
   --text-shadow: 2px 2px 4px rgba(0 0 0 / 0.1);
+  --focus-shadow:
+    0 0 0 1px var(--color-slate-light), 0 0 0 2px var(--color-slate-light-50);
 
   /* Tab Navigation Colors */
   --color-tab-bg: transparent;
@@ -255,11 +262,11 @@
 
   /* Calendar Colors */
   --color-calendar-grid: var(--color-neutral-200);
-  --color-calendar-accent: var(--color-primary-500);
+  --color-calendar-accent: var(--color-primary-200);
 
   /* Chip Color Pairings */
   --color-chip-primary-bg: var(--color-primary);
-  --color-chip-primary-bg-hover: var(--color-primary-500);
+  --color-chip-primary-bg-hover: var(--color-primary-300);
   --color-chip-primary-text: var(--color-white);
 
   --color-chip-red-bg: var(--color-red-pastel-50);
@@ -292,7 +299,7 @@
   :root:not([data-theme="light"]) {
     /* Dark theme: General */
     --color-bg: var(--color-black);
-    --color-bg-wash-gradient: var(--color-primary-deep);
+    --color-bg-wash-gradient: var(--color-primary-600);
 
     --color-text: var(--color-white);
     --color-text-secondary: var(--color-warm-tan-light);
@@ -318,7 +325,9 @@
     --color-btn-disabled-text: var(--color-neutral-500);
     --color-btn-disabled-border: var(--color-neutral-700);
 
-    --color-btn-secondary-bg-hover: var(--color-primary-dark);
+    --color-btn-primary-paused-bg-fill: var(--color-primary-600);
+
+    --color-btn-secondary-bg-hover: var(--color-primary-800);
 
     --color-btn-arrow: var(--color-neutral-600);
     --color-btn-arrow-hover: var(--color-neutral-500);
@@ -379,11 +388,11 @@
 
     /* Dark theme: Calendar Colors */
     --color-calendar-grid: var(--color-neutral-700);
-    --color-calendar-accent: var(--color-primary-deep);
+    --color-calendar-accent: var(--color-primary-600);
 
     /* Dark theme: Chip Pairings */
     --color-chip-primary-bg: var(--color-primary);
-    --color-chip-primary-bg-hover: var(--color-primary-deep);
+    --color-chip-primary-bg-hover: var(--color-primary-600);
     --color-chip-primary-text: var(--color-white);
 
     --color-chip-red-bg: var(--color-red-dark-50);
@@ -415,7 +424,7 @@
 [data-theme="dark"] {
   /* Dark theme: General */
   --color-bg: var(--color-black);
-  --color-bg-wash-gradient: var(--color-primary-deep);
+  --color-bg-wash-gradient: var(--color-primary-600);
 
   --color-text: var(--color-white);
   --color-text-secondary: var(--color-warm-tan-light);
@@ -441,7 +450,9 @@
   --color-btn-disabled-text: var(--color-neutral-500);
   --color-btn-disabled-border: var(--color-neutral-700);
 
-  --color-btn-secondary-bg-hover: var(--color-primary-dark);
+  --color-btn-primary-paused-bg-fill: var(--color-primary-600);
+
+  --color-btn-secondary-bg-hover: var(--color-primary-800);
 
   --color-btn-tertiary-bg: var(--color-neutral-800);
   --color-btn-tertiary-bg-hover: var(--color-neutral-700-80);
@@ -499,11 +510,11 @@
 
   /* Dark theme: Calendar Colors */
   --color-calendar-grid: var(--color-neutral-800);
-  --color-calendar-accent: var(--color-primary-deep);
+  --color-calendar-accent: var(--color-primary-600);
 
   /* Dark theme: Chip Pairings */
   --color-chip-primary-bg: var(--color-primary);
-  --color-chip-primary-bg-hover: var(--color-primary-deep);
+  --color-chip-primary-bg-hover: var(--color-primary-600);
   --color-chip-primary-text: var(--color-white);
 
   --color-chip-red-bg: var(--color-red-dark-50);

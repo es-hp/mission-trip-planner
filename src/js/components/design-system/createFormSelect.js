@@ -18,7 +18,6 @@ export default function createFormSelect({
 }) {
   if (!Array.isArray(optionsArr)) return;
 
-  const selectContainer = createEl("div", { className: "select-container" });
   const label = createEl("label", { className: "select-label" });
   const select = createEl("select", {
     name: formSelectName,
@@ -30,6 +29,8 @@ export default function createFormSelect({
     className: "select-down-arrow",
   });
 
+  arrow.addEventListener("click", () => select.click());
+
   optionsArr.forEach((option) => {
     const optionEl = createEl("option", {
       ...option,
@@ -39,6 +40,5 @@ export default function createFormSelect({
   });
 
   label.append(select);
-  selectContainer.append(label, arrow);
-  return { selectContainer, select };
+  return { label, select };
 }

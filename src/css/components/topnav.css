@@ -53,9 +53,7 @@
 
 .search-bar:focus-within {
   outline: none;
-  box-shadow:
-    0 0 0 1px var(--color-slate-light),
-    0 0 0 2px var(--color-slate-light-50);
+  box-shadow: var(--focus-shadow);
 }
 
 .search-input-div {
@@ -136,7 +134,7 @@
 #topnav-dropdown-btn {
   align-self: flex-start;
   padding: 0;
-  border: 2px solid var(--color-primary-500);
+  border: 2px solid var(--color-text);
   border-radius: 50%;
   transition: border-color 150ms ease;
 }

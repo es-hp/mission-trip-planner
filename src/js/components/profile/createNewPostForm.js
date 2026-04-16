@@ -53,7 +53,7 @@ export default function createNewPostForm({
     textContent: "Cancel",
   });
 
-  const submitBtnText = "Create";
+  const submitBtnText = "Submit";
   const submitNewPostBtn = createEl("button", {
     className: "primary-btn",
     textContent: submitBtnText,

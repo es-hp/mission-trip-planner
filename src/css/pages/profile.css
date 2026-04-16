@@ -152,18 +152,24 @@
 }
 
 .post-metadata > * {
-  line-height: 1.1em;
+  line-height: 1.1;
 }
 
-.post-status-container {
+.post-status-line {
+  align-self: flex-start;
   display: flex;
   align-items: center;
-  font-size: var(--text-lg);
-  font-weight: 600;
+  gap: 0.25rem;
 }
 
+.post-status-line .select-label {
+  margin-left: -0.125rem;
+}
+
+.post-status-line,
 .post-status-text {
-  margin-left: 0.5rem;
+  font-size: var(--text-lg);
+  font-weight: 500;
   text-transform: capitalize;
 }
 
@@ -243,14 +249,16 @@
 
 .prayed-submit-btn.primary-btn.btn-paused {
   pointer-events: none;
-  border-color: var(--color-primary);
+  font-weight: 400;
   background-color: transparent;
   background: linear-gradient(
-    var(--color-burnt-sienna),
-    var(--color-burnt-sienna)
+    var(--color-btn-primary-paused-bg-fill),
+    var(--color-btn-primary-paused-bg-fill)
   );
   background-repeat: no-repeat;
   background-size: 0% 100%; /* animated in JS */
+  color: var(--color-btn-primary-paused-text);
+  border-color: var(--color-btn-primary-paused-bg-fill);
   transition: background-size 500ms ease;
 }
 
