@@ -53,13 +53,21 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
   container.append(calendarHeader, calendarBody);
 
   /* Calendar event data normalization */
-  const events = {};
+  const events = new Map();
   const chipMap = new Map();
 
   data[scheduleKey].forEach((event) => {
-    const [year, month, day] = event.date.split("-");
-    const eventStart = formatTo12Hour(event.startTime);
-    const eventEnd = formatTo12Hour(event.endTime);
+    const key = event.date;
+
+    const formatEventTime = (date, time) => {
+      const twelveHr = formatTo12Hour(time);
+      const dtRaw = Temporal.PlainDateTime.from(`${date}T${time}`);
+      const dtString = dtRaw.toString({ smallestUnit: "minute" });
+      return { twelveHr, dtRaw, dtString };
+    };
+
+    const start = formatEventTime(event.date, event.startTime);
+    const end = formatEventTime(event.date, event.endTime);
 
     const eventType = event.title
       .toLowerCase()
@@ -72,11 +80,24 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
       chipMap.set(eventType, `chip-${chipNum}`);
     }
 
-    events[`${year}, ${parseInt(month)}, ${parseInt(day)}`] = {
-      time: `${eventStart}-${eventEnd}`,
+    const eventData = {
+      startTime: start.twelveHr,
+      endTime: end.twelveHr,
       title: event.title,
       chipColor: chipMap.get(eventType),
+      rawStartDt: start.dtRaw,
+      dtStart: start.dtString,
+      dtEnd: end.dtString,
     };
+
+    const eventsArray = events.get(key) ?? [];
+    eventsArray.push(eventData);
+
+    eventsArray.sort((a, b) =>
+      Temporal.PlainDateTime.compare(a.rawStartDt, b.rawStartDt),
+    );
+
+    events.set(key, eventsArray);
   });
 
   /* Set cells min height dynamically */
@@ -106,13 +127,15 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
 
     for (let i = 0; i < totalCells; i++) {
       const cell = createEl("div", { className: "calendar-cell" });
-      const key = `${selectedDate.year}, ${selectedDate.month}, ${day}`;
 
       if (i >= firstDay && day <= daysInMonth) {
+        const key = selectedDate.toPlainDate().with({ day }).toString();
         const currentDay = day++;
-        const calendarDay = createEl("div", {
+
+        const calendarDay = createEl("time", {
           className: "calendar-day",
           textContent: currentDay,
+          attributes: { datetime: key },
         });
 
         cell.classList.add("calendar-valid-days");
@@ -125,21 +148,39 @@ export default function createCalendar({ container, data, scheduleKey, now }) {
           calendarDay.classList.add("today");
         }
 
-        if (events[key]) {
-          const { time, title, chipColor } = events[key];
-          const event = createEl("div", {
-            className: `cal-event ${chipColor} chip-hovers`,
+        if (events.has(key) && events.get(key).length > 0) {
+          const eventList = events.get(key);
+          const eventsContainer = createEl("div", { className: "day-events" });
+
+          eventList.forEach((e) => {
+            const { startTime, endTime, title, chipColor, dtStart, dtEnd } = e;
+            const event = createEl("div", {
+              className: `cal-event ${chipColor} chip-hovers`,
+            });
+
+            const timeText = createEl("div", { className: "time-text" });
+
+            const start = createEl("time", {
+              textContent: startTime,
+              attributes: { datetime: dtStart },
+            });
+
+            const end = createEl("time", {
+              textContent: endTime,
+              attributes: { datetime: dtEnd },
+            });
+
+            timeText.append(start, "-", end);
+
+            const titleText = createEl("p", {
+              className: "title-text",
+              textContent: title,
+            });
+            event.append(timeText, titleText);
+            eventsContainer.append(event);
           });
-          const timeText = createEl("p", {
-            className: "time-text",
-            textContent: time,
-          });
-          const titleText = createEl("p", {
-            className: "title-text",
-            textContent: title,
-          });
-          event.append(timeText, titleText);
-          cell.append(event);
+
+          cell.append(eventsContainer);
         }
         cell.prepend(calendarDay);
       }
