@@ -103,6 +103,7 @@ export default function createTopNav({
   searchBarWrapper.append(searchBar, resultsDropdown);
 
   /* Profile: Dropdown */
+  const wrapper = createEl("div", { className: "topnav-avatar-wrapper" });
   const dropdown = createEl("div", { className: "dropdown-menu-container" });
   const dropdownBtn = createEl("button", { id: "topnav-dropdown-btn" });
 
@@ -166,11 +167,12 @@ export default function createTopNav({
   dropdownMenu.append(dividerLi, logoutLinkLi);
 
   dropdown.append(dropdownBtn, dropdownMenu);
+  wrapper.append(dropdown);
 
   /* Utility Nav */
   const utilityNav = createEl("nav", { className: "utility-nav" });
 
-  utilityNav.append(searchBarWrapper, dropdown);
+  utilityNav.append(searchBarWrapper, wrapper);
 
   /* Mount */
   if (mainID === "overview") {

@@ -26,10 +26,10 @@
 }
 
 .utility-nav {
+  --utility-nav-height: 2.25rem;
   display: flex;
-  align-items: center;
   gap: 1rem;
-  height: 2.25rem;
+  height: var(--utility-nav-height);
 }
 
 /* Search Bar */
@@ -44,7 +44,7 @@
   display: flex;
   flex: 1;
   align-items: stretch;
-  height: 2.25rem;
+  height: var(--utility-nav-height);
   border-radius: 0.375rem;
   border: 1px solid var(--color-input-border);
   overflow: hidden;
@@ -127,29 +127,41 @@
 }
 
 /* Avatar: Dropdown */
+.topnav-avatar-wrapper {
+  position: relative;
+  height: 100%;
+  width: calc(var(--utility-nav-height) + 0.5rem);
+}
+
 .topnav .dropdown-menu-container {
-  height: 135%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--utility-nav-height) + 1rem);
+  width: 100%;
 }
 
 #topnav-dropdown-btn {
-  align-self: flex-start;
   padding: 0;
-  border: 2px solid var(--color-text);
+  border: 2px solid var(--color-text-muted);
   border-radius: 50%;
-  transition: border-color 150ms ease;
+  transition: border-color 100ms ease;
 }
 
 .top-nav-avatar {
+  display: block;
   aspect-ratio: 1/1;
   height: 100%;
-  max-height: 2.25rem;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
-  display: block;
 }
 
-.topnav .dropdown:hover #topnav-dropdown-btn {
+.topnav .dropdown-menu-container:hover #topnav-dropdown-btn {
   border-color: var(--color-primary);
 }
 
