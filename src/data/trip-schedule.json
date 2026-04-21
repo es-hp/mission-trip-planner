@@ -4,15 +4,15 @@
     "category": "Prep",
     "schedule": [
       {
-        "start": "8:00 PM",
-        "end": "9:00 PM",
+        "start": "20:00",
+        "end": "21:00",
         "eventTitle": "TNP",
         "eventDescription": "",
         "tag": "meeting"
       },
       {
-        "start": "9:00 PM",
-        "end": "10:00 PM",
+        "start": "21:00",
+        "end": "22:00",
         "eventTitle": "Load church van",
         "eventDescription": "",
         "tag": "prep"
@@ -24,29 +24,29 @@
     "category": "Travel",
     "schedule": [
       {
-        "start": "12:30 PM",
-        "end": "1:00 PM",
+        "start": "12:30",
+        "end": "13:00",
         "eventTitle": "Meet at church",
         "eventDescription": "",
         "tag": "meeting"
       },
       {
-        "start": "1:00 PM",
-        "end": "1:30 PM",
+        "start": "13:00",
+        "end": "13:30",
         "eventTitle": "Depart for airport",
         "eventDescription": "",
         "tag": "travel"
       },
       {
-        "start": "1:30 PM",
-        "end": "5:00 PM",
+        "start": "13:30",
+        "end": "17:00",
         "eventTitle": "Travel to airport",
         "eventDescription": "Check in by 2PM.",
         "tag": "travel"
       },
       {
-        "start": "5:00 PM",
-        "end": "",
+        "start": "17:00",
+        "end": "23:00",
         "eventTitle": "Flight",
         "eventDescription": "ABC => XYZ",
         "tag": "travel"
@@ -58,29 +58,29 @@
     "category": "Travel",
     "schedule": [
       {
-        "start": "7:00 AM",
-        "end": "5:30 PM",
+        "start": "07:00",
+        "end": "17:30",
         "eventTitle": "Flight",
         "eventDescription": "ABC => XYZ",
         "tag": "travel"
       },
       {
-        "start": "5:30 PM",
-        "end": "6:00 PM",
+        "start": "17:30",
+        "end": "18:00",
         "eventTitle": "Arrive at Yeravan",
         "eventDescription": "",
         "tag": "travel"
       },
       {
-        "start": "6:00 PM",
-        "end": "9:00 PM",
+        "start": "18:00",
+        "end": "21:00",
         "eventTitle": "Travel to campsite",
         "eventDescription": "Have dinner on the way.",
         "tag": "travel"
       },
       {
-        "start": "9:00 PM",
-        "end": "11:00 PM",
+        "start": "21:00",
+        "end": "23:00",
         "eventTitle": "Arrive at campsite",
         "eventDescription": "Unpack",
         "tag": "prep"
@@ -92,88 +92,886 @@
     "category": "Teen Camp",
     "schedule": [
       {
-        "start": "7:30 AM",
-        "end": "8:00 AM",
+        "start": "07:30",
+        "end": "08:00",
         "eventTitle": "Morning Devo",
         "eventDescription": "Lead: Daniel Kelly",
         "tag": "devo"
       },
       {
-        "start": "8:00 AM",
-        "end": "9:00 AM",
-        "eventTitle": "Joint devo & prayer time",
+        "start": "08:00",
+        "end": "09:00",
+        "eventTitle": "Joint Devo & Prayer Time",
         "eventDescription": "Lead: US",
         "tag": "meeting"
       },
       {
-        "start": "9:00 AM",
-        "end": "10:00 AM",
+        "start": "09:00",
+        "end": "10:00",
         "eventTitle": "Breakfast",
         "eventDescription": "",
         "tag": "meal"
       },
       {
-        "start": "10:00 AM",
-        "end": "1:00 PM",
-        "eventTitle": "Prep time",
-        "eventDescription": "Decorate for teen camp.",
+        "start": "10:00",
+        "end": "13:00",
+        "eventTitle": "Prep Time",
+        "eventDescription": "Decorate for teen camp",
         "tag": "prep"
       },
       {
-        "start": "1:00 PM",
-        "end": "2:00 PM",
+        "start": "13:00",
+        "end": "14:00",
         "eventTitle": "Lunch",
         "eventDescription": "",
         "tag": "meal"
       },
       {
-        "start": "2:00 PM",
-        "end": "3:30 PM",
-        "eventTitle": "Prep time",
+        "start": "14:00",
+        "end": "15:30",
+        "eventTitle": "Prep Time",
         "eventDescription": "Practice performances",
         "tag": "prep"
       },
       {
-        "start": "3:30 PM",
-        "end": "4:00 PM",
+        "start": "15:30",
+        "end": "16:00",
         "eventTitle": "Teenagers Arrive",
         "eventDescription": "Registration / Room & Group Assignment",
         "tag": "teen camp"
       },
       {
-        "start": "4:00 PM",
-        "end": "6:00 PM",
+        "start": "16:00",
+        "end": "18:00",
         "eventTitle": "Icebreaker Games",
         "eventDescription": "Finish registration. Set up for dinner.",
         "tag": "teen camp"
       },
       {
-        "start": "6:00 PM",
-        "end": "7:00 PM",
+        "start": "18:00",
+        "end": "19:00",
         "eventTitle": "Dinner",
         "eventDescription": "",
-        "tag": "teen camp"
+        "tag": "meal"
       },
       {
-        "start": "7:00 PM",
-        "end": "9:30 PM",
+        "start": "19:00",
+        "end": "21:30",
         "eventTitle": "Evening Worship",
         "eventDescription": "Official start of camp",
         "tag": "teen camp"
       },
       {
-        "start": "9:30 PM",
-        "end": "10:00 PM",
+        "start": "21:30",
+        "end": "22:00",
         "eventTitle": "Small Groups",
-        "eventDescription": "Distribute t-shirts and booklets.",
+        "eventDescription": "Give shirts & books",
         "tag": "teen camp"
       },
       {
-        "start": "10:00 PM",
-        "end": "11:00 PM",
+        "start": "22:00",
+        "end": "22:30",
+        "eventTitle": "Clean Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "22:30",
+        "end": "23:30",
         "eventTitle": "Team Meeting",
-        "eventDescription": "Teens sent to rooms.",
+        "eventDescription": "",
         "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-05",
+    "category": "Teen Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "Lead: Michelle Garcia",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: ARM",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Morning Exercise",
+        "eventDescription": "Lead: US",
+        "tag": "teen camp"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "12:00",
+        "eventTitle": "Morning Worship",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:00",
+        "end": "12:30",
+        "eventTitle": "Small Groups",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:30",
+        "end": "13:30",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "13:30",
+        "end": "14:00",
+        "eventTitle": "Transition",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "14:00",
+        "end": "16:00",
+        "eventTitle": "Workshops",
+        "eventDescription": "Arts & Crafts, Dance, Balloons, Games",
+        "tag": "teen camp"
+      },
+      {
+        "start": "16:00",
+        "end": "18:00",
+        "eventTitle": "Swimming",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "19:00",
+        "end": "21:00",
+        "eventTitle": "Evening Worship",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "21:00",
+        "end": "21:30",
+        "eventTitle": "Small Groups",
+        "eventDescription": "Snacks",
+        "tag": "teen camp"
+      },
+      {
+        "start": "21:30",
+        "end": "22:00",
+        "eventTitle": "Clean Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "22:00",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-06",
+    "category": "Teen Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "Lead: Hannah Parker",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: US",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Morning Exercise",
+        "eventDescription": "Lead: ARM",
+        "tag": "teen camp"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "12:00",
+        "eventTitle": "Morning Worship",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:00",
+        "end": "12:30",
+        "eventTitle": "Small Groups",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:30",
+        "end": "13:30",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "13:30",
+        "end": "14:00",
+        "eventTitle": "Transition",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "14:00",
+        "end": "16:00",
+        "eventTitle": "Workshops",
+        "eventDescription": "TaeKwonDo, Science, Cooking, Music",
+        "tag": "teen camp"
+      },
+      {
+        "start": "16:00",
+        "end": "16:30",
+        "eventTitle": "Group Photo",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "16:30",
+        "end": "18:00",
+        "eventTitle": "Field Day Games",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "19:00",
+        "end": "21:00",
+        "eventTitle": "Evening Worship",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "21:00",
+        "end": "21:30",
+        "eventTitle": "Small Groups",
+        "eventDescription": "Snacks",
+        "tag": "teen camp"
+      },
+      {
+        "start": "21:30",
+        "end": "22:00",
+        "eventTitle": "Clean Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "22:00",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-07",
+    "category": "Teen Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "Lead: Diana Morris",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: ARM",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Morning Exercise",
+        "eventDescription": "Lead: US",
+        "tag": "teen camp"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "12:00",
+        "eventTitle": "Morning Worship",
+        "eventDescription": "Special Presentation",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:00",
+        "end": "12:30",
+        "eventTitle": "Pack Up",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "12:30",
+        "end": "13:30",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "13:30",
+        "end": "16:00",
+        "eventTitle": "Wrap Up Assembly",
+        "eventDescription": "Share testimonies, show recap video",
+        "tag": "teen camp"
+      },
+      {
+        "start": "16:00",
+        "end": "16:30",
+        "eventTitle": "Teenagers Leave",
+        "eventDescription": "",
+        "tag": "teen camp"
+      },
+      {
+        "start": "16:30",
+        "end": "17:30",
+        "eventTitle": "Prep for Children's Camp",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "17:30",
+        "end": "19:00",
+        "eventTitle": "US Team Cook Dinner For ARM Team",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "19:00",
+        "end": "20:00",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "20:00",
+        "end": "21:00",
+        "eventTitle": "Clean Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "21:00",
+        "end": "22:00",
+        "eventTitle": "Fellowship",
+        "eventDescription": "",
+        "tag": "meeting"
+      },
+      {
+        "start": "22:00",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-08",
+    "category": "Children's Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "Lead: Tim Jackson",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: US",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Prep time",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "12:00",
+        "eventTitle": "Prep time",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "12:00",
+        "end": "13:00",
+        "eventTitle": "Children Arrive",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "13:00",
+        "end": "14:00",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "14:00",
+        "end": "16:00",
+        "eventTitle": "Welcome & Worship",
+        "eventDescription": "Special Presentation",
+        "tag": "children's camp"
+      },
+      {
+        "start": "16:00",
+        "end": "18:00",
+        "eventTitle": "Stations",
+        "eventDescription": "Crafts, Science, Snack, Games, Balloons",
+        "tag": "children's camp"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "19:00",
+        "end": "21:00",
+        "eventTitle": "Evening Worship",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "21:00",
+        "end": "21:30",
+        "eventTitle": "Children To Cabins",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "21:30",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-09",
+    "category": "Children's Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: ARM",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Morning Exercise",
+        "eventDescription": "Lead: US",
+        "tag": "children's camp"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "11:30",
+        "eventTitle": "Morning Worship",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "11:30",
+        "end": "13:00",
+        "eventTitle": "Stations",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "13:00",
+        "end": "14:00",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "14:00",
+        "end": "14:30",
+        "eventTitle": "Group Photo",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "14:30",
+        "end": "16:00",
+        "eventTitle": "Workshops",
+        "eventDescription": "Arts & Crafts, Dance, Balloons, Games",
+        "tag": "children's camp"
+      },
+      {
+        "start": "16:00",
+        "end": "18:00",
+        "eventTitle": "Swimming",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "19:00",
+        "end": "20:30",
+        "eventTitle": "Evening Worship",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "20:30",
+        "end": "21:00",
+        "eventTitle": "Gospel Presentation Skit",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "21:00",
+        "end": "22:00",
+        "eventTitle": "Campfire",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "22:00",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-10",
+    "category": "Children's Camp",
+    "schedule": [
+      {
+        "start": "07:30",
+        "end": "08:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "",
+        "tag": "devo"
+      },
+      {
+        "start": "08:00",
+        "end": "08:30",
+        "eventTitle": "Joint Devo & Prayer Time",
+        "eventDescription": "Lead: US",
+        "tag": "meeting"
+      },
+      {
+        "start": "08:30",
+        "end": "09:00",
+        "eventTitle": "Morning Exercise",
+        "eventDescription": "Lead: ARM",
+        "tag": "children's camp"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "11:30",
+        "eventTitle": "Morning Worship",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "11:30",
+        "end": "13:00",
+        "eventTitle": "Stations",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "13:00",
+        "end": "14:00",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "14:00",
+        "end": "15:30",
+        "eventTitle": "Workshops",
+        "eventDescription": "Arts & Crafts, Dance, Balloons, Games",
+        "tag": "children's camp"
+      },
+      {
+        "start": "15:30",
+        "end": "16:00",
+        "eventTitle": "Wrap Up Assembly",
+        "eventDescription": "Share testimonies, show recap video",
+        "tag": "children's camp"
+      },
+      {
+        "start": "16:00",
+        "end": "17:00",
+        "eventTitle": "Pack Up & Children Leave",
+        "eventDescription": "",
+        "tag": "children's camp"
+      },
+      {
+        "start": "17:00",
+        "end": "18:00",
+        "eventTitle": "Clean Camp Site & Pack Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "18:00",
+        "end": "18:30",
+        "eventTitle": "Drive to Restaurant",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "18:30",
+        "end": "19:30",
+        "eventTitle": "Dinner",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "19:30",
+        "end": "21:00",
+        "eventTitle": "Travel to Yerevan",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "21:00",
+        "end": "22:00",
+        "eventTitle": "Unload Bus",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "22:00",
+        "end": "23:00",
+        "eventTitle": "Team Meeting",
+        "eventDescription": "",
+        "tag": "meeting"
+      }
+    ]
+  },
+  {
+    "date": "2025-07-11",
+    "category": "Ministry",
+    "schedule": [
+      {
+        "start": "08:00",
+        "end": "09:00",
+        "eventTitle": "Morning Devo",
+        "eventDescription": "",
+        "tag": "devo"
+      },
+      {
+        "start": "09:00",
+        "end": "10:00",
+        "eventTitle": "Breakfast",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "10:00",
+        "end": "10:30",
+        "eventTitle": "Meet with Missionary",
+        "eventDescription": "",
+        "tag": "meeting"
+      },
+      {
+        "start": "10:30",
+        "end": "11:30",
+        "eventTitle": "Travel to Church",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "11:30",
+        "end": "12:30",
+        "eventTitle": "Meet with Church Leaders",
+        "eventDescription": "Give gifts and pray",
+        "tag": "meeting"
+      },
+      {
+        "start": "12:30",
+        "end": "14:00",
+        "eventTitle": "House Visits",
+        "eventDescription": "Split into 3 groups",
+        "tag": "house visit"
+      },
+      {
+        "start": "14:00",
+        "end": "15:00",
+        "eventTitle": "Lunch",
+        "eventDescription": "",
+        "tag": "meal"
+      },
+      {
+        "start": "15:00",
+        "end": "15:30",
+        "eventTitle": "Go To Building Project",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "15:30",
+        "end": "16:30",
+        "eventTitle": "Visit Building Project Family",
+        "eventDescription": "",
+        "tag": "house visit"
+      },
+      {
+        "start": "16:30",
+        "end": "17:00",
+        "eventTitle": "Drive to Host Family",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "17:00",
+        "end": "19:30",
+        "eventTitle": "Dinner",
+        "eventDescription": "Provided by host family",
+        "tag": "meal"
+      },
+      {
+        "start": "19:30",
+        "end": "20:30",
+        "eventTitle": "Travel to Yerevan",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "20:30",
+        "end": "21:00",
+        "eventTitle": "Get Supporter Gifts",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "21:00",
+        "end": "21:30",
+        "eventTitle": "Travel to Housing",
+        "eventDescription": "",
+        "tag": "travel"
+      },
+      {
+        "start": "21:30",
+        "end": "22:00",
+        "eventTitle": "Pack Up",
+        "eventDescription": "",
+        "tag": "prep"
+      },
+      {
+        "start": "22:00",
+        "end": "22:30",
+        "eventTitle": "Last Meeting With Missionary",
+        "eventDescription": "",
+        "tag": "meeting"
+      },
+      {
+        "start": "22:30",
+        "end": "23:30",
+        "eventTitle": "Travel to Airport",
+        "eventDescription": "",
+        "tag": "travel"
       }
     ]
   },
@@ -182,29 +980,29 @@
     "category": "Travel",
     "schedule": [
       {
-        "start": "7:00 AM",
-        "end": "2:00 PM",
+        "start": "07:00",
+        "end": "14:00",
         "eventTitle": "Flight",
         "eventDescription": "XYZ => ABC",
         "tag": "travel"
       },
       {
-        "start": "2:00 PM",
-        "end": "2:30 PM",
+        "start": "14:00",
+        "end": "14:30",
         "eventTitle": "Arrive at airport",
         "eventDescription": "",
         "tag": "travel"
       },
       {
-        "start": "2:30 PM",
-        "end": "4:00 PM",
+        "start": "14:30",
+        "end": "16:00",
         "eventTitle": "Drive back to church",
         "eventDescription": "",
         "tag": "travel"
       },
       {
-        "start": "4:00 PM",
-        "end": "5:00 PM",
+        "start": "16:00",
+        "end": "17:00",
         "eventTitle": "Unload & unpack",
         "eventDescription": "End of trip",
         "tag": "prep"

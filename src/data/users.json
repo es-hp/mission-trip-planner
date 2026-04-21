@@ -31,7 +31,7 @@
     "logistics": {
       "roles": ["admin"],
       "shirtSize": "M",
-      "devoAssignment": "Monday AM",
+      "devoAssignment": "7/7 Monday",
       "fundraisingProgressPercent": 100
     }
   },
@@ -67,7 +67,7 @@
     "logistics": {
       "roles": ["user", "VBS"],
       "shirtSize": "XXL",
-      "devoAssignment": "Monday PM",
+      "devoAssignment": "7/8 Saturday",
       "fundraisingProgressPercent": 80
     }
   },
@@ -103,7 +103,7 @@
     "logistics": {
       "roles": ["user", "leader"],
       "shirtSize": "L",
-      "devoAssignment": "Tuesday AM",
+      "devoAssignment": "7/8 Tuesday",
       "fundraisingProgressPercent": 10
     }
   },
@@ -139,7 +139,7 @@
     "logistics": {
       "roles": ["user", "praise"],
       "shirtSize": "L",
-      "devoAssignment": "Tuesday PM",
+      "devoAssignment": "7/4 Friday",
       "fundraisingProgressPercent": 70
     }
   },
@@ -175,7 +175,7 @@
     "logistics": {
       "roles": ["media", "youth"],
       "shirtSize": "M",
-      "devoAssignment": "Wednesday AM",
+      "devoAssignment": "7/6 Sunday",
       "fundraisingProgressPercent": 35
     }
   }

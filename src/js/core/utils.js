@@ -231,3 +231,15 @@ export const slugify = (str, { maxLength = 80 } = {}) => {
     .replace(/^-+|-+$/g, "")
     .slice(0, maxLength);
 };
+
+export const createChipColorMap = () => {
+  const chipMap = new Map();
+
+  const addChip = (key) => {
+    if (!chipMap.has(key)) {
+      const chipNum = (chipMap.size % 10) + 1;
+      chipMap.set(key, `chip-${chipNum} chip-hovers`);
+    }
+  };
+  return { chipMap, addChip };
+};

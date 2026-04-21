@@ -59,7 +59,9 @@
   border-radius: 0.25rem;
   overflow: hidden;
   white-space: wrap;
-  height: 100%;
+  color: var(--color-text);
+  height: auto;
+  cursor: pointer;
 }
 
 .event-title {
