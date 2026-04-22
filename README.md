@@ -1,25 +1,14 @@
 # 🌏 Lechu Go: Mission Trip Planner
 
-A mock web application for organizing and managing short-term mission trips that helps churches and missions organizations plan their trips, manage training, and have all the resources in one place.
+A responsive web application for organizing and managing short-term mission trips that helps churches and missions organizations plan their trips, manage training, and have all the resources in one place.
 
----
+## ℹ️ Overview
+
+**Lechu** (לְכוּ) — Hebrew for "go" — is a mock client-facing web application designed to help teams plan and coordinate short-term mission trips. Built without UI frameworks — no React, Vue, or Angular — using only HTML, CSS, and vanilla JavaScript, and a small set of libraries.
 
 ## 🌟 Highlights
 
----
 
-## 🛠️ Built With
-
-- **HTML5** - semantic structure using a multi-page layout with separate HTML files
-- **CSS3** — responsive layouts (Grid/Flexbox) and theming via design tokens and CSS variables
-- **JavaScript (ES2022+)** - modular, component-based architecture with data-driven UI and event-driven interactions
-- **Temporal API** (`@js-temporal/polyfill`) — date/time management JavaScript API
-- **Vite** — development server and build tooling
-- **JSON (mock data)** — simulates API-driven data flow
-- **Web Storage API** — `localStorage` and `sessionStorage` (persistent UI state)
-- **Lucide Icons** — UI icon library
-
----
 
 ## 🚀 Features
 
@@ -36,3 +25,13 @@ A mock web application for organizing and managing short-term mission trips that
 - **Mock Authentication** — simulates login flow using `sessionStorage` to persist login across page reloads.
 - **Light and Dark Mode Toggle** — a theme toggle that persists the user's preference across sessions.
 
+## 🛠️ Built With
+
+- **HTML5** - semantic structure using a multi-page layout with separate HTML files
+- **CSS3** — responsive layouts (Grid/Flexbox) and theming via design tokens and CSS variables
+- **JavaScript (ES2022+)** - modular, component-based architecture with data-driven UI and event-driven interactions
+- **Temporal API** (`@js-temporal/polyfill`) — date/time management JavaScript API
+- **Vite** — development server and build tooling
+- **JSON (mock data)** — simulates API-driven data flow
+- **Web Storage API** — `localStorage` and `sessionStorage` (persistent UI state)
+- **Lucide Icons** — UI icon library
