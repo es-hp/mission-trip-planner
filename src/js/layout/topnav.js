@@ -120,6 +120,11 @@ export default function createTopNav({
 
   dropdownBtn.append(userAvatar);
 
+  dropdownBtn.addEventListener("click", () => {
+    window.location.href = `profile.html?userId=${id}`;
+  });
+
+  // Create dropdown menu
   const dropdownMenu = createEl("ul", { className: "dropdown-menu" });
 
   const id = currentUser.id.split("_")[1];
