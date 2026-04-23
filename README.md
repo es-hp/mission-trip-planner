@@ -8,12 +8,6 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## 🔑 Key Decisions
 
-**Frozen "current time" for demo purposes**
-Time dependent UI components like the countdown timer, calendar views, prayer request posts, assignment due dates, and in-progress event indicators is calculated relative to a fixed reference date instead of the real current time to ensure the app always displays relevant, active-looking data although the dates and times from the data are in the past.
-
-**Usage of Temporal API over native Date object**
-The Temporal API was used for all date and time logic instead of JavaScript's built-in `Date` because Temporal works better with time zones, mutability, arithmetic, and formatting.
-
 **Multi-page architecture with reusable components**
 Rather than building a Single Page Application (SPA), the project uses a multi-page structure with separate HTML files for each view. This prioritizes core HTML/CSS/JS fundamentals through explicit page navigation, and DOM-driven rendering.
 
@@ -22,8 +16,19 @@ Within this structure, the project implements reusable JavaScript components, pr
 **Sidebar rendered in `<head>` to eliminate flash**
 The sidebar is initialized from a separate `initSidebar.js` script loaded in the `<head>` of every HTML page rather than through the main module bundle at the end of `<body>`. Because navigating between pages causes a full page reload, this prevents the sidebar from visibly appearing late — making the experience feel closer to a SPA with no flicker or layout shift between navigations.
 
+**Usage of Temporal API over native Date object**
+The Temporal API was used for all date and time logic instead of JavaScript's built-in `Date` because Temporal works better with time zones, mutability, arithmetic, and formatting.
+
+**Frozen "current time" for demo purposes**
+Time dependent UI components like the countdown timer, calendar views, prayer request posts, assignment due dates, and in-progress event indicators is calculated relative to a fixed reference date instead of the real current time to ensure the app always displays relevant, active-looking data although the dates and times from the data are in the past.
+
 **CRUD functionality via client-side storage**
-The prayer request post system supports creating, editing, deleting, and responding to posts without a backend. Data is fetched from static JSON files and persisted using `localStorage` and `sessionStorage` in place of a database. This was to demonstrate CRUD functionality while keeping the project frontend-only.
+The prayer request post system supports creating, editing, deleting, and responding to posts without a backend. Data is fetched from static JSON files and persisted using `localStorage` in place of a database. This was to demonstrate CRUD functionality while keeping the project frontend-only.
+
+**Design token architecture and chip color system**
+All colors are defined as CSS custom properties organized into a layered design token system, consisting of raw values, semantic aliases, and component-level variables. Light and dark themes override these tokens through theme-specific variables rather than component-level styling.
+
+There is also a reusable chip color mapping system that standardizes how different categories are visually represented without hard-coding values. Each unqiue category, event, or tag is assigned a set of background, hover, and text colors dynamically, and cycles through the number of color sets defined.
 
 ## 🚀 Features
 
