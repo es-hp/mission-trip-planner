@@ -5,8 +5,14 @@ import {
   observeWidth,
 } from "@core/utils";
 
-export default function createCalendar({ container, data, scheduleKey, now }) {
-  let selectedDate = now;
+export default function createCalendar({
+  container,
+  data,
+  scheduleKey,
+  now,
+  initialDate,
+}) {
+  let selectedDate = initialDate ?? now;
 
   /* Calendar buttons */
   const leftArrowIcon = createLucideIcon("ChevronLeft");

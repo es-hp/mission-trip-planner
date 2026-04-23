@@ -52,7 +52,9 @@
   overflow: hidden;
   z-index: 10;
   white-space: nowrap;
-  transition: width 1000ms ease-in-out;
+  transition:
+    width 1000ms ease-in-out,
+    opacity 150ms ease;
 }
 
 .sidebar.close .sidebar-logo {
@@ -60,6 +62,7 @@
 }
 
 .sidebar.close .sidebar-header:hover .sidebar-logo {
+  opacity: 0;
   pointer-events: none;
   z-index: 0;
 }
@@ -108,7 +111,7 @@
   background-color: var(--color-sidebar-icon-bg-hover);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 200ms ease-in-out;
+  transition: opacity 150ms ease;
 }
 
 .sidebar:not(.close) .expand-btn,

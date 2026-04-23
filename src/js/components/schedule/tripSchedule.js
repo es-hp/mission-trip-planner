@@ -2,7 +2,7 @@ import { getTripSchedule } from "@core/api";
 import { createEl, createChipColorMap, observeWidth } from "@core/utils";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default async function tripSchedule(container) {
+export default async function tripSchedule({ container }) {
   const scheduleData = await getTripSchedule();
 
   const lastDayIndex = scheduleData.length - 1;
@@ -74,13 +74,16 @@ export default async function tripSchedule(container) {
         headerCell.classList.add("first-col");
       } else {
         const tripDateStr = tripStartDt.add({ days: colIndex - 1 }).toString();
-
         const data = colDataByDate.get(tripDateStr);
 
         if (tr === 0) {
           headerCell.textContent = data.shortDay || "";
         } else if (tr === 1) {
-          headerCell.textContent = data.shortDate || "";
+          const timeEl = createEl("time", {
+            textContent: data.shortDate || "",
+            attributes: { datetime: tripDateStr },
+          });
+          headerCell.append(timeEl);
         } else if (tr === 2) {
           headerCell.textContent = data.category || "";
         }

@@ -71,3 +71,22 @@
 .event-time {
   font-weight: 300;
 }
+
+@keyframes highlight-flash {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  20% {
+    box-shadow: var(--focus-shadow);
+  }
+  60% {
+    box-shadow: var(--focus-shadow);
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.flash {
+  animation: highlight-flash 1500ms ease-out forwards;
+}

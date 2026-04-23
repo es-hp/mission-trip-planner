@@ -13,7 +13,7 @@ class TabNav {
     }
 
     this.#buildTabs();
-    this.#activate(this.#savedIndex());
+    this.activate(this.#savedIndex());
   }
 
   #discoverSections() {
@@ -28,15 +28,17 @@ class TabNav {
 
       section.setAttribute("role", "tabpanel");
 
+      const tabTitle = section.dataset.tabTitle.replace("-", " ").trim();
+
       const tab = createEl("button", {
         type: "button",
         id: `tab-${this.key}-${index}`,
-        textContent: section.dataset.tabTitle,
+        textContent: tabTitle,
         className: "tab",
         setAttribute: { role: "tab" },
       });
 
-      tab.addEventListener("click", () => this.#activate(index));
+      tab.addEventListener("click", () => this.activate(index));
 
       this.nav.append(tab);
       this.tabs.push(tab);
@@ -53,7 +55,7 @@ class TabNav {
       : 0;
   }
 
-  #activate(index) {
+  activate(index) {
     this.sections.forEach((section, i) => {
       const isActive = i === index;
       section.hidden = !isActive;
@@ -62,13 +64,35 @@ class TabNav {
 
     sessionStorage.setItem(this.key, String(index));
   }
+
+  getSectionIndex(title) {
+    const index = this.sections.findIndex(
+      (section) => section.dataset.tabTitle === title,
+    );
+
+    if (index === -1) {
+      console.warn(
+        `TabNav: no section found with title "${title}". Default index to 0`,
+      );
+      return 0;
+    }
+
+    return index;
+  }
 }
 
 export function initTabNav() {
   const navs = document.querySelectorAll("nav.tabNav");
 
   navs.forEach((nav, navIndex) => {
-    const key = `tabNav-${location.pathname}-${navIndex}`;
-    new TabNav(nav, key);
+    const cleanPath = location.pathname
+      .toLowerCase()
+      .replace(".html", "")
+      .replace(/^\d+/, "")
+      .replace(/[^a-z0-9]/g, "");
+    const key = `tabNav-${cleanPath}-${navIndex}`;
+    const tabNav = new TabNav(nav, key);
+    nav.id = key;
+    nav._tabNavInstance = tabNav;
   });
 }
