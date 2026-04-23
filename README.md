@@ -4,11 +4,26 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## ℹ️ Overview
 
-**Lechu** (לְכוּ) — Hebrew for "go" — is a mock client-facing web application designed to help teams plan and coordinate short-term mission trips. Built without UI frameworks — no React, Vue, or Angular — using only HTML, CSS, and vanilla JavaScript, and a small set of libraries.
+**Lechu** (לְכוּ) — Hebrew for "go" — is a mock client-facing web application designed to help teams plan and coordinate short-term mission trips. Built using only HTML, CSS, and vanilla JavaScript, and a small set of libraries, and without using UI frameworks (no React, Vue, or Angular).
 
-## 🌟 Highlights
+## 🔑 Key Decisions
 
+**Frozen "current time" for demo purposes**
+Time dependent UI components like the countdown timer, calendar views, prayer request posts, assignment due dates, and in-progress event indicators is calculated relative to a fixed reference date instead of the real current time to ensure the app always displays relevant, active-looking data although the dates and times from the data are in the past.
 
+**Usage of Temporal API over native Date object**
+The Temporal API was used for all date and time logic instead of JavaScript's built-in `Date` because Temporal works better with time zones, mutability, arithmetic, and formatting.
+
+**Multi-page architecture with reusable components**
+Rather than building a Single Page Application (SPA), the project uses a multi-page structure with separate HTML files for each view. This prioritizes core HTML/CSS/JS fundamentals through explicit page navigation, and DOM-driven rendering.
+
+Within this structure, the project implements reusable JavaScript components, primarily as functions that generate and return DOM elements. It also includes a custom `TabNav` class responsible for managing its own state and lifecycle. This component-based approach improves modularity, scalability, and maintainability while remaining framework-free.
+
+**Sidebar rendered in `<head>` to eliminate flash**
+The sidebar is initialized from a separate `initSidebar.js` script loaded in the `<head>` of every HTML page rather than through the main module bundle at the end of `<body>`. Because navigating between pages causes a full page reload, this prevents the sidebar from visibly appearing late — making the experience feel closer to a SPA with no flicker or layout shift between navigations.
+
+**CRUD functionality via client-side storage**
+The prayer request post system supports creating, editing, deleting, and responding to posts without a backend. Data is fetched from static JSON files and persisted using `localStorage` and `sessionStorage` in place of a database. This was to demonstrate CRUD functionality while keeping the project frontend-only.
 
 ## 🚀 Features
 
@@ -35,3 +50,70 @@ A responsive web application for organizing and managing short-term mission trip
 - **JSON (mock data)** — simulates API-driven data flow
 - **Web Storage API** — `localStorage` and `sessionStorage` (persistent UI state)
 - **Lucide Icons** — UI icon library
+
+## 🛠️ Project Structure
+
+```
+Root HTML entry points
+├── construction.html
+├── login.html
+├── overview.html
+├── profile.html
+├── schedule.html
+└── team.html
+
+src/
+├── css/
+│   ├── components/            # Component-specific styles
+│   ├── global/
+│   │   ├── colors.css         # Design tokens and global color variables
+│   │   └── fonts.css          # Typography and font definitions
+│   ├── pages/                 # Page-specific styles 
+│   └── main.css               # Global stylesheet entry point
+├── data/                      # Static JSON payloads structured to emulate API responses
+├── icons/                     # Custom SVG icons
+├── js/
+│   ├── components/
+│   │   ├── design-system/     # Reusable UI components
+│   │   ├── login/             # Page-specific components
+│   │   ├── overview/
+│   │   ├── profile/
+│   │   ├── schedule/
+│   │   └── team/
+│   ├── core/
+│   │   ├── api.js             # Data fetching
+│   │   ├── auth.js            # Login, logout, authentication logic
+│   │   └── utils.js           # Shared utilities (createEl, observeWidth, etc.)
+│   ├── layout/
+│   │   ├── sidebar.js
+│   │   └── topnav.js
+│   ├── pages/
+│   │   ├── construction.js    # Shared entry module for pages under construction
+│   │   ├── login.js           # Page entry modules (coordinates components, data, and logic)
+│   │   ├── overview.js
+│   │   ├── profile.js
+│   │   ├── schedule.js
+│   │   └── team.js
+│   └── initSidebar.js
+└── main.js                    # Application entry point (bootstraps global layout and initializes page modules)
+```
+
+## Running Locally
+ 
+No build step required.
+ 
+```bash
+git clone https://github.com/es-hp/mission-trip-planner.git
+cd mission-trip-planner
+```
+ 
+Open `index.html` in your browser, or serve it with any static file server:
+ 
+```bash
+npx serve .
+```
+ 
+## Author
+ 
+**Helen Park**  
+[Portfolio](https://yourportfolio.com) · [GitHub](https://github.com/es-hp) · [LinkedIn](https://www.linkedin.com/in/eshelenpark/)
