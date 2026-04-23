@@ -64,6 +64,7 @@
 
   --color-slate-white: #f3f6ff;
   --color-slate-light: #8c91ae;
+  --color-slate-light-20: rgb(140 145 174 / 0.2);
   --color-slate-light-50: rgb(140 145 174 / 0.5);
   --color-slate-grey: #868792;
   --color-slate-dark: #4a4d5e;
@@ -290,7 +291,7 @@
     1px 0 3px -1px rgb(0 0 0 / 0.04), 2px 0 8px -2px rgb(0 0 0 / 0.06);
   --text-shadow: 2px 2px 4px rgba(0 0 0 / 0.1);
   --focus-shadow:
-    0 0 0 1px var(--color-slate-light), 0 0 0 2px var(--color-slate-light-50);
+    0 0 0 1px var(--color-slate-light-50), 0 0 0 2px var(--color-slate-light-20);
 
   /* Tab Navigation Colors */
   --color-tab-bg: transparent;
@@ -441,6 +442,10 @@
     --color-card-icon-bg-hover: var(--color-neutral-800);
     --color-card-icon: var(--color-neutral-600);
 
+    /* Dark theme: Box Shadow */
+    --focus-shadow:
+      0 0 0 1px var(--color-slate-light), 0 0 0 2px var(--color-slate-light-50);
+
     /* Dark theme: Tab Navigation Colors */
     --color-tab-bg-hover: var(--color-neutral-900);
     --color-tab-text: var(--color-slate-light);
@@ -583,6 +588,10 @@
   --color-card-icon-bg: var(--color-neutral-800-50);
   --color-card-icon-bg-hover: var(--color-neutral-800);
   --color-card-icon: var(--color-neutral-600);
+
+  /* Dark theme: Box Shadow */
+  --focus-shadow:
+    0 0 0 1px var(--color-slate-light), 0 0 0 2px var(--color-slate-light-50);
 
   /* Dark theme: Tab Navigation Colors */
   --color-tab-bg-hover: var(--color-neutral-900);
