@@ -76,7 +76,10 @@
   0% {
     box-shadow: 0 0 0 0 transparent;
   }
-  10% {
+  20% {
+    box-shadow: var(--focus-shadow);
+  }
+  60% {
     box-shadow: var(--focus-shadow);
   }
   100% {
@@ -84,6 +87,6 @@
   }
 }
 
-.event-block.flash {
-  animation: highlight-flash 2.5s ease-out forwards;
+.flash {
+  animation: highlight-flash 1500ms ease-out forwards;
 }

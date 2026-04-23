@@ -12,8 +12,6 @@ export default function upcomingEvents({ container, tripDetails, now }) {
   for (const event of scheduledEvents) {
     if (body.children.length >= 5) break;
 
-    const eventCard = createEl("li", { className: "card" });
-
     const startDateTime = Temporal.PlainDate.from(event.date).toPlainDateTime(
       event.startTime,
     );
@@ -29,6 +27,11 @@ export default function upcomingEvents({ container, tripDetails, now }) {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
+    });
+
+    const eventCardLi = createEl("li", { className: "card hover" });
+    const eventCard = createEl("a", {
+      href: `schedules.html?tab=training-schedule&date=${startDateTime.toString()}`,
     });
 
     const dateBadge = createEl("div", { className: "event-date-badge" });
@@ -61,6 +64,7 @@ export default function upcomingEvents({ container, tripDetails, now }) {
 
     eventDetails.append(eventTitle, eventTime);
     eventCard.append(dateBadge, eventDetails);
+    eventCardLi.append(eventCard);
 
     const nowDateTime = now.toPlainDateTime();
     const isHappening =
@@ -70,10 +74,10 @@ export default function upcomingEvents({ container, tripDetails, now }) {
       Temporal.PlainDateTime.compare(nowDateTime, startDateTime) === -1;
 
     if (isHappening) {
-      eventCard.style.border = `1px solid ${accentColor}`;
-      body.append(eventCard);
+      eventCardLi.style.border = `1px solid ${accentColor}`;
+      body.append(eventCardLi);
     } else if (isUpcoming) {
-      body.append(eventCard);
+      body.append(eventCardLi);
     }
   }
 
