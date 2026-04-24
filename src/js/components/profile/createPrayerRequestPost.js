@@ -294,7 +294,11 @@ export default function createPrayerRequestPost({
   /* Post Footer */
   const footer = createEl("div", { className: "prayer-request-footer" });
 
-  let count = parseInt(localStorage.getItem(`prayed_count_${post.id}`)) || 0;
+  let count =
+    parseInt(localStorage.getItem(`prayed_count_${post.id}`)) ||
+    post.prayedForCount;
+
+  console.log(post);
 
   const submitCount = createEl("span", {
     className: "prayed-count-text",
