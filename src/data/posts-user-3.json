@@ -5,15 +5,15 @@
     "authorId": "user_3",
     "status": "closed",
     "isUrgent": false,
-    "content": "Please pray for me that I get better from this flu.",
-    "createdAt": "2025-04-25T22:43:26.000Z",
+    "content": "Please pray for focus as I prepare teaching materials for upcoming team training sessions.",
+    "createdAt": "2025-04-28T19:10:00.000Z",
     "prayedForCount": 1,
     "updates": [
       {
         "id": "post_11",
         "parentId": "post_10",
-        "content": "Feeling better! Thank you.",
-        "createdAt": "2025-05-01T16:38:00.000Z"
+        "content": "Training prep is progressing well. Thank you!",
+        "createdAt": "2025-05-02T11:15:00.000Z"
       }
     ]
   },
@@ -23,8 +23,8 @@
     "authorId": "user_3",
     "status": "open",
     "isUrgent": true,
-    "content": "Please pray that the orders for the arts and crafts station arrives on time. I got a notice today that it's being held up in the warehouse.",
-    "createdAt": "2025-05-04T13:24:06.000Z",
+    "content": "Please pray for engagement and confidence as I lead team-building activities during training.",
+    "createdAt": "2025-05-05T10:10:00.000Z",
     "prayedForCount": 5,
     "updates": []
   }

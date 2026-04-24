@@ -5,15 +5,15 @@
     "authorId": "user_5",
     "status": "closed",
     "isUrgent": false,
-    "content": "Please pray for me that I get better from this flu.",
-    "createdAt": "2025-04-25T22:43:26.000Z",
+    "content": "Please pray for clarity as I set up media systems and prepare slides for training sessions.",
+    "createdAt": "2025-04-26T15:30:00.000Z",
     "prayedForCount": 5,
     "updates": [
       {
         "id": "post_2",
         "parentId": "post_1",
-        "content": "Feeling better! Thank you.",
-        "createdAt": "2025-05-01T16:38:00.000Z"
+        "content": "Media setup is now functional. Thank you for praying!",
+        "createdAt": "2025-05-02T16:10:00.000Z"
       }
     ]
   },
@@ -23,8 +23,19 @@
     "authorId": "user_5",
     "status": "open",
     "isUrgent": true,
-    "content": "Please pray that the orders for the arts and crafts station arrives on time. I got a notice today that it's being held up in the warehouse.",
-    "createdAt": "2025-05-04T13:24:06.000Z",
+    "content": "Please pray for patience and flexibility as I support multiple roles during training week.",
+    "createdAt": "2025-05-05T12:15:00.000Z",
+    "prayedForCount": 4,
+    "updates": []
+  },
+  {
+    "id": "post_16",
+    "parentId": null,
+    "authorId": "user_5",
+    "status": "open",
+    "isUrgent": false,
+    "content": "Please pray for strong connection and encouragement as I work with youth during team bonding activities.",
+    "createdAt": "2025-05-06T19:20:00.000Z",
     "prayedForCount": 3,
     "updates": []
   }
