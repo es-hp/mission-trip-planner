@@ -281,6 +281,10 @@
   --color-card-icon-border: var(--color-card-icon);
   --color-card-icon-border-hover: var(--color-card-icon-hover);
 
+  /* Modal Colors */
+  --color-modal-bg: var(--color-white);
+  --color-modal-border: var(--color-border);
+
   /* Box Shadow */
   --box-shadow-login: 0 0 6px rgba(0 0 0 / 0.1), 0 0 15px rgba(0 0 0 / 0.1);
   --box-shadow-dropdown: 0 0 6px rgba(0 0 0 / 0.1), 0 0 12px rgba(0 0 0 / 0.1);
@@ -444,6 +448,10 @@
     --color-card-icon-bg-hover: var(--color-neutral-800);
     --color-card-icon: var(--color-neutral-600);
 
+    /* Dark theme: Modal Colors */
+    --color-modal-bg: var(--color-neutral-900);
+    --color-modal-border: var(--color-border);
+
     /* Dark theme: Box Shadow */
     --focus-shadow:
       0 0 0 1px var(--color-slate-light), 0 0 0 2px var(--color-slate-light-50);
@@ -591,6 +599,10 @@
   --color-card-icon-bg: var(--color-neutral-800-50);
   --color-card-icon-bg-hover: var(--color-neutral-800);
   --color-card-icon: var(--color-neutral-600);
+
+  /* Dark theme: Modal Colors */
+  --color-modal-bg: var(--color-neutral-900);
+  --color-modal-border: var(--color-border);
 
   /* Dark theme: Box Shadow */
   --focus-shadow:
