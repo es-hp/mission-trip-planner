@@ -29,7 +29,7 @@
       }
     },
     "logistics": {
-      "roles": ["admin"],
+      "roles": ["pastor", "admin"],
       "shirtSize": "M",
       "devoAssignment": "2025-07-07T04:00:00Z",
       "fundraisingProgressPercent": 100
@@ -65,7 +65,7 @@
       }
     },
     "logistics": {
-      "roles": ["user", "VBS"],
+      "roles": ["VBS", "arts & crafts"],
       "shirtSize": "XXL",
       "devoAssignment": "2025-07-05T04:00:00Z",
       "fundraisingProgressPercent": 80
@@ -101,7 +101,7 @@
       }
     },
     "logistics": {
-      "roles": ["user", "leader"],
+      "roles": ["pastor", "games"],
       "shirtSize": "L",
       "devoAssignment": "2025-07-08T04:00:00Z",
       "fundraisingProgressPercent": 10
@@ -137,8 +137,8 @@
       }
     },
     "logistics": {
-      "roles": ["user", "praise"],
-      "shirtSize": "L",
+      "roles": ["praise", "food", "skit"],
+      "shirtSize": "XL",
       "devoAssignment": "2025-07-04T04:00:00Z",
       "fundraisingProgressPercent": 70
     }
