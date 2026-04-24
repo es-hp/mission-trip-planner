@@ -8,13 +8,7 @@ import createTable from "../design-system/createTable";
 
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
-export default function membersTable({ container, users }) {
-  /* Map color styles to roles */
-  const teamRoles = new Set(users.flatMap((user) => user.logistics.roles));
-
-  const { chipMap, addChip } = createChipColorMap();
-  teamRoles.forEach((role) => addChip(role));
-
+export default function membersTable({ container, users, roleChipMap }) {
   /* Users data normalization */
   const usersData = users.map((user) => {
     const id = user.id.split("_")[1];
@@ -55,7 +49,7 @@ export default function membersTable({ container, users }) {
 
     user.logistics.roles.forEach((role) => {
       const roleLabel = createEl("div", {
-        className: `role-label ${chipMap.get(role)}`,
+        className: `role-label ${roleChipMap.get(role)}`,
         textContent: role,
       });
       roles.append(roleLabel);
@@ -162,7 +156,7 @@ export default function membersTable({ container, users }) {
     phoneNumber: "Phone",
     genderIcon: "Gender",
     birthDate: "DOB",
-    roles: "Roles & Teams",
+    roles: "Roles & Groups",
     shirtSize: "Shirt Size",
     devotional: "Leading Devo",
     fundraisingProgress: "Fundraising %",

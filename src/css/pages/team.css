@@ -6,6 +6,7 @@
 }
 
 .th-userName,
+.th-roles,
 .th-email,
 .th-senderName,
 .th-senderEmail {
@@ -52,7 +53,7 @@
 .role-label {
   display: inline-block;
   padding: 0 0.5rem;
-  border-radius: 0.625rem;
+  border-radius: 9999px;
   text-align: center;
   font-size: 0.875rem;
   font-weight: 600;

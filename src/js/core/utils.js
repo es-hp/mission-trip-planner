@@ -1,5 +1,6 @@
 import * as lucide from "lucide";
 import { Temporal } from "@js-temporal/polyfill";
+import clsx from "clsx";
 
 /* Custom Icon imports */
 import prayingHands from "@/icons/praying-hands.svg?raw";
@@ -235,11 +236,29 @@ export const slugify = (str, { maxLength = 80 } = {}) => {
 export const createChipColorMap = () => {
   const chipMap = new Map();
 
-  const addChip = (key) => {
+  const addChip = (key, { hasBorder = false, hasHover = false } = {}) => {
     if (!chipMap.has(key)) {
       const chipNum = (chipMap.size % 10) + 1;
-      chipMap.set(key, `chip-${chipNum} chip-hovers`);
+
+      const classes = clsx(
+        `chip-${chipNum}`,
+        hasBorder && "chip-border",
+        hasHover && "chip-hover",
+      );
+
+      chipMap.set(key, classes);
     }
   };
   return { chipMap, addChip };
+};
+
+/* Map color styles to roles */
+
+export const createRoleChipMap = (users) => {
+  const teamRoles = new Set(users.flatMap((user) => user.logistics.roles));
+  const { chipMap: roleChipMap, addChip } = createChipColorMap();
+  teamRoles.forEach((role) =>
+    addChip(role, { hasBorder: true, hasHover: true }),
+  );
+  return roleChipMap;
 };

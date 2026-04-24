@@ -3,6 +3,7 @@ import {
   createLucideIcon,
   formatTo12Hour,
   observeWidth,
+  createChipColorMap,
 } from "@core/utils";
 
 export default function createCalendar({
@@ -60,7 +61,7 @@ export default function createCalendar({
 
   /* Calendar event data normalization */
   const events = new Map();
-  const chipMap = new Map();
+  const { chipMap, addChip } = createChipColorMap();
 
   data[scheduleKey].forEach((event) => {
     const key = event.date;
@@ -80,11 +81,7 @@ export default function createCalendar({
       .trim()
       .replace(/\s\d+$/, "");
 
-    const chipNum = (chipMap.size % 6) + 1;
-
-    if (!chipMap.has(eventType)) {
-      chipMap.set(eventType, `chip-${chipNum}`);
-    }
+    addChip(eventType, { hasHover: true });
 
     const eventData = {
       startTime: start.twelveHr,

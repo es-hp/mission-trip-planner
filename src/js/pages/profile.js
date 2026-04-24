@@ -2,7 +2,7 @@ import userBio from "@/js/components/profile/userBio";
 import userPrayers from "@/js/components/profile/userPrayers";
 import userRoles from "@/js/components/profile/userRoles";
 
-export default async function initProfilePage({ getUserById }) {
+export default async function initProfilePage({ getUserById, roleChipMap }) {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("userId");
   const profileUser = await getUserById(`user_${id}`);
@@ -14,5 +14,6 @@ export default async function initProfilePage({ getUserById }) {
   if (prayersDiv) userPrayers({ container: prayersDiv, profileUser });
 
   const userRolesDiv = document.querySelector(".user-roles");
-  if (userRolesDiv) userRoles({ container: userRolesDiv, profileUser });
+  if (userRolesDiv)
+    userRoles({ container: userRolesDiv, profileUser, roleChipMap });
 }

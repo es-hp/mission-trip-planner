@@ -3,7 +3,11 @@ import { authCheck } from "@core/auth";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default async function userRoles({ container, profileUser }) {
+export default async function userRoles({
+  container,
+  profileUser,
+  roleChipMap,
+}) {
   // const { isOwner, currentUser } = await authCheck(profileUser.id);
   const roles = profileUser.logistics.roles;
 
@@ -14,7 +18,10 @@ export default async function userRoles({ container, profileUser }) {
 
   if (roles) {
     roles.forEach((role) => {
-      const li = createEl("li", { textContent: `• ${role}` });
+      const li = createEl("li", {
+        textContent: role,
+        className: `${roleChipMap.get(role)} role-label`,
+      });
       rolesList.append(li);
     });
   }

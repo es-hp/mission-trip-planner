@@ -125,7 +125,7 @@ export default async function tripSchedule({ container }) {
         (rowByTime.get(endTime24) ?? [...rowByTime.values()].at(-1)) -
         startRowIdx;
 
-      addChip(event.tag);
+      addChip(event.tag, { hasHover: true });
 
       const eventsData = {
         startTime24,

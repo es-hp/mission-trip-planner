@@ -5,16 +5,13 @@ import {
   getCurrentUser,
   getUserById,
 } from "@core/api";
+import { createRoleChipMap } from "@core/utils";
 import createSidebar from "@/js/layout/sidebar";
 import createTopNav from "@/js/layout/topnav";
 import { initTabNav } from "@/js/components/design-system/createTabNav";
 import { Temporal } from "@js-temporal/polyfill";
 
 const mainID = document.querySelector("main")?.id;
-
-/* Mock "current time and date" */
-const currentDateTimeStr = await getCurrentDateTimeStr();
-const now = Temporal.ZonedDateTime.from(currentDateTimeStr);
 
 /* Login Page */
 if (mainID === "login") {
@@ -50,6 +47,14 @@ if (!isLoggedIn && mainID !== "login") {
 
   initTabNav();
 
+  /* Shared Data */
+  // Mock "current time and date"
+  const currentDateTimeStr = await getCurrentDateTimeStr();
+  const now = Temporal.ZonedDateTime.from(currentDateTimeStr);
+
+  // User roles color map
+  const roleChipMap = createRoleChipMap(users);
+
   /* Initialize Page */
   switch (mainID) {
     case "overview": {
@@ -60,7 +65,7 @@ if (!isLoggedIn && mainID !== "login") {
 
     case "team": {
       const { default: initTeamPage } = await import("./js/pages/team");
-      initTeamPage({ users });
+      initTeamPage({ users, roleChipMap });
       break;
     }
 
@@ -72,7 +77,7 @@ if (!isLoggedIn && mainID !== "login") {
 
     case "profile": {
       const { default: initProfilePage } = await import("./js/pages/profile");
-      await initProfilePage({ getUserById });
+      await initProfilePage({ getUserById, roleChipMap });
       break;
     }
 
