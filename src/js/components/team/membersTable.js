@@ -1,4 +1,10 @@
-import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
+import {
+  createEl,
+  createLucideIcon,
+  getCSSVar,
+  createChipColorMap,
+  slugify,
+} from "@core/utils";
 import createTable from "../design-system/createTable";
 
 const successColor = getCSSVar("--color-success");
@@ -6,6 +12,12 @@ const successColor = getCSSVar("--color-success");
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
 export default async function membersTable({ container, users }) {
+  /* Map color styles to roles */
+  const teamRoles = new Set(users.flatMap((user) => user.logistics.roles));
+
+  const { chipMap, addChip } = createChipColorMap();
+  teamRoles.forEach((role) => addChip(role));
+
   /* Users data normalization */
   const usersData = users.map((user) => {
     const id = user.id.split("_")[1];
@@ -43,9 +55,10 @@ export default async function membersTable({ container, users }) {
     const birthDate = `${month}/${day}/${year}`;
 
     const roles = createEl("div", { className: "roles-container" });
+
     user.logistics.roles.forEach((role) => {
       const roleLabel = createEl("div", {
-        className: "role-label",
+        className: `role-label ${chipMap.get(role)}`,
         textContent: role,
       });
       roles.append(roleLabel);
