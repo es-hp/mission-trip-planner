@@ -60,7 +60,7 @@ if (!isLoggedIn && mainID !== "login") {
 
     case "team": {
       const { default: initTeamPage } = await import("./js/pages/team");
-      await initTeamPage({ users });
+      initTeamPage({ users });
       break;
     }
 
@@ -81,7 +81,7 @@ if (!isLoggedIn && mainID !== "login") {
     case "resources": {
       const { default: initConstructionPage } =
         await import("./js/pages/construction");
-      await initConstructionPage({ mainID });
+      initConstructionPage({ mainID });
       break;
     }
   }
