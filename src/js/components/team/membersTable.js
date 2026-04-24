@@ -1,17 +1,14 @@
 import {
   createEl,
   createLucideIcon,
-  getCSSVar,
   createChipColorMap,
   slugify,
 } from "@core/utils";
 import createTable from "../design-system/createTable";
 
-const successColor = getCSSVar("--color-success");
-
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
-export default async function membersTable({ container, users }) {
+export default function membersTable({ container, users }) {
   /* Map color styles to roles */
   const teamRoles = new Set(users.flatMap((user) => user.logistics.roles));
 
@@ -82,7 +79,7 @@ export default async function membersTable({ container, users }) {
 
     const membershipStatus = createLucideIcon("BadgeCheck", {
       size: "1rem",
-      color: successColor,
+      className: "color-text-success",
     });
 
     const senderEmail = createEl("a", {

@@ -786,3 +786,14 @@
 .chip-10.chip-hovers:hover {
   background-color: var(--color-chip-pink-bg-hover);
 }
+
+/* ====== STATUS COLOR CLASSES ====== */
+.color-text-success {
+  color: var(--color-success);
+}
+.color-text-warning {
+  color: var(--color-warning);
+}
+.color-text-danger {
+  color: var(--color-danger);
+}
