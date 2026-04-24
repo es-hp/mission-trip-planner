@@ -11,8 +11,6 @@ import createFormSelect from "../design-system/createFormSelect";
 import createModal from "../design-system/createModal";
 import { Temporal } from "@js-temporal/polyfill";
 
-const openColor = getCSSVar("--color-text");
-const closedColor = getCSSVar("--color-text-muted");
 const dropdownIconSize = getCSSVar("--dropdown-icon-size");
 
 export default function createPrayerRequestPost({
@@ -66,25 +64,18 @@ export default function createPrayerRequestPost({
       optionsArr,
     });
 
-  const statusStyles = {
-    open: { color: openColor, width: `${2.8 + 1}rem` },
-    closed: { color: closedColor, width: `${3.375 + 1}rem` },
+  const updateStatusStyle = (status) => {
+    const isClosed = status === "closed";
+    statusLine.classList.toggle("closed", isClosed);
+    statusText.classList.toggle("closed", isClosed);
   };
 
-  const applyStatusStyles = (status) => {
-    const styles = statusStyles[status];
-    if (!styles) return;
-
-    statusLine.style.color = styles.color;
-    statusSelect.style.width = styles.width;
-  };
-
-  applyStatusStyles(status);
+  updateStatusStyle(status);
 
   statusSelect.addEventListener("change", (e) => {
     status = e.target.value;
 
-    applyStatusStyles(status);
+    updateStatusStyle(status);
 
     const container = status === "closed" ? closedPosts : openPosts;
 

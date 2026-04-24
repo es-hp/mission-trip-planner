@@ -171,6 +171,19 @@
   font-size: var(--text-lg);
   font-weight: 500;
   text-transform: capitalize;
+  color: var(--color-text);
+}
+
+.post-status-line.closed,
+.post-status-text.closed {
+  color: var(--color-text-muted);
+}
+
+.post-status-line .form-select {
+  width: calc(2.8rem + 1rem);
+}
+.post-status-line.closed .form-select {
+  width: calc(3.375rem + 1rem);
 }
 
 .post-timestamp {
