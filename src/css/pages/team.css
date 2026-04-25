@@ -59,6 +59,7 @@
   font-weight: 600;
   line-height: 1.25;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 #team .progress-bar {

@@ -11,7 +11,7 @@ export default async function userRoles({
   // const { isOwner, currentUser } = await authCheck(profileUser.id);
   const roles = profileUser.logistics.roles;
 
-  const header = "Roles";
+  const header = "Roles & Groups";
 
   const rolesList = createEl("ul", { className: "profile-roles-list" });
   rolesList.style.textTransform = "Capitalize";

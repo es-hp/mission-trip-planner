@@ -335,6 +335,13 @@
   gap: 1rem;
 }
 
+.profile-roles-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.75rem;
+  column-gap: 0.5rem;
+}
+
 .profile-devos {
   display: flex;
   flex-direction: column;

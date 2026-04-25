@@ -5,6 +5,7 @@ import {
   slugify,
 } from "@core/utils";
 import createTable from "../design-system/createTable";
+import { Temporal } from "@js-temporal/polyfill";
 
 const MEMBERS_TABLE_TAB_KEY = "members-table-active-tab";
 
@@ -55,6 +56,16 @@ export default function membersTable({ container, users, roleChipMap }) {
       roles.append(roleLabel);
     });
 
+    const devoZDT = Temporal.Instant.from(
+      user.logistics.devoAssignment,
+    ).toZonedDateTimeISO("America/New_York");
+
+    const devoDate = devoZDT.toLocaleString("en-US", {
+      month: "numeric",
+      day: "numeric",
+      weekday: "short",
+    });
+
     const rawPercent = user.logistics.fundraisingProgressPercent;
     const fundraisingProgress = createEl("div", { className: "progress-bar" });
     fundraisingProgress.setAttribute("title", `${rawPercent}%`);
@@ -90,7 +101,7 @@ export default function membersTable({ container, users, roleChipMap }) {
       birthDate,
       roles,
       shirtSize: user.logistics.shirtSize,
-      devotional: user.logistics.devoAssignment,
+      devotional: devoDate,
       fundraisingProgress,
       siteAffiliation: user.church.site,
       membershipStatus,
