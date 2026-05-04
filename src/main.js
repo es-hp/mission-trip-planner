@@ -21,7 +21,7 @@ if (mainID === "login") {
 
 const isLoggedIn = sessionStorage.getItem("is-logged-in") === "true";
 if (!isLoggedIn && mainID !== "login") {
-  window.location.href = "/login.html";
+  window.location.href = "/index.html";
 } else {
   const users = await getUsers();
   const currentUser = await getCurrentUser();

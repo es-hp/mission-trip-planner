@@ -75,7 +75,7 @@ export const login = async ({ form, button, emailEl, passwordEl }) => {
 export const logout = () => {
   localStorage.clear();
   sessionStorage.clear();
-  window.location.href = "/login.html";
+  window.location.href = "/index.html";
 };
 
 export const authCheck = async (ownerId) => {
