@@ -38,9 +38,9 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## 🚀 Features
 
-![Login](videos/feature-preview-gifs/Lechu-Go_Login.gif)
-![Overview](videos/feature-preview-gifs/Lechu-Go_Overview.gif)
-![Overview_Events-to-Calendar](videos/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
+![Login](public/images/feature-preview-gifs/Lechu-Go_Login.gif)
+![Overview](public/images/feature-preview-gifs/Lechu-Go_Overview.gif)
+![Overview_Events-to-Calendar](public/images/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
 
 - **Overview Dashboard** — a dynamic bento-style grid home view composed of different widgets: a hero banner with trip details, pinned announcements, weekly assignments with resource links sorted by due date, upcoming training events with an in-progress indicator, and fundraising progress bars.
 - **Prayer Requests Posts** — a post system on each member's profile where owners can create, edit, and delete requests with an urgency flag and open/closed status toggle, while other members can submit a "Prayed for this" response tracked with a daily cooldown.
