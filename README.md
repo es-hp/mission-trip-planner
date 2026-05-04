@@ -38,20 +38,46 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## 🚀 Features
 
-![Login](public/images/feature-preview-gifs/Lechu-Go_Login.gif)
-![Overview](public/images/feature-preview-gifs/Lechu-Go_Overview.gif)
-![Overview_Events-to-Calendar](public/images/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
+![Overview_Events To Calendar](public/images/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
 
 - **Overview Dashboard** — a dynamic bento-style grid home view composed of different widgets: a hero banner with trip details, pinned announcements, weekly assignments with resource links sorted by due date, upcoming training events with an in-progress indicator, and fundraising progress bars.
+
+![Create Prayer Request Post](public/images/feature-preview-gifs/Lechu-Go_Profile-CreateNewPost.gif)
+
 - **Prayer Requests Posts** — a post system on each member's profile where owners can create, edit, and delete requests with an urgency flag and open/closed status toggle, while other members can submit a "Prayed for this" response tracked with a daily cooldown.
+
+![Edit Post](public/images/feature-preview-gifs/Lechu-Go_Profile-EditPost.gif)
+
 - **Confirmation Modal** — a reusable dialog component for delete and confirmation actions, with customizable message, confirm/cancel callbacks, and an optional cancel button. Closes on backdrop click or Escape key.
+
+![Members Data Table](public/images/feature-preview-gifs/Lechu-Go_Team.gif)
+
 - **Members Data Table** — a dynamic table that organizes member information across different tab views that show and hide relevant columns for each tab while persisting the active view with `sessionStorage`.
+
 - **Trip Schedule Table** — a multi-day schedule grid built from API data (mock JSON file) that maps events to time slot rows with dynamic `rowspan`, color-coded event blocks by tag, and responsive event block height adjustments.
+
+![Calendar](public/images/feature-preview-gifs/Lechu-Go_Schedule.gif)
+
 - **Monthly Calendar** — a custom monthly calendar component that renders events dynamically from data, supports month navigation with previous/next buttons and a "Today" shortcut, and auto-sizes cell heights responsively using a `ResizeObserver`.
+
+![Schedule Tab Persistance](public/images/feature-preview-gifs/Lechu-Go_Schedule_SessionStorage.gif)
+
 - **Tab Navigation** — a custom tab component that dynamically builds tabs from `data-tab-title` sections, and persists the active tab per page using `sessionStorage`.
+
+![Sidebar](public/images/feature-preview-gifs/Lechu-Go_Sidebar.gif)
+
 - **Responsive Sidebar** — a collapsible navigation bar that persists its last open/closed state across page navigation, and window resize.
+
+![Overview](public/images/feature-preview-gifs/Lechu-Go_Overview.gif)
+
 - **Countdown Timer** — a real-time countdown timer UI component that displays remaining time until trip departure that dynamically resizes on smaller screens.
+
+![Profile_Other User](public/images/feature-preview-gifs/Lechu-Go_Profile-OtherUser.gif)
+
 - **Search Bar** — a member search using partial string matching with result dropdown and direct profile navigation.
+
+![Login](public/images/feature-preview-gifs/Lechu-Go_Login.gif)
+
 - **Mock Authentication** — simulates login flow using `sessionStorage` to persist login across page reloads.
 - **Light and Dark Mode Toggle** — a theme toggle that persists the user's preference across sessions.
 
