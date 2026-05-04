@@ -115,6 +115,10 @@
   gap: 1rem;
 }
 
+#login-form:focus-visible {
+  box-shadow: none;
+}
+
 .input-group {
   display: flex;
   flex-direction: column;

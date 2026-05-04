@@ -191,7 +191,7 @@
 
   --color-dropdown-bg-hover: var(--color-sidebar-link-bg-hover);
   --color-dropdown-text-hover: var(--color-primary);
-  --color-dropdown-logout-bg-hover: var(--color-red-pastel);
+  --color-dropdown-logout-bg-hover: var(--color-red-pastel-light);
   --color-dropdown-logout-border: transparent;
   --color-dropdown-logout-border-hover: transparent;
 

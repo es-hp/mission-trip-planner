@@ -34,6 +34,24 @@ export default async function userPrayers({ container, profileUser }) {
   const openPosts = createEl("div", {
     className: "open-posts",
   });
+
+  const addEmptyStateNote = () => {
+    const existingNote = openPosts.querySelector(".no-post-note");
+
+    if (openPosts.children.length === 0) {
+      if (!existingNote) {
+        openPosts.append(
+          createEl("p", {
+            textContent: "There are currently no open prayer requests.",
+            className: "no-post-note",
+          }),
+        );
+      }
+    } else {
+      existingNote?.remove();
+    }
+  };
+
   const closedPostsContainer = createEl("details");
   const closedPostsToggle = createEl("summary", {
     className: "closed-posts-toggle",
@@ -48,11 +66,14 @@ export default async function userPrayers({ container, profileUser }) {
       closedPosts,
       openPosts,
       isOwner,
+      onStatusChange: addEmptyStateNote,
     });
   });
 
   closedPostsContainer.append(closedPostsToggle, closedPosts);
   body.push(openPosts, closedPostsContainer);
+
+  addEmptyStateNote();
 
   /* Compose new post */
   if (header.contains(addPostButton)) {

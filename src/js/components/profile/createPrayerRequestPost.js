@@ -18,6 +18,7 @@ export default function createPrayerRequestPost({
   closedPosts,
   openPosts,
   isOwner,
+  onStatusChange,
 }) {
   const postCard = createEl("article", {
     id: post.id,
@@ -86,6 +87,8 @@ export default function createPrayerRequestPost({
       elClassName: "prayer-request-post",
       timestampClass: "post-timestamp",
     });
+
+    onStatusChange?.();
   });
 
   isOwner
@@ -297,8 +300,6 @@ export default function createPrayerRequestPost({
   let count =
     parseInt(localStorage.getItem(`prayed_count_${post.id}`)) ||
     post.prayedForCount;
-
-  console.log(post);
 
   const submitCount = createEl("span", {
     className: "prayed-count-text",

@@ -58,7 +58,6 @@ export const login = async ({ form, button, emailEl, passwordEl }) => {
 
     if (success) {
       sessionStorage.setItem("is-logged-in", "true");
-      form.style.border = "1px solid green";
       window.location.href = "/overview.html";
     } else {
       showInvalidMsg({

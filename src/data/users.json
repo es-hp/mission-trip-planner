@@ -173,7 +173,16 @@
       }
     },
     "logistics": {
-      "roles": ["media", "youth", "arts & crafts"],
+      "roles": [
+        "media",
+        "youth",
+        "arts & crafts",
+        "admin",
+        "food",
+        "praise",
+        "skit",
+        "VBS"
+      ],
       "shirtSize": "M",
       "devoAssignment": "2025-07-06T04:00:00Z",
       "fundraisingProgressPercent": 35
