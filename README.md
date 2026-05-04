@@ -38,6 +38,10 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## 🚀 Features
 
+![Login](videos/feature-preview-gifs/Lechu-Go_Login.gif)
+![Overview](videos/feature-preview-gifs/Lechu-Go_Overview.gif)
+![Overview_Events-to-Calendar](videos/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
+
 - **Overview Dashboard** — a dynamic bento-style grid home view composed of different widgets: a hero banner with trip details, pinned announcements, weekly assignments with resource links sorted by due date, upcoming training events with an in-progress indicator, and fundraising progress bars.
 - **Prayer Requests Posts** — a post system on each member's profile where owners can create, edit, and delete requests with an urgency flag and open/closed status toggle, while other members can submit a "Prayed for this" response tracked with a daily cooldown.
 - **Confirmation Modal** — a reusable dialog component for delete and confirmation actions, with customizable message, confirm/cancel callbacks, and an optional cancel button. Closes on backdrop click or Escape key.
@@ -78,7 +82,7 @@ src/
 │   ├── global/
 │   │   ├── colors.css         # Design tokens and global color variables
 │   │   └── fonts.css          # Typography and font definitions
-│   ├── pages/                 # Page-specific styles 
+│   ├── pages/                 # Page-specific styles
 │   └── main.css               # Global stylesheet entry point
 ├── data/                      # Static JSON payloads structured to emulate API responses
 ├── icons/                     # Custom SVG icons
@@ -109,15 +113,15 @@ src/
 ```
 
 ## ⬇️ Running Locally
- 
+
 ```bash
 git clone https://github.com/es-hp/mission-trip-planner.git
 cd mission-trip-planner
 npm install
 npm run dev
 ```
- 
+
 ## ✍️ Author
- 
+
 **Helen Park**  
 [Portfolio](https://yourportfolio.com) · [GitHub](https://github.com/es-hp) · [LinkedIn](https://www.linkedin.com/in/eshelenpark/)
