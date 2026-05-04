@@ -38,7 +38,9 @@ A responsive web application for organizing and managing short-term mission trip
 
 ## 🚀 Features
 
-![Overview_Events To Calendar](public/images/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif)
+<p align="center">
+  <img src="public/images/feature-preview-gifs/Lechu-Go_Overview-EventsToCalendar.gif"><br>
+</p>
 
 - **Overview Dashboard** — a dynamic bento-style grid home view composed of different widgets: a hero banner with trip details, pinned announcements, weekly assignments with resource links sorted by due date, upcoming training events with an in-progress indicator, and fundraising progress bars.
 
@@ -54,9 +56,9 @@ A responsive web application for organizing and managing short-term mission trip
 
 - **Members Data Table** — a dynamic table that organizes member information across different tab views that show and hide relevant columns for each tab while persisting the active view with `sessionStorage`.
 
-- **Trip Schedule Table** — a multi-day schedule grid built from API data (mock JSON file) that maps events to time slot rows with dynamic `rowspan`, color-coded event blocks by tag, and responsive event block height adjustments.
-
 ![Calendar](public/images/feature-preview-gifs/Lechu-Go_Schedule.gif)
+
+- **Trip Schedule Table** — a multi-day schedule grid built from API data (mock JSON file) that maps events to time slot rows with dynamic `rowspan`, color-coded event blocks by tag, and responsive event block height adjustments.
 
 - **Monthly Calendar** — a custom monthly calendar component that renders events dynamically from data, supports month navigation with previous/next buttons and a "Today" shortcut, and auto-sizes cell heights responsively using a `ResizeObserver`.
 
