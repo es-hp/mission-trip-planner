@@ -142,6 +142,8 @@ export default function createSidebar(container) {
     elements.forEach((el) => el.classList.toggle("hide", !openSidebar));
   };
 
+  transitionVisibility(!container.classList.contains("close"));
+
   /* Sidebar Open/Close */
   const setSidebarOpen = (open, { animate = true, onComplete } = {}) => {
     const isOpen = !container.classList.contains("close");
@@ -188,7 +190,8 @@ export default function createSidebar(container) {
   sidebarHeader.addEventListener("click", (e) => {
     if (e.target.closest(".nav-toggle")) {
       e.preventDefault();
-      const isOpen = !container.classList.contains("close");
+      const isOpen =
+        sidebarSetting === "open" && window.innerWidth >= MD_BREAKPOINT;
       if (isOpen) {
         saveSidebarSetting("closed");
         setSidebarOpen(false, {
@@ -204,9 +207,9 @@ export default function createSidebar(container) {
 
   /* Window Resize */
   window.addEventListener("resize", () => {
-    const isMobile = window.innerWidth < MD_BREAKPOINT;
-    const crossedToMobile = wasAboveMdBreakPoint && isMobile;
-    const crossedToDesktop = !wasAboveMdBreakPoint && !isMobile;
+    const isMobileNow = window.innerWidth < MD_BREAKPOINT;
+    const crossedToMobile = wasAboveMdBreakPoint && isMobileNow;
+    const crossedToDesktop = !wasAboveMdBreakPoint && !isMobileNow;
 
     if (crossedToMobile && sidebarSetting === "open") {
       setSidebarOpen(false, {
@@ -219,8 +222,6 @@ export default function createSidebar(container) {
       setSidebarOpen(true);
     }
 
-    wasAboveMdBreakPoint = !isMobile;
+    wasAboveMdBreakPoint = !isMobileNow;
   });
-
-  /* Toggle Theme */
 }
