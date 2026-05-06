@@ -15,12 +15,14 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, "index.html"),
-        overview: path.resolve(__dirname, "overview.html"),
+        index: path.resolve(__dirname, "index.html"),
         profile: path.resolve(__dirname, "profile.html"),
-        schedule: path.resolve(__dirname, "schedule.html"),
+        overview: path.resolve(__dirname, "overview.html"),
         team: path.resolve(__dirname, "team.html"),
-        construction: path.resolve(__dirname, "construction.html"),
+        schedule: path.resolve(__dirname, "schedules.html"),
+        finance: path.resolve(__dirname, "finance.html"),
+        travelDetails: path.resolve(__dirname, "travel-details.html"),
+        resources: path.resolve(__dirname, "resources.html"),
       },
     },
   },
