@@ -1,5 +1,8 @@
 name: Deploy to AWS S3
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   push:
     branches:
@@ -16,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -40,4 +43,4 @@ jobs:
             --exclude "index.html"
 
           aws s3 cp dist/index.html s3://lechu-go/index.html \
-            --cache-conrol "no=cache, no-store, must-revalidate"
+            --cache-control "no-cache, no-store, must-revalidate"
