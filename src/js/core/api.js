@@ -4,7 +4,7 @@ export const getUsers = async () => {
   if (usersCache) return usersCache;
 
   try {
-    const response = await fetch("/src/data/users.json");
+    const response = await fetch("/data/users.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     usersCache = data;
@@ -41,7 +41,7 @@ export const getUserById = async (id) => {
  */
 export const getCurrentDateTimeStr = async () => {
   try {
-    const response = await fetch("/src/data/current-date-time.json");
+    const response = await fetch("/data/current-date-time.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     return data.currentDateTime;
@@ -53,7 +53,7 @@ export const getCurrentDateTimeStr = async () => {
 
 export const getTripSchedule = async () => {
   try {
-    const response = await fetch("/src/data/trip-schedule.json");
+    const response = await fetch("/data/trip-schedule.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
   } catch (error) {
@@ -64,7 +64,7 @@ export const getTripSchedule = async () => {
 
 export const getTripDetails = async () => {
   try {
-    const response = await fetch("/src/data/trip-details.json");
+    const response = await fetch("/data/trip-details.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
   } catch (error) {
@@ -75,7 +75,7 @@ export const getTripDetails = async () => {
 
 export const getAssignments = async () => {
   try {
-    const response = await fetch("/src/data/assignments.json");
+    const response = await fetch("/data/assignments.json");
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
   } catch (error) {
@@ -87,7 +87,7 @@ export const getAssignments = async () => {
 export const getUserPosts = async (userId) => {
   const id = userId.split("_").at(-1);
   try {
-    const response = await fetch(`/src/data/posts-user-${id}.json`);
+    const response = await fetch(`/data/posts-user-${id}.json`);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return response.json();
   } catch (error) {
