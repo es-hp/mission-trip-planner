@@ -3,7 +3,7 @@ import { getAssignments } from "@core/api";
 import createTile from "../design-system/createTile";
 import { Temporal } from "@js-temporal/polyfill";
 
-export default async function assignments({ container: root, now }) {
+export default async function assignments({ container, now }) {
   /**
    * Fetches assignments from the API (mock JSON file).
    * @returns {Promise<Array>}
@@ -99,7 +99,7 @@ export default async function assignments({ container: root, now }) {
 
   setupScrollShadows(scrollWrapper);
 
-  root.append(scrollWrapper);
+  container.append(scrollWrapper);
 
-  return root;
+  return container;
 }

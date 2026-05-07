@@ -16,7 +16,7 @@
   box-shadow: var(--box-shadow-x);
 }
 
-.sidebar.close {
+html.sidebar-closed .sidebar {
   width: var(--sidebar-closed-width);
   min-width: var(--sidebar-closed-width);
 }
@@ -25,7 +25,7 @@
   .sidebar {
     position: absolute;
   }
-  .sidebar.close {
+  html.sidebar-closed .sidebar {
     position: static;
   }
 }
@@ -57,11 +57,11 @@
     opacity 150ms ease;
 }
 
-.sidebar.close .sidebar-logo {
+html.sidebar-closed .sidebar-logo {
   width: 48px;
 }
 
-.sidebar.close .sidebar-header:hover .sidebar-logo {
+html.sidebar-closed .sidebar-header:hover .sidebar-logo {
   opacity: 0;
   pointer-events: none;
   z-index: 0;
@@ -96,7 +96,7 @@
   opacity: 100%;
 }
 
-.sidebar.close .icon-collapse {
+html.sidebar-closed .icon-collapse {
   display: none;
 }
 
@@ -114,17 +114,17 @@
   transition: opacity 150ms ease;
 }
 
-.sidebar:not(.close) .expand-btn,
-.sidebar.closing .sidebar-header,
-.sidebar.opening .sidebar-header {
+html:not(.sidebar-closed) .expand-btn,
+html.sidebar-closing .sidebar-header,
+html.sidebar-opening .sidebar-header {
   pointer-events: none;
 }
 
-.sidebar.close .expand-btn {
+html.sidebar-closed .expand-btn {
   pointer-events: auto;
 }
 
-.sidebar.close .sidebar-header:hover .expand-btn {
+html.sidebar-closed .sidebar-header:hover .expand-btn {
   opacity: 1;
 }
 

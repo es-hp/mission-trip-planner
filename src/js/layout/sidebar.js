@@ -3,9 +3,21 @@ import { createEl, createLucideIcon, getCSSVar } from "@core/utils";
 const MD_BREAKPOINT = parseFloat(getCSSVar("--bp-md"));
 
 export default function createSidebar(container) {
+  const root = document.documentElement;
+
   /* State */
-  let sidebarSetting = localStorage.getItem("sidebarState"); // "open" | "closed" | null
-  let wasAboveMdBreakPoint = window.innerWidth >= MD_BREAKPOINT;
+  let sidebarState = localStorage.getItem("sidebarState") ?? "closed";
+
+  const isStateOpen = () => sidebarState === "open";
+  const shouldBeVisible = () =>
+    isStateOpen() && window.innerWidth >= MD_BREAKPOINT;
+  const isVisible = () => !root.classList.contains("sidebar-closed");
+
+  const applyInitialState = () => {
+    root.classList.toggle("sidebar-closed", !isStateOpen());
+  };
+
+  applyInitialState();
 
   /* Sidebar Header */
   const sidebarHeader = createEl("div", { className: "sidebar-header" });
@@ -138,90 +150,81 @@ export default function createSidebar(container) {
   const linkTexts = sidebarBody.querySelectorAll(".navlink-text");
   const sidebarTexts = [...linkTexts, themeText];
 
-  const transitionVisibility = (openSidebar, elements = sidebarTexts) => {
-    elements.forEach((el) => el.classList.toggle("hide", !openSidebar));
-  };
-
-  transitionVisibility(!container.classList.contains("close"));
-
   /* Sidebar Open/Close */
-  const setSidebarOpen = (open, { animate = true, onComplete } = {}) => {
-    const isOpen = !container.classList.contains("close");
-
-    if (open === isOpen) return;
+  const setSidebarOpen = (open, { animate = true } = {}) => {
+    if (open === isVisible()) return;
 
     if (!animate) {
-      container.classList.toggle("close", !open);
+      root.classList.toggle("sidebar-closed", !open);
       return;
     }
 
     const handleTransitionEnd = (e) => {
       if (e.propertyName !== "width") return;
 
-      container.classList.remove("opening");
-      container.classList.remove("closing");
-      container.removeEventListener("transitionend", handleTransitionEnd);
-      if (onComplete) onComplete();
+      root.classList.remove("sidebar-opening");
+      root.classList.remove("sidebar-closing");
+      root.removeEventListener("transitionend", handleTransitionEnd);
+      if (root.classList.contains("sidebar-closed")) {
+        sidebarTexts.forEach((el) => el.classList.add("hide"));
+      }
     };
 
     container.addEventListener("transitionend", handleTransitionEnd);
 
     if (open) {
-      container.classList.remove("closing");
-      container.classList.add("opening");
-      container.classList.remove("close");
+      root.classList.remove("sidebar-closing");
+      root.classList.add("sidebar-opening");
+      root.classList.remove("sidebar-closed");
+      sidebarTexts.forEach((el) => el.classList.remove("hide"));
     } else {
-      container.classList.remove("opening");
-      container.classList.add("closing");
-      container.classList.add("close");
+      root.classList.remove("sidebar-opening");
+      root.classList.add("sidebar-closing");
+      root.classList.add("sidebar-closed");
     }
   };
 
-  function saveSidebarSetting(state) {
-    sidebarSetting = state;
+  const saveSidebarState = (state) => {
+    sidebarState = state;
     if (state === null) {
       localStorage.removeItem("sidebarState");
     } else {
       localStorage.setItem("sidebarState", state);
     }
-  }
+  };
 
   /* Toggle Navbar Open/Close */
   sidebarHeader.addEventListener("click", (e) => {
-    if (e.target.closest(".nav-toggle")) {
-      e.preventDefault();
-      const isOpen =
-        sidebarSetting === "open" && window.innerWidth >= MD_BREAKPOINT;
-      if (isOpen) {
-        saveSidebarSetting("closed");
-        setSidebarOpen(false, {
-          onComplete: () => transitionVisibility(false),
-        });
-      } else {
-        saveSidebarSetting("open");
-        transitionVisibility(true);
-        setSidebarOpen(true);
-      }
+    if (!e.target.closest(".nav-toggle")) return;
+
+    e.preventDefault();
+
+    const isOpen = isStateOpen();
+    const visible = isVisible();
+
+    if (visible) {
+      setSidebarOpen(false);
+      saveSidebarState("closed");
+      return;
+    }
+
+    setSidebarOpen(true);
+
+    if (!isOpen) {
+      saveSidebarState("open");
     }
   });
 
-  /* Window Resize */
-  window.addEventListener("resize", () => {
-    const isMobileNow = window.innerWidth < MD_BREAKPOINT;
-    const crossedToMobile = wasAboveMdBreakPoint && isMobileNow;
-    const crossedToDesktop = !wasAboveMdBreakPoint && !isMobileNow;
-
-    if (crossedToMobile && sidebarSetting === "open") {
-      setSidebarOpen(false, {
-        onComplete: () => transitionVisibility(false),
-      });
-    }
-
-    if (crossedToDesktop && sidebarSetting === "open") {
-      transitionVisibility(true);
+  const syncSidebarToViewport = () => {
+    if (window.innerWidth < MD_BREAKPOINT && isVisible()) {
+      setSidebarOpen(false);
+    } else if (isStateOpen() && !isVisible()) {
       setSidebarOpen(true);
     }
+  };
 
-    wasAboveMdBreakPoint = !isMobileNow;
+  /* Window Resize */
+  window.addEventListener("resize", () => {
+    syncSidebarToViewport();
   });
 }
