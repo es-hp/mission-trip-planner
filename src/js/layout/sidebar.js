@@ -13,12 +13,6 @@ export default function createSidebar(container) {
     isStateOpen() && window.innerWidth >= MD_BREAKPOINT;
   const isVisible = () => !root.classList.contains("sidebar-closed");
 
-  const applyInitialState = () => {
-    root.classList.toggle("sidebar-closed", !isStateOpen());
-  };
-
-  applyInitialState();
-
   /* Sidebar Header */
   const sidebarHeader = createEl("div", { className: "sidebar-header" });
   const sidebarLogo = createEl("div", { className: "sidebar-logo" });
@@ -145,17 +139,26 @@ export default function createSidebar(container) {
   /* Mount */
   container.append(sidebarHeader, sidebarBody, sidebarFooter);
 
-  /* Toggle Element Visibility */
-  // Elements to toggle visibility
+  /* Sidebar Open/Close */
+
+  const saveSidebarState = (state) => {
+    sidebarState = state;
+    if (state === null) {
+      localStorage.removeItem("sidebarState");
+    } else {
+      localStorage.setItem("sidebarState", state);
+    }
+  };
+
   const linkTexts = sidebarBody.querySelectorAll(".navlink-text");
   const sidebarTexts = [...linkTexts, themeText];
 
-  /* Sidebar Open/Close */
   const setSidebarOpen = (open, { animate = true } = {}) => {
     if (open === isVisible()) return;
 
     if (!animate) {
       root.classList.toggle("sidebar-closed", !open);
+      sidebarTexts.forEach((el) => el.classList.toggle("hide", !open));
       return;
     }
 
@@ -184,14 +187,8 @@ export default function createSidebar(container) {
     }
   };
 
-  const saveSidebarState = (state) => {
-    sidebarState = state;
-    if (state === null) {
-      localStorage.removeItem("sidebarState");
-    } else {
-      localStorage.setItem("sidebarState", state);
-    }
-  };
+  // Initialize Sidebar
+  setSidebarOpen(isStateOpen(), { animate: false });
 
   /* Toggle Navbar Open/Close */
   sidebarHeader.addEventListener("click", (e) => {
