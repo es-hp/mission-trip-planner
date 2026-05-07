@@ -1,8 +1,14 @@
 function initSidebar() {
-  const state = localStorage.getItem("sidebarState");
-  const isMobile = window.innerWidth < 768;
+  const root = document.documentElement;
+  const state = localStorage.getItem("sidebarState") ?? "closed";
 
-  if (state !== "open" || isMobile) {
-    document.documentElement.classList.add("sidebar-closed");
+  if (state === "closed" || window.innerWidth < 768) {
+    root.classList.add("sidebar-closed");
+    root.classList.add("sidebar-no-transition");
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() =>
+        root.classList.remove("sidebar-no-transition"),
+      ),
+    );
   }
 }

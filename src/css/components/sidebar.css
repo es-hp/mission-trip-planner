@@ -21,6 +21,10 @@ html.sidebar-closed .sidebar {
   min-width: var(--sidebar-closed-width);
 }
 
+html.sidebar-no-transition .sidebar {
+  transition: none !important;
+}
+
 @media (max-width: 480px) {
   .sidebar {
     position: absolute;

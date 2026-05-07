@@ -7,7 +7,6 @@ export default function createSidebar(container) {
 
   /* State */
   let sidebarState = localStorage.getItem("sidebarState") ?? "closed";
-  if (sidebarState === "closed") root.classList.add("sidebar-closed");
 
   const isStateOpen = () => sidebarState === "open";
   const shouldBeVisible = () =>
